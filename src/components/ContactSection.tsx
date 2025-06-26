@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, User, MessageCircle, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, User, MessageCircle, Building } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -29,27 +29,27 @@ const ContactSection: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Address',
-      details: ['info@pmed.org', 'admissions@pmed.org'],
+      details: ['Soon', 'Soon'],
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone Numbers',
-      details: ['+970 2 123 4567', '+970 59 123 4567'],
+      details: ['Soon', 'Soon'],
       color: 'from-emerald-500 to-emerald-600'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Address',
-      details: ['Palestine Medical Center', 'Ramallah, Palestine'],
+      details: ['Soon', 'Location, Soon'],
       color: 'from-purple-500 to-purple-600'
     },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: 'Office Hours',
-      details: ['Mon - Fri: 8:00 AM - 6:00 PM', 'Sat: 9:00 AM - 2:00 PM'],
-      color: 'from-rose-500 to-rose-600'
-    }
+    // {
+    //   icon: <Clock className="w-6 h-6" />,
+    //   title: 'Office Hours',
+    //   details: ['Soon', 'Soon'],
+    //   color: 'from-rose-500 to-rose-600'
+    // }
   ];
 
   const departments = [
@@ -268,7 +268,7 @@ const ContactSection: React.FC = () => {
             className="space-y-8"
           >
             {/* Map Placeholder */}
-            <div className="bg-white rounded-3xl p-8 shadow-2xl">
+            {/* <div className="bg-white rounded-3xl p-8 shadow-2xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h3>
               <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
                 <div className="text-center">
@@ -277,10 +277,10 @@ const ContactSection: React.FC = () => {
                   <p className="text-sm text-gray-500">Palestine Medical Center</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Quick Links */}
-            <div className="bg-white rounded-3xl p-8 shadow-2xl">
+            {/* <div className="bg-white rounded-3xl p-8 shadow-2xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Quick Links</h3>
               <div className="space-y-4">
                 {[
@@ -304,7 +304,7 @@ const ContactSection: React.FC = () => {
                   </motion.a>
                 ))}
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
 
@@ -321,11 +321,11 @@ const ContactSection: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
             <div className="flex items-center gap-2">
               <Phone className="w-5 h-5" />
-              <span className="font-semibold">+970 59 999 9999</span>
+              <span className="font-semibold">Soon</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-5 h-5" />
-              <span className="font-semibold">emergency@pmed.org</span>
+              <span className="font-semibold">Soon</span>
             </div>
           </div>
         </motion.div>

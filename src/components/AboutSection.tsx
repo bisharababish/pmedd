@@ -6,47 +6,47 @@ const AboutSection: React.FC = () => {
   const features = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: 'Expert Community',
-      description: 'Connect with leading medical professionals and researchers worldwide',
+      title: 'Soon',
+      description: 'Soon',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: 'Excellence Recognition',
-      description: 'Celebrating outstanding achievements in medical education and research',
+      title: 'Soon ',
+      description: 'Soon',
       color: 'from-emerald-500 to-emerald-600'
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: 'Global Impact',
-      description: 'Making a difference in healthcare education across Palestine and beyond',
+      title: 'Soon',
+      description: 'Soon',
       color: 'from-purple-500 to-purple-600'
     },
     {
       icon: <Heart className="w-8 h-8" />,
-      title: 'Compassionate Care',
-      description: 'Fostering empathy and humanitarian values in medical practice',
+      title: 'Soon',
+      description: 'Soon',
       color: 'from-rose-500 to-rose-600'
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: 'Continuous Learning',
-      description: 'Providing cutting-edge educational resources and opportunities',
+      title: 'Soon',
+      description: 'Soon',
       color: 'from-amber-500 to-amber-600'
     },
     {
       icon: <Microscope className="w-8 h-8" />,
-      title: 'Research Innovation',
-      description: 'Advancing medical knowledge through groundbreaking research initiatives',
+      title: 'Soon',
+      description: 'Soon',
       color: 'from-cyan-500 to-cyan-600'
     }
   ];
 
   const stats = [
-    { number: '2000+', label: 'Medical Students', color: 'text-blue-600' },
-    { number: '500+', label: 'Healthcare Professionals', color: 'text-emerald-600' },
-    { number: '50+', label: 'Research Projects', color: 'text-purple-600' },
-    { number: '10+', label: 'Years of Excellence', color: 'text-rose-600' }
+    { number: 'Soon+', label: 'Medical Students', color: 'text-blue-600' },
+    { number: 'Soon+', label: 'Healthcare Professionals', color: 'text-emerald-600' },
+    { number: 'Soon+', label: 'Research Projects', color: 'text-purple-600' },
+    { number: 'Soon+', label: 'Years of Excellence', color: 'text-rose-600' }
   ];
 
   return (

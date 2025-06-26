@@ -35,7 +35,7 @@ const HeroSlideshow: React.FC = () => {
       subtitle: 'Excellence in Healthcare Education',
       description: 'Comprehensive programs designed to enhance clinical skills, research capabilities, and professional development.',
       image: 'https://images.pexels.com/photos/4021952/pexels-photo-4021952.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      cta: 'Learn More'
+      cta: 'Coming Soon!'
     }
   ];
 
@@ -153,7 +153,7 @@ const HeroSlideshow: React.FC = () => {
       >
         <ChevronLeft className="w-6 h-6" />
       </motion.button>
-      
+
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -170,11 +170,10 @@ const HeroSlideshow: React.FC = () => {
             key={index}
             whileHover={{ scale: 1.2 }}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white shadow-lg' 
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-white shadow-lg'
                 : 'bg-white/50 hover:bg-white/80'
-            }`}
+              }`}
           />
         ))}
       </div>

@@ -9,9 +9,9 @@ const Navigation: React.FC = () => {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Programs', href: '/programs' },
-    { label: 'Research', href: '/research' },
-    { label: 'Events', href: '/events' },
+    // { label: 'Programs', href: '/programs' },
+    // { label: 'Research', href: '/research' },
+    // { label: 'Events', href: '/events' },
     { label: 'Contact', href: '/contact' }
   ];
 

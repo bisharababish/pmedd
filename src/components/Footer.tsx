@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Stethoscope, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Heart } from 'lucide-react';
+import { Stethoscope, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -20,19 +20,13 @@ const Footer: React.FC = () => {
     { title: 'Contact', href: '/contact' }
   ];
 
-  const programs = [
-    { title: 'Basic Medical Education', href: '#' },
-    { title: 'Laboratory Medicine', href: '#' },
-    { title: 'Clinical Specialization', href: '#' },
-    { title: 'Research & Development', href: '#' }
-  ];
+  // const programs = [
+  //   { title: 'Basic Medical Education', href: '#' },
+  //   { title: 'Laboratory Medicine', href: '#' },
+  //   { title: 'Clinical Specialization', href: '#' },
+  //   { title: 'Research & Development', href: '#' }
+  // ];
 
-  const resources = [
-    { title: 'Student Portal', href: '#' },
-    { title: 'Faculty Resources', href: '#' },
-    { title: 'Library', href: '#' },
-    { title: 'Alumni Network', href: '#' }
-  ];
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
@@ -121,7 +115,7 @@ const Footer: React.FC = () => {
             </motion.div>
 
             {/* Programs */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -148,7 +142,7 @@ const Footer: React.FC = () => {
                   </motion.li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.div> */}
 
             {/* Contact Info */}
             <motion.div
@@ -165,8 +159,8 @@ const Footer: React.FC = () => {
                 >
                   <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                   <div>
-                    <p>Palestine Medical Center</p>
-                    <p>Ramallah, Palestine</p>
+                    <p>Soon</p>
+                    <p>Location Soon</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -175,8 +169,7 @@ const Footer: React.FC = () => {
                 >
                   <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>+970 2 123 4567</p>
-                    <p>+970 59 123 4567</p>
+                    <p>Soon</p>                   
                   </div>
                 </motion.div>
                 <motion.div
@@ -185,8 +178,8 @@ const Footer: React.FC = () => {
                 >
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>info@pmed.org</p>
-                    <p>admissions@pmed.org</p>
+                    <p>Soon</p>
+                    <p>Soon</p>
                   </div>
                 </motion.div>
               </div>
@@ -204,9 +197,7 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-300">
-              <span>© 2025 PMED. All rights reserved.</span>
-              <Heart className="w-4 h-4 text-red-400" fill="currentColor" />
-              <span>Made with passion for medical excellence</span>
+              <span>©  PMED. All rights reserved.</span>
             </div>
             <div className="flex space-x-6 text-sm text-gray-300">
               <motion.a
@@ -223,13 +214,7 @@ const Footer: React.FC = () => {
               >
                 Terms of Service
               </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ color: '#60A5FA' }}
-                className="hover:text-blue-400 transition-colors"
-              >
-                Cookie Policy
-              </motion.a>
+            
             </div>
           </div>
         </motion.div>
