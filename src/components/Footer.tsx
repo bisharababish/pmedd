@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Stethoscope, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logoo from './images/logoo.png';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -54,7 +55,7 @@ const Footer: React.FC = () => {
                   transition={{ duration: 0.6 }}
                   className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
                 >
-                  <Stethoscope className="w-6 h-6 text-white" />
+                  <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl" />
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -169,7 +170,7 @@ const Footer: React.FC = () => {
                 >
                   <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>Soon</p>                   
+                    <p>Soon</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -214,7 +215,7 @@ const Footer: React.FC = () => {
               >
                 Terms of Service
               </motion.a>
-            
+
             </div>
           </div>
         </motion.div>
