@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Stethoscope, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -12,11 +13,11 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
-    { title: 'About Us', href: '#about' },
-    { title: 'Programs', href: '#programs' },
-    { title: 'Research', href: '#research' },
-    { title: 'Events', href: '#events' },
-    { title: 'Contact', href: '#contact' }
+    { title: 'About Us', href: '/about' },
+    { title: 'Programs', href: '/programs' },
+    { title: 'Research', href: '/research' },
+    { title: 'Events', href: '/events' },
+    { title: 'Contact', href: '/contact' }
   ];
 
   const programs = [
@@ -69,7 +70,7 @@ const Footer: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Palestine Medical Education & Development Club - Empowering the next generation of 
+                Palestine Medical Education & Development Club - Empowering the next generation of
                 medical professionals through innovative education and compassionate healthcare.
               </p>
               <div className="flex space-x-3">
@@ -107,14 +108,13 @@ const Footer: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <motion.a
-                      href={link.href}
+                    <motion.div
                       whileHover={{ x: 5, color: '#60A5FA' }}
                       className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center"
                     >
                       <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 opacity-0 hover:opacity-100 transition-opacity"></span>
-                      {link.title}
-                    </motion.a>
+                      <Link to={link.href}>{link.title}</Link>
+                    </motion.div>
                   </motion.li>
                 ))}
               </ul>

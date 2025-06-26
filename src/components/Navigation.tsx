@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Stethoscope } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Programs', href: '#programs' },
-    { label: 'Research', href: '#research' },
-    { label: 'Events', href: '#events' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Programs', href: '/programs' },
+    { label: 'Research', href: '/research' },
+    { label: 'Events', href: '/events' },
+    { label: 'Contact', href: '/contact' }
   ];
 
   return (
@@ -43,9 +44,8 @@ const Navigation: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-1">
             {navItems.map((item, index) => (
-              <motion.a
+              <motion.div
                 key={item.label}
-                href={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -53,14 +53,14 @@ const Navigation: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="relative px-4 py-2 text-gray-700 font-medium rounded-lg transition-all duration-300 hover:text-blue-600 group"
               >
-                {item.label}
+                <Link to={item.href}>{item.label}</Link>
                 <motion.div
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-              </motion.a>
+              </motion.div>
             ))}
           </nav>
 
@@ -88,17 +88,16 @@ const Navigation: React.FC = () => {
           >
             <div className="px-4 py-6 space-y-3">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.div
                   key={item.label}
-                  href={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMenuOpen(false)}
                   className="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
-                </motion.a>
+                  <Link to={item.href}>{item.label}</Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>
