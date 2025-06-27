@@ -196,23 +196,6 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-2 text-gray-300">
               <span>©  PMED. All rights reserved.</span>
             </div>
-            <div className="flex space-x-6 text-sm text-gray-300">
-              <motion.a
-                href="#"
-                whileHover={{ color: '#60A5FA' }}
-                className="hover:text-blue-400 transition-colors"
-              >
-                Privacy Policy
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ color: '#60A5FA' }}
-                className="hover:text-blue-400 transition-colors"
-              >
-                Terms of Service
-              </motion.a>
-
-            </div>
           </div>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
 
@@ -12,9 +12,9 @@ const Navigation: React.FC = () => {
     { label: 'Home', href: '/' },
     {
       label: 'About', href: '/about', dropdown: [
-        { label: 'Our Mission', href: '/about#mission' },
+        { label: 'Our Mission & Vision', href: '/about#mission' },
         { label: 'Our Team', href: '/about#team' },
-        { label: 'History', href: '/about#history' },
+        { label: 'What We Do', href: '/about#history' },
       ]
     },
     // { label: 'Programs', href: '/programs' },
@@ -61,7 +61,12 @@ const Navigation: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="relative px-4 py-2 text-gray-700 font-medium rounded-lg transition-all duration-300 hover:text-blue-600 group"
               >
-                <Link to={item.href}>{item.label}</Link>
+                <Link to={item.href} className="inline-flex items-center gap-1">
+                  {item.label}
+                  {item.dropdown && (
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                  )}
+                </Link>
                 <motion.div
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"
                   initial={{ scaleX: 0 }}
@@ -115,7 +120,7 @@ const Navigation: React.FC = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className={`block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 ${item.dropdown ? 'cursor-pointer' : ''}`}
+                    className={`block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 ${item.dropdown ? 'cursor-pointer' : ''} flex items-center justify-between`}
                     onClick={() => {
                       if (item.dropdown) {
                         setAboutOpen((open) => !open);
@@ -124,7 +129,12 @@ const Navigation: React.FC = () => {
                       }
                     }}
                   >
-                    <span>{item.label}</span>
+                    <span className="inline-flex items-center gap-1">
+                      {item.label}
+                      {item.dropdown && (
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${aboutOpen && item.dropdown ? 'rotate-180' : ''}`} />
+                      )}
+                    </span>
                   </motion.div>
                   {/* Mobile About Dropdown */}
                   {item.dropdown && aboutOpen && (

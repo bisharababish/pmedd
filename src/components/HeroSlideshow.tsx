@@ -69,22 +69,11 @@ const HeroSlideshow: React.FC = () => {
             >
               {/* Background Image */}
               <div className="absolute inset-0">
-                {slide.id === 3 ? (
-                  <motion.img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                    initial={{ y: 0 }}
-                    animate={{ y: [0, 20, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
-                  />
-                ) : (
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60" />
               </div>
 
