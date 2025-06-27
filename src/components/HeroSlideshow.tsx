@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, Calendar, MapPin } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import FloatingParticles from './FloatingParticles';
-
+import Slide3 from "./images/slide3.png";
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -13,7 +13,7 @@ const HeroSlideshow: React.FC = () => {
       type: 'welcome',
       title: 'Welcome to PMED',
       subtitle: 'Palestine Medical Education & Development Club',
-      description: 'Empowering the next generation of medical professionals through innovative education, research, and community engagement.',
+      description: 'Empowering the next generation of medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.',
       image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1200',
       cta: 'Explore Programs'
     },
@@ -23,7 +23,7 @@ const HeroSlideshow: React.FC = () => {
       title: 'International Palestinian Conference',
       subtitle: 'Laboratory Medicine Excellence',
       description: 'Join leading medical professionals from around the world for three days of cutting-edge research presentations and networking.',
-      image: 'https://images.pexels.com/photos/3279203/pexels-photo-3279203.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: 'https://www.exordo.com/hubfs/Imported_Blog_Media/Resized-image-4.jpg',
       date: 'August 21-23, 2025',
       location: 'Palestine Medical Center',
       cta: 'Register Now'
@@ -31,10 +31,10 @@ const HeroSlideshow: React.FC = () => {
     {
       id: 3,
       type: 'education',
-      title: 'Advanced Medical Training',
-      subtitle: 'Excellence in Healthcare Education',
-      description: 'Comprehensive programs designed to enhance clinical skills, research capabilities, and professional development.',
-      image: 'https://images.pexels.com/photos/4021952/pexels-photo-4021952.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: 'PMED Cardiology Club',
+      subtitle: 'PMED Official Division',
+      description: 'An official PMED division offering 10 annual seats for students to explore cardiology through expert-led research, clinical exposure, and mentorship.',
+      image: Slide3,
       cta: 'Coming Soon!'
     }
   ];
@@ -42,7 +42,7 @@ const HeroSlideshow: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 8000000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -171,8 +171,8 @@ const HeroSlideshow: React.FC = () => {
             whileHover={{ scale: 1.2 }}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                ? 'bg-white shadow-lg'
-                : 'bg-white/50 hover:bg-white/80'
+              ? 'bg-white shadow-lg'
+              : 'bg-white/50 hover:bg-white/80'
               }`}
           />
         ))}
