@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Award, Globe, Heart, BookOpen, Microscope, Group, Lightbulb, Handshake, Activity, Star, UserCheck } from 'lucide-react';
+import { Globe , Group, Lightbulb, Handshake, Activity, UserCheck } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   // Features: What We Do

@@ -1,13 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoo from './images/logoo.png';
+import logoo from './images/logo1.png';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: '#', label: 'Facebook' },
-    { icon: <Twitter className="w-5 h-5" />, href: '#', label: 'Twitter' },
     { icon: <Instagram className="w-5 h-5" />, href: '#', label: 'Instagram' },
     { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
     { icon: <Youtube className="w-5 h-5" />, href: '#', label: 'YouTube' }
@@ -61,12 +59,12 @@ const Footer: React.FC = () => {
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     PMED
                   </h3>
-                  <p className="text-sm text-gray-300">Medical Excellence</p>
+                  <p className="text-sm text-gray-300">Medical Club</p>
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Palestine Medical Education & Development Club - Empowering the next generation of
-                medical professionals through innovative education and compassionate healthcare.
+                medical professionals through  medical specialty interest groups, exposure to real-world clinical and research opportunities.
               </p>
               <div className="flex space-x-3">
                 {socialLinks.map((social, index) => (
@@ -160,8 +158,7 @@ const Footer: React.FC = () => {
                 >
                   <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                   <div>
-                    <p>Soon</p>
-                    <p>Location Soon</p>
+                    <p>Palestine, Jersualem</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -170,7 +167,7 @@ const Footer: React.FC = () => {
                 >
                   <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>Soon</p>
+                    <p>+972-56-698-6006</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -179,7 +176,6 @@ const Footer: React.FC = () => {
                 >
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>Soon</p>
                     <p>Soon</p>
                   </div>
                 </motion.div>
