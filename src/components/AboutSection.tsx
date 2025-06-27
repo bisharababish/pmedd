@@ -1,56 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe , Group, Lightbulb, Handshake, Activity, UserCheck } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
-  // Features: What We Do
-  const features = [
-    {
-      icon: <Group className="w-8 h-8" />, // Specialty groups
-      title: 'Specialty Interest Groups',
-      description: 'We build medical specialty interest groups — Cardiology, Neurology, Surgery, and more — each acting as a focused sub-club empowering students to explore, grow, and lead in their field of interest.',
-      color: 'from-blue-800 to-blue-600'
-    },
-    {
-      icon: <Lightbulb className="w-8 h-8" />, // Workshops, seminars
-      title: 'Workshops & Seminars',
-      description: 'We host workshops, seminars, medical simulations, and awareness campaigns throughout the year, providing hands-on learning and leadership opportunities.',
-      color: 'from-yellow-400 to-yellow-500'
-    },
-    {
-      icon: <Handshake className="w-8 h-8" />, // Mentorship
-      title: 'Mentorship & Guidance',
-      description: 'We guide students through medical school admissions, interviews, and career planning, connecting them with mentors and real-world experiences.',
-      color: 'from-emerald-700 to-emerald-500'
-    },
-    {
-      icon: <Activity className="w-8 h-8" />, // Competitions
-      title: 'Competitions & Global Opportunities',
-      description: 'We prepare our members to compete internationally and stand out as the best versions of themselves — both scientifically and professionally.',
-      color: 'from-crimson-600 to-red-500'
-    },
-    {
-      icon: <Globe className="w-8 h-8" />, // Collaborations
-      title: 'Collaborations & Impact',
-      description: 'We collaborate with hospitals, NGOs, and global partners to create real-world impact and foster international partnerships.',
-      color: 'from-gold-400 to-yellow-500'
-    },
-    {
-      icon: <UserCheck className="w-8 h-8" />, // Leadership
-      title: 'Community Leadership',
-      description: 'We encourage community leadership, ethical responsibility, and medical excellence, shaping doctors who are scientifically competent, ethically grounded, and socially responsible.',
-      color: 'from-blue-600 to-emerald-600'
-    }
-  ];
-
-  // Stats (example, can be updated with real data)
-  const stats = [
-    { number: 'Soon+', label: 'Medical Students Empowered', color: 'text-blue-800' },
-    { number: 'Soon+', label: 'Workshops & Events', color: 'text-crimson-600' },
-    { number: 'Soon+', label: 'Specialty Groups', color: 'text-emerald-700' },
-    { number: 'Soon+', label: 'International Partners', color: 'text-gold-500' }
-  ];
-
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -82,80 +33,138 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
           >
-            <span className="font-semibold text-blue-800">PMED</span> is a student-led, multidisciplinary club rooted in the values of equity and excellence. We connect high-potential students with real medical experiences, workshops, and mentors. Our network spans local universities and international partnerships. We believe medicine is not only a science but a tool for <span className="text-crimson-600 font-bold">justice</span>, <span className="text-crimson-600 font-bold">hope</span>, and nation-building.
+            <span className="font-semibold text-blue-800">PMED</span> is a student-led, multidisciplinary club rooted in the values of equity and excellence. We connect high-potential students with real medical experiences, workshops, and mentors. Our network spans local universities and international partnerships. We believe medicine is not only a science but a tool for <span className="text-red-600 font-bold">justice</span>, <span className="text-red-600 font-bold">hope</span>, and nation-building.
           </motion.p>
         </motion.div>
 
-        {/* Stats Section */}
+        {/* What We Do Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          id="whatwedo"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+          className="mb-20 max-w-4xl mx-auto scroll-mt-24"
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className={`text-4xl md:text-5xl font-bold ${stat.color} mb-2`}>
-                {stat.number}
-              </div>
-              <div className="text-gray-700 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
+          <h3 className="text-3xl md:text-4xl font-bold mb-2 text-left text-blue-800">What We Do</h3>
+          <div className="w-16 h-1 bg-blue-800 mb-6 rounded" />
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15 } }
+            }}
+            className="text-lg md:text-xl leading-relaxed pl-6 space-y-3 list-disc list-inside text-gray-800"
+          >
+            {[
+              'We build medical specialty interest groups — such as Cardiology, Neurology, Surgery, and more — each acting like a focused sub-club that empowers students to explore, grow, and lead in their field of interest.',
+              'These groups offer everything a future doctor needs: training, mentorship, clinical exposure, competitions, and global-standard opportunities.',
+              'We prepare our members to compete internationally and stand out as the best versions of themselves — both scientifically and professionally.',
+              'We host workshops, seminars, medical simulations, and awareness campaigns throughout the year.',
+              'We guide students through medical school admissions, interviews, and career planning.',
+              'We collaborate with hospitals, NGOs, and global partners to create real-world impact.',
+              'We encourage community leadership, ethical responsibility, and medical excellence.'
+            ].map((text, idx) => (
+              <motion.li
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                }}
+              >
+                {text}
+              </motion.li>
+            ))}
+          </motion.ul>
         </motion.div>
 
-        {/* Features Grid: What We Do */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Our Team Section */}
+        <div
+          id="team"
+          className="mb-20 max-w-6xl mx-auto scroll-mt-24"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-center text-blue-800">Our Team</h3>
+            <div className="w-16 h-1 bg-blue-800 mb-8 rounded mx-auto" />
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Meet the dedicated leaders who drive PMED's mission of excellence in medical education and community impact.
+            </p>
+          </motion.div>
+
+          {/* Team Member Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Team Member 1 */}
             <motion.div
-              key={feature.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:scale-105"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 h-full">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} text-white mb-6 shadow-lg`}
-                >
-                  {feature.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-800 transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {feature.description}
-                </p>
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className={`h-1 w-full bg-gradient-to-r ${feature.color} rounded-full mt-6 origin-left`}
-                />
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                Fot
               </div>
+              <h4 className="text-xl font-bold text-blue-800 mb-2">Name</h4>
+              <p className="text-blue-600 font-semibold mb-3">Role</p>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Description
+              </p>
             </motion.div>
-          ))}
+
+            {/* Team Member 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:scale-105"
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                Fot
+              </div>
+              <h4 className="text-xl font-bold text-blue-800 mb-2">Name</h4>
+              <p className="text-emerald-600 font-semibold mb-3">Role</p>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Description
+              </p>
+            </motion.div>
+
+            {/* Team Member 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:scale-105"
+            >
+              <div className="w-24 h-24 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                Fot
+              </div>
+              <h4 className="text-xl font-bold text-blue-800 mb-2">Name</h4>
+              <p className="text-purple-600 font-semibold mb-3">Role</p>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Description
+              </p>
+            </motion.div>
+          </div>
         </div>
 
         {/* Mission Statement */}
         <motion.div
+          id="mission"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-20 text-center scroll-mt-24"
         >
           <div className="bg-gradient-to-r from-blue-800 to-emerald-700 rounded-3xl p-12 md:p-16 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
@@ -166,18 +175,29 @@ const AboutSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-3xl md:text-4xl font-bold mb-6"
               >
-                Our Mission
+                Our Mission & Vision
               </motion.h3>
-              <motion.ul
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-left space-y-4 list-disc list-inside"
+                className="space-y-6"
               >
-                <li>Empower medical students through structured exposure to real-world clinical and academic environments.</li>
-                <li>Provide mentorship, training, and resources to support their personal and professional growth.</li>
-                <li>Shape the complete doctor character — scientifically competent, ethically grounded, and socially responsible.</li>
-              </motion.ul>
+                <div>
+                  <h4 className="text-2xl font-semibold mb-4">Mission</h4>
+                  <ul className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-left space-y-4 list-disc list-inside">
+                    <li>Empower medical students through structured exposure to real-world clinical and academic environments.</li>
+                    <li>Provide mentorship, training, and resources to support their personal and professional growth.</li>
+                    <li>Shape the complete doctor character — scientifically competent, ethically grounded, and socially responsible.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-semibold mb-4">Vision</h4>
+                  <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+                    To become the leading medical education organization that transforms passionate students into exceptional healthcare leaders who will advance medical science and serve their communities with excellence, integrity, and compassion.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>

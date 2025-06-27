@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -8,13 +8,43 @@ const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
 
+  // Handle scrolling to section when page loads with hash
+  useEffect(() => {
+    const handleHashOnLoad = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionId = hash.substring(1);
+        const element = document.getElementById(sectionId);
+        if (element) {
+          // Add delay to ensure page is fully rendered
+          setTimeout(() => {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 500);
+        }
+      }
+    };
+
+    // Run on component mount
+    handleHashOnLoad();
+
+    // Also run when the hash changes
+    window.addEventListener('hashchange', handleHashOnLoad);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashOnLoad);
+    };
+  }, []);
+
   const navItems = [
     { label: 'Home', href: '/' },
     {
       label: 'About', href: '/about', dropdown: [
         { label: 'Our Mission & Vision', href: '/about#mission' },
         { label: 'Our Team', href: '/about#team' },
-        { label: 'What We Do', href: '/about#history' },
+        { label: 'What We Do', href: '/about#whatwedo' },
       ]
     },
     // { label: 'Programs', href: '/programs' },
@@ -22,6 +52,36 @@ const Navigation: React.FC = () => {
     // { label: 'Events', href: '/events' },
     { label: 'Contact', href: '/contact' }
   ];
+
+  // Handle smooth scrolling to sections
+  const handleSectionLink = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+    setAboutOpen(false);
+
+    // If we're not on the about page, navigate there first
+    if (window.location.pathname !== '/about') {
+      // Navigate to the about page with the hash
+      window.location.href = href;
+      return;
+    }
+
+    // If we're already on the about page, just scroll to the section
+    const sectionId = href.split('#')[1];
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      // Add a small delay to ensure page is fully loaded
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-lg">
@@ -77,13 +137,14 @@ const Navigation: React.FC = () => {
                 {item.dropdown && (
                   <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50">
                     {item.dropdown.map((sub) => (
-                      <Link
+                      <a
                         key={sub.label}
-                        to={sub.href}
+                        href={sub.href}
+                        onClick={(e) => handleSectionLink(sub.href, e)}
                         className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
                       >
                         {sub.label}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 )}
@@ -129,25 +190,29 @@ const Navigation: React.FC = () => {
                       }
                     }}
                   >
-                    <span className="inline-flex items-center gap-1">
-                      {item.label}
-                      {item.dropdown && (
+                    {!item.dropdown ? (
+                      <Link to={item.href} className="w-full">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="inline-flex items-center gap-1">
+                        {item.label}
                         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${aboutOpen && item.dropdown ? 'rotate-180' : ''}`} />
-                      )}
-                    </span>
+                      </span>
+                    )}
                   </motion.div>
                   {/* Mobile About Dropdown */}
                   {item.dropdown && aboutOpen && (
                     <div className="ml-4 mt-1 flex flex-col gap-1">
                       {item.dropdown.map((sub) => (
-                        <Link
+                        <a
                           key={sub.label}
-                          to={sub.href}
+                          href={sub.href}
+                          onClick={(e) => handleSectionLink(sub.href, e)}
                           className="px-4 py-2 rounded-lg text-gray-700 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 font-medium transition-colors duration-200"
-                          onClick={() => setIsMenuOpen(false)}
                         >
                           {sub.label}
-                        </Link>
+                        </a>
                       ))}
                     </div>
                   )}
