@@ -43,8 +43,8 @@ const Navigation: React.FC = () => {
     {
       label: 'About', href: '/about', dropdown: [
         { label: 'Our Mission & Vision', href: '/about#mission' },
-        { label: 'Our Team', href: '/about#team' },
         { label: 'What We Do', href: '/about#whatwedo' },
+        { label: 'Our Team', href: '/team' },
       ]
     },
     // { label: 'Programs', href: '/programs' },
@@ -137,14 +137,25 @@ const Navigation: React.FC = () => {
                 {item.dropdown && (
                   <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50">
                     {item.dropdown.map((sub) => (
-                      <a
-                        key={sub.label}
-                        href={sub.href}
-                        onClick={(e) => handleSectionLink(sub.href, e)}
-                        className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
-                      >
-                        {sub.label}
-                      </a>
+                      sub.href.startsWith('/about#') ? (
+                        <a
+                          key={sub.label}
+                          href={sub.href}
+                          onClick={(e) => handleSectionLink(sub.href, e)}
+                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
+                        >
+                          {sub.label}
+                        </a>
+                      ) : (
+                        <Link
+                          key={sub.label}
+                          to={sub.href}
+                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
+                          onClick={() => { setIsMenuOpen(false); setAboutOpen(false); }}
+                        >
+                          {sub.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}

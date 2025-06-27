@@ -8,6 +8,7 @@ import ResearchSection from './components/ResearchSection';
 import EventsSection from './components/EventsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import TeamSection from './components/TeamSection';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/research" element={<ResearchSection />} />
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<ContactSection />} />
+          <Route path="/team" element={<TeamSection />} />
         </Routes>
         <Footer />
       </div>
