@@ -29,7 +29,7 @@ const HeroSlideshow: React.FC = () => {
       id: 2,
       type: 'conference',
       title: 'International Palestinian Conference',
-      subtitle: 'Laboratory Medicine Excellence',
+      subtitle: 'Medical Research and Laboratory Excellence',
       description: 'Join leading medical professionals from around the world for three days of cutting-edge research presentations and networking.',
       image: 'https://www.exordo.com/hubfs/Imported_Blog_Media/Resized-image-4.jpg',
       date: 'August 21-23, 2025',

@@ -6,16 +6,16 @@ import logoo from './images/logo1.png';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: <Instagram className="w-5 h-5" />, href: '#', label: 'Instagram' },
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', label: 'Instagram', external: true },
     { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
     { icon: <Youtube className="w-5 h-5" />, href: '#', label: 'YouTube' }
   ];
 
   const quickLinks = [
     { title: 'About Us', href: '/about' },
-    { title: 'Programs', href: '/programs' },
-    { title: 'Research', href: '/research' },
-    { title: 'Events', href: '/events' },
+    //  { title: 'Programs', href: '/programs' },
+    // { title: 'Research', href: '/research' },
+    //  { title: 'Events', href: '/events' },
     { title: 'Contact', href: '/contact' }
   ];
 
@@ -77,6 +77,8 @@ const Footer: React.FC = () => {
                     whileHover={{ scale: 1.2, y: -2 }}
                     className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-500 transition-all duration-300"
                     aria-label={social.label}
+                    target={social.external ? "_blank" : undefined}
+                    rel={social.external ? "noopener noreferrer" : undefined}
                   >
                     {social.icon}
                   </motion.a>
@@ -167,7 +169,7 @@ const Footer: React.FC = () => {
                 >
                   <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div>
-                    <p>+972-56-698-6006</p>
+                    <a href="tel:+972-56-698-6006" className="hover:text-blue-400 transition-colors">+972-56-698-6006</a>
                   </div>
                 </motion.div>
                 <motion.div
@@ -195,6 +197,14 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-300">
               <span>©  PMED. All rights reserved.</span>
+            </div>
+            <div className="flex items-center space-x-2 text-gray-300 text-sm">
+              <span>Website by</span>
+              <span className="font-semibold">Codefusion</span>
+              <span>|</span>
+              <a href="https://instagram.com/codefusionn.ps" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 underline">@codefusionn.ps</a>
+              <span>|</span>
+              <a href="tel:+972599203857" className="hover:text-blue-400">+972599203857</a>
             </div>
           </div>
         </motion.div>

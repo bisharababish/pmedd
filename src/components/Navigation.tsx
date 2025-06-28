@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
+import SearchEngine from './SearchEngine';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,6 +46,12 @@ const Navigation: React.FC = () => {
         { label: 'Our Mission & Vision', href: '/about#mission' },
         { label: 'What We Do', href: '/about#whatwedo' },
         { label: 'Our Team', href: '/team' },
+      ]
+    },
+    {
+      label: 'Divisions', href: '/divisions', dropdown: [
+        { label: 'PMED Cardiology Club', href: '/cardiology' },
+        { label: 'PMED Podcast Club', href: '/podcast' },
       ]
     },
     // { label: 'Programs', href: '/programs' },
@@ -163,6 +170,16 @@ const Navigation: React.FC = () => {
             ))}
           </nav>
 
+          {/* Search Engine */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="hidden md:block"
+          >
+            <SearchEngine />
+          </motion.div>
+
           {/* Mobile Menu Button */}
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -186,6 +203,16 @@ const Navigation: React.FC = () => {
             className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50"
           >
             <div className="px-4 py-6 space-y-3">
+              {/* Mobile Search */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                className="mb-4"
+              >
+                <SearchEngine />
+              </motion.div>
+
               {navItems.map((item, index) => (
                 <div key={item.label}>
                   <motion.div

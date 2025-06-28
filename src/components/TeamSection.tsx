@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Crown, Megaphone, BookOpen, Video, ExternalLink, Code, Palette } from 'lucide-react';
+import { Users, Megaphone, BookOpen, Video, ExternalLink, Code, Palette } from 'lucide-react';
 import ahmad from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
 import Lamar from "./teampics/Lamar.jpeg";
@@ -16,9 +16,8 @@ import Laith from "./teampics/laith.jpeg";
 const teamStructure = [
     {
         roleGroup: "Leadership & Founders",
-        color: "from-violet-600 via-purple-600 to-indigo-600",
-        accent: "from-violet-500 to-purple-500",
-        icon: Crown,
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         members: [
             {
                 name: 'Ahmad Romana',
@@ -34,8 +33,8 @@ const teamStructure = [
     },
     {
         roleGroup: "Public Representatives",
-        color: "from-emerald-600 via-teal-600 to-cyan-600",
-        accent: "from-emerald-500 to-teal-500",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         icon: Megaphone,
         members: [
             {
@@ -52,8 +51,8 @@ const teamStructure = [
     },
     {
         roleGroup: "Department Heads",
-        color: "from-amber-600 via-orange-600 to-red-600",
-        accent: "from-amber-500 to-orange-500",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         icon: BookOpen,
         members: [
             {
@@ -88,8 +87,8 @@ const teamStructure = [
     },
     {
         roleGroup: "Press & Media Team",
-        color: "from-pink-600 via-rose-600 to-red-600",
-        accent: "from-pink-500 to-rose-500",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         icon: Video,
         members: [
             {
@@ -106,8 +105,8 @@ const teamStructure = [
     },
     {
         roleGroup: "IT Team",
-        color: "from-slate-600 via-gray-600 to-zinc-600",
-        accent: "from-slate-500 to-gray-500",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         icon: Code,
         members: [
             {
@@ -124,8 +123,8 @@ const teamStructure = [
     },
     {
         roleGroup: "Design Team",
-        color: "from-teal-600 via-green-600 to-emerald-600",
-        accent: "from-teal-500 to-green-500",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
         icon: Palette,
         members: [
             {
@@ -188,12 +187,11 @@ const TeamSection = () => {
                         <Users className="w-8 h-8 text-indigo-600 mr-2" />
                         <span className="text-indigo-700 font-semibold">Our Amazing Team</span>
                     </div>
-                    <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text text-transparent mb-6">
+                    <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent mb-6">
                         Meet Our Team
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        The passionate individuals driving innovation and excellence at PMED Club
-                    </p>
+                        Meet the brains, hearts, and hustle behind PMED Club!                     </p>
                 </motion.div>
 
                 {/* Team Groups */}
@@ -210,9 +208,7 @@ const TeamSection = () => {
                             {/* Group Header */}
                             <div className="text-center mb-12">
                                 <div className="inline-flex items-center justify-center mb-4">
-                                    <div className={`p-3 bg-gradient-to-r ${group.accent} rounded-xl shadow-lg mr-3`}>
-                                        <group.icon className="w-6 h-6 text-white" />
-                                    </div>
+
                                     <h3 className={`text-3xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
                                         {group.roleGroup}
                                     </h3>
