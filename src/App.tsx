@@ -9,6 +9,8 @@ import EventsSection from './components/EventsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import TeamSection from './components/TeamSection';
+import CardiologyPage from './components/CardiologyPage';
+import PodcastPage from './components/PodcastPage';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/events" element={<EventsSection />} />
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/team" element={<TeamSection />} />
+          <Route path="/cardiology" element={<CardiologyPage />} />
+          <Route path="/podcast" element={<PodcastPage />} />
         </Routes>
         <Footer />
       </div>
