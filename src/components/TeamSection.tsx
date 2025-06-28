@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Users, Crown, Megaphone, BookOpen, Video, ExternalLink, Code, Palette } from 'lucide-react';
 import ahmad from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
 import Lamar from "./teampics/Lamar.jpeg";
@@ -12,221 +13,303 @@ import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
 import heba from "./teampics/hebaarab.jpeg";
 import Laith from "./teampics/laith.jpeg";
-
 const teamStructure = [
     {
         roleGroup: "Leadership & Founders",
-        color: "from-blue-600 to-blue-800",
+        color: "from-violet-600 via-purple-600 to-indigo-600",
+        accent: "from-violet-500 to-purple-500",
+        icon: Crown,
         members: [
             {
                 name: 'Ahmad Romana',
                 role: 'President & Founder',
-                img: ahmad
+                img: ahmad,
             },
             {
                 name: 'Kinda Abu Hashhash',
                 role: 'Vice President & Co-Founder',
-                img: kinda
+                img: kinda,
             }
         ]
     },
     {
         roleGroup: "Public Representatives",
-        color: "from-blue-600 to-blue-800",
+        color: "from-emerald-600 via-teal-600 to-cyan-600",
+        accent: "from-emerald-500 to-teal-500",
+        icon: Megaphone,
         members: [
             {
                 name: 'Lamar Abed',
                 role: 'Public Representative & Co-Founder',
-                img: Lamar
+                img: Lamar,
             },
             {
                 name: 'Meray Dour',
                 role: 'Public Representative',
-                img: meray
+                img: meray,
             },
         ]
     },
     {
         roleGroup: "Department Heads",
-        color: "from-blue-600 to-blue-800",
+        color: "from-amber-600 via-orange-600 to-red-600",
+        accent: "from-amber-500 to-orange-500",
+        icon: BookOpen,
         members: [
             {
                 name: 'Khaled Alqasrawi',
                 role: 'Head Of Educational Content & Co-Founder',
-                img: Khaled
+                img: Khaled,
             },
             {
                 name: 'Dahlia Gaouni',
                 role: 'Head of Video Editing',
-                img: dahlia
+                img: dahlia,
             }
         ]
     },
     {
         roleGroup: "External & Internal Affairs",
-        color: "from-blue-600 to-blue-800",
+        color: "from-blue-600 via-indigo-600 to-purple-600",
+        accent: "from-blue-500 to-indigo-500",
+        icon: ExternalLink,
         members: [
             {
                 name: 'Laith Mualla',
                 role: 'Head of External Affairs',
-                img: Laith
+                img: Laith,
             },
             {
                 name: 'Heba Arab',
                 role: 'Head of Internal Affairs',
-                img: heba
+                img: heba,
             }
         ]
     },
     {
         roleGroup: "Press & Media Team",
-        color: "from-blue-600 to-blue-800",
+        color: "from-pink-600 via-rose-600 to-red-600",
+        accent: "from-pink-500 to-rose-500",
+        icon: Video,
         members: [
             {
                 name: 'Abdallah Elayyan',
                 role: 'Head of Press & Media',
-                img: Abdallah
+                img: Abdallah,
             },
             {
                 name: 'Ahmad Abu Turk',
                 role: 'Head of Press & Media',
-                img: ahmadabuturk
+                img: ahmadabuturk,
             }
         ]
     },
     {
         roleGroup: "IT Team",
-        color: "from-blue-600 to-blue-800",
+        color: "from-slate-600 via-gray-600 to-zinc-600",
+        accent: "from-slate-500 to-gray-500",
+        icon: Code,
         members: [
             {
                 name: 'Mohammad Romana',
                 role: 'Head of IT',
-                img: Mohammad
+                img: Mohammad,
             },
             {
                 name: 'Bishara Babish',
                 role: 'Head of IT',
-                img: bish
+                img: bish,
             }
         ]
     },
     {
         roleGroup: "Design Team",
-        color: "from-blue-600 to-blue-800",
+        color: "from-teal-600 via-green-600 to-emerald-600",
+        accent: "from-teal-500 to-green-500",
+        icon: Palette,
         members: [
             {
                 name: 'Qusai Shwaiki',
                 role: 'Graphic Designer',
-                img: 'https://randomuser.me/api/portraits/men/52.jpg'
+                img: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
             },
             {
                 name: 'Hind Abu Al Ghaib',
                 role: 'Graphic Designer',
-                img: 'https://randomuser.me/api/portraits/women/12.jpg'
+                img: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400',
             }
         ]
     }
 ];
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const cardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 40,
+        scale: 0.95
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+            duration: 0.6
+        }
+    }
+};
+
 const TeamSection = () => {
     return (
-        <div id="team" className="mb-20 max-w-7xl mx-auto scroll-mt-24 px-4">
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="text-center mb-16 pt-32 md:pt-36 lg:pt-40"
-            >
-                <h3 className="text-3xl md:text-4xl font-bold mb-2 text-center text-blue-800">Our Team</h3>
-                <div className="w-16 h-1 bg-blue-800 mb-8 rounded mx-auto" />
-                <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                    Meet the brains, hearts, and hustle behind PMED Club!
-                </p>
-            </motion.div>
+        <div id="team" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-20"
+                >
+                    <div className="inline-flex items-center justify-center p-2 bg-white/60 backdrop-blur-sm rounded-full mb-6 shadow-lg">
+                        <Users className="w-8 h-8 text-indigo-600 mr-2" />
+                        <span className="text-indigo-700 font-semibold">Our Amazing Team</span>
+                    </div>
+                    <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text text-transparent mb-6">
+                        Meet Our Team
+                    </h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        The passionate individuals driving innovation and excellence at PMED Club
+                    </p>
+                </motion.div>
 
-            {/* Team Groups */}
-            <div className="space-y-16">
-                {teamStructure.map((group, groupIdx) => (
-                    <motion.div
-                        key={groupIdx}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 * groupIdx }}
-                        viewport={{ once: true }}
-                        className="relative"
-                    >
-                        {/* Role Group Title */}
-                        <div className="text-center mb-8">
-                            <h4 className={`text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-2`}>
-                                {group.roleGroup}
-                            </h4>
-                            <div className={`w-12 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded`} />
-                        </div>
-
-                        {/* Members Container */}
-                        <div className="relative">
-                            {/* Member Cards */}
-                            <div className={`grid gap-8 ${group.members.length === 1 ? 'grid-cols-1 justify-items-center' :
-                                group.members.length === 2 ? 'grid-cols-1 md:grid-cols-2 justify-items-center' :
-                                    group.members.length === 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' :
-                                        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-                                } max-w-6xl mx-auto relative`}>
-
-                                {/* Connecting Line for multiple members - positioned at bottom edge of cards */}
-                                {group.members.length > 1 && (
-                                    <div className="absolute -bottom-8 left-0 right-0 hidden lg:block pointer-events-none z-0">
-                                        <div
-                                            className={`h-1 bg-gradient-to-r ${group.color} rounded-full mx-auto`}
-                                            style={{
-                                                width: `${Math.min((group.members.length - 1) * 70, 80)}%`,
-                                                maxWidth: '600px'
-                                            }}
-                                        />
+                {/* Team Groups */}
+                <div className="space-y-20">
+                    {teamStructure.map((group, groupIdx) => (
+                        <motion.div
+                            key={groupIdx}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={containerVariants}
+                            className="relative"
+                        >
+                            {/* Group Header */}
+                            <div className="text-center mb-12">
+                                <div className="inline-flex items-center justify-center mb-4">
+                                    <div className={`p-3 bg-gradient-to-r ${group.accent} rounded-xl shadow-lg mr-3`}>
+                                        <group.icon className="w-6 h-6 text-white" />
                                     </div>
-                                )}
+                                    <h3 className={`text-3xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
+                                        {group.roleGroup}
+                                    </h3>
+                                </div>
+                                <div className={`w-24 h-1 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
+                            </div>
 
+                            {/* Members Grid */}
+                            <div className={`grid gap-8 ${group.members.length === 1 ? 'grid-cols-1 justify-items-center max-w-md mx-auto' :
+                                group.members.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto' :
+                                    'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+                                }`}>
                                 {group.members.map((member, memberIdx) => (
                                     <motion.div
                                         key={memberIdx}
-                                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                        transition={{
-                                            duration: 0.5,
-                                            delay: 0.1 * memberIdx,
-                                            type: "spring",
-                                            stiffness: 100
+                                        variants={cardVariants}
+                                        whileHover={{
+                                            y: -8,
+                                            scale: 1.02,
+                                            transition: { type: "spring", stiffness: 300, damping: 20 }
                                         }}
-                                        viewport={{ once: true }}
-                                        className="relative group z-10"
+                                        className="group relative"
                                     >
-                                        {/* Connection Point on Card - positioned at exact bottom edge */}
-                                        {group.members.length > 1 && (
-                                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 hidden lg:block z-20">
-                                                <div className={`w-3 h-3 bg-gradient-to-r ${group.color} rounded-full shadow-lg border-2 border-white`} />
+                                        {/* Card */}
+                                        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                                            {/* Background Pattern */}
+                                            <div className="absolute inset-0 opacity-5">
+                                                <div className={`w-full h-full bg-gradient-to-br ${group.color}`} />
                                             </div>
-                                        )}
 
-                                        {/* Member Card */}
-                                        <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center hover:scale-105 group-hover:-translate-y-2 flex flex-col items-center max-w-xs mx-auto relative z-10">
-                                            <div className={`w-24 h-24 bg-gradient-to-br ${group.color} rounded-full mb-6 flex items-center justify-center text-white text-2xl font-bold shadow-lg overflow-hidden ring-4 ring-white`}>
-                                                <img
-                                                    src={member.img}
-                                                    alt={member.name}
-                                                    className="w-full h-full object-cover rounded-full"
-                                                />
+                                            {/* Floating Orbs */}
+                                            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
+                                            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
+
+                                            <div className="relative z-10 text-center">
+                                                {/* Profile Image */}
+                                                <div className="relative mb-6">
+                                                    <div className={`w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-1`}>
+                                                        <img
+                                                            src={member.img}
+                                                            alt={member.name}
+                                                            className="w-full h-full object-cover rounded-xl"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                {/* Member Info */}
+                                                <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">
+                                                    {member.name}
+                                                </h4>
+
+                                                <div className={`inline-block px-4 py-2 bg-gradient-to-r ${group.accent} rounded-full mb-3`}>
+                                                    <p className="text-sm font-semibold text-white">
+                                                        {member.role}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <h5 className="text-xl font-bold text-gray-800 mb-2">{member.name}</h5>
-                                            <p className={`font-semibold text-sm bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
-                                                {member.role}
-                                            </p>
+
+                                            {/* Hover Effect Overlay */}
+                                            <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
                                         </div>
+
+                                        {/* Connection Line for Multiple Members */}
+                                        {group.members.length > 1 && memberIdx < group.members.length - 1 && (
+                                            <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-gray-300 to-transparent transform -translate-y-1/2 z-0" />
+                                        )}
                                     </motion.div>
                                 ))}
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+
+                            {/* Decorative Elements */}
+                            <div className="absolute -top-8 left-1/4 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-30" />
+                            <div className="absolute -bottom-8 right-1/3 w-3 h-3 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full opacity-20" />
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Bottom CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-center mt-20"
+                >
+                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 max-w-2xl mx-auto">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                            Join Our Amazing Team
+                        </h3>
+                        <p className="text-gray-600 mb-6">
+                            We're always looking for passionate individuals to join our mission
+                        </p>
+                        <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                            Get In Touch
+                        </button>
+                    </div>
+                </motion.div>
             </div>
         </div>
     );
