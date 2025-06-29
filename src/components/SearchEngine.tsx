@@ -5,6 +5,105 @@ import { useNavigate } from 'react-router-dom';
 
 // Search data structure containing all website content
 const searchData = [
+    // Home Page
+    {
+        id: 'home',
+        title: 'Home',
+        content: 'Welcome to PMED - Medical Club. Your gateway to medical excellence and professional development.',
+        keywords: ['home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development'],
+        section: 'Home',
+        path: '/',
+        icon: <MapPin className="w-4 h-4" />
+    },
+
+    // About Page
+    {
+        id: 'about',
+        title: 'About PMED',
+        content: 'Learn about PMED Club, our mission, vision, and what we do to empower medical students.',
+        keywords: ['about', 'mission', 'vision', 'PMED', 'what we do', 'club'],
+        section: 'About',
+        path: '/about',
+        icon: <Users className="w-4 h-4" />
+    },
+
+    // Programs Page
+    {
+        id: 'programs',
+        title: 'Programs',
+        content: 'Explore PMED Club programs, specialty interest groups, and opportunities for growth.',
+        keywords: ['programs', 'specialty', 'interest groups', 'growth', 'opportunities'],
+        section: 'Programs',
+        path: '/programs',
+        icon: <BookOpen className="w-4 h-4" />
+    },
+
+    // Research Page
+    {
+        id: 'research',
+        title: 'Research',
+        content: 'Discover research opportunities, projects, and academic impact at PMED Club.',
+        keywords: ['research', 'projects', 'academic', 'impact', 'opportunities'],
+        section: 'Research',
+        path: '/research',
+        icon: <BookOpen className="w-4 h-4" />
+    },
+
+    // Events Page
+    {
+        id: 'events',
+        title: 'Events',
+        content: 'Join our workshops, seminars, medical simulations, and awareness campaigns throughout the year.',
+        keywords: ['events', 'workshops', 'seminars', 'simulations', 'campaigns', 'activities'],
+        section: 'Events',
+        path: '/events',
+        icon: <Calendar className="w-4 h-4" />
+    },
+
+    // Contact Page
+    {
+        id: 'contact',
+        title: 'Contact',
+        content: 'Get in touch with us for more information about our programs, events, and opportunities.',
+        keywords: ['contact', 'get in touch', 'information', 'programs', 'events', 'opportunities'],
+        section: 'Contact',
+        path: '/contact',
+        icon: <Mail className="w-4 h-4" />
+    },
+
+    // Team Page
+    {
+        id: 'team',
+        title: 'Our Team',
+        content: 'Meet the PMED Club team, including leadership, representatives, and department heads.',
+        keywords: ['team', 'leadership', 'representatives', 'department heads', 'members'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
+
+    // Cardiology Club Page
+    {
+        id: 'cardiology-club',
+        title: 'PMED Cardiology Club',
+        content: 'Learn about the PMED Cardiology Club, its mission, supervisors, and exclusive opportunities for medical students.',
+        keywords: ['cardiology', 'cardiology club', 'PMED Cardiology', 'supervisors', 'medical students', 'clinical exposure', 'research'],
+        section: 'Divisions',
+        path: '/cardiology',
+        icon: <Users className="w-4 h-4" />
+    },
+
+    // Podcast Club Page
+    {
+        id: 'podcast-club',
+        title: 'PMED Podcast Club',
+        content: 'Discover the PMED Podcast Club, where students share knowledge, stories, and medical insights.',
+        keywords: ['podcast', 'podcast club', 'PMED Podcast', 'stories', 'medical insights'],
+        section: 'Divisions',
+        path: '/podcast',
+        icon: <Users className="w-4 h-4" />
+    },
+
     // About Section
     {
         id: 'mission',
@@ -199,39 +298,6 @@ const searchData = [
         path: '/team',
         icon: <Users className="w-4 h-4" />
     },
-
-    // Events Section
-    {
-        id: 'events',
-        title: 'Events & Activities',
-        content: 'Join our workshops, seminars, medical simulations, and awareness campaigns throughout the year.',
-        keywords: ['events', 'workshops', 'seminars', 'simulations', 'campaigns', 'activities'],
-        section: 'Events',
-        path: '/events',
-        icon: <Calendar className="w-4 h-4" />
-    },
-
-    // Contact Section
-    {
-        id: 'contact',
-        title: 'Contact Us',
-        content: 'Get in touch with us for more information about our programs, events, and opportunities.',
-        keywords: ['contact', 'get in touch', 'information', 'programs', 'events', 'opportunities'],
-        section: 'Contact',
-        path: '/contact',
-        icon: <Mail className="w-4 h-4" />
-    },
-
-    // Home
-    {
-        id: 'home',
-        title: 'Home',
-        content: 'Welcome to PMED - Medical Club. Your gateway to medical excellence and professional development.',
-        keywords: ['home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development'],
-        section: 'Home',
-        path: '/',
-        icon: <MapPin className="w-4 h-4" />
-    }
 ];
 
 interface SearchResult {
