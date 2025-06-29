@@ -13,6 +13,7 @@ import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
 import heba from "./teampics/heba.jpeg";
 import Laith from "./teampics/laith.jpeg";
+
 const teamStructure = [
     {
         roleGroup: "Leadership & Founders",

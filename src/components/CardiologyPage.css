@@ -1,0 +1,36 @@
+.floating-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: float-bg-img 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes float-bg-img {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(30px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-bg>* {
+    position: relative;
+    z-index: 1;
+}
