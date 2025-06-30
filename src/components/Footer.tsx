@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                       className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center"
                     >
                       <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 opacity-0 hover:opacity-100 transition-opacity"></span>
-                      <Link to={link.href}>{link.title}</Link>
+                      <Link to={link.href} onClick={() => window.scrollTo(0, 0)}>{link.title}</Link>
                     </motion.div>
                   </motion.li>
                 ))}
@@ -198,12 +198,11 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-2 text-gray-300">
               <span>©  PMED. All rights reserved.</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-300 text-sm">
-              <span>Website by</span>
-              <span className="font-semibold">Codefusion</span>
-              <span>|</span>
+            <div className="flex flex-col sm:flex-row items-center gap-x-2 gap-y-1 text-gray-300 text-sm text-center sm:text-left">
+              <span>Website by <span className="font-semibold">Codefusion</span></span>
+              <span className="hidden sm:inline">|</span>
               <a href="https://instagram.com/codefusionn.ps" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 underline">@codefusionn.ps</a>
-              <span>|</span>
+              <span className="hidden sm:inline">|</span>
               <a href="tel:+972599203857" className="hover:text-blue-400">+972599203857</a>
             </div>
           </div>

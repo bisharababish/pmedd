@@ -95,26 +95,28 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center space-x-3"
-          >
+          <Link to="/">
             <motion.div
-              whileHover={{ rotate: 360, scale: 1.1 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="w-12 h-12 rounded-xl flex items-center justify-center"
+              className="flex items-center space-x-3"
             >
-              <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl" />
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.1 }}
+                transition={{ duration: 0.6 }}
+                className="w-12 h-12 rounded-xl flex items-center justify-center"
+              >
+                <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl" />
+              </motion.div>
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                  PMED
+                </h1>
+                <p className="text-xs text-gray-600 -mt-1">Medical Club</p>
+              </div>
             </motion.div>
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                PMED
-              </h1>
-              <p className="text-xs text-gray-600 -mt-1">Medical Club</p>
-            </div>
-          </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-1">

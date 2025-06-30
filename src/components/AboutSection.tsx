@@ -49,8 +49,7 @@ const AboutSection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center flex justify-center items-center min-h-[60vh]"
+          viewport={{ once: true }} className="mt-20 text-center flex justify-center items-center min-h-[60vh] scroll-mt-24"
         >
           <div className="bg-gradient-to-r from-blue-800 to-emerald-700 rounded-3xl p-12 md:p-16 text-white relative overflow-hidden w-full max-w-3xl mx-auto">
             <div className="absolute inset-0 bg-black/10"></div>
