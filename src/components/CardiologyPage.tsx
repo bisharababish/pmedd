@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, X } from 'lucide-react';
+import { Users, X, ClipboardList, Instagram, Linkedin, Youtube } from 'lucide-react';
 import supervisor1 from "./supervisorpics/supervisor1.png";
 import supervisor2 from "./supervisorpics/supervisor2.png";
 import supervisor3 from "./supervisorpics/supervisor3.png";
@@ -176,6 +176,46 @@ const CardiologyPage = () => {
                             ))}
                         </div>
                     </motion.section>
+
+                    {/* How to Apply Section */}
+                    <section className="mt-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-white rounded-2xl shadow-xl p-8 max-w-3xl mx-auto text-center"
+                        >
+                            <div className="inline-flex items-center justify-center mb-6">
+                                <ClipboardList className="w-8 h-8 text-blue-700 mr-3" />
+                                <h2 className="text-3xl font-bold text-gray-800">How to Apply</h2>
+                            </div>
+                            <div className="text-lg text-gray-600 space-y-4 leading-relaxed">
+                                <p>
+                                    Applications for PMED Cardiology open on a limited basis each year. To stay informed about upcoming opportunities, follow our official social media channels, where we regularly post updates, application announcements, and important deadlines.
+                                </p>
+                                <p className="font-semibold text-red-600">
+                                    We encourage all interested students to stay connected and act promptly once applications are announced, as seats are highly competitive.
+                                </p>
+                            </div>
+                            {/* Social Media Links */}
+                            <div className="mt-8">
+                                <h3 className="text-xl font-bold text-gray-800 mb-4">Follow Us</h3>
+                                <div className="flex justify-center space-x-6">
+                                    <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">
+                                        <Youtube size={28} />
+                                    </a>
+                                    <a href="#" className="text-pink-600 hover:text-pink-800 transition-colors">
+                                        <Instagram size={28} />
+                                    </a>
+                                    <a href="#" className="text-blue-700 hover:text-blue-900 transition-colors">
+                                        <Linkedin size={28} />
+                                    </a>
+
+                                </div>
+                            </div>
+                        </motion.div>
+                    </section>
 
                     {/* Modal */}
                     <AnimatePresence>
