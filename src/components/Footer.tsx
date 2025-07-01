@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
 
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
                       whileHover={{ x: 5, color: '#60A5FA' }}
                       className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center"
                     >
-                      <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 opacity-0 hover:opacity-100 transition-opacity"></span>
+                      <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
                       <Link to={link.href} onClick={() => window.scrollTo(0, 0)}>{link.title}</Link>
                     </motion.div>
                   </motion.li>
@@ -199,11 +199,21 @@ const Footer: React.FC = () => {
               <span>©  PMED. All rights reserved.</span>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-x-2 gap-y-1 text-gray-300 text-sm text-center sm:text-left">
-              <span>Website by <span className="font-semibold">Codefusion</span></span>
+              <span>Developed by <span className="font-semibold">Codefusion</span></span>
               <span className="hidden sm:inline">|</span>
-              <a href="https://instagram.com/codefusionn.ps" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 underline">@codefusionn.ps</a>
+              <a href="https://instagram.com/codefusionn.ps" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-1">
+                <Instagram className="w-5 h-5" />
+                <span>@codefusionn.ps</span>
+              </a>
+              <a href="https://codefusion.me/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-1">
+                <Globe className="w-5 h-5" />
+                <span>codefusion.me</span>
+              </a>
               <span className="hidden sm:inline">|</span>
-              <a href="tel:+972599203857" className="hover:text-blue-400">+972599203857</a>
+              <a href="tel:+972599203857" className="hover:text-blue-400 flex items-center gap-1">
+                <Phone className="w-5 h-5" />
+                <span>+972599203857</span>
+              </a>
             </div>
           </div>
         </motion.div>

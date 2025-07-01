@@ -8,6 +8,7 @@ import SearchEngine from './SearchEngine';
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
 
   // Handle scrolling to section when page loads with hash
   useEffect(() => {
@@ -39,25 +40,38 @@ const Navigation: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navItems = [
     { label: 'Home', href: '/' },
-    {
-      label: 'About', href: '/about', dropdown: [
-        { label: 'Our Mission & Vision', href: '/about#mission' },
-        { label: 'What We Do', href: '/about#whatwedo' },
-        { label: 'Our Team', href: '/team' },
-      ]
-    },
     {
       label: 'Divisions', href: '/divisions', dropdown: [
         { label: 'PMED Cardiology Club', href: '/cardiology' },
         { label: 'PMED Podcast Club', href: '/podcast' },
       ]
     },
+    {
+      label: 'About', href: '/about', dropdown: [
+        { label: 'Mission and Vision', href: '/about#mission' },
+        { label: 'What We Do', href: '/about#whatwedo' },
+        { label: 'Meet The Team', href: '/team' },
+      ]
+    },
+
     // { label: 'Programs', href: '/programs' },
     // { label: 'Research', href: '/research' },
     // { label: 'Events', href: '/events' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Contact Us', href: '/contact' }
   ];
 
   // Handle smooth scrolling to sections
@@ -91,7 +105,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-lg">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -128,7 +142,7 @@ const Navigation: React.FC = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative px-4 py-2 text-gray-700 font-medium rounded-lg transition-all duration-300 hover:text-blue-600 group"
+                className="relative px-4 py-2 text-black font-medium rounded-lg transition-all duration-300 hover:text-blue-600 group"
               >
                 <Link to={item.href} className="inline-flex items-center gap-1">
                   {item.label}
@@ -144,14 +158,18 @@ const Navigation: React.FC = () => {
                 />
                 {/* Dropdown for About */}
                 {item.dropdown && (
-                  <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50">
+                  <div
+                    onMouseEnter={() => setAboutOpen(true)}
+                    onMouseLeave={() => setAboutOpen(false)}
+                    className="absolute left-1/2 -translate-x-1/2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50"
+                  >
                     {item.dropdown.map((sub) => (
                       sub.href.startsWith('/about#') ? (
                         <a
                           key={sub.label}
                           href={sub.href}
                           onClick={(e) => handleSectionLink(sub.href, e)}
-                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
+                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
                         >
                           {sub.label}
                         </a>
@@ -159,7 +177,7 @@ const Navigation: React.FC = () => {
                         <Link
                           key={sub.label}
                           to={sub.href}
-                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200"
+                          className="px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
                           onClick={() => { setIsMenuOpen(false); setAboutOpen(false); }}
                         >
                           {sub.label}

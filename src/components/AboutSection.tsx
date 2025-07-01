@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import CircularText from './CircularText';
 
 const AboutSection: React.FC = () => {
   return (
@@ -19,21 +20,16 @@ const AboutSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-800 via-blue-600 to-emerald-700 bg-clip-text text-transparent mb-6"
-          >
-            About PMED
-          </motion.h2>
+          <div className="flex justify-center mb-6">
+            <CircularText text="•PMED•About" radius={90} className="text-blue-800" />
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed shiny-text"
           >
-            <span className="font-semibold text-blue-800">PMED</span> is a student-led, multidisciplinary club rooted in the values of equity and excellence. We connect high-potential students with real medical experiences, workshops, and mentors. Our network spans local universities and international partnerships. We believe medicine is not only a science but a tool for <span className="text-red-600 font-bold">justice</span>, <span className="text-red-600 font-bold">hope</span>, and nation-building.
+            <span className="font-semibold text-blue-800">PMED</span> is a student-led, multidisciplinary club rooted in the values of equity and excellence. We connect high-potential students with real medical experiences, workshops, and mentors. Our network spans local universities and international partnerships. We believe medicine is not only a science but a tool for justice, hope, and nation-building.
           </motion.p>
         </motion.div>
 
@@ -60,7 +56,7 @@ const AboutSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-3xl md:text-4xl font-bold mb-6"
               >
-                Our Mission & Vision
+                Mission and Vision
               </motion.h3>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -97,7 +93,7 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true }}
             className="mb-20 max-w-4xl mx-auto scroll-mt-24"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-left text-blue-800">What We Do</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-left text-blue-800">What We Deliver</h3>
             <div className="w-16 h-1 bg-blue-800 mb-6 rounded" />
             <motion.ul
               initial="hidden"
