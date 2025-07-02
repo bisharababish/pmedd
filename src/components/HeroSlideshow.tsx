@@ -102,25 +102,17 @@ const HeroSlideshow: React.FC = () => {
         { label: 'Seconds', value: timeLeft.seconds }
       ].map((item) => (
         <div key={item.label} className="text-center">
-          {item.label === 'Seconds' ? (
-            <motion.div
-              key={item.value} // This triggers animation when seconds change
-              initial={{ scale: 1.2, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-2 border border-white/30"
-            >
-              <span className="text-2xl md:text-4xl font-bold text-white block">
-                {item.value.toString().padStart(2, '0')}
-              </span>
-            </motion.div>
-          ) : (
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-2 border border-white/30">
-              <span className="text-2xl md:text-4xl font-bold text-white block">
-                {item.value.toString().padStart(2, '0')}
-              </span>
-            </div>
-          )}
+          <motion.div
+            key={item.value} // This triggers animation when value changes
+            initial={{ scale: 1.2, opacity: 0, rotate: -10 }}
+            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 18, duration: 0.4 }}
+            className="bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-2 border border-white/30 shadow-lg"
+          >
+            <span className="text-2xl md:text-4xl font-bold text-white block">
+              {item.value.toString().padStart(2, '0')}
+            </span>
+          </motion.div>
           <span className="text-blue-200 text-sm md:text-base font-medium">
             {item.label}
           </span>
@@ -136,10 +128,10 @@ const HeroSlideshow: React.FC = () => {
           index === currentSlide && (
             <motion.div
               key={slide.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, scale: 0.98, x: 60 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.98, x: -60 }}
+              transition={{ duration: 1, type: 'spring', stiffness: 80, damping: 18 }}
               className="absolute inset-0"
             >
               {/* Background Image */}
@@ -160,7 +152,13 @@ const HeroSlideshow: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60" />
+                {/* Animated Gradient Overlay */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60"
+                  initial={{ opacity: 0.7 }}
+                  animate={{ opacity: [0.7, 0.85, 0.7] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                />
               </div>
 
               {/* Floating Particles */}
@@ -172,18 +170,33 @@ const HeroSlideshow: React.FC = () => {
                   <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
+                    transition={{ delay: 0.3, duration: 0.8, type: 'spring', stiffness: 80 }}
                     className="mb-8"
                   >
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <motion.h1
+                      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ delay: 0.4, duration: 0.7, type: 'spring', stiffness: 90 }}
+                      className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-xl"
+                    >
                       {slide.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl text-blue-100 mb-6">
+                    </motion.h1>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6, duration: 0.7 }}
+                      className="text-xl md:text-2xl text-blue-100 mb-6"
+                    >
                       {slide.subtitle}
-                    </p>
-                    <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7, duration: 0.7 }}
+                      className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed"
+                    >
                       {slide.description}
-                    </p>
+                    </motion.p>
                   </motion.div>
 
                   {/* Conference specific content */}
@@ -192,7 +205,7 @@ const HeroSlideshow: React.FC = () => {
                       <motion.div
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 0.8 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
                         className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8"
                       >
                         <div className="flex items-center gap-2 text-white">
@@ -207,7 +220,7 @@ const HeroSlideshow: React.FC = () => {
                       <motion.div
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.8 }}
+                        transition={{ delay: 1, duration: 0.8 }}
                       >
                         <CountdownDisplay />
                       </motion.div>
@@ -218,14 +231,14 @@ const HeroSlideshow: React.FC = () => {
                   <motion.div
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.9, duration: 0.8 }}
+                    transition={{ delay: 1.1, duration: 0.8 }}
                   >
                     <motion.button
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl transition-all duration-300"
+                      whileHover={{ scale: 1.08, y: -2, boxShadow: '0 0 24px 4px #3b82f6' }}
+                      whileTap={{ scale: 0.97 }}
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl transition-all duration-300 ring-2 ring-blue-400/30"
                     >
-                      <Play className="w-5 h-5" />
+                      <Play className="w-5 h-5 animate-pulse" />
                       {slide.cta}
                     </motion.button>
                   </motion.div>
@@ -238,19 +251,25 @@ const HeroSlideshow: React.FC = () => {
 
       {/* Navigation Arrows */}
       <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.7 }}
+        whileHover={{ scale: 1.15, backgroundColor: 'rgba(255,255,255,0.35)' }}
+        whileTap={{ scale: 0.95 }}
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg"
       >
         <ChevronLeft className="w-6 h-6" />
       </motion.button>
 
       <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.7 }}
+        whileHover={{ scale: 1.15, backgroundColor: 'rgba(255,255,255,0.35)' }}
+        whileTap={{ scale: 0.95 }}
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 shadow-lg"
       >
         <ChevronRight className="w-6 h-6" />
       </motion.button>
@@ -260,7 +279,10 @@ const HeroSlideshow: React.FC = () => {
         {slides.map((_, index) => (
           <motion.button
             key={index}
-            whileHover={{ scale: 1.2 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.7 + index * 0.07, duration: 0.4 }}
+            whileHover={{ scale: 1.25, backgroundColor: '#fff' }}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
               ? 'bg-white shadow-lg'

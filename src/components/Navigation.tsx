@@ -146,19 +146,27 @@ const Navigation: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="relative px-4 py-2 text-white font-medium rounded-lg transition-all duration-300 hover:bg-white/10 hover:text-blue-200 group"
               >
-                <Link to={item.href} className="inline-flex items-center gap-1">
-                  {item.label}
-                  {item.dropdown && (
+                {item.dropdown ? (
+                  <span
+                    className="inline-flex items-center gap-1 cursor-pointer select-none"
+                    tabIndex={0}
+                    onClick={e => e.preventDefault()}
+                  >
+                    {item.label}
                     <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                  )}
-                </Link>
+                  </span>
+                ) : (
+                  <Link to={item.href} className="inline-flex items-center gap-1">
+                    {item.label}
+                  </Link>
+                )}
                 <motion.div
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white to-blue-200 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-                {/* Dropdown for About */}
+                {/* Dropdown for About/Divisions */}
                 {item.dropdown && (
                   <div
                     onMouseEnter={() => setAboutOpen(true)}
@@ -255,7 +263,7 @@ const Navigation: React.FC = () => {
                         {item.label}
                       </Link>
                     ) : (
-                      <span className="inline-flex items-center gap-1">
+                      <span className="inline-flex items-center gap-1 select-none">
                         {item.label}
                         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${aboutOpen && item.dropdown ? 'rotate-180' : ''}`} />
                       </span>
