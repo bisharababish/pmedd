@@ -201,20 +201,20 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
         }}
         className="group relative"
     >
-        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className={`w-full h-full bg-gradient-to-br ${group.color}`} />
             </div>
 
             {/* Floating Orbs */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
-            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
+            <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
+            <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
 
             <div className="relative z-10 text-center">
                 {/* Profile Image */}
-                <div className="relative mb-6">
-                    <div className={`w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-1`}>
+                <div className="relative mb-4 sm:mb-6">
+                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-0.5 sm:p-1`}>
                         <img
                             src={member.img}
                             alt={member.name}
@@ -224,12 +224,12 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
                 </div>
 
                 {/* Member Info */}
-                <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">
+                <h4 className="text-base sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-gray-900 transition-colors">
                     {member.name}
                 </h4>
 
-                <div className={`inline-block px-4 py-2 bg-gradient-to-r ${group.accent} rounded-full mb-3`}>
-                    <p className="text-sm font-semibold text-white">
+                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${group.accent} rounded-full mb-2 sm:mb-3`}>
+                    <p className="text-xs sm:text-sm font-semibold text-white">
                         {member.role}
                     </p>
                 </div>
@@ -246,24 +246,24 @@ const TeamSection = () => {
     const otherTeams = teamStructure.slice(1); // All other teams
 
     return (
-        <div id="team" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="team" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-12 sm:mb-16 md:mb-20"
                 >
-                    <div className="inline-flex items-center justify-center p-2 bg-white/60 backdrop-blur-sm rounded-full mb-6 shadow-lg">
-                        <Users className="w-8 h-8 text-indigo-600 mr-2" />
-                        <span className="text-indigo-700 font-semibold">Our Amazing Team</span>
+                    <div className="inline-flex items-center justify-center p-2 bg-white/60 backdrop-blur-sm rounded-full mb-4 sm:mb-6 shadow-lg mt-20">
+                        <Users className="w-7 h-7 sm:w-8 sm:h-8 text-indigo-600 mr-2" />
+                        <span className="text-indigo-700 font-semibold text-base sm:text-lg">Our Amazing Team</span>
                     </div>
-                    <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent mb-4 sm:mb-6">
                         Meet Our Team
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
                         Meet the brains, hearts, and hustle behind PMED Club!
                     </p>
                 </motion.div>
@@ -276,42 +276,42 @@ const TeamSection = () => {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={containerVariants}
-                        className="mb-16"
+                        className="mb-10 sm:mb-14 md:mb-16"
                     >
                         {/* Founders Header */}
-                        <div className="text-center mb-12">
-                            <h3 className={`text-3xl font-bold bg-gradient-to-r ${founders.color} bg-clip-text text-transparent mb-4`}>
+                        <div className="text-center mb-6 sm:mb-10 md:mb-12">
+                            <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${founders.color} bg-clip-text text-transparent mb-2 sm:mb-4`}>
                                 {founders.roleGroup}
                             </h3>
-                            <div className={`w-24 h-1 bg-gradient-to-r ${founders.color} mx-auto rounded-full`} />
+                            <div className={`w-16 sm:w-24 h-1 bg-gradient-to-r ${founders.color} mx-auto rounded-full`} />
                         </div>
 
                         {/* Founders Cards */}
-                        <div className="flex justify-center gap-8 mb-12">
+                        <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 mb-8 sm:mb-12">
                             {founders.members.map((member, idx) => (
-                                <div key={idx} className="w-80">
+                                <div key={idx} className="w-full sm:w-80 max-w-xs mx-auto">
                                     <MemberCard member={member} group={founders} />
                                 </div>
                             ))}
                         </div>
 
                         {/* Connecting lines from founders */}
-                        <div className="relative flex justify-center mb-8">
-                            <div className="w-px h-12 bg-gradient-to-b from-indigo-300 to-transparent"></div>
+                        <div className="relative flex justify-center mb-4 sm:mb-8">
+                            <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-indigo-300 to-transparent"></div>
                         </div>
-                        <div className="relative mb-8">
-                            <div className="absolute left-1/2 transform -translate-x-1/2 w-4/5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></div>
+                        <div className="relative mb-4 sm:mb-8">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-4/5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></div>
                             <div className="flex justify-center">
-                                <div className="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-indigo-400 rounded-full"></div>
                             </div>
                         </div>
                     </motion.div>
 
                     {/* Other team members in tree formation */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 relative">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
                         {/* Vertical connecting lines */}
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
-                        
+
                         {otherTeams.map((group, groupIdx) => (
                             <motion.div
                                 key={groupIdx}
@@ -322,25 +322,27 @@ const TeamSection = () => {
                                 className="relative"
                             >
                                 {/* Branch connecting line */}
-                                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-px h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
-                                
+                                <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+
                                 {/* Group Header */}
-                                <div className="text-center mb-8">
-                                    <h3 className={`text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-2`}>
+                                <div className="text-center mb-4 sm:mb-8">
+                                    <h3 className={`text-xl sm:text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
                                         {group.roleGroup}
                                     </h3>
-                                    <div className={`w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
+                                    <div className={`w-10 sm:w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
                                 </div>
 
                                 {/* Team Members */}
-                                <div className="space-y-6">
+                                <div className="space-y-4 sm:space-y-6">
                                     {group.members.map((member, memberIdx) => (
                                         <div key={memberIdx} className="relative">
                                             {/* Connecting line between team members */}
                                             {memberIdx > 0 && (
-                                                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-px h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
+                                                <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
                                             )}
-                                            <MemberCard member={member} group={group} />
+                                            <div className="w-full max-w-xs mx-auto">
+                                                <MemberCard member={member} group={group} />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
@@ -355,16 +357,16 @@ const TeamSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="text-center mt-20"
+                    className="text-center mt-12 sm:mt-16 md:mt-20"
                 >
-                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
+                        <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">
                             Join Our Amazing Team
                         </h3>
-                        <p className="text-gray-600 mb-6">
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
                             We're always looking for passionate individuals to join our mission
                         </p>
-                        <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        <button className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
                             Get In Touch
                         </button>
                     </div>
