@@ -16,7 +16,7 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
       <ScrollToTopButton />
       <div className="min-h-screen bg-gray-50">

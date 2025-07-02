@@ -1,220 +1,629 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
 
 const Footer: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const springScrollY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  const backgroundY = useTransform(springScrollY, [0, 1], ['0%', '30%']);
+  const backgroundScale = useTransform(springScrollY, [0, 0.5, 1], [1, 1.05, 1.1]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const socialLinks = [
-    { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', label: 'Instagram', external: true },
-    { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
-    { icon: <Youtube className="w-5 h-5" />, href: '#', label: 'YouTube' }
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      href: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+      label: 'Instagram',
+      external: true,
+      color: 'from-pink-500 to-purple-600',
+      hoverColor: 'from-pink-600 to-purple-700'
+    },
+    {
+      icon: <Linkedin className="w-5 h-5" />,
+      href: '#',
+      label: 'LinkedIn',
+      color: 'from-blue-500 to-blue-600',
+      hoverColor: 'from-blue-600 to-blue-700'
+    },
+    {
+      icon: <Youtube className="w-5 h-5" />,
+      href: '#',
+      label: 'YouTube',
+      color: 'from-red-500 to-red-600',
+      hoverColor: 'from-red-600 to-red-700'
+    }
   ];
 
   const quickLinks = [
     { title: 'About Us', href: '/about' },
-    //  { title: 'Programs', href: '/programs' },
-    // { title: 'Research', href: '/research' },
-    //  { title: 'Events', href: '/events' },
     { title: 'Contact', href: '/contact' }
   ];
 
-  // const programs = [
-  //   { title: 'Basic Medical Education', href: '#' },
-  //   { title: 'Laboratory Medicine', href: '#' },
-  //   { title: 'Clinical Specialization', href: '#' },
-  //   { title: 'Research & Development', href: '#' }
-  // ];
+  // Enhanced animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99]
+      }
+    }
+  };
 
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 60,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99]
+      }
+    }
+  };
+
+  const floatingVariants = {
+    initial: { y: 0, rotate: 0 },
+    animate: {
+      y: [-15, 15, -15],
+      rotate: [0, 3, -3, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const pulseVariants = {
+    initial: { scale: 1, opacity: 0.7 },
+    animate: {
+      scale: [1, 1.2, 1],
+      opacity: [0.7, 1, 0.7],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const shinyTextVariants = {
+    initial: {
+      backgroundPosition: '-200% 0',
+    },
+    animate: {
+      backgroundPosition: '200% 0',
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "linear",
+        repeatDelay: 2
+      }
+    }
+  };
+
+  const slideInVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      rotateX: -15
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99]
+      }
+    }
+  };
+
+  const staggerListVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const listItemVariants = {
+    hidden: {
+      opacity: 0,
+      x: -30,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, -0.05, 0.01, 0.99]
+      }
+    }
+  };
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-400 rounded-full blur-3xl"></div>
-      </div>
+      {/* Enhanced Background Elements with Parallax */}
+      <motion.div
+        className="absolute inset-0 opacity-5"
+        style={{ y: backgroundY, scale: backgroundScale }}
+      >
+        <motion.div
+          className="absolute top-20 left-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl"
+          variants={floatingVariants}
+          initial="initial"
+          animate="animate"
+        />
+        <motion.div
+          className="absolute bottom-20 right-20 w-80 h-80 bg-purple-400 rounded-full blur-3xl"
+          variants={floatingVariants}
+          initial="initial"
+          animate="animate"
+          transition={{ delay: 1 }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-72 h-72 bg-emerald-400 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          variants={floatingVariants}
+          initial="initial"
+          animate="animate"
+          transition={{ delay: 2 }}
+        />
+      </motion.div>
+
+      {/* Floating Icons */}
+      <motion.div
+        className="absolute top-32 left-10 text-blue-400/10"
+        variants={floatingVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <Mail size={60} />
+      </motion.div>
+      <motion.div
+        className="absolute top-40 right-20 text-purple-400/10"
+        variants={floatingVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ delay: 1 }}
+      >
+        <Globe size={50} />
+      </motion.div>
+
+      {/* Scroll to Top Button */}
+      <motion.button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg flex items-center justify-center"
+        whileHover={{
+          scale: 1.1,
+          boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+        }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+      >
+        <ArrowUp className="w-5 h-5" />
+      </motion.button>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16">
+        <motion.div
+          className="py-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Brand Section */}
+            {/* Enhanced Brand Section */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              variants={itemVariants}
               className="lg:col-span-1"
             >
-              <div className="flex items-center space-x-3 mb-6">
+              <motion.div
+                className="flex items-center space-x-3 mb-6"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <motion.div
-                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  whileHover={{
+                    rotate: 360,
+                    scale: 1.1,
+                    boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+                  }}
                   transition={{ duration: 0.6 }}
-                  className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
+                  className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden"
                 >
-                  <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl" />
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    variants={pulseVariants}
+                    initial="initial"
+                    animate="animate"
+                  />
+                  <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl relative z-10" />
                 </motion.div>
                 <div>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    PMED
-                  </h3>
-                  <p className="text-sm text-gray-300">Medical Club</p>
+                  <motion.h3
+                    className="text-2xl font-bold relative"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <motion.span
+                      className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                      variants={shinyTextVariants}
+                      initial="initial"
+                      animate="animate"
+                      style={{
+                        backgroundImage: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 50%, #60a5fa 100%)',
+                        backgroundSize: '200% 100%',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      PMED
+                    </motion.span>
+                  </motion.h3>
+                  <motion.p
+                    className="text-sm text-gray-300"
+                    whileHover={{ color: "#d1d5db" }}
+                  >
+                    Medical Club
+                  </motion.p>
                 </div>
-              </div>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              </motion.div>
+
+              <motion.p
+                className="text-gray-300 leading-relaxed mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+              >
                 Palestine Medical Education & Development Club - Empowering the next generation of
-                medical professionals through  medical specialty interest groups, exposure to real-world clinical and research opportunities.
-              </p>
-              <div className="flex space-x-3">
-                {socialLinks.map((social, index) => (
+                medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.
+              </motion.p>
+
+              <motion.div
+                className="flex space-x-3"
+                variants={staggerListVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-500 transition-all duration-300"
+                    variants={listItemVariants}
+                    whileHover={{
+                      scale: 1.2,
+                      y: -5,
+                      rotateZ: 5,
+                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`w-10 h-10 bg-gradient-to-r ${social.color} backdrop-blur-sm rounded-xl flex items-center justify-center text-white shadow-lg transition-all duration-300 relative overflow-hidden`}
                     aria-label={social.label}
                     target={social.external ? "_blank" : undefined}
                     rel={social.external ? "noopener noreferrer" : undefined}
                   >
-                    {social.icon}
+                    <motion.div
+                      className="absolute inset-0 bg-white/20"
+                      whileHover={{ opacity: 0.3 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <div className="relative z-10">
+                      {social.icon}
+                    </div>
                   </motion.a>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
-            {/* Quick Links */}
+            {/* Enhanced Quick Links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              variants={slideInVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
-              <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
+              <motion.h4
+                className="text-lg font-bold mb-6 text-white relative"
+                whileHover={{
+                  scale: 1.05,
+                  textShadow: "0 0 20px rgba(255, 255, 255, 0.5)"
+                }}
+              >
+                Quick Links
+                <motion.div
+                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+              </motion.h4>
+              <motion.ul
+                className="space-y-3"
+                variants={staggerListVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {quickLinks.map((link) => (
                   <motion.li
                     key={link.title}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    variants={listItemVariants}
                   >
                     <motion.div
-                      whileHover={{ x: 5, color: '#60A5FA' }}
-                      className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center"
+                      whileHover={{
+                        x: 10,
+                        color: '#60A5FA',
+                        scale: 1.05
+                      }}
+                      className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center group cursor-pointer"
                     >
-                      <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
-                      <Link to={link.href} onClick={() => window.scrollTo(0, 0)}>{link.title}</Link>
+                      <motion.span
+                        className="w-2 h-2 bg-white rounded-full mr-3 group-hover:bg-blue-400 transition-colors duration-300"
+                        whileHover={{ scale: 1.5 }}
+                      />
+                      <Link
+                        to={link.href}
+                        onClick={() => window.scrollTo(0, 0)}
+                        className="relative"
+                      >
+                        {link.title}
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-0.5 bg-blue-400 rounded"
+                          initial={{ width: 0 }}
+                          whileHover={{ width: "100%" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </Link>
                     </motion.div>
                   </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
 
-            {/* Programs */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-bold mb-6 text-white">Programs</h4>
-              <ul className="space-y-3">
-                {programs.map((program, index) => (
-                  <motion.li
-                    key={program.title}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.a
-                      href={program.href}
-                      whileHover={{ x: 5, color: '#60A5FA' }}
-                      className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center"
-                    >
-                      <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 opacity-0 hover:opacity-100 transition-opacity"></span>
-                      {program.title}
-                    </motion.a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div> */}
-
-            {/* Contact Info */}
+            {/* Enhanced Contact Info */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              variants={slideInVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
+              className="lg:col-span-2"
             >
-              <h4 className="text-lg font-bold mb-6 text-white">Contact Info</h4>
-              <div className="space-y-4">
+              <motion.h4
+                className="text-lg font-bold mb-6 text-white relative"
+                whileHover={{
+                  scale: 1.05,
+                  textShadow: "0 0 20px rgba(255, 255, 255, 0.5)"
+                }}
+              >
+                Contact Info
                 <motion.div
-                  whileHover={{ x: 5 }}
-                  className="flex items-start space-x-3 text-gray-300"
+                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+              </motion.h4>
+              <motion.div
+                className="space-y-4"
+                variants={staggerListVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  variants={listItemVariants}
+                  whileHover={{
+                    x: 10,
+                    scale: 1.02
+                  }}
+                  className="flex items-start space-x-3 text-gray-300 group"
                 >
-                  <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                  <motion.div
+                    whileHover={{
+                      rotate: 360,
+                      scale: 1.2,
+                      color: "#60a5fa"
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                  </motion.div>
                   <div>
-                    <p>Palestine, Jersualem</p>
+                    <motion.p
+                      whileHover={{ color: "#d1d5db" }}
+                    >
+                      Palestine, Jerusalem
+                    </motion.p>
                   </div>
                 </motion.div>
+
                 <motion.div
-                  whileHover={{ x: 5 }}
+                  variants={listItemVariants}
+                  whileHover={{
+                    x: 10,
+                    scale: 1.02
+                  }}
+                  className="flex items-center space-x-3 text-gray-300 group"
+                >
+                  <motion.div
+                    whileHover={{
+                      rotate: 360,
+                      scale: 1.2,
+                      color: "#10b981"
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  </motion.div>
+                  <div>
+                    <motion.a
+                      href="tel:+972-56-698-6006"
+                      className="hover:text-emerald-400 transition-colors relative"
+                      whileHover={{ color: "#10b981" }}
+                    >
+                      +972-56-698-6006
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-emerald-400 rounded"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "100%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.a>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  variants={listItemVariants}
+                  whileHover={{
+                    x: 10,
+                    scale: 1.02
+                  }}
                   className="flex items-center space-x-3 text-gray-300"
                 >
-                  <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <motion.div
+                    whileHover={{
+                      rotate: 360,
+                      scale: 1.2,
+                      color: "#8b5cf6"
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Mail className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                  </motion.div>
                   <div>
-                    <a href="tel:+972-56-698-6006" className="hover:text-blue-400 transition-colors">+972-56-698-6006</a>
+                    <motion.p
+                      whileHover={{ color: "#d1d5db" }}
+                    >
+                      Soon
+                    </motion.p>
                   </div>
                 </motion.div>
-                <motion.div
-                  whileHover={{ x: 5 }}
-                  className="flex items-center space-x-3 text-gray-300"
-                >
-                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <div>
-                    <p>Soon</p>
-                  </div>
-                </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Bottom Bar */}
+        {/* Enhanced Bottom Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="border-t border-gray-700 py-8"
+          className="border-t border-gray-700 py-8 relative"
         >
+          {/* Decorative line animation */}
+          <motion.div
+            className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded"
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 2, delay: 0.5 }}
+          />
+
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2 text-gray-300">
-              <span>©  PMED. All rights reserved.</span>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-x-2 gap-y-1 text-gray-300 text-sm text-center sm:text-left">
-              <span>Developed by <span className="font-semibold">Codefusion</span></span>
+            <motion.div
+              className="flex items-center space-x-2 text-gray-300"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.span
+                whileHover={{ color: "#d1d5db" }}
+              >
+                © PMED. All rights reserved.
+              </motion.span>
+              <motion.div
+                variants={pulseVariants}
+                initial="initial"
+                animate="animate"
+              >
+
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col sm:flex-row items-center gap-x-2 gap-y-1 text-gray-300 text-sm text-center sm:text-left"
+              variants={staggerListVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <motion.span
+                variants={listItemVariants}
+                whileHover={{ color: "#d1d5db" }}
+              >
+                Developed by <span className="font-semibold">Codefusion</span>
+              </motion.span>
               <span className="hidden sm:inline">|</span>
-              <a href="https://instagram.com/codefusionn.ps" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-1">
-                <Instagram className="w-5 h-5" />
+
+              <motion.a
+                href="https://instagram.com/codefusionn.ps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-400 flex items-center gap-1 transition-colors duration-300"
+                variants={listItemVariants}
+                whileHover={{
+                  scale: 1.05,
+                  color: "#f472b6"
+                }}
+              >
+                <Instagram className="w-4 h-4" />
                 <span>@codefusionn.ps</span>
-              </a>
-              <a href="https://codefusion.me/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 flex items-center gap-1">
-                <Globe className="w-5 h-5" />
+              </motion.a>
+
+              <motion.a
+                href="https://codefusion.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 flex items-center gap-1 transition-colors duration-300"
+                variants={listItemVariants}
+                whileHover={{
+                  scale: 1.05,
+                  color: "#60a5fa"
+                }}
+              >
+                <Globe className="w-4 h-4" />
                 <span>codefusion.me</span>
-              </a>
+              </motion.a>
+
               <span className="hidden sm:inline">|</span>
-              <a href="tel:+972599203857" className="hover:text-blue-400 flex items-center gap-1">
-                <Phone className="w-5 h-5" />
+
+              <motion.a
+                href="tel:+972599203857"
+                className="hover:text-emerald-400 flex items-center gap-1 transition-colors duration-300"
+                variants={listItemVariants}
+                whileHover={{
+                  scale: 1.05,
+                  color: "#10b981"
+                }}
+              >
+                <Phone className="w-4 h-4" />
                 <span>+972599203857</span>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
         </motion.div>
       </div>

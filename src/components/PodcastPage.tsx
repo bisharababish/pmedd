@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Users, X, ClipboardList, Instagram, Linkedin, Youtube } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { Users, X, ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
 
 import ahmadRomana from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
@@ -9,11 +9,18 @@ import khaled from "./teampics/KhaledAlqasrawi.jpeg";
 import meray from "./teampics/MerayDour.jpeg";
 import dahlia from "./teampics/Dahlia.jpeg";
 
-import Slide4 from "./images/Slide4.jpg"; // You might want a different background for the podcast page
-import './CardiologyPage.css'; // This CSS is reused, can be renamed to something more generic if needed
+import Slide4 from "./images/Slide4.jpg";
+import './CardiologyPage.css';
+
+// Define PodcastTeamMember type
+interface PodcastTeamMember {
+    name: string;
+    role: string;
+    img: string;
+}
 
 // Data for the 6 podcast team members
-const podcastTeam = [
+const podcastTeam: PodcastTeamMember[] = [
     { name: ' ', role: '', img: ahmadRomana },
     { name: '  ', role: '', img: kinda },
     { name: ' ', role: '', img: lamar },
@@ -22,129 +29,372 @@ const podcastTeam = [
     { name: ' ', role: '', img: dahlia },
 ];
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2
-        }
-    }
-};
-
-const cardVariants = {
-    hidden: {
-        opacity: 0,
-        y: 40,
-        scale: 0.95
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: {
-            type: "spring",
-            stiffness: 100,
-            damping: 15,
-            duration: 0.6
-        }
-    }
-};
-
 const PodcastPage = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedMember, setSelectedMember] = useState<PodcastTeamMember | null>(null);
+    const heroRef = useRef(null);
+    const { scrollYProgress } = useScroll();
 
-    const openModal = (image: string) => {
-        setSelectedImage(image);
-        window.scrollTo({ top: 0, behavior: 'auto' });
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+    const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1.1]);
+
+    const openModal = (member: PodcastTeamMember) => {
+        setSelectedImage(member.img);
+        setSelectedMember(member);
+        document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setSelectedImage(null);
+        setSelectedMember(null);
+        document.body.style.overflow = 'unset';
+    };
+
+    useEffect(() => {
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
+
+    // Enhanced animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2,
+                duration: 0.8,
+                ease: [0.6, -0.05, 0.01, 0.99]
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: {
+            opacity: 0,
+            y: 60,
+            scale: 0.9,
+            rotateX: -15
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.6, -0.05, 0.01, 0.99]
+            }
+        }
+    };
+
+    const floatingVariants = {
+        initial: { y: 0, rotate: 0 },
+        animate: {
+            y: [-20, 20, -20],
+            rotate: [0, 5, -5, 0],
+            transition: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        }
+    };
+
+    const pulseVariants = {
+        initial: { scale: 1, opacity: 0.7 },
+        animate: {
+            scale: [1, 1.2, 1],
+            opacity: [0.7, 1, 0.7],
+            transition: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        }
+    };
+
+    const shinyTextVariants = {
+        initial: {
+            backgroundPosition: '-200% 0',
+        },
+        animate: {
+            backgroundPosition: '200% 0',
+            transition: {
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: 1
+            }
+        }
+    };
+
+    const slideInVariants = {
+        hidden: {
+            opacity: 0,
+            x: -100,
+            rotateY: -45
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            transition: {
+                duration: 1,
+                ease: [0.6, -0.05, 0.01, 0.99]
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: {
+            opacity: 0,
+            y: 40,
+            scale: 0.95,
+            rotateY: -15
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateY: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.6
+            }
+        }
+    };
+
+    const staggerListVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.2,
+                staggerChildren: 0.1
+            }
+        }
     };
 
     return (
-        <div
-            className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative"
-            style={{ backgroundImage: `url(${Slide4})` }}
-        >
-            {/* Background overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/75 to-purple-50/80 backdrop-blur-[1px]"></div>
+        <div className="min-h-screen relative overflow-hidden">
+            {/* Enhanced Background with Parallax */}
+            <motion.div
+                className="fixed inset-0 z-0"
+                style={{
+                    y: backgroundY,
+                    scale: backgroundScale
+                }}
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${Slide4})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-purple-50/85 to-pink-50/80 backdrop-blur-[2px]" />
+
+                {/* Floating Podcast Icons */}
+                <motion.div
+                    className="absolute top-40 right-20 text-pink-400/20"
+                    variants={floatingVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ delay: 1 }}
+                >
+                    <Radio size={60} />
+                </motion.div>
+                <motion.div
+                    className="absolute bottom-40 left-20 text-purple-400/20"
+                    variants={floatingVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ delay: 2 }}
+                >
+                    <Headphones size={70} />
+                </motion.div>
+
+                {/* Animated Background Shapes */}
+                <motion.div
+                    className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+                    variants={pulseVariants}
+                    initial="initial"
+                    animate="animate"
+                />
+                <motion.div
+                    className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-full blur-3xl"
+                    variants={pulseVariants}
+                    initial="initial"
+                    animate="animate"
+                    transition={{ delay: 1 }}
+                />
+            </motion.div>
 
             <div className="relative z-10 min-h-screen">
                 <div className="max-w-6xl mx-auto py-12 md:py-16 px-4 sm:px-6">
 
-                    {/* Hero Section */}
-                    <div className="text-center mb-16 md:mb-20 mt-16 md:mt-20">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="mb-6"
-                        >
-
-                        </motion.div>
-
+                    {/* Enhanced Hero Section */}
+                    <motion.div
+                        ref={heroRef}
+                        className="text-center mb-16 md:mb-20 mt-16 md:mt-20"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
                         <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-purple-500 bg-clip-text text-transparent mb-6"
+                            className="text-4xl md:text-7xl font-bold mb-6 relative"
+                            variants={itemVariants}
                         >
-                            PMED Podcast Club
+                            <motion.span
+                                className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                variants={shinyTextVariants}
+                                initial="initial"
+                                animate="animate"
+                                style={{
+                                    backgroundImage: 'linear-gradient(90deg, #9333ea 0%, #ec4899 30%, #9333ea 60%, #ec4899 100%)',
+                                    backgroundSize: '200% 100%',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text'
+                                }}
+                            >
+                                PMED Podcast Club
+                            </motion.span>
                         </motion.h1>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"
-                        />
-                    </div>
+                            className="flex justify-center mb-8"
+                            variants={itemVariants}
+                        >
+                            <motion.div
+                                className="w-32 h-1 bg-gradient-to-r from-purple-500 via-pink-600 to-purple-500 rounded-full"
+                                initial={{ width: 0 }}
+                                animate={{ width: 128 }}
+                                transition={{ duration: 1.5, delay: 1 }}
+                            />
+                        </motion.div>
 
-                    {/* About Section */}
+                        <motion.p
+                            className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium"
+                            variants={itemVariants}
+                        >
+                            Where medical science meets storytelling - exploring breakthroughs, sharing stories, and inspiring the future of healthcare
+                        </motion.p>
+                    </motion.div>
+
+                    {/* Enhanced About Section */}
                     <motion.section
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
                         className="mb-16 md:mb-20"
+                        variants={slideInVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
                     >
-                        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 border border-white/20">
-                            <div className="text-center mb-8">
+                        <motion.div
+                            className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 border border-white/20 relative overflow-hidden"
+                            whileHover={{
+                                scale: 1.02,
+                                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+                                transition: { duration: 0.3 }
+                            }}
+                        >
+                            {/* Decorative Elements */}
+                            <motion.div
+                                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"
+                                variants={pulseVariants}
+                                initial="initial"
+                                animate="animate"
+                            />
+                            <motion.div
+                                className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-full blur-2xl"
+                                variants={pulseVariants}
+                                initial="initial"
+                                animate="animate"
+                                transition={{ delay: 1 }}
+                            />
+
+                            <div className="text-center mb-8 relative z-10">
+                                <motion.div
+                                    className="inline-flex items-center justify-center mb-6"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                >
+                                    <Radio className="w-8 h-8 text-purple-600 mr-3" />
+                                    <span className="text-purple-600 font-bold text-lg">Medical Storytelling</span>
+                                </motion.div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Our Podcast</h2>
                             </div>
-                            <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-5xl mx-auto">
-                                The <span className="font-semibold text-purple-600">PMED Podcast Club</span> is where medical science meets storytelling. We explore the latest breakthroughs, share inspiring stories from healthcare professionals, and discuss the challenges and triumphs of medicine. Our mission is to create engaging, informative content that educates and entertains. Join our community to dive deep into the world of medicine, one episode at a time.
-                            </p>
-                        </div>
+                            <motion.p
+                                className="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-5xl mx-auto relative z-10"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                            >
+                                The <span className="font-semibold text-purple-600 relative">PMED Podcast Club</span> is where medical science meets storytelling. We explore the latest breakthroughs, share inspiring stories from healthcare professionals, and discuss the challenges and triumphs of medicine. Our mission is to create engaging, informative content that educates and entertains. Join our community to dive deep into the world of medicine, one episode at a time.
+                            </motion.p>
+                        </motion.div>
                     </motion.section>
 
-                    {/* Team Section */}
+                    {/* Enhanced Team Section */}
                     <motion.section
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
                         className="mb-16 md:mb-20"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
                     >
-                        <div className="text-center mb-12 md:mb-16">
-                            <div className="inline-flex items-center justify-center p-3 bg-white/90 backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-white/20">
+                        <motion.div className="text-center mb-12 md:mb-16" variants={itemVariants}>
+                            <motion.div
+                                className="inline-flex items-center justify-center p-4 bg-white/90 backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-white/20"
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
+                                }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                            >
                                 <Users className="w-8 h-8 text-purple-600 mr-3" />
                                 <span className="text-purple-600 font-bold text-lg">Our Podcast Team</span>
-                            </div>
-                            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
-                                MEET OUR TEAM
-                            </h2>
-                            <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-6"></div>
-                            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
+                            </motion.div>
+
+                            <motion.h2
+                                className="text-3xl md:text-5xl font-bold mb-6"
+                                variants={itemVariants}
+                            >
+                                <motion.span
+                                    className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                    variants={shinyTextVariants}
+                                    initial="initial"
+                                    animate="animate"
+                                    style={{
+                                        backgroundImage: 'linear-gradient(90deg, #9333ea 0%, #ec4899 50%, #9333ea 100%)',
+                                        backgroundSize: '200% 100%',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text'
+                                    }}
+                                >
+                                    MEET OUR TEAM
+                                </motion.span>
+                            </motion.h2>
+
+                            <motion.div
+                                className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-6"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: 128 }}
+                                transition={{ duration: 1, delay: 0.5 }}
+                            />
+
+                            <motion.p
+                                className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium"
+                                variants={itemVariants}
+                            >
                                 Meet the passionate team of hosts, producers, and editors dedicated to bringing you insightful conversations from the world of medicine.
-                            </p>
-                        </div>
+                            </motion.p>
+                        </motion.div>
 
                         <motion.div
-                            variants={containerVariants}
+                            variants={staggerListVariants}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
@@ -155,112 +405,197 @@ const PodcastPage = () => {
                                     key={idx}
                                     variants={cardVariants}
                                     whileHover={{
-                                        y: -8,
-                                        scale: 1.02,
-                                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                                        y: -15,
+                                        scale: 1.05,
+                                        rotateY: 5,
+                                        transition: { type: 'spring', stiffness: 300, damping: 20 }
                                     }}
-                                    className="group relative"
-                                    onClick={() => openModal(member.img)}
+                                    className="group relative cursor-pointer"
+                                    onClick={() => openModal(member)}
                                 >
-                                    <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-6 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer">
-                                        <div className="absolute inset-0 opacity-5">
-                                            <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500" />
-                                        </div>
+                                    <motion.div
+                                        className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/30 hover:shadow-3xl transition-all duration-500 overflow-hidden"
+                                        whileHover={{
+                                            background: "rgba(255, 255, 255, 0.98)"
+                                        }}
+                                    >
+                                        {/* Enhanced Gradient Border Effect */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+                                            whileHover={{
+                                                background: "linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, transparent 50%, rgba(236, 72, 153, 0.3) 100%)"
+                                            }}
+                                        />
+
                                         <div className="relative z-10 text-center">
                                             <div className="relative mb-4">
-                                                <div className="w-28 sm:w-32 h-28 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-purple-500 to-pink-500 p-1">
+                                                <motion.div
+                                                    className="w-28 sm:w-32 h-28 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-purple-500 to-pink-500 p-1"
+                                                    whileHover={{ scale: 1.05, rotate: 2 }}
+                                                    transition={{ duration: 0.3 }}
+                                                >
                                                     <img
                                                         src={member.img}
                                                         alt={member.name}
-                                                        className="w-full h-full object-cover rounded-[14px] group-hover:scale-105 transition-transform duration-500"
+                                                        className="w-full h-full object-cover rounded-[14px] group-hover:scale-110 transition-transform duration-700"
                                                         onError={(e) => {
                                                             const target = e.target as HTMLImageElement;
                                                             target.src = 'https://via.placeholder.com/150/E5E7EB/6B7280?text=Member';
                                                         }}
                                                     />
-                                                </div>
+                                                </motion.div>
+
+                                                {/* Enhanced Click Indicator */}
+                                                <motion.div
+                                                    className="absolute bottom-2 right-2 bg-white/95 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg"
+                                                    whileHover={{ scale: 1.1 }}
+                                                >
+                                                    <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                    </svg>
+                                                </motion.div>
                                             </div>
-                                            <h4 className="text-xl font-bold text-gray-800 h-6">{member.name}</h4>
-                                            <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 font-semibold h-6">{member.role}</p>
+
+                                            <motion.h4
+                                                className="text-xl font-bold text-gray-800 h-6"
+                                                whileHover={{ scale: 1.05 }}
+                                            >
+                                                {member.name}
+                                            </motion.h4>
+                                            <motion.p
+                                                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 font-semibold h-6"
+                                                whileHover={{ scale: 1.05 }}
+                                            >
+                                                {member.role}
+                                            </motion.p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </motion.div>
                             ))}
                         </motion.div>
                     </motion.section>
 
-                    {/* How to Apply/Join Section */}
+                    {/* Enhanced How to Apply/Join Section */}
                     <section className="mt-16 md:mt-20">
                         <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-3xl mx-auto text-center"
+                            className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 max-w-3xl mx-auto text-center relative overflow-hidden border border-white/20"
+                            variants={slideInVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            whileHover={{
+                                scale: 1.02,
+                                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+                                transition: { duration: 0.3 }
+                            }}
                         >
-                            <div className="inline-flex items-center justify-center mb-6">
+                            {/* Background Decoration */}
+                            <motion.div
+                                className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+                                variants={pulseVariants}
+                                initial="initial"
+                                animate="animate"
+                            />
+
+                            <motion.div
+                                className="inline-flex items-center justify-center mb-6 relative z-10"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                            >
                                 <ClipboardList className="w-8 h-8 text-purple-700 mr-3" />
                                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Become a Guest</h2>
-                            </div>
-                            <div className="text-base md:text-lg text-gray-600 space-y-4 leading-relaxed">
+                            </motion.div>
+
+                            <motion.div
+                                className="text-base md:text-lg text-gray-600 space-y-4 leading-relaxed mb-8 relative z-10"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                            >
                                 <p>
                                     Have a story to share or expertise in a medical field? We are always looking for passionate guests to join our podcast. Contact us to learn more about becoming a guest speaker.
                                 </p>
-                                <p className="font-semibold text-purple-600">
+                                <motion.p
+                                    className="font-semibold text-purple-600"
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                >
                                     Follow our social media channels for the latest episodes, behind-the-scenes content, and announcements.
-                                </p>
-                            </div>
-                            {/* Social Media Links */}
-                            <div className="mt-8">
-                                <h3 className="text-xl font-bold text-gray-800 mb-4">Follow Us</h3>
-                                <div className="flex justify-center space-x-6">
-                                    <a href="#" className="text-red-600 hover:text-red-800 transition-colors">
-                                        <Youtube size={28} />
-                                    </a>
-                                    <a href="#" className="text-pink-600 hover:text-pink-800 transition-colors">
-                                        <Instagram size={28} />
-                                    </a>
-                                    <a href="#" className="text-blue-700 hover:text-blue-900 transition-colors">
-                                        <Linkedin size={28} />
-                                    </a>
+                                </motion.p>
+                            </motion.div>
 
+                            {/* Enhanced Social Media Links */}
+                            <div className="relative z-10">
+                                <motion.h3
+                                    className="text-xl font-bold text-gray-800 mb-4"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    Follow Us
+                                </motion.h3>
+                                <div className="flex justify-center space-x-8">
+                                    {[
+                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50" },
+                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50" },
+                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50" }
+                                    ].map((social, idx) => (
+                                        <motion.a
+                                            key={idx}
+                                            href="#"
+                                            className={`${social.color} ${social.bg} p-4 rounded-2xl transition-all duration-300 shadow-lg`}
+                                            whileHover={{
+                                                scale: 1.2,
+                                                rotate: 5,
+                                                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
+                                            }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            <social.icon size={28} />
+                                        </motion.a>
+                                    ))}
                                 </div>
                             </div>
                         </motion.div>
                     </section>
 
-                    {/* Modal */}
+                    {/* Enhanced Modal */}
                     <AnimatePresence>
-                        {selectedImage && (
+                        {selectedImage && selectedMember && (
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4"
+                                className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4"
                                 onClick={closeModal}
                             >
                                 <motion.div
-                                    initial={{ scale: 0.8, opacity: 0, rotateX: -15 }}
-                                    animate={{ scale: 1, opacity: 1, rotateX: 0 }}
-                                    exit={{ scale: 0.8, opacity: 0, rotateX: 15 }}
+                                    initial={{ scale: 0.7, opacity: 0, rotateX: -30, y: 100 }}
+                                    animate={{ scale: 1, opacity: 1, rotateX: 0, y: 0 }}
+                                    exit={{ scale: 0.7, opacity: 0, rotateX: 30, y: -100 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
+                                    className="relative w-full max-w-5xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    {/* Close Button */}
-                                    <button
+                                    {/* Enhanced Close Button */}
+                                    <motion.button
                                         onClick={closeModal}
-                                        className="absolute top-6 right-6 z-10 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:scale-110 transition-all duration-200"
+                                        className="absolute top-6 right-6 z-20 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200"
+                                        whileHover={{ scale: 1.1, rotate: 90 }}
+                                        whileTap={{ scale: 0.95 }}
                                     >
                                         <X className="w-6 h-6 text-gray-700" />
-                                    </button>
+                                    </motion.button>
 
-                                    {/* Image Container */}
-                                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 min-h-[60vh]">
-                                        <img
+                                    {/* Modal Content: Only Image */}
+                                    <div className="flex items-center justify-center h-full p-6 bg-black/80">
+                                        <motion.img
                                             src={selectedImage}
                                             alt="Podcast Team Member"
-                                            className="w-full h-full object-contain max-w-full max-h-[90vh] p-6"
+                                            className="max-w-full max-h-[70vh] rounded-2xl shadow-2xl ring-4 ring-white/30 object-contain transition-transform duration-500"
+                                            initial={{ scale: 0.85, opacity: 0 }}
+                                            animate={{ scale: 1, opacity: 1 }}
+                                            exit={{ scale: 0.85, opacity: 0 }}
+                                            transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.1 }}
                                         />
                                     </div>
                                 </motion.div>
@@ -273,4 +608,4 @@ const PodcastPage = () => {
     );
 };
 
-export default PodcastPage; 
+export default PodcastPage;
