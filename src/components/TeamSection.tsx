@@ -13,6 +13,8 @@ import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
 import heba from "./teampics/heba.jpeg";
 import Laith from "./teampics/laith.jpeg";
+// Mock images for demonstration
+
 
 const teamStructure = [
     {
@@ -172,7 +174,77 @@ const cardVariants = {
     }
 };
 
+// Member Card Component
+interface Member {
+    name: string;
+    role: string;
+    img: string;
+}
+
+interface Group {
+    color: string;
+    accent: string;
+}
+
+interface MemberCardProps {
+    member: Member;
+    group: Group;
+}
+
+const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
+    <motion.div
+        variants={cardVariants}
+        whileHover={{
+            y: -8,
+            scale: 1.02,
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+        }}
+        className="group relative"
+    >
+        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <div className={`w-full h-full bg-gradient-to-br ${group.color}`} />
+            </div>
+
+            {/* Floating Orbs */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
+
+            <div className="relative z-10 text-center">
+                {/* Profile Image */}
+                <div className="relative mb-6">
+                    <div className={`w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-1`}>
+                        <img
+                            src={member.img}
+                            alt={member.name}
+                            className="w-full h-full object-cover rounded-xl"
+                        />
+                    </div>
+                </div>
+
+                {/* Member Info */}
+                <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">
+                    {member.name}
+                </h4>
+
+                <div className={`inline-block px-4 py-2 bg-gradient-to-r ${group.accent} rounded-full mb-3`}>
+                    <p className="text-sm font-semibold text-white">
+                        {member.role}
+                    </p>
+                </div>
+            </div>
+
+            {/* Hover Effect Overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+        </div>
+    </motion.div>
+);
+
 const TeamSection = () => {
+    const founders = teamStructure[0]; // Leadership & Founders
+    const otherTeams = teamStructure.slice(1); // All other teams
+
     return (
         <div id="team" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -192,99 +264,89 @@ const TeamSection = () => {
                         Meet Our Team
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Meet the brains, hearts, and hustle behind PMED Club!                     </p>
+                        Meet the brains, hearts, and hustle behind PMED Club!
+                    </p>
                 </motion.div>
 
-                {/* Team Groups */}
-                <div className="space-y-20">
-                    {teamStructure.map((group, groupIdx) => (
-                        <motion.div
-                            key={groupIdx}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={containerVariants}
-                            className="relative"
-                        >
-                            {/* Group Header */}
-                            <div className="text-center mb-12">
-                                <div className="inline-flex items-center justify-center mb-4">
+                {/* Tree Structure */}
+                <div className="relative">
+                    {/* Founders at the top */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                        className="mb-16"
+                    >
+                        {/* Founders Header */}
+                        <div className="text-center mb-12">
+                            <h3 className={`text-3xl font-bold bg-gradient-to-r ${founders.color} bg-clip-text text-transparent mb-4`}>
+                                {founders.roleGroup}
+                            </h3>
+                            <div className={`w-24 h-1 bg-gradient-to-r ${founders.color} mx-auto rounded-full`} />
+                        </div>
 
-                                    <h3 className={`text-3xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
+                        {/* Founders Cards */}
+                        <div className="flex justify-center gap-8 mb-12">
+                            {founders.members.map((member, idx) => (
+                                <div key={idx} className="w-80">
+                                    <MemberCard member={member} group={founders} />
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Connecting lines from founders */}
+                        <div className="relative flex justify-center mb-8">
+                            <div className="w-px h-12 bg-gradient-to-b from-indigo-300 to-transparent"></div>
+                        </div>
+                        <div className="relative mb-8">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-4/5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></div>
+                            <div className="flex justify-center">
+                                <div className="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Other team members in tree formation */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 relative">
+                        {/* Vertical connecting lines */}
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
+                        
+                        {otherTeams.map((group, groupIdx) => (
+                            <motion.div
+                                key={groupIdx}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                variants={containerVariants}
+                                className="relative"
+                            >
+                                {/* Branch connecting line */}
+                                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-px h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+                                
+                                {/* Group Header */}
+                                <div className="text-center mb-8">
+                                    <h3 className={`text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-2`}>
                                         {group.roleGroup}
                                     </h3>
+                                    <div className={`w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
                                 </div>
-                                <div className={`w-24 h-1 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
-                            </div>
 
-                            {/* Members Grid */}
-                            <div className={`grid gap-8 ${group.members.length === 1 ? 'grid-cols-1 justify-items-center max-w-md mx-auto' :
-                                group.members.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto' :
-                                    'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-                                }`}>
-                                {group.members.map((member, memberIdx) => (
-                                    <motion.div
-                                        key={memberIdx}
-                                        variants={cardVariants}
-                                        whileHover={{
-                                            y: -8,
-                                            scale: 1.02,
-                                            transition: { type: "spring", stiffness: 300, damping: 20 }
-                                        }}
-                                        className="group relative"
-                                    >
-                                        {/* Card */}
-                                        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                                            {/* Background Pattern */}
-                                            <div className="absolute inset-0 opacity-5">
-                                                <div className={`w-full h-full bg-gradient-to-br ${group.color}`} />
-                                            </div>
-
-                                            {/* Floating Orbs */}
-                                            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
-                                            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
-
-                                            <div className="relative z-10 text-center">
-                                                {/* Profile Image */}
-                                                <div className="relative mb-6">
-                                                    <div className={`w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-1`}>
-                                                        <img
-                                                            src={member.img}
-                                                            alt={member.name}
-                                                            className="w-full h-full object-cover rounded-xl"
-                                                        />
-                                                    </div>
-                                                </div>
-
-                                                {/* Member Info */}
-                                                <h4 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">
-                                                    {member.name}
-                                                </h4>
-
-                                                <div className={`inline-block px-4 py-2 bg-gradient-to-r ${group.accent} rounded-full mb-3`}>
-                                                    <p className="text-sm font-semibold text-white">
-                                                        {member.role}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            {/* Hover Effect Overlay */}
-                                            <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+                                {/* Team Members */}
+                                <div className="space-y-6">
+                                    {group.members.map((member, memberIdx) => (
+                                        <div key={memberIdx} className="relative">
+                                            {/* Connecting line between team members */}
+                                            {memberIdx > 0 && (
+                                                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-px h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
+                                            )}
+                                            <MemberCard member={member} group={group} />
                                         </div>
-
-                                        {/* Connection Line for Multiple Members */}
-                                        {group.members.length > 1 && memberIdx < group.members.length - 1 && (
-                                            <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-gray-300 to-transparent transform -translate-y-1/2 z-0" />
-                                        )}
-                                    </motion.div>
-                                ))}
-                            </div>
-
-                            {/* Decorative Elements */}
-                            <div className="absolute -top-8 left-1/4 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-30" />
-                            <div className="absolute -bottom-8 right-1/3 w-3 h-3 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full opacity-20" />
-                        </motion.div>
-                    ))}
+                                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Bottom CTA */}
