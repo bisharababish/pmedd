@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Users, X, ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
+import { X, ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
 
 import ahmadRomana from "./teampics/ahmad.jpeg";
-import kinda from "./teampics/kinda.jpeg";
 import lamar from "./teampics/Lamar.jpeg";
-import khaled from "./teampics/KhaledAlqasrawi.jpeg";
 import meray from "./teampics/MerayDour.jpeg";
-import dahlia from "./teampics/Dahlia.jpeg";
+import abduallah from "./teampics/abdallah.jpeg";
 
 import Slide4 from "./images/Slide4.jpg";
 import './CardiologyPage.css';
@@ -21,12 +19,11 @@ interface PodcastTeamMember {
 
 // Data for the 6 podcast team members
 const podcastTeam: PodcastTeamMember[] = [
-    { name: ' ', role: '', img: ahmadRomana },
-    { name: '  ', role: '', img: kinda },
-    { name: ' ', role: '', img: lamar },
-    { name: ' ', role: ' ', img: khaled },
-    { name: ' ', role: ' ', img: meray },
-    { name: ' ', role: '', img: dahlia },
+    { name: 'Ahmad Romana', role: 'Host & Producer', img: ahmadRomana },
+    { name: 'Lamar Dahlia', role: 'Host & Producer', img: lamar },
+    { name: 'Meray Dour', role: 'Host & Producer', img: meray },
+    { name: 'Abdallah  Elayyan', role: 'Director', img: abduallah },
+
 ];
 
 const PodcastPage = () => {
@@ -338,17 +335,7 @@ const PodcastPage = () => {
                         viewport={{ once: true, margin: "-100px" }}
                     >
                         <motion.div className="text-center mb-12 md:mb-16" variants={itemVariants}>
-                            <motion.div
-                                className="inline-flex items-center justify-center p-4 bg-card-bg backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-border-gray"
-                                whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
-                                }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                            >
-                                <Users className="w-8 h-8 text-primary-blue mr-3" />
-                                <span className="text-primary-blue font-bold text-lg">Our Podcast Team</span>
-                            </motion.div>
+
 
                             <motion.h2
                                 className="text-3xl md:text-5xl font-bold mb-6 text-primary-blue"
@@ -490,7 +477,7 @@ const PodcastPage = () => {
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
                                 <ClipboardList className="w-8 h-8 text-primary-blue mr-3" />
-                                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Become a Guest</h2>
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Join our podcast</h2>
                             </motion.div>
 
                             <motion.div
@@ -521,13 +508,15 @@ const PodcastPage = () => {
                                 </motion.h3>
                                 <div className="flex justify-center space-x-8">
                                     {[
-                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50" },
-                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50" },
-                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50" }
+                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50", href: "https://www.youtube.com/@pmedpodcast" },
+                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50", href: "https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" },
+                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50", href: "https://www.linkedin.com/company/pmedpodcast/" }
                                     ].map((social, idx) => (
                                         <motion.a
                                             key={idx}
-                                            href="#"
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className={`${social.color} ${social.bg} p-4 rounded-2xl transition-all duration-300 shadow-lg`}
                                             whileHover={{
                                                 scale: 1.2,
