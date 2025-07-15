@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { X, ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
 
 import ahmadRomana from "./teampics/ahmad.jpeg";
 import lamar from "./teampics/Lamar.jpeg";
@@ -27,31 +27,11 @@ const podcastTeam: PodcastTeamMember[] = [
 ];
 
 const PodcastPage = () => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const [selectedMember, setSelectedMember] = useState<PodcastTeamMember | null>(null);
     const heroRef = useRef(null);
     const { scrollYProgress } = useScroll();
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
     const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1.1]);
-
-    const openModal = (member: PodcastTeamMember) => {
-        setSelectedImage(member.img);
-        setSelectedMember(member);
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeModal = () => {
-        setSelectedImage(null);
-        setSelectedMember(null);
-        document.body.style.overflow = 'unset';
-    };
-
-    useEffect(() => {
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, []);
 
     // Enhanced animation variants
     const containerVariants = {
@@ -377,73 +357,24 @@ const PodcastPage = () => {
                                 <motion.div
                                     key={idx}
                                     variants={cardVariants}
-                                    whileHover={{
-                                        y: -15,
-                                        scale: 1.05,
-                                        rotateY: 5,
-                                        transition: { type: 'spring', stiffness: 300, damping: 20 }
-                                    }}
-                                    className="group relative cursor-pointer"
-                                    onClick={() => openModal(member)}
+                                    className="group relative flex flex-col items-center bg-white/90 rounded-3xl shadow-xl border border-border-gray p-8 transition-all duration-500 hover:shadow-2xl"
+                                    style={{ minHeight: 320 }}
                                 >
-                                    <motion.div
-                                        className="relative bg-card-bg backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-border-gray hover:shadow-3xl transition-all duration-500 overflow-hidden"
-                                        whileHover={{
-                                            background: "rgba(255, 255, 255, 0.98)"
-                                        }}
-                                    >
-                                        {/* Enhanced Gradient Border Effect */}
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 via-transparent to-secondary-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                                            whileHover={{
-                                                background: "linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, transparent 50%, rgba(59, 130, 246, 0.3) 100%)"
+                                    <div className="mb-6">
+                                        <img
+                                            src={member.img}
+                                            alt={member.name}
+                                            className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-primary-blue/20 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10"
+                                            onError={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                target.src = 'https://via.placeholder.com/150/E5E7EB/6B7280?text=Member';
                                             }}
                                         />
-
-                                        <div className="relative z-10 text-center">
-                                            <div className="relative mb-4">
-                                                <motion.div
-                                                    className="w-28 sm:w-32 h-28 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-primary-blue to-secondary-blue p-1"
-                                                    whileHover={{ scale: 1.05, rotate: 2 }}
-                                                    transition={{ duration: 0.3 }}
-                                                >
-                                                    <img
-                                                        src={member.img}
-                                                        alt={member.name}
-                                                        className="w-full h-full object-cover rounded-[14px] group-hover:scale-110 transition-transform duration-700"
-                                                        onError={(e) => {
-                                                            const target = e.target as HTMLImageElement;
-                                                            target.src = 'https://via.placeholder.com/150/E5E7EB/6B7280?text=Member';
-                                                        }}
-                                                    />
-                                                </motion.div>
-
-                                                {/* Enhanced Click Indicator */}
-                                                <motion.div
-                                                    className="absolute bottom-2 right-2 bg-white/95 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg"
-                                                    whileHover={{ scale: 1.1 }}
-                                                >
-                                                    <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                </motion.div>
-                                            </div>
-
-                                            <motion.h4
-                                                className="text-xl font-bold text-gray-800 h-6"
-                                                whileHover={{ scale: 1.05 }}
-                                            >
-                                                {member.name}
-                                            </motion.h4>
-                                            <motion.p
-                                                className="text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-secondary-blue font-semibold h-6"
-                                                whileHover={{ scale: 1.05 }}
-                                            >
-                                                {member.role}
-                                            </motion.p>
-                                        </div>
-                                    </motion.div>
+                                    </div>
+                                    <div className="text-center">
+                                        <h4 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h4>
+                                        <p className="text-lg font-semibold text-primary-blue bg-primary-blue/10 rounded-full px-4 py-1 inline-block shadow-sm">{member.role}</p>
+                                    </div>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -532,51 +463,6 @@ const PodcastPage = () => {
                             </div>
                         </motion.div>
                     </section>
-
-                    {/* Enhanced Modal */}
-                    <AnimatePresence>
-                        {selectedImage && selectedMember && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4"
-                                onClick={closeModal}
-                            >
-                                <motion.div
-                                    initial={{ scale: 0.7, opacity: 0, rotateX: -30, y: 100 }}
-                                    animate={{ scale: 1, opacity: 1, rotateX: 0, y: 0 }}
-                                    exit={{ scale: 0.7, opacity: 0, rotateX: 30, y: -100 }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    className="relative w-full max-w-5xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
-                                    onClick={(e) => e.stopPropagation()}
-                                >
-                                    {/* Enhanced Close Button */}
-                                    <motion.button
-                                        onClick={closeModal}
-                                        className="absolute top-6 right-6 z-20 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200"
-                                        whileHover={{ scale: 1.1, rotate: 90 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <X className="w-6 h-6 text-gray-700" />
-                                    </motion.button>
-
-                                    {/* Modal Content: Only Image */}
-                                    <div className="flex items-center justify-center h-full p-6 bg-black/80">
-                                        <motion.img
-                                            src={selectedImage}
-                                            alt="Podcast Team Member"
-                                            className="max-w-full max-h-[70vh] rounded-2xl shadow-2xl ring-4 ring-white/30 object-contain transition-transform duration-500"
-                                            initial={{ scale: 0.85, opacity: 0 }}
-                                            animate={{ scale: 1, opacity: 1 }}
-                                            exit={{ scale: 0.85, opacity: 0 }}
-                                            transition={{ type: 'spring', stiffness: 200, damping: 25, delay: 0.1 }}
-                                        />
-                                    </div>
-                                </motion.div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
                 </div>
             </div>
         </div>

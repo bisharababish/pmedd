@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, User, MessageCircle, Building, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, User, MessageCircle, Building, CheckCircle, Copy } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,12 +14,23 @@ const ContactSection: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll();
   const springScrollY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   const backgroundY = useTransform(springScrollY, [0, 1], ['0%', '50%']);
   const backgroundScale = useTransform(springScrollY, [0, 0.5, 1], [1, 1.1, 1.2]);
+
+  const handleCopy = async (text: string, type: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedItem(type);
+      setTimeout(() => setCopiedItem(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,25 +66,43 @@ const ContactSection: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-7 h-7" />,
       title: 'Email Address',
-      details: ['Soon'],
-      color: 'from-blue-500 to-blue-600',
-      hoverColor: 'from-blue-600 to-blue-700'
+      subtitle: 'Get in touch via email',
+      details: ['contact@pmed'],
+      value: 'contact@pmed.',
+      type: 'email',
+      action: 'Send Email',
+      href: 'mailto:contact@institute.ps',
+      gradient: 'from-blue-600 via-blue-700 to-indigo-800',
+      bgPattern: 'bg-gradient-to-br from-blue-50 to-indigo-50',
+      accentColor: 'border-blue-200'
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-7 h-7" />,
       title: 'Phone Number',
+      subtitle: 'Call us directly',
       details: ['+972-56-698-6006'],
-      color: 'from-emerald-500 to-emerald-600',
-      hoverColor: 'from-emerald-600 to-emerald-700'
+      value: '+972566986006',
+      type: 'phone',
+      action: 'Call Now',
+      href: 'tel:+972566986006',
+      gradient: 'from-emerald-600 via-green-700 to-teal-800',
+      bgPattern: 'bg-gradient-to-br from-emerald-50 to-green-50',
+      accentColor: 'border-emerald-200'
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
-      title: 'Address',
+      icon: <MapPin className="w-7 h-7" />,
+      title: 'Location',
+      subtitle: 'Visit our office',
       details: ['Palestine, Jerusalem'],
-      color: 'from-purple-500 to-purple-600',
-      hoverColor: 'from-purple-600 to-purple-700'
+      value: 'Palestine, Jerusalem',
+      type: 'address',
+      action: 'Get Directions',
+      href: 'https://maps.google.com/?q=Palestine,Jerusalem',
+      gradient: 'from-purple-600 via-violet-700 to-purple-800',
+      bgPattern: 'bg-gradient-to-br from-purple-50 to-violet-50',
+      accentColor: 'border-purple-200'
     }
   ];
 
@@ -272,13 +301,6 @@ const ContactSection: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.div
-            className="mb-8 flex justify-center"
-            variants={itemVariants}
-          >
-            {/* Removed floating Send icon */}
-          </motion.div>
-
           <motion.h2
             className="text-4xl md:text-6xl font-bold mb-6 relative"
             variants={itemVariants}
@@ -344,7 +366,7 @@ const ContactSection: React.FC = () => {
                   className="text-2xl font-bold text-gray-900 mb-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  Send us a Message
+                  Stay in touch
                 </motion.h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -539,7 +561,7 @@ const ContactSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Contact Info Cards */}
+          {/* Enhanced Professional Contact Info Cards */}
           <motion.div
             variants={slideInRightVariants}
             initial="hidden"
@@ -559,61 +581,87 @@ const ContactSection: React.FC = () => {
                 }}
                 viewport={{ once: true }}
                 whileHover={{
-                  scale: 1.05,
-                  y: -10,
-                  rotateY: 5,
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
+                  scale: 1.02,
+                  y: -5,
+                  transition: { duration: 0.3 }
                 }}
-                className="group bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-border-gray relative overflow-hidden"
+                className={`group relative overflow-hidden rounded-2xl border-2 ${info.accentColor} ${info.bgPattern} shadow-lg hover:shadow-2xl transition-all duration-500`}
               >
-                {/* Background Gradient Effect */}
+                {/* Gradient overlay on hover */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br from-primary-blue to-secondary-blue opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`}
                 />
 
-                <motion.div
-                  whileHover={{
-                    rotate: 360,
-                    scale: 1.1
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r from-primary-blue to-secondary-blue text-white mb-4 shadow-lg relative z-10`}
-                >
-                  {info.icon}
-                </motion.div>
+                {/* Content */}
+                <div className="relative z-10 p-6">
+                  {/* Header section */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${info.gradient} text-white shadow-lg`}
+                      >
+                        {info.icon}
+                      </motion.div>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">{info.title}</h3>
+                        <p className="text-sm text-gray-600">{info.subtitle}</p>
+                      </div>
+                    </div>
 
-                <motion.h3
-                  className="text-lg font-bold text-gray-900 mb-3 relative z-10"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {info.title}
-                </motion.h3>
-
-                <div className="space-y-1 relative z-10">
-                  {info.details.map((detail, idx) => (
-                    <motion.p
-                      key={idx}
-                      className="text-gray-600"
-                      whileHover={{
-                        scale: 1.05,
-                        color: "#374151"
-                      }}
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => handleCopy(info.value, info.type)}
+                      className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
                     >
-                      {detail}
-                    </motion.p>
-                  ))}
+                      {copiedItem === info.type ? (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="text-green-600"
+                        >
+                          <CheckCircle className="w-4 h-4" />
+                        </motion.div>
+                      ) : (
+                        <Copy className="w-4 h-4 text-gray-600" />
+                      )}
+                    </motion.button>
+                  </div>
+
+                  {/* Contact details */}
+                  <div className="mb-6">
+                    {info.details.map((detail, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="flex items-center gap-2 mb-2"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <div className={`w-1 h-1 rounded-full bg-gradient-to-r ${info.gradient}`} />
+                        <p className="text-gray-700 font-medium text-lg">{detail}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Action button (not shown for address/location) */}
+                  {info.type !== 'address' && (
+                    <motion.a
+                      href={info.href}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r ${info.gradient} text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-sm`}
+                    >
+                      {info.action}
+                    </motion.a>
+                  )}
                 </div>
 
-                {/* Pulse Effect */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 rounded-2xl`}
-                  variants={pulseVariants}
-                  initial="initial"
-                  animate="animate"
-                  style={{
-                    animationDelay: `${index * 0.5}s`
-                  }}
-                />
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                  <div className={`w-full h-full bg-gradient-to-br ${info.gradient} rounded-full blur-2xl transform translate-x-6 -translate-y-6`} />
+                </div>
               </motion.div>
             ))}
           </motion.div>

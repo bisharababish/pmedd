@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Megaphone, BookOpen, Video, ExternalLink, Code } from 'lucide-react';
+import { Megaphone, BookOpen, Video, ExternalLink, Code } from 'lucide-react';
 import ahmad from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
 import Lamar from "./teampics/Lamar.jpeg";
@@ -230,7 +230,7 @@ const TeamSection = () => {
     const bottomTierTeams = otherTeams.slice(3);
 
     return (
-        <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen">
+        <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen mt-20">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -240,10 +240,7 @@ const TeamSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12 sm:mb-16 md:mb-20"
                 >
-                    <div className="inline-flex items-center justify-center p-2 bg-white/60 backdrop-blur-sm rounded-full mb-4 sm:mb-6 shadow-lg mt-20">
-                        <Users className="w-7 h-7 sm:w-8 sm:h-8 text-indigo-600 mr-2" />
-                        <span className="text-indigo-700 font-semibold text-base sm:text-lg">Our Amazing Team</span>
-                    </div>
+
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent mb-4 sm:mb-6">
                         Meet Our Team
                     </h2>
@@ -392,8 +389,12 @@ const TeamSection = () => {
                         <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
                             We're always looking for passionate individuals to join our mission
                         </p>
-                        <button className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-                            Get In Touch
+                        <button
+                            className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300"
+                            disabled
+                            style={{ pointerEvents: 'none', opacity: 1 }}
+                        >
+                            Join us
                         </button>
                     </div>
                 </motion.div>
