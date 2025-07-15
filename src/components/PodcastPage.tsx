@@ -429,8 +429,7 @@ const PodcastPage = () => {
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                    Follow our social media channels for the latest episodes, behind-the-scenes content, and announcements.
-                                </motion.p>
+                                    Follow us on social media to get the latest episodes, behind-the-scenes content, and news.                                </motion.p>
                             </motion.div>
 
                             {/* Enhanced Social Media Links */}
