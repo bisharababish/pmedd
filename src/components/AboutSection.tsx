@@ -420,11 +420,11 @@ const AboutSection: React.FC = () => {
               {[
                 'We build medical specialty interest groups — such as Cardiology, Neurology, Surgery, and more — each acting like a focused sub-club that empowers students to explore, grow, and lead in their field of interest.',
                 'These groups offer everything a future doctor needs: training, mentorship, clinical exposure, competitions, and global-standard opportunities.',
-                'We prepare our members to compete internationally and stand out as the best versions of themselves — both scientifically and professionally.',
-                'We host workshops, seminars, medical simulations, and awareness campaigns throughout the year.',
-                'We guide students through medical school admissions, interviews, and career planning.',
-                'We collaborate with hospitals, NGOs, and global partners to create real-world impact.',
-                'We encourage community leadership, ethical responsibility, and medical excellence.'
+                'We prepare our members for international competition and excellence, both academically and professionally.',
+                'We hold workshops, seminars, medical simulations, and campaigns to raise awareness all year long.',
+                'We help students get into medical school, prepare for interviews, and plan their careers.',
+                'We work with hospitals, NGOs, and partners around the world to make a real difference.',
+                'We encourage people to be leaders in their communities, act ethically, and do great work in medicine.'
               ].map((text, idx) => (
                 <motion.li
                   key={idx}
