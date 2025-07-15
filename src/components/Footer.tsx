@@ -22,15 +22,19 @@ const Footer: React.FC = () => {
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      href: '#',
+      href: 'https://www.linkedin.com/in/pmed-undefined-211a16372/ ',
       label: 'LinkedIn',
+      external: true,
+
       color: 'from-blue-500 to-blue-600',
       hoverColor: 'from-blue-600 to-blue-700'
     },
     {
       icon: <Youtube className="w-5 h-5" />,
-      href: '#',
+      href: 'https://www.youtube.com/@PMEDCLUB',
       label: 'YouTube',
+      external: true,
+
       color: 'from-red-500 to-red-600',
       hoverColor: 'from-red-600 to-red-700'
     }

@@ -17,64 +17,64 @@ const supervisors = [
         name: "Dr. Sameer Mtour",
         title: "Cardiologist & Head of the Cardiology Department at Al-Makassed Hospital",
         bullets: [
-            "Cardiologist & Head of the Cardiology Department at Al-Makassed Hospital",
             "Assistant Professor at Al-Quds University",
-            "Numerous advanced catheterization procedures, including LAAO and TAVI"
+            "Numerous advanced catheterization procedures, including LAAO and TAVI",
+            "Strong commitment to improve cardiac care in Palestine.",
         ],
         profileLink: "#"
     },
     {
         image: supervisor2,
-        name: "Dr. [Name]",
-        title: "Title/Position",
+        name: "Dr. Nael Al-Lahham",
+        title: "Pediatric Cardiologist",
         bullets: [
-            "Bullet 1",
-            "Bullet 2",
-            "Bullet 3"
+            "Holds the record for the highest number of consecutive pediatric catheterization procedures in the Arab world.",
+
         ],
         profileLink: "#"
     },
     {
         image: supervisor3,
-        name: "Dr. [Name]",
-        title: "Title/Position",
+        name: "Dr. Bilal Adwan",
+        title: "Cardiologist at Al-Makassed Hospital",
         bullets: [
-            "Bullet 1",
-            "Bullet 2",
-            "Bullet 3"
+
+
+
         ],
         profileLink: "#"
     },
     {
         image: supervisor4,
-        name: "Dr. [Name]",
-        title: "Title/Position",
+        name: "Dr. Farah Jabareen",
+        title: "Cardiologist at Al-Makassed Hospital",
         bullets: [
-            "Bullet 1",
-            "Bullet 2",
-            "Bullet 3"
+
         ],
         profileLink: "#"
     },
     {
         image: supervisor6,
-        name: "Dr. [Name]",
-        title: "Title/Position",
+        name: "Dr. Diya Asad",
+        title: "Internal Medicine Resident",
         bullets: [
-            "Bullet 1",
-            "Bullet 2",
-            "Bullet 3"
+            "Proud graduate of Al-Quds University",
+            "Brings hands-on experience in cardiology and emergency medicine",
+            "Published 14 PubMed-indexed research papers",
+            "Participated in clinical experiences at multiple U.S. hospitals, most recently at Mayo Clinic Hospital",
         ],
         profileLink: "#"
     },
     {
         image: supervisor7,
-        name: "Dr. [Name]",
-        title: "Title/Position",
+        name: "Dr. Duha Shellah",
+        title: "Global Health Advocate & Physician-Scientist",
         bullets: [
-            "Bullet 1",
-            "Bullet 2",
-            "Bullet 3"
+            "Chair of the WFPHA Emergencies Working Grou",
+            "Vice Chair of the WHO EMRO Youth Council",
+            "Founder of The Researchist",
+            "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
+            "Represents Palestinian voices in global health",
         ],
         profileLink: "#"
     }
@@ -447,7 +447,7 @@ const CardiologyPage = () => {
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
                                 <ClipboardList className="w-8 h-8 text-primary-blue mr-3" />
-                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">How to Apply</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">Join Our Family</h2>
                             </motion.div>
 
                             <motion.div
@@ -478,13 +478,15 @@ const CardiologyPage = () => {
                                 </motion.h3>
                                 <div className="flex justify-center space-x-8">
                                     {[
-                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50" },
-                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50" },
-                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50" }
+                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50", href: "https://www.youtube.com/@PMEDCLUB" },
+                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50", href: "https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50", href: "https://www.linkedin.com/in/pmed-undefined-211a16372/" }
                                     ].map((social, idx) => (
                                         <motion.a
                                             key={idx}
-                                            href="#"
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className={`${social.color} ${social.bg} p-4 rounded-2xl transition-all duration-300 shadow-lg`}
                                             whileHover={{
                                                 scale: 1.2,
