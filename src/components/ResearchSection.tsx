@@ -96,11 +96,11 @@ const ResearchSection: React.FC = () => {
   ];
 
   return (
-    <section id="research" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/50 to-white relative overflow-hidden">
+    <section id="research" className="py-20 bg-very-light-blue relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-purple-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary-blue rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary-blue rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -116,7 +116,7 @@ const ResearchSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-800 bg-clip-text text-transparent mb-6"
+            className="text-4xl md:text-6xl font-bold text-primary-blue mb-6"
           >
             Research Excellence
           </motion.h2>
@@ -124,7 +124,7 @@ const ResearchSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed"
           >
             Leading breakthrough discoveries in medical science and advancing healthcare innovation
           </motion.p>
@@ -142,11 +142,10 @@ const ResearchSection: React.FC = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveResearch(index)}
-              className={`p-6 rounded-2xl transition-all duration-300 ${
-                activeResearch === index
-                  ? `bg-gradient-to-r ${area.color} text-white shadow-2xl`
-                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow-lg hover:shadow-xl'
-              }`}
+              className={`p-6 rounded-2xl transition-all duration-300 ${activeResearch === index
+                  ? `bg-gradient-to-r from-primary-blue to-secondary-blue text-white shadow-2xl`
+                  : 'bg-white text-main-gray hover:bg-light-blue shadow-lg hover:shadow-xl'
+                }`}
             >
               <motion.div
                 animate={{ rotate: activeResearch === index ? 360 : 0 }}
@@ -171,7 +170,7 @@ const ResearchSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16"
+            className="bg-card-bg rounded-3xl shadow-2xl overflow-hidden mb-16"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Content */}
@@ -181,15 +180,15 @@ const ResearchSection: React.FC = () => {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${researchAreas[activeResearch].color} text-white flex items-center justify-center shadow-lg`}
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-r from-primary-blue to-secondary-blue text-white flex items-center justify-center shadow-lg`}
                   >
                     {researchAreas[activeResearch].icon}
                   </motion.div>
                   <div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-3xl font-bold text-primary-blue mb-2">
                       {researchAreas[activeResearch].title}
                     </h3>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-main-gray">
                       {researchAreas[activeResearch].description}
                     </p>
                   </div>
@@ -230,7 +229,7 @@ const ResearchSection: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 rounded-xl bg-gradient-to-r ${researchAreas[activeResearch].color} text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
+                  className={`w-full py-4 rounded-xl bg-gradient-to-r from-primary-blue to-secondary-blue text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2`}
                 >
                   <span>View Research Publications</span>
                   <ExternalLink className="w-5 h-5" />
@@ -247,7 +246,7 @@ const ResearchSection: React.FC = () => {
                   alt={researchAreas[activeResearch].title}
                   className="w-full h-full object-cover"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${researchAreas[activeResearch].color} opacity-20`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-t from-primary-blue to-secondary-blue opacity-20`}></div>
               </div>
             </div>
           </motion.div>
@@ -295,7 +294,7 @@ const ResearchSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center"
+          className="bg-gradient-to-r from-primary-blue to-secondary-blue rounded-3xl p-12 text-white text-center"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
             Making a Global Impact

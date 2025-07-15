@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe, ArrowUp } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
 
@@ -10,10 +10,6 @@ const Footer: React.FC = () => {
 
   const backgroundY = useTransform(springScrollY, [0, 1], ['0%', '30%']);
   const backgroundScale = useTransform(springScrollY, [0, 0.5, 1], [1, 1.05, 1.1]);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const socialLinks = [
     {
@@ -163,27 +159,27 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-primary-blue text-light-gray relative overflow-hidden">
       {/* Enhanced Background Elements with Parallax */}
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
-          className="absolute top-20 left-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-64 h-64 bg-light-blue rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-purple-400 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 bg-secondary-blue rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-72 h-72 bg-emerald-400 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-72 h-72 bg-very-light-blue rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -211,20 +207,7 @@ const Footer: React.FC = () => {
       </motion.div>
 
       {/* Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg flex items-center justify-center"
-        whileHover={{
-          scale: 1.1,
-          boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
-        }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-      >
-        <ArrowUp className="w-5 h-5" />
-      </motion.button>
+      {/* Remove any scroll-to-top button here */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}

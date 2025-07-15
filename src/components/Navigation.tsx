@@ -105,7 +105,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-lg`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} bg-primary-blue shadow-lg`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -119,15 +119,15 @@ const Navigation: React.FC = () => {
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.12 }}
                 transition={{ duration: 0.6 }}
-                className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 shadow-xl ring-4 ring-blue-300/30 hover:ring-blue-400/60 transition-all duration-300"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 shadow-xl ring-4 ring-light-blue/30 hover:ring-light-blue/60 transition-all duration-300"
               >
                 <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-2xl" />
               </motion.div>
               <div className="flex flex-col justify-center">
-                <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
+                <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">
                   PMED
                 </h1>
-                <p className="text-sm italic font-light text-blue-100 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 bg-clip-text text-transparent drop-shadow-md mt-0.5 tracking-wide">
+                <p className="text-sm italic font-light text-very-light-blue drop-shadow-md mt-0.5 tracking-wide">
                   Medical Club
                 </p>
               </div>
@@ -161,7 +161,7 @@ const Navigation: React.FC = () => {
                   </Link>
                 )}
                 <motion.div
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white to-blue-200 rounded-full"
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white to-light-blue rounded-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
@@ -171,7 +171,7 @@ const Navigation: React.FC = () => {
                   <div
                     onMouseEnter={() => setAboutOpen(true)}
                     onMouseLeave={() => setAboutOpen(false)}
-                    className="absolute left-1/2 -translate-x-1/2 w-60 bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-700 text-white rounded-xl shadow-xl border border-indigo-200/30 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50"
+                    className="absolute left-1/2 -translate-x-1/2 w-60 bg-gradient-to-br from-primary-blue to-secondary-blue text-white rounded-xl shadow-xl border border-light-blue py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50"
                   >
                     {item.dropdown.map((sub) => (
                       sub.href.startsWith('/about#') ? (
@@ -179,7 +179,7 @@ const Navigation: React.FC = () => {
                           key={sub.label}
                           href={sub.href}
                           onClick={(e) => handleSectionLink(sub.href, e)}
-                          className="px-5 py-3 text-white hover:bg-indigo-600 hover:text-blue-100 text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
+                          className="px-5 py-3 text-white hover:bg-secondary-blue hover:text-very-light-blue text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
                         >
                           {sub.label}
                         </a>
@@ -187,7 +187,7 @@ const Navigation: React.FC = () => {
                         <Link
                           key={sub.label}
                           to={sub.href}
-                          className="px-5 py-3 text-white hover:bg-indigo-600 hover:text-blue-100 text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
+                          className="px-5 py-3 text-white hover:bg-secondary-blue hover:text-very-light-blue text-left font-medium rounded-lg transition-colors duration-200 whitespace-nowrap"
                           onClick={() => { setIsMenuOpen(false); setAboutOpen(false); }}
                         >
                           {sub.label}
@@ -230,7 +230,7 @@ const Navigation: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-700 text-white backdrop-blur-lg border-t border-indigo-200/30"
+            className="md:hidden bg-gradient-to-br from-primary-blue to-secondary-blue text-white backdrop-blur-lg border-t border-light-blue"
           >
             <div className="px-4 py-6 space-y-3">
               {/* Mobile Search */}
@@ -249,7 +249,7 @@ const Navigation: React.FC = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className={`block px-4 py-3 text-white font-medium rounded-lg hover:bg-indigo-600 hover:text-blue-100 transition-all duration-300 ${item.dropdown ? 'cursor-pointer' : ''} flex items-center justify-between`}
+                    className={`block px-4 py-3 text-white font-medium rounded-lg hover:bg-secondary-blue hover:text-very-light-blue transition-all duration-300 ${item.dropdown ? 'cursor-pointer' : ''} flex items-center justify-between`}
                     onClick={() => {
                       if (item.dropdown) {
                         setAboutOpen((open) => !open);
@@ -277,7 +277,7 @@ const Navigation: React.FC = () => {
                           key={sub.label}
                           href={sub.href}
                           onClick={(e) => handleSectionLink(sub.href, e)}
-                          className="px-4 py-2 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 hover:text-blue-100 font-medium transition-colors duration-200"
+                          className="px-4 py-2 rounded-lg text-white bg-secondary-blue hover:bg-light-blue hover:text-primary-blue font-medium transition-colors duration-200"
                         >
                           {sub.label}
                         </a>

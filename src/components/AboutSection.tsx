@@ -165,27 +165,27 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+    <section id="about" className="py-20 bg-very-light-blue relative overflow-hidden">
       {/* Enhanced Background decorative elements */}
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-blue-800 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-primary-blue rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-700 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-primary-red rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-600 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-secondary-blue rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -211,10 +211,10 @@ const AboutSection: React.FC = () => {
             initial="initial"
             animate="animate"
           >
-            <CircularText text="•PMED•About" radius={90} className="text-blue-800" />
+            <CircularText text="•PMED•About" radius={90} className="text-primary-blue" />
           </motion.div>
           <motion.p
-            className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed relative"
+            className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed relative"
             variants={itemVariants}
             whileHover={{
               scale: 1.02,
@@ -222,7 +222,7 @@ const AboutSection: React.FC = () => {
             }}
           >
             <motion.span
-              className="font-semibold text-blue-800 relative inline-block bg-gradient-to-r from-blue-800 via-white to-blue-800 bg-clip-text text-transparent bg-[length:200%_100%]"
+              className="font-semibold text-primary-blue relative inline-block bg-gradient-to-r from-primary-blue via-white to-primary-blue bg-clip-text text-transparent bg-[length:200%_100%]"
               variants={shinyTextVariants}
               initial="initial"
               animate="animate"
@@ -242,13 +242,13 @@ const AboutSection: React.FC = () => {
               PMED
             </motion.span>
             <motion.span
-              className="relative inline-block bg-gradient-to-r from-gray-700 via-gray-300 to-gray-700 bg-clip-text text-transparent bg-[length:200%_100%]"
+              className="relative inline-block bg-gradient-to-r from-main-gray via-light-gray to-main-gray bg-clip-text text-transparent bg-[length:200%_100%]"
               variants={shinyTextVariants}
               initial="initial"
               animate="animate"
               transition={{ delay: 0.5 }}
               style={{
-                backgroundImage: 'linear-gradient(90deg, #374151 0%, #d1d5db 50%, #374151 100%)',
+                backgroundImage: 'linear-gradient(90deg, #1f2937 0%, #e5e7eb 50%, #1f2937 100%)',
                 backgroundSize: '200% 100%',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -270,7 +270,7 @@ const AboutSection: React.FC = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <motion.div
-            className="bg-gradient-to-r from-blue-800 to-emerald-700 rounded-3xl p-12 md:p-16 text-white relative overflow-hidden w-full max-w-3xl mx-auto"
+            className="bg-gradient-to-r from-primary-blue to-secondary-blue rounded-3xl p-12 md:p-16 text-white relative overflow-hidden w-full max-w-3xl mx-auto"
             variants={gradientVariants}
             initial="initial"
             animate="animate"
@@ -282,7 +282,7 @@ const AboutSection: React.FC = () => {
             }}
           >
             <motion.div
-              className="absolute inset-0 bg-black/10"
+              className="absolute inset-0 bg-main-gray/10"
               whileHover={{ opacity: 0.05 }}
               transition={{ duration: 0.3 }}
             />
@@ -389,7 +389,7 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.h3
-              className="text-3xl md:text-4xl font-bold mb-2 text-left text-blue-800"
+              className="text-3xl md:text-4xl font-bold mb-2 text-left text-primary-blue"
               whileHover={{
                 scale: 1.05,
                 color: "#1e40af",
@@ -400,14 +400,14 @@ const AboutSection: React.FC = () => {
               What We Deliver
             </motion.h3>
             <motion.div
-              className="w-16 h-1 bg-blue-800 mb-6 rounded"
+              className="w-16 h-1 bg-primary-blue mb-6 rounded"
               initial={{ width: 0 }}
               whileInView={{ width: 64 }}
               transition={{ duration: 1, delay: 0.5 }}
               whileHover={{ width: 120, backgroundColor: "#1e40af" }}
             />
             <motion.ul
-              className="text-lg md:text-xl leading-relaxed pl-6 space-y-3 list-disc list-inside text-gray-800"
+              className="text-lg md:text-xl leading-relaxed pl-6 space-y-3 list-disc list-inside text-main-gray"
               variants={staggerListVariants}
               initial="hidden"
               whileInView="visible"

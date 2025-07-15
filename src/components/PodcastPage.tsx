@@ -243,21 +243,14 @@ const PodcastPage = () => {
                         animate="visible"
                     >
                         <motion.h1
-                            className="text-4xl md:text-7xl font-bold mb-6 relative"
+                            className="text-4xl md:text-7xl font-bold mb-6 relative text-primary-blue"
                             variants={itemVariants}
                         >
                             <motion.span
-                                className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                className="inline-block"
                                 variants={shinyTextVariants}
                                 initial="initial"
                                 animate="animate"
-                                style={{
-                                    backgroundImage: 'linear-gradient(90deg, #9333ea 0%, #ec4899 30%, #9333ea 60%, #ec4899 100%)',
-                                    backgroundSize: '200% 100%',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                }}
                             >
                                 PMED Podcast Club
                             </motion.span>
@@ -268,7 +261,7 @@ const PodcastPage = () => {
                             variants={itemVariants}
                         >
                             <motion.div
-                                className="w-32 h-1 bg-gradient-to-r from-purple-500 via-pink-600 to-purple-500 rounded-full"
+                                className="w-32 h-1 bg-secondary-blue rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: 128 }}
                                 transition={{ duration: 1.5, delay: 1 }}
@@ -292,7 +285,7 @@ const PodcastPage = () => {
                         viewport={{ once: true, margin: "-100px" }}
                     >
                         <motion.div
-                            className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 border border-white/20 relative overflow-hidden"
+                            className="bg-card-bg backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 border border-border-gray relative overflow-hidden"
                             whileHover={{
                                 scale: 1.02,
                                 boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
@@ -301,13 +294,13 @@ const PodcastPage = () => {
                         >
                             {/* Decorative Elements */}
                             <motion.div
-                                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"
+                                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-2xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
                             />
                             <motion.div
-                                className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-full blur-2xl"
+                                className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-secondary-blue/10 to-primary-blue/10 rounded-full blur-2xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
@@ -320,8 +313,8 @@ const PodcastPage = () => {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                    <Radio className="w-8 h-8 text-purple-600 mr-3" />
-                                    <span className="text-purple-600 font-bold text-lg">Medical Storytelling</span>
+                                    <Radio className="w-8 h-8 text-primary-blue mr-3" />
+                                    <span className="text-primary-blue font-bold text-lg">Medical Storytelling</span>
                                 </motion.div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Our Podcast</h2>
                             </div>
@@ -331,7 +324,7 @@ const PodcastPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                The <span className="font-semibold text-purple-600 relative">PMED Podcast Club</span> is where medical science meets storytelling. We explore the latest breakthroughs, share inspiring stories from healthcare professionals, and discuss the challenges and triumphs of medicine. Our mission is to create engaging, informative content that educates and entertains. Join our community to dive deep into the world of medicine, one episode at a time.
+                                The <span className="font-semibold text-primary-blue relative">PMED Podcast Club</span> is where medical science meets storytelling. We explore the latest breakthroughs, share inspiring stories from healthcare professionals, and discuss the challenges and triumphs of medicine. Our mission is to create engaging, informative content that educates and entertains. Join our community to dive deep into the world of medicine, one episode at a time.
                             </motion.p>
                         </motion.div>
                     </motion.section>
@@ -346,40 +339,33 @@ const PodcastPage = () => {
                     >
                         <motion.div className="text-center mb-12 md:mb-16" variants={itemVariants}>
                             <motion.div
-                                className="inline-flex items-center justify-center p-4 bg-white/90 backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-white/20"
+                                className="inline-flex items-center justify-center p-4 bg-card-bg backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-border-gray"
                                 whileHover={{
                                     scale: 1.05,
                                     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
                                 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <Users className="w-8 h-8 text-purple-600 mr-3" />
-                                <span className="text-purple-600 font-bold text-lg">Our Podcast Team</span>
+                                <Users className="w-8 h-8 text-primary-blue mr-3" />
+                                <span className="text-primary-blue font-bold text-lg">Our Podcast Team</span>
                             </motion.div>
 
                             <motion.h2
-                                className="text-3xl md:text-5xl font-bold mb-6"
+                                className="text-3xl md:text-5xl font-bold mb-6 text-primary-blue"
                                 variants={itemVariants}
                             >
                                 <motion.span
-                                    className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                    className="inline-block"
                                     variants={shinyTextVariants}
                                     initial="initial"
                                     animate="animate"
-                                    style={{
-                                        backgroundImage: 'linear-gradient(90deg, #9333ea 0%, #ec4899 50%, #9333ea 100%)',
-                                        backgroundSize: '200% 100%',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text'
-                                    }}
                                 >
                                     MEET OUR TEAM
                                 </motion.span>
                             </motion.h2>
 
                             <motion.div
-                                className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-6"
+                                className="w-32 h-1 bg-secondary-blue mx-auto rounded-full mb-6"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: 128 }}
                                 transition={{ duration: 1, delay: 0.5 }}
@@ -414,23 +400,23 @@ const PodcastPage = () => {
                                     onClick={() => openModal(member)}
                                 >
                                     <motion.div
-                                        className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/30 hover:shadow-3xl transition-all duration-500 overflow-hidden"
+                                        className="relative bg-card-bg backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-border-gray hover:shadow-3xl transition-all duration-500 overflow-hidden"
                                         whileHover={{
                                             background: "rgba(255, 255, 255, 0.98)"
                                         }}
                                     >
                                         {/* Enhanced Gradient Border Effect */}
                                         <motion.div
-                                            className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+                                            className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 via-transparent to-secondary-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
                                             whileHover={{
-                                                background: "linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, transparent 50%, rgba(236, 72, 153, 0.3) 100%)"
+                                                background: "linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, transparent 50%, rgba(59, 130, 246, 0.3) 100%)"
                                             }}
                                         />
 
                                         <div className="relative z-10 text-center">
                                             <div className="relative mb-4">
                                                 <motion.div
-                                                    className="w-28 sm:w-32 h-28 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-purple-500 to-pink-500 p-1"
+                                                    className="w-28 sm:w-32 h-28 sm:h-32 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-primary-blue to-secondary-blue p-1"
                                                     whileHover={{ scale: 1.05, rotate: 2 }}
                                                     transition={{ duration: 0.3 }}
                                                 >
@@ -464,7 +450,7 @@ const PodcastPage = () => {
                                                 {member.name}
                                             </motion.h4>
                                             <motion.p
-                                                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 font-semibold h-6"
+                                                className="text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-secondary-blue font-semibold h-6"
                                                 whileHover={{ scale: 1.05 }}
                                             >
                                                 {member.role}
@@ -479,7 +465,7 @@ const PodcastPage = () => {
                     {/* Enhanced How to Apply/Join Section */}
                     <section className="mt-16 md:mt-20">
                         <motion.div
-                            className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 max-w-3xl mx-auto text-center relative overflow-hidden border border-white/20"
+                            className="bg-card-bg backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 max-w-3xl mx-auto text-center relative overflow-hidden border border-border-gray"
                             variants={slideInVariants}
                             initial="hidden"
                             whileInView="visible"
@@ -492,7 +478,7 @@ const PodcastPage = () => {
                         >
                             {/* Background Decoration */}
                             <motion.div
-                                className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+                                className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-3xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
@@ -503,7 +489,7 @@ const PodcastPage = () => {
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <ClipboardList className="w-8 h-8 text-purple-700 mr-3" />
+                                <ClipboardList className="w-8 h-8 text-primary-blue mr-3" />
                                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Become a Guest</h2>
                             </motion.div>
 
@@ -517,7 +503,7 @@ const PodcastPage = () => {
                                     Have a story to share or expertise in a medical field? We are always looking for passionate guests to join our podcast. Contact us to learn more about becoming a guest speaker.
                                 </p>
                                 <motion.p
-                                    className="font-semibold text-purple-600"
+                                    className="font-semibold text-primary-blue"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >

@@ -145,12 +145,12 @@ const EventsSection: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-card-bg rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-border-gray"
             >
-              <div className={`text-3xl font-bold bg-gradient-to-r ${type.color} bg-clip-text text-transparent mb-2`}>
+              <div className="text-3xl font-bold text-primary-blue mb-2">
                 {type.count}
               </div>
-              <div className="text-gray-600 font-medium">{type.name}</div>
+              <div className="text-main-gray font-medium">{type.name}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -160,21 +160,19 @@ const EventsSection: React.FC = () => {
           <div className="bg-white rounded-2xl p-2 shadow-lg">
             <button
               onClick={() => setActiveTab('upcoming')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === 'upcoming'
+              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === 'upcoming'
                   ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'
-              }`}
+                }`}
             >
               Upcoming Events
             </button>
             <button
               onClick={() => setActiveTab('past')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === 'past'
+              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === 'past'
                   ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'
-              }`}
+                }`}
             >
               Past Events
             </button>
@@ -198,9 +196,8 @@ const EventsSection: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 ${
-                      event.featured ? 'ring-4 ring-blue-200' : ''
-                    }`}
+                    className={`bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 ${event.featured ? 'ring-4 ring-blue-200' : ''
+                      }`}
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                       {/* Image */}

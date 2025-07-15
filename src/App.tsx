@@ -11,13 +11,11 @@ import Footer from './components/Footer';
 import TeamSection from './components/TeamSection';
 import CardiologyPage from './components/CardiologyPage';
 import PodcastPage from './components/PodcastPage';
-import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <ScrollToTop />
       <ScrollToTopButton />
       <div className="min-h-screen bg-gray-50">
         <Navigation />

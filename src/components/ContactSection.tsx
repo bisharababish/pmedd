@@ -284,17 +284,10 @@ const ContactSection: React.FC = () => {
             variants={itemVariants}
           >
             <motion.span
-              className="bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+              className="text-primary-blue inline-block"
               variants={shinyTextVariants}
               initial="initial"
               animate="animate"
-              style={{
-                backgroundImage: 'linear-gradient(90deg, #3b82f6 0%, #8b5cf6 30%, #3b82f6 60%, #8b5cf6 100%)',
-                backgroundSize: '200% 100%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
             >
               Contact Us
             </motion.span>
@@ -305,7 +298,7 @@ const ContactSection: React.FC = () => {
             variants={itemVariants}
           >
             <motion.div
-              className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 rounded-full"
+              className="w-32 h-1 bg-secondary-blue rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: 128 }}
               transition={{ duration: 1.5, delay: 1 }}
@@ -571,11 +564,11 @@ const ContactSection: React.FC = () => {
                   rotateY: 5,
                   boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
                 }}
-                className="group bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-white/20 relative overflow-hidden"
+                className="group bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-border-gray relative overflow-hidden"
               >
                 {/* Background Gradient Effect */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}
+                  className={`absolute inset-0 bg-gradient-to-br from-primary-blue to-secondary-blue opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}
                 />
 
                 <motion.div
@@ -584,7 +577,7 @@ const ContactSection: React.FC = () => {
                     scale: 1.1
                   }}
                   transition={{ duration: 0.5 }}
-                  className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r ${info.color} text-white mb-4 shadow-lg relative z-10`}
+                  className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r from-primary-blue to-secondary-blue text-white mb-4 shadow-lg relative z-10`}
                 >
                   {info.icon}
                 </motion.div>

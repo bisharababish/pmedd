@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Megaphone, BookOpen, Video, ExternalLink, Code, Palette } from 'lucide-react';
+import { Users, Megaphone, BookOpen, Video, ExternalLink, Code } from 'lucide-react';
 import ahmad from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
 import Lamar from "./teampics/Lamar.jpeg";
@@ -173,7 +173,7 @@ interface MemberCardProps {
     group: Group;
 }
 
-const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
+const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
     <motion.div
         variants={cardVariants}
         whileHover={{
@@ -183,10 +183,10 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
         }}
         className="group relative"
     >
-        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-border-gray hover:shadow-2xl transition-all duration-500 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
-                <div className={`w-full h-full bg-gradient-to-br ${group.color}`} />
+                <div className={`w-full h-full bg-gradient-to-br from-primary-blue to-secondary-blue`} />
             </div>
 
             {/* Floating Orbs */}
@@ -196,7 +196,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
             <div className="relative z-10 text-center">
                 {/* Profile Image */}
                 <div className="relative mb-4 sm:mb-6">
-                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br ${group.color} p-0.5 sm:p-1`}>
+                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-primary-blue to-secondary-blue p-0.5 sm:p-1`}>
                         <img
                             src={member.img}
                             alt={member.name}
@@ -206,11 +206,11 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
                 </div>
 
                 {/* Member Info */}
-                <h4 className="text-base sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-gray-900 transition-colors">
+                <h4 className="text-base sm:text-xl font-bold text-main-gray mb-1 sm:mb-2 group-hover:text-primary-blue transition-colors">
                     {member.name}
                 </h4>
 
-                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${group.accent} rounded-full mb-2 sm:mb-3`}>
+                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-primary-blue to-secondary-blue rounded-full mb-2 sm:mb-3`}>
                     <p className="text-xs sm:text-sm font-semibold text-white">
                         {member.role}
                     </p>
@@ -218,7 +218,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
             </div>
 
             {/* Hover Effect Overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+            <div className={`absolute inset-0 bg-gradient-to-br from-primary-blue to-secondary-blue opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
         </div>
     </motion.div>
 );
@@ -230,7 +230,7 @@ const TeamSection = () => {
     const bottomTierTeams = otherTeams.slice(3);
 
     return (
-        <div id="team" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+        <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -264,10 +264,10 @@ const TeamSection = () => {
                     >
                         {/* Founders Header */}
                         <div className="text-center mb-6 sm:mb-10 md:mb-12">
-                            <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${founders.color} bg-clip-text text-transparent mb-2 sm:mb-4`}>
+                            <h3 className={`text-2xl sm:text-3xl font-bold text-primary-blue mb-2 sm:mb-4`}>
                                 {founders.roleGroup}
                             </h3>
-                            <div className={`w-16 sm:w-24 h-1 bg-gradient-to-r ${founders.color} mx-auto rounded-full`} />
+                            <div className={`w-16 sm:w-24 h-1 bg-primary-blue mx-auto rounded-full`} />
                         </div>
 
                         {/* Founders Cards */}
@@ -310,10 +310,10 @@ const TeamSection = () => {
 
                                 {/* Group Header */}
                                 <div className="text-center mb-4 sm:mb-8">
-                                    <h3 className={`text-xl sm:text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
+                                    <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
                                         {group.roleGroup}
                                     </h3>
-                                    <div className={`w-10 sm:w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
+                                    <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
                                 </div>
 
                                 {/* Team Members */}
@@ -351,10 +351,10 @@ const TeamSection = () => {
 
                                     {/* Group Header */}
                                     <div className="text-center mb-4 sm:mb-8">
-                                        <h3 className={`text-xl sm:text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
+                                        <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
                                             {group.roleGroup}
                                         </h3>
-                                        <div className={`w-10 sm:w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
+                                        <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
                                     </div>
 
                                     {/* Team Members */}

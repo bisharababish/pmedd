@@ -197,21 +197,14 @@ const CardiologyPage = () => {
                         animate="visible"
                     >
                         <motion.h1
-                            className="text-5xl md:text-7xl font-bold mb-6 relative"
+                            className="text-5xl md:text-7xl font-bold mb-6 relative text-primary-blue"
                             variants={itemVariants}
                         >
                             <motion.span
-                                className="bg-gradient-to-r from-red-600 via-blue-700 to-red-500 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                className="inline-block"
                                 variants={shinyTextVariants}
                                 initial="initial"
                                 animate="animate"
-                                style={{
-                                    backgroundImage: 'linear-gradient(90deg, #dc2626 0%, #1d4ed8 30%, #dc2626 60%, #1d4ed8 100%)',
-                                    backgroundSize: '200% 100%',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                }}
                             >
                                 PMED Cardiology Club
                             </motion.span>
@@ -230,7 +223,7 @@ const CardiologyPage = () => {
                         </motion.div>
 
                         <motion.p
-                            className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium"
+                            className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed font-medium"
                             variants={itemVariants}
                         >
                             Advancing cardiovascular medicine through excellence, innovation, and compassionate care
@@ -277,15 +270,15 @@ const CardiologyPage = () => {
                                     <Activity className="w-8 h-8 text-red-600 mr-3" />
                                     <span className="text-red-600 font-bold text-lg">Excellence in Cardiology</span>
                                 </motion.div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Our Program</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray mb-6">About Our Program</h2>
                             </div>
                             <motion.p
-                                className="text-lg md:text-xl text-gray-700 leading-relaxed text-center max-w-5xl mx-auto relative z-10"
+                                className="text-lg md:text-xl text-main-gray leading-relaxed text-center max-w-5xl mx-auto relative z-10"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                PMED Cardiology is an <span className="font-semibold text-red-600 relative">officially recognized division</span> of the PMED Club, accredited by the <span className="font-semibold text-blue-700">American College of Cardiology</span>, the Ministry of Health, and several leading hospitals and medical educational organizations. Our mission is to empower medical students with deep and practical understanding of cardiology through a structured program offering <span className="font-semibold text-red-600">10 competitive annual seats</span>. Selected students benefit from hands-on clinical exposure, expert-led research, and personalized mentorship. The division is supported by a team of professional supervisors and provides exclusive research opportunities, enabling participants to contribute to meaningful academic work and develop into future leaders in cardiovascular medicine.
+                                PMED Cardiology is an <span className="font-semibold text-red-600 relative">officially recognized division</span> of the PMED Club, accredited by the <span className="font-semibold text-primary-blue">American College of Cardiology</span>, the Ministry of Health, and several leading hospitals and medical educational organizations. Our mission is to empower medical students with deep and practical understanding of cardiology through a structured program offering <span className="font-semibold text-red-600">10 competitive annual seats</span>. Selected students benefit from hands-on clinical exposure, expert-led research, and personalized mentorship. The division is supported by a team of professional supervisors and provides exclusive research opportunities, enabling participants to contribute to meaningful academic work and develop into future leaders in cardiovascular medicine.
                             </motion.p>
                         </motion.div>
                     </motion.section>
@@ -340,7 +333,7 @@ const CardiologyPage = () => {
                             />
 
                             <motion.p
-                                className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium"
+                                className="text-xl text-main-gray max-w-3xl mx-auto leading-relaxed font-medium"
                                 variants={itemVariants}
                             >
                                 Distinguished cardiologists and medical professionals dedicated to advancing cardiovascular medicine and mentoring the next generation of healthcare leaders
@@ -450,7 +443,7 @@ const CardiologyPage = () => {
                         viewport={{ once: true, margin: "-100px" }}
                     >
                         <motion.div
-                            className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto text-center relative overflow-hidden border border-white/20"
+                            className="bg-card-bg rounded-3xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto text-center relative overflow-hidden border border-border-gray"
                             whileHover={{
                                 scale: 1.02,
                                 boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
@@ -459,7 +452,7 @@ const CardiologyPage = () => {
                         >
                             {/* Background Decoration */}
                             <motion.div
-                                className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-red-500/10 rounded-full blur-3xl"
+                                className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary-blue/10 to-primary-red/10 rounded-full blur-3xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
@@ -470,12 +463,12 @@ const CardiologyPage = () => {
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <ClipboardList className="w-8 h-8 text-blue-700 mr-3" />
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-800">How to Apply</h2>
+                                <ClipboardList className="w-8 h-8 text-primary-blue mr-3" />
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">How to Apply</h2>
                             </motion.div>
 
                             <motion.div
-                                className="text-lg md:text-xl text-gray-600 space-y-6 leading-relaxed mb-8 relative z-10"
+                                className="text-lg md:text-xl text-main-gray space-y-6 leading-relaxed mb-8 relative z-10"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -495,7 +488,7 @@ const CardiologyPage = () => {
                             {/* Enhanced Social Media Links */}
                             <div className="relative z-10">
                                 <motion.h3
-                                    className="text-2xl font-bold text-gray-800 mb-6"
+                                    className="text-2xl font-bold text-main-gray mb-6"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     Follow Us
