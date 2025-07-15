@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoo from './images/logo1.png';
-import SearchEngine from './SearchEngine';
+import LoadingSkeleton from './LoadingSkeleton';
+
+const SearchEngine = lazy(() => import('./SearchEngine'));
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -207,7 +209,9 @@ const Navigation: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="hidden md:block"
           >
-            <SearchEngine />
+            <Suspense fallback={<LoadingSkeleton />}>
+              <SearchEngine />
+            </Suspense>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -240,7 +244,9 @@ const Navigation: React.FC = () => {
                 transition={{ delay: 0.1 }}
                 className="mb-4"
               >
-                <SearchEngine />
+                <Suspense fallback={<LoadingSkeleton />}>
+                  <SearchEngine />
+                </Suspense>
               </motion.div>
 
               {navItems.map((item, index) => (
