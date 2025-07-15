@@ -259,7 +259,7 @@ const AboutSection: React.FC = () => {
 
               Our community spans universities and borders, united by one dream: to become physicians who care with their skills and their souls.
 
-              If you believe that medicine can build a better world,  you belong here.
+              If you believe that medicine can build a better world,  you belong here.
             </motion.span>
           </motion.p>
         </motion.div>
