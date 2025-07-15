@@ -29,7 +29,10 @@ const supervisors = [
         title: "Pediatric Cardiologist",
         bullets: [
             "Holds the record for the highest number of consecutive pediatric catheterization procedures in the Arab world.",
-
+            "Expertise in congenital heart disease and interventional pediatric cardiology.",
+            "Minimally invasive treatments for a range of pediatric heart conditions.",
+            "Ongoing care for congenital and acquired heart diseases in children, from infancy through adolescence.",
+        
         ],
         profileLink: "#"
     },
@@ -328,12 +331,16 @@ const CardiologyPage = () => {
                                 <h2 className="text-3xl md:text-4xl font-bold text-main-gray mb-6">About Our Program</h2>
                             </div>
                             <motion.p
-                                className="text-lg md:text-xl text-main-gray leading-relaxed text-center max-w-5xl mx-auto relative z-10"
+                                className="text-lg md:text-xl leading-relaxed text-center max-w-5xl mx-auto relative z-10 font-medium"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                PMED Cardiology is an <span className="font-semibold text-red-600 relative">officially recognized division</span> of the PMED Club, accredited by the <span className="font-semibold text-primary-blue">American College of Cardiology</span>, the Ministry of Health, and several leading hospitals and medical educational organizations. Our mission is to empower medical students with deep and practical understanding of cardiology through a structured program offering <span className="font-semibold text-red-600">10 competitive annual seats</span>. Selected students benefit from hands-on clinical exposure, expert-led research, and personalized mentorship. The division is supported by a team of professional supervisors and provides exclusive research opportunities, enabling participants to contribute to meaningful academic work and develop into future leaders in cardiovascular medicine.
+                                <span className="text-red-600 font-bold">PMED Cardiology Interest Group </span>
+                                isn’t just another student club — it’s a launchpad for aspiring future leaders in <span className="text-red-600 font-semibold">cardiovascular medicine</span>. Backed by the
+                                <span className="text-blue-700 font-semibold"> American College of Cardiology</span>,
+                                the Ministry of Health, and leading hospitals, we offer
+                                <span className="text-blue-700 font-bold"> ten competitive seats</span> each year. Those picked join an elite program featuring hands-on clinical experience, cutting-edge research, and one-on-one mentorship that are supervised by specialists in Cardiology contributing to real academic work, and grow into the kind of physician who doesn’t just treat — <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">but transforms</span>.
                             </motion.p>
                         </motion.div>
                     </motion.section>
@@ -411,7 +418,6 @@ const CardiologyPage = () => {
                                             <li key={i} className="flex items-start"><span className="mt-1 mr-2 text-red-600">•</span>{b}</li>
                                         ))}
                                     </ul>
-                                    <a href={sup.profileLink} className="mt-auto inline-block bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-xl shadow transition-all duration-150">View Profile</a>
                                 </motion.div>
                             ))}
                         </div>
@@ -457,8 +463,9 @@ const CardiologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Applications for PMED Cardiology open on a limited basis each year. To stay informed about upcoming opportunities, follow our official social media channels, where we regularly post updates, application announcements, and important deadlines.
-                                </p>
+                                    Each year, only a <span className="text-blue-700 font-bold">select few</span> gain the chance to join PMED Cardiology — a route reserved for those with <span className="text-red-600 font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-red-600 font-bold">every moment matters</span>.<br /><br />
+                                    To stay ahead, follow our <span className="text-blue-700 font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.<br /><br />
+                                    The field of cardiology seeks  bold, the brilliant, and those who truly care. When the opportunity arises, <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">seize it</span>.                                </p>
                                 <motion.p
                                     className="font-semibold text-red-600 text-xl"
                                     whileHover={{ scale: 1.05 }}

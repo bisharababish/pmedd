@@ -211,7 +211,7 @@ const AboutSection: React.FC = () => {
             initial="initial"
             animate="animate"
           >
-            <CircularText text="•PMED•About" radius={90} className="text-primary-blue" />
+            <CircularText text="•PMED•ABOUT" radius={90} className="text-primary-blue" />
           </motion.div>
           <motion.p
             className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed relative"

@@ -357,7 +357,7 @@ const PodcastPage = () => {
                                 <motion.div
                                     key={idx}
                                     variants={cardVariants}
-                                    className="group relative flex flex-col items-center bg-white/90 rounded-3xl shadow-xl border border-border-gray p-8 transition-all duration-500 hover:shadow-2xl"
+                                    className={`group relative flex flex-col items-center bg-white/90 rounded-3xl shadow-xl border border-border-gray p-8 transition-all duration-500 hover:shadow-2xl${member.name === "Abdallah  Elayyan" ? " lg:col-start-2" : ""}`}
                                     style={{ minHeight: 320 }}
                                 >
                                     <div className="mb-6">

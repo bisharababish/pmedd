@@ -139,8 +139,8 @@ const ProgramsSection: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveProgram(index)}
               className={`flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300 ${activeProgram === index
-                  ? `bg-gradient-to-r from-primary-blue to-secondary-blue text-white shadow-lg`
-                  : 'bg-white text-main-gray hover:bg-light-blue shadow-md'
+                ? `bg-gradient-to-r from-primary-blue to-secondary-blue text-white shadow-lg`
+                : 'bg-white text-main-gray hover:bg-light-blue shadow-md'
                 }`}
             >
               <motion.div
@@ -228,8 +228,8 @@ const ProgramsSection: React.FC = () => {
                       <Star
                         key={i}
                         className={`w-5 h-5 ${i < Math.floor(programs[activeProgram].rating)
-                            ? 'text-yellow-400 fill-current'
-                            : 'text-gray-300'
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300'
                           }`}
                       />
                     ))}
