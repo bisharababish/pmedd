@@ -301,7 +301,11 @@ const PodcastPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                The <span className="font-semibold text-primary-blue relative">PMED Podcast Club</span> is where medical science meets storytelling. We explore the latest breakthroughs, share inspiring stories from healthcare professionals, and discuss the challenges and triumphs of medicine. Our mission is to create engaging, informative content that educates and entertains. Join our community to dive deep into the world of medicine, one episode at a time.
+                                Welcome to the <span className="text-primary-blue font-semibold">PMED Podcast Club</span>, a new project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
+                                <br /><br />
+                                Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-pink-600 font-semibold">doctor of Palestinian ancestry</span> who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
+                                <br /><br />
+                                Through honest interviews and interesting conversations, we learn about their adventures, struggles, and successes, and we give advice to the next generation of doctors. This podcast is a great way for people in the Palestinian medical community, from medical students to experienced doctors, to get advice, get inspired, and meet new people.
                             </motion.p>
                         </motion.div>
                     </motion.section>
