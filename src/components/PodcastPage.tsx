@@ -422,7 +422,7 @@ const PodcastPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Have a story to share or expertise in a medical field? We are always looking for passionate guests to join our podcast. Contact us to learn more about becoming a guest speaker.
+                                    Do you have a medical story or experience you'd like to tell? We are always looking for excited guests to join our podcast. Get in touch with us to find out more about how to become a guest speaker.
                                 </p>
                                 <motion.p
                                     className="font-semibold text-primary-blue"

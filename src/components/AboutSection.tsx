@@ -255,7 +255,11 @@ const AboutSection: React.FC = () => {
                 backgroundClip: 'text'
               }}
             >
-              {' '}is a student-led, multidisciplinary club rooted in the values of equity and excellence. We connect high-potential students with real medical experiences, workshops, and mentors. Our network spans local universities and international partnerships. We believe medicine is not only a science but a tool for justice, hope, and nation-building.
+              {' '}PMED is student-led and rooted in our values: excellence, compassion, and justice. Through hands-on clinical experiences, skill-building workshops, and effective mentoring, we open new horizons—not just for careers, but for positive impact.
+
+              Our community spans universities and borders, united by one dream: to become physicians who care with their skills and their souls.
+
+              If you believe that medicine can build a better world,  you belong here.
             </motion.span>
           </motion.p>
         </motion.div>
