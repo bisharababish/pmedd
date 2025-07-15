@@ -326,9 +326,9 @@ const AboutSection: React.FC = () => {
                     variants={staggerListVariants}
                   >
                     {[
-                      'Empower medical students through structured exposure to real-world clinical and academic environments.',
-                      'Provide mentorship, training, and resources to support their personal and professional growth.',
-                      'Shape the complete doctor character — scientifically competent, ethically grounded, and socially responsible.'
+                      'To empower medical students by systematically exposing them to realistic clinical and academic environments.',
+                      'To provide the necessary mentoring, training, and resources to support their personal and professional growth.',
+                      'To build the well-rounded physician—scientifically competent, ethically committed, and socially responsible.'
                     ].map((text, idx) => (
                       <motion.li
                         key={idx}
