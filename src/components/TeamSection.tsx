@@ -123,24 +123,6 @@ const teamStructure = [
                 img: bish,
             }
         ]
-    },
-    {
-        roleGroup: "Design Team",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
-        accent: "from-blue-500 to-indigo-500",
-        icon: Palette,
-        members: [
-            {
-                name: 'Qusai Shwaiki',
-                role: 'Graphic Designer',
-                img: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400',
-            },
-            {
-                name: 'Hind Abu Al Ghaib',
-                role: 'Graphic Designer',
-                img: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400',
-            }
-        ]
     }
 ];
 
@@ -244,6 +226,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
 const TeamSection = () => {
     const founders = teamStructure[0]; // Leadership & Founders
     const otherTeams = teamStructure.slice(1); // All other teams
+    const topTierTeams = otherTeams.slice(0, 3);
+    const bottomTierTeams = otherTeams.slice(3);
 
     return (
         <div id="team" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
@@ -312,7 +296,7 @@ const TeamSection = () => {
                         {/* Vertical connecting lines */}
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
 
-                        {otherTeams.map((group, groupIdx) => (
+                        {topTierTeams.map((group, groupIdx) => (
                             <motion.div
                                 key={groupIdx}
                                 initial="hidden"
@@ -348,6 +332,48 @@ const TeamSection = () => {
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+
+                    {/* Centered last two teams */}
+                    <div className="mt-10 sm:mt-16 flex justify-center">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
+                            {bottomTierTeams.map((group, groupIdx) => (
+                                <motion.div
+                                    key={groupIdx}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    variants={containerVariants}
+                                    className="relative"
+                                >
+                                    {/* Branch connecting line */}
+                                    <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+
+                                    {/* Group Header */}
+                                    <div className="text-center mb-4 sm:mb-8">
+                                        <h3 className={`text-xl sm:text-2xl font-bold bg-gradient-to-r ${group.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
+                                            {group.roleGroup}
+                                        </h3>
+                                        <div className={`w-10 sm:w-16 h-0.5 bg-gradient-to-r ${group.color} mx-auto rounded-full`} />
+                                    </div>
+
+                                    {/* Team Members */}
+                                    <div className="space-y-4 sm:space-y-6">
+                                        {group.members.map((member, memberIdx) => (
+                                            <div key={memberIdx} className="relative">
+                                                {/* Connecting line between team members */}
+                                                {memberIdx > 0 && (
+                                                    <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
+                                                )}
+                                                <div className="w-full max-w-xs mx-auto">
+                                                    <MemberCard member={member} group={group} />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
