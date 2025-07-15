@@ -63,7 +63,7 @@ const Navigation: React.FC = () => {
     {
       label: 'About', href: '/about', dropdown: [
         { label: 'Mission and Vision', href: '/about#mission' },
-        { label: 'What We Do', href: '/about#whatwedo' },
+        { label: 'Our Deliverables', href: '/about#whatwedo' },
         { label: 'Meet The Team', href: '/team' },
       ]
     },

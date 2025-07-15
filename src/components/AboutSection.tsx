@@ -397,7 +397,7 @@ const AboutSection: React.FC = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              What We Deliver
+              Our Deliverables
             </motion.h3>
             <motion.div
               className="w-16 h-1 bg-primary-blue mb-6 rounded"

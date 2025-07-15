@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Users, X, ClipboardList, Instagram, Linkedin, Youtube, Activity, Stethoscope } from 'lucide-react';
+import { ClipboardList, Instagram, Linkedin, Youtube, Activity, Stethoscope, X } from 'lucide-react';
 import './CardiologyPage.css'; // Import custom CSS for animation
 
 import supervisor1 from "./supervisorpics/supervisor1.png";
@@ -10,14 +10,74 @@ import supervisor4 from "./supervisorpics/supervisor4.png";
 import supervisor6 from "./supervisorpics/supervisor6.png";
 import supervisor7 from "./supervisorpics/supervisor7.png";
 
-// Array for 6 supervisor cards with their images
+// Replace the supervisors array with detailed objects
 const supervisors = [
-    supervisor1,
-    supervisor2,
-    supervisor3,
-    supervisor4,
-    supervisor6,
-    supervisor7
+    {
+        image: supervisor1,
+        name: "Dr. Sameer Mtour",
+        title: "Cardiologist & Head of the Cardiology Department at Al-Makassed Hospital",
+        bullets: [
+            "Cardiologist & Head of the Cardiology Department at Al-Makassed Hospital",
+            "Assistant Professor at Al-Quds University",
+            "Numerous advanced catheterization procedures, including LAAO and TAVI"
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor2,
+        name: "Dr. [Name]",
+        title: "Title/Position",
+        bullets: [
+            "Bullet 1",
+            "Bullet 2",
+            "Bullet 3"
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor3,
+        name: "Dr. [Name]",
+        title: "Title/Position",
+        bullets: [
+            "Bullet 1",
+            "Bullet 2",
+            "Bullet 3"
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor4,
+        name: "Dr. [Name]",
+        title: "Title/Position",
+        bullets: [
+            "Bullet 1",
+            "Bullet 2",
+            "Bullet 3"
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor6,
+        name: "Dr. [Name]",
+        title: "Title/Position",
+        bullets: [
+            "Bullet 1",
+            "Bullet 2",
+            "Bullet 3"
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor7,
+        name: "Dr. [Name]",
+        title: "Title/Position",
+        bullets: [
+            "Bullet 1",
+            "Bullet 2",
+            "Bullet 3"
+        ],
+        profileLink: "#"
+    }
 ];
 
 // Using placeholder background image from Pexels
@@ -29,11 +89,6 @@ const CardiologyPage = () => {
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
     const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1.1]);
-
-    const openModal = (image: string) => {
-        setSelectedImage(image);
-        document.body.style.overflow = 'hidden';
-    };
 
     const closeModal = () => {
         setSelectedImage(null);
@@ -292,45 +347,38 @@ const CardiologyPage = () => {
                         viewport={{ once: true, margin: "-100px" }}
                     >
                         <motion.div className="text-center mb-16" variants={itemVariants}>
-                            <motion.div
-                                className="inline-flex items-center justify-center p-4 bg-white/90 backdrop-blur-sm rounded-2xl mb-8 shadow-lg border border-white/20"
-                                whileHover={{
-                                    scale: 1.05,
-                                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
-                                }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                            >
-                                <Users className="w-8 h-8 text-red-600 mr-3" />
-                                <span className="text-red-600 font-bold text-lg">Our Expert Team</span>
-                            </motion.div>
+                            {/* Removed empty decorative circle motion.div */}
 
-                            <motion.h2
-                                className="text-4xl md:text-5xl font-bold mb-6"
-                                variants={itemVariants}
-                            >
-                                <motion.span
-                                    className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
-                                    variants={shinyTextVariants}
-                                    initial="initial"
-                                    animate="animate"
-                                    style={{
-                                        backgroundImage: 'linear-gradient(90deg, #dc2626 0%, #ef4444 50%, #dc2626 100%)',
-                                        backgroundSize: '200% 100%',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text'
-                                    }}
+                            {/* Wrap heading and line in inline-block, text-left */}
+                            <div className="inline-block text-left">
+                                <motion.h2
+                                    className="text-4xl md:text-5xl font-bold mb-6"
+                                    variants={itemVariants}
                                 >
-                                    MEET OUR SUPERVISORS
-                                </motion.span>
-                            </motion.h2>
+                                    <motion.span
+                                        className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                                        variants={shinyTextVariants}
+                                        initial="initial"
+                                        animate="animate"
+                                        style={{
+                                            backgroundImage: 'linear-gradient(90deg, #dc2626 0%, #ef4444 50%, #dc2626 100%)',
+                                            backgroundSize: '200% 100%',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text'
+                                        }}
+                                    >
+                                        MEET OUR SUPERVISORS
+                                    </motion.span>
+                                </motion.h2>
 
-                            <motion.div
-                                className="w-32 h-1 bg-gradient-to-r from-red-500 to-blue-600 mx-auto rounded-full mb-6"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: 128 }}
-                                transition={{ duration: 1, delay: 0.5 }}
-                            />
+                                <motion.div
+                                    className="w-32 h-1 bg-gradient-to-r from-red-500 to-blue-600 ml-0 rounded-full mb-6"
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: 128 }}
+                                    transition={{ duration: 1, delay: 0.5 }}
+                                />
+                            </div>
 
                             <motion.p
                                 className="text-xl text-main-gray max-w-3xl mx-auto leading-relaxed font-medium"
@@ -341,94 +389,29 @@ const CardiologyPage = () => {
                         </motion.div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                            {supervisors.map((supervisorImg, idx) => (
+                            {supervisors.map((sup, idx) => (
                                 <motion.div
                                     key={idx}
                                     variants={itemVariants}
-                                    whileHover={{
-                                        y: -15,
-                                        scale: 1.05,
-                                        rotateY: 5,
-                                        transition: { type: 'spring', stiffness: 300, damping: 20 }
-                                    }}
-                                    className="group relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden cursor-pointer border border-white/30 hover:shadow-3xl transition-all duration-500"
-                                    onClick={() => openModal(supervisorImg)}
+                                    className="bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-gray-200 relative"
+                                    whileHover={{ y: -8, scale: 1.03, boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 24 }}
                                 >
-                                    {/* Enhanced Gradient Border Effect */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-                                        whileHover={{
-                                            background: "linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, transparent 50%, rgba(59, 130, 246, 0.3) 100%)"
-                                        }}
-                                    />
-
-                                    {/* Content */}
-                                    <div className="relative p-6">
-                                        {/* Supervisor Image Container */}
-                                        <div className="relative mb-6 mx-auto">
-                                            <motion.div
-                                                className="w-full h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-xl relative"
-                                                whileHover={{ scale: 1.02 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <img
-                                                    src={supervisorImg}
-                                                    alt={`Supervisor ${idx + 1}`}
-                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                                />
-
-                                                {/* Hover Overlay */}
-                                                <motion.div
-                                                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-4"
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    whileHover={{ opacity: 1, y: 0 }}
-                                                >
-                                                    <div className="text-white text-center">
-                                                        <h4 className="font-bold text-lg mb-1">Medical Supervisor</h4>
-                                                        <p className="text-sm opacity-90">Cardiology Expert</p>
-                                                    </div>
-                                                </motion.div>
-                                            </motion.div>
-
-                                            {/* Enhanced Click Indicator */}
-                                            <motion.div
-                                                className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg"
-                                                whileHover={{ scale: 1.1 }}
-                                            >
-                                                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </motion.div>
-                                        </div>
-
-                                        {/* Enhanced ECG Line Animation */}
-                                        <div className="flex justify-center">
-                                            <motion.svg
-                                                width="120"
-                                                height="30"
-                                                viewBox="0 0 120 30"
-                                                className="text-red-400 opacity-60"
-                                                whileHover={{ scale: 1.1 }}
-                                            >
-                                                <motion.path
-                                                    d="M0,15 L20,15 L25,8 L30,22 L35,8 L40,15 L45,15 L50,10 L55,20 L60,15 L120,15"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    fill="none"
-                                                    initial={{ pathLength: 0 }}
-                                                    animate={{ pathLength: 1 }}
-                                                    transition={{
-                                                        duration: 2,
-                                                        delay: idx * 0.2,
-                                                        repeat: Infinity,
-                                                        repeatType: "loop",
-                                                        repeatDelay: 3
-                                                    }}
-                                                />
-                                            </motion.svg>
-                                        </div>
+                                    {/* ECG line background */}
+                                    <div className="absolute top-8 left-0 w-full flex justify-center z-0">
+                                        <svg width="90%" height="40" viewBox="0 0 320 40" className="mx-auto opacity-30">
+                                            <polyline points="0,20 40,20 60,5 80,35 100,5 120,20 140,20 160,10 180,30 200,20 320,20" fill="none" stroke="#d1d5db" strokeWidth="3" />
+                                        </svg>
                                     </div>
+                                    <img src={sup.image} alt={sup.name} className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg z-10 mb-4" />
+                                    <h3 className="text-xl font-bold text-gray-900 z-10 mb-1">{sup.name}</h3>
+                                    <p className="text-gray-700 font-medium z-10 mb-4">{sup.title}</p>
+                                    <ul className="text-gray-600 text-left z-10 mb-6 space-y-2">
+                                        {sup.bullets.map((b, i) => (
+                                            <li key={i} className="flex items-start"><span className="mt-1 mr-2 text-red-600">•</span>{b}</li>
+                                        ))}
+                                    </ul>
+                                    <a href={sup.profileLink} className="mt-auto inline-block bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-xl shadow transition-all duration-150">View Profile</a>
                                 </motion.div>
                             ))}
                         </div>

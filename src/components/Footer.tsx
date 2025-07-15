@@ -47,10 +47,10 @@ const Footer: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        delayChildren: 0.15,
+        staggerChildren: 0.08,
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   };
@@ -58,16 +58,16 @@ const Footer: React.FC = () => {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 60,
-      scale: 0.9
+      y: 40,
+      scale: 0.95
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        duration: 0.22,
+        ease: "easeOut"
       }
     }
   };
@@ -116,16 +116,16 @@ const Footer: React.FC = () => {
   const slideInVariants = {
     hidden: {
       opacity: 0,
-      y: 50,
-      rotateX: -15
+      y: 30,
+      rotateX: -10
     },
     visible: {
       opacity: 1,
       y: 0,
       rotateX: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        duration: 0.22,
+        ease: "easeOut"
       }
     }
   };
@@ -135,8 +135,8 @@ const Footer: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.1
+        delayChildren: 0.08,
+        staggerChildren: 0.06
       }
     }
   };
@@ -144,16 +144,16 @@ const Footer: React.FC = () => {
   const listItemVariants = {
     hidden: {
       opacity: 0,
-      x: -30,
-      scale: 0.8
+      x: -15,
+      scale: 0.92
     },
     visible: {
       opacity: 1,
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        duration: 0.18,
+        ease: "easeOut"
       }
     }
   };
@@ -235,7 +235,7 @@ const Footer: React.FC = () => {
                     scale: 1.1,
                     boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
                   }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.2 }}
                   className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden"
                 >
                   <motion.div
@@ -300,21 +300,21 @@ const Footer: React.FC = () => {
                     href={social.href}
                     variants={listItemVariants}
                     whileHover={{
-                      scale: 1.2,
-                      y: -5,
-                      rotateZ: 5,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)"
+                      scale: 1.28,
+                      y: -8,
+                      rotateZ: 8,
+                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.32)"
                     }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-10 h-10 bg-gradient-to-r ${social.color} backdrop-blur-sm rounded-xl flex items-center justify-center text-white shadow-lg transition-all duration-300 relative overflow-hidden`}
+                    whileTap={{ scale: 0.93 }}
+                    className={`w-10 h-10 bg-gradient-to-r ${social.color} backdrop-blur-sm rounded-xl flex items-center justify-center text-white shadow-lg transition-all duration-100 relative overflow-hidden`}
                     aria-label={social.label}
                     target={social.external ? "_blank" : undefined}
                     rel={social.external ? "noopener noreferrer" : undefined}
                   >
                     <motion.div
                       className="absolute inset-0 bg-white/20"
-                      whileHover={{ opacity: 0.3 }}
-                      transition={{ duration: 0.3 }}
+                      whileHover={{ opacity: 0.32 }}
+                      transition={{ duration: 0.13, ease: "easeOut" }}
                     />
                     <div className="relative z-10">
                       {social.icon}
@@ -360,19 +360,30 @@ const Footer: React.FC = () => {
                   >
                     <motion.div
                       whileHover={{
-                        x: 10,
+                        x: 8,
                         color: '#60A5FA',
-                        scale: 1.05
+                        scale: 1.08
                       }}
-                      className="text-gray-300 hover:text-blue-400 transition-all duration-300 flex items-center group cursor-pointer"
+                      className="text-gray-300 hover:text-blue-400 transition-all duration-150 flex items-center group cursor-pointer"
                     >
                       <motion.span
-                        className="w-2 h-2 bg-white rounded-full mr-3 group-hover:bg-blue-400 transition-colors duration-300"
-                        whileHover={{ scale: 1.5 }}
+                        className="w-2 h-2 bg-white rounded-full mr-3 group-hover:bg-blue-400 transition-colors duration-150"
+                        whileHover={{ scale: 1.32 }}
                       />
                       <Link
                         to={link.href}
-                        onClick={() => window.scrollTo(0, 0)}
+                        onClick={e => {
+                          if (
+                            e.ctrlKey ||
+                            e.metaKey ||
+                            e.shiftKey ||
+                            e.button === 1
+                          ) {
+                            // Let the browser handle opening in a new tab/window
+                            return;
+                          }
+                          window.scrollTo(0, 0);
+                        }}
                         className="relative"
                       >
                         {link.title}
@@ -380,7 +391,7 @@ const Footer: React.FC = () => {
                           className="absolute bottom-0 left-0 h-0.5 bg-blue-400 rounded"
                           initial={{ width: 0 }}
                           whileHover={{ width: "100%" }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
                         />
                       </Link>
                     </motion.div>
@@ -422,18 +433,18 @@ const Footer: React.FC = () => {
                 <motion.div
                   variants={listItemVariants}
                   whileHover={{
-                    x: 10,
-                    scale: 1.02
+                    x: 8,
+                    scale: 1.06
                   }}
                   className="flex items-start space-x-3 text-gray-300 group"
                 >
                   <motion.div
                     whileHover={{
                       rotate: 360,
-                      scale: 1.2,
+                      scale: 1.18,
                       color: "#60a5fa"
                     }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
                   >
                     <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                   </motion.div>
@@ -449,18 +460,18 @@ const Footer: React.FC = () => {
                 <motion.div
                   variants={listItemVariants}
                   whileHover={{
-                    x: 10,
-                    scale: 1.02
+                    x: 8,
+                    scale: 1.06
                   }}
                   className="flex items-center space-x-3 text-gray-300 group"
                 >
                   <motion.div
                     whileHover={{
                       rotate: 360,
-                      scale: 1.2,
+                      scale: 1.18,
                       color: "#10b981"
                     }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
                   >
                     <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                   </motion.div>
@@ -475,7 +486,7 @@ const Footer: React.FC = () => {
                         className="absolute bottom-0 left-0 h-0.5 bg-emerald-400 rounded"
                         initial={{ width: 0 }}
                         whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
                       />
                     </motion.a>
                   </div>
@@ -484,18 +495,18 @@ const Footer: React.FC = () => {
                 <motion.div
                   variants={listItemVariants}
                   whileHover={{
-                    x: 10,
-                    scale: 1.02
+                    x: 8,
+                    scale: 1.06
                   }}
                   className="flex items-center space-x-3 text-gray-300"
                 >
                   <motion.div
                     whileHover={{
                       rotate: 360,
-                      scale: 1.2,
+                      scale: 1.18,
                       color: "#8b5cf6"
                     }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
                   >
                     <Mail className="w-5 h-5 text-purple-400 flex-shrink-0" />
                   </motion.div>
@@ -531,7 +542,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.div
               className="flex items-center space-x-2 text-gray-300"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.08 }}
             >
               <motion.span
                 whileHover={{ color: "#d1d5db" }}
@@ -566,10 +577,10 @@ const Footer: React.FC = () => {
                 href="https://instagram.com/codefusionn.ps"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-pink-400 flex items-center gap-1 transition-colors duration-300"
+                className="hover:text-pink-400 flex items-center gap-1 transition-colors duration-150"
                 variants={listItemVariants}
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.08,
                   color: "#f472b6"
                 }}
               >
@@ -581,10 +592,10 @@ const Footer: React.FC = () => {
                 href="https://codefusion.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-400 flex items-center gap-1 transition-colors duration-300"
+                className="hover:text-blue-400 flex items-center gap-1 transition-colors duration-150"
                 variants={listItemVariants}
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.08,
                   color: "#60a5fa"
                 }}
               >
@@ -596,10 +607,10 @@ const Footer: React.FC = () => {
 
               <motion.a
                 href="tel:+972599203857"
-                className="hover:text-emerald-400 flex items-center gap-1 transition-colors duration-300"
+                className="hover:text-emerald-400 flex items-center gap-1 transition-colors duration-150"
                 variants={listItemVariants}
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.08,
                   color: "#10b981"
                 }}
               >

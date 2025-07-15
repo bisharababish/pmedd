@@ -116,7 +116,7 @@ const searchData = [
     },
     {
         id: 'whatwedo',
-        title: 'What We Do',
+        title: 'Our Deliverables',
         content: 'We build medical specialty interest groups — such as Cardiology, Neurology, Surgery, and more — each acting like a focused sub-club that empowers students to explore, grow, and lead in their field of interest.',
         keywords: ['specialty groups', 'cardiology', 'neurology', 'surgery', 'workshops', 'seminars', 'clinical exposure', 'competitions'],
         section: 'About',
@@ -425,9 +425,6 @@ const SearchEngine: React.FC = () => {
             >
                 <Search className="w-4 h-4" />
                 <span className="hidden sm:inline">Search</span>
-                <kbd className="hidden lg:inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-200 border border-gray-300 rounded">
-                    <span className="text-xs">⌘</span>K
-                </kbd>
             </motion.button>
 
             {/* Search Modal */}

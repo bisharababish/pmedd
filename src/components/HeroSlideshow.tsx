@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Play, Calendar, MapPin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
 import Slide3 from "./images/Slide3.png";
 
@@ -228,20 +228,6 @@ const HeroSlideshow: React.FC = () => {
                   )}
 
                   {/* CTA Button */}
-                  <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.1, duration: 0.8 }}
-                  >
-                    <motion.button
-                      whileHover={{ scale: 1.08, y: -2, boxShadow: '0 0 24px 4px #3b82f6' }}
-                      whileTap={{ scale: 0.97 }}
-                      className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl transition-all duration-300 ring-2 ring-blue-400/30"
-                    >
-                      <Play className="w-5 h-5 animate-pulse" />
-                      {slide.cta}
-                    </motion.button>
-                  </motion.div>
                 </div>
               </div>
             </motion.div>
