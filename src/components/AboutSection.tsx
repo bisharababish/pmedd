@@ -166,7 +166,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="about" className="py-20 bg-very-light-blue relative overflow-hidden">
-      {/* Enhanced Background decorative elements */}
+      {}
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
@@ -200,7 +200,7 @@ const AboutSection: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        {/* Enhanced Header */}
+        {}
         <motion.div
           className="text-center mb-16"
           variants={itemVariants}
@@ -264,7 +264,7 @@ const AboutSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Mission Statement */}
+        {}
         <motion.div
           id="mission"
           className="mt-20 text-center flex justify-center items-center min-h-[60vh] scroll-mt-24"
@@ -382,7 +382,7 @@ const AboutSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Enhanced What We Do Section */}
+        {}
         <motion.div className="pt-16">
           <motion.div
             id="whatwedo"

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, MapPin, Users, GraduationCap, Microscope, Stethoscope, BookOpen, Calendar, Mail, ChevronRight } from 'lucide-react';
+import { Search, X, MapPin, Users, GraduationCap, Microscope, Stethoscope, BookOpen, Mail, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// Search data structure containing all website content
 const searchData = [
     // Home Page
     {
@@ -27,38 +26,6 @@ const searchData = [
         icon: <Users className="w-4 h-4" />
     },
 
-    // Programs Page
-    {
-        id: 'programs',
-        title: 'Programs',
-        content: 'Explore PMED Club programs, specialty interest groups, and opportunities for growth.',
-        keywords: ['programs', 'specialty', 'interest groups', 'growth', 'opportunities'],
-        section: 'Programs',
-        path: '/programs',
-        icon: <BookOpen className="w-4 h-4" />
-    },
-
-    // Research Page
-    {
-        id: 'research',
-        title: 'Research',
-        content: 'Discover research opportunities, projects, and academic impact at PMED Club.',
-        keywords: ['research', 'projects', 'academic', 'impact', 'opportunities'],
-        section: 'Research',
-        path: '/research',
-        icon: <BookOpen className="w-4 h-4" />
-    },
-
-    // Events Page
-    {
-        id: 'events',
-        title: 'Events',
-        content: 'Join our workshops, seminars, medical simulations, and awareness campaigns throughout the year.',
-        keywords: ['events', 'workshops', 'seminars', 'simulations', 'campaigns', 'activities'],
-        section: 'Events',
-        path: '/events',
-        icon: <Calendar className="w-4 h-4" />
-    },
 
     // Contact Page
     {
@@ -319,7 +286,6 @@ const SearchEngine: React.FC = () => {
     const searchInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
-    // Search function
     const performSearch = (query: string) => {
         if (!query.trim()) {
             setResults([]);
@@ -328,7 +294,6 @@ const SearchEngine: React.FC = () => {
 
         setIsLoading(true);
 
-        // Simulate search delay for better UX
         setTimeout(() => {
             const searchTerm = query.toLowerCase();
             const searchResults: SearchResult[] = [];
@@ -336,24 +301,20 @@ const SearchEngine: React.FC = () => {
             searchData.forEach(item => {
                 let relevance = 0;
 
-                // Check title match (highest weight)
                 if (item.title.toLowerCase().includes(searchTerm)) {
                     relevance += 10;
                 }
 
-                // Check content match
                 if (item.content.toLowerCase().includes(searchTerm)) {
                     relevance += 5;
                 }
 
-                // Check keywords match
                 item.keywords.forEach(keyword => {
                     if (keyword.toLowerCase().includes(searchTerm)) {
                         relevance += 3;
                     }
                 });
 
-                // Check section match
                 if (item.section.toLowerCase().includes(searchTerm)) {
                     relevance += 2;
                 }
@@ -363,14 +324,12 @@ const SearchEngine: React.FC = () => {
                 }
             });
 
-            // Sort by relevance
             searchResults.sort((a, b) => b.relevance - a.relevance);
             setResults(searchResults);
             setIsLoading(false);
         }, 300);
     };
 
-    // Handle search input changes
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             performSearch(searchQuery);
@@ -379,7 +338,6 @@ const SearchEngine: React.FC = () => {
         return () => clearTimeout(timeoutId);
     }, [searchQuery]);
 
-    // Handle keyboard shortcuts
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.ctrlKey && e.key === 'k') {
@@ -395,7 +353,6 @@ const SearchEngine: React.FC = () => {
         return () => document.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-    // Focus input when search opens
     useEffect(() => {
         if (isOpen && searchInputRef.current) {
             searchInputRef.current.focus();
@@ -415,7 +372,7 @@ const SearchEngine: React.FC = () => {
 
     return (
         <>
-            {/* Search Button */}
+            {}
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -427,7 +384,7 @@ const SearchEngine: React.FC = () => {
                 <span className="hidden sm:inline">Search</span>
             </motion.button>
 
-            {/* Search Modal */}
+            {}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -444,7 +401,7 @@ const SearchEngine: React.FC = () => {
                             className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[70vh] overflow-hidden"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Search Header */}
+                            {}
                             <div className="flex items-center gap-4 p-6 border-b border-gray-200">
                                 <div className="flex-1 relative">
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -465,7 +422,7 @@ const SearchEngine: React.FC = () => {
                                 </button>
                             </div>
 
-                            {/* Search Results */}
+                            {}
                             <div className="max-h-[60vh] overflow-y-auto">
                                 {isLoading ? (
                                     <div className="p-8 text-center">

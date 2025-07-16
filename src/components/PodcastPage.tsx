@@ -10,14 +10,12 @@ import abduallah from "./teampics/abdallah.jpeg";
 import Slide4 from "./images/Slide4.jpg";
 import './CardiologyPage.css';
 
-// Define PodcastTeamMember type
 interface PodcastTeamMember {
     name: string;
     role: string;
     img: string;
 }
 
-// Data for the 6 podcast team members
 const podcastTeam: PodcastTeamMember[] = [
     { name: 'Ahmad Romana', role: 'Host & Producer', img: ahmadRomana },
     { name: 'Lamar Dahlia', role: 'Host & Producer', img: lamar },
@@ -33,7 +31,6 @@ const PodcastPage = () => {
     const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
     const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1.1]);
 
-    // Enhanced animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -158,7 +155,7 @@ const PodcastPage = () => {
 
     return (
         <div className="min-h-screen relative overflow-hidden">
-            {/* Enhanced Background with Parallax */}
+            {}
             <motion.div
                 className="fixed inset-0 z-0"
                 style={{
@@ -172,7 +169,7 @@ const PodcastPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-purple-50/85 to-pink-50/80 backdrop-blur-[2px]" />
 
-                {/* Floating Podcast Icons */}
+                {}
                 <motion.div
                     className="absolute top-40 right-20 text-pink-400/20"
                     variants={floatingVariants}
@@ -192,7 +189,7 @@ const PodcastPage = () => {
                     <Headphones size={70} />
                 </motion.div>
 
-                {/* Animated Background Shapes */}
+                {}
                 <motion.div
                     className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
                     variants={pulseVariants}
@@ -211,7 +208,7 @@ const PodcastPage = () => {
             <div className="relative z-10 min-h-screen">
                 <div className="max-w-6xl mx-auto py-12 md:py-16 px-4 sm:px-6">
 
-                    {/* Enhanced Hero Section */}
+                    {}
                     <motion.div
                         ref={heroRef}
                         className="text-center mb-16 md:mb-20 mt-16 md:mt-20"
@@ -253,7 +250,7 @@ const PodcastPage = () => {
                         </motion.p>
                     </motion.div>
 
-                    {/* Enhanced About Section */}
+                    {}
                     <motion.section
                         className="mb-16 md:mb-20"
                         variants={slideInVariants}
@@ -269,7 +266,7 @@ const PodcastPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {/* Decorative Elements */}
+                            {}
                             <motion.div
                                 className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-2xl"
                                 variants={pulseVariants}
@@ -310,7 +307,7 @@ const PodcastPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {/* Enhanced Team Section */}
+                    {}
                     <motion.section
                         className="mb-16 md:mb-20"
                         variants={containerVariants}
@@ -384,7 +381,7 @@ const PodcastPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {/* Enhanced How to Apply/Join Section */}
+                    {}
                     <section className="mt-16 md:mt-20">
                         <motion.div
                             className="bg-card-bg backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 max-w-3xl mx-auto text-center relative overflow-hidden border border-border-gray"
@@ -398,7 +395,7 @@ const PodcastPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {/* Background Decoration */}
+                            {}
                             <motion.div
                                 className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-3xl"
                                 variants={pulseVariants}
@@ -432,7 +429,7 @@ const PodcastPage = () => {
                                     Follow us on social media to get the latest episodes, behind-the-scenes content, and news.                                </motion.p>
                             </motion.div>
 
-                            {/* Enhanced Social Media Links */}
+                            {}
                             <div className="relative z-10">
                                 <motion.h3
                                     className="text-xl font-bold text-gray-800 mb-4"

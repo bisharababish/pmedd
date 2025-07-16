@@ -45,7 +45,6 @@ const Footer: React.FC = () => {
     { title: 'Contact', href: '/contact' }
   ];
 
-  // Enhanced animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -164,7 +163,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-primary-blue text-light-gray relative overflow-hidden">
-      {/* Enhanced Background Elements with Parallax */}
+      {}
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
@@ -191,7 +190,7 @@ const Footer: React.FC = () => {
         />
       </motion.div>
 
-      {/* Floating Icons */}
+      {}
       <motion.div
         className="absolute top-32 left-10 text-blue-400/10"
         variants={floatingVariants}
@@ -210,11 +209,11 @@ const Footer: React.FC = () => {
         <Globe size={50} />
       </motion.div>
 
-      {/* Scroll to Top Button */}
-      {/* Remove any scroll-to-top button here */}
+      {}
+      {}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main Footer Content */}
+        {}
         <motion.div
           className="py-16"
           variants={containerVariants}
@@ -223,7 +222,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Enhanced Brand Section */}
+            {}
             <motion.div
               variants={itemVariants}
               className="lg:col-span-1"
@@ -328,7 +327,7 @@ const Footer: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {/* Enhanced Quick Links */}
+            {}
             <motion.div
               variants={slideInVariants}
               initial="hidden"
@@ -383,7 +382,6 @@ const Footer: React.FC = () => {
                             e.shiftKey ||
                             e.button === 1
                           ) {
-                            // Let the browser handle opening in a new tab/window
                             return;
                           }
                           window.scrollTo(0, 0);
@@ -404,7 +402,7 @@ const Footer: React.FC = () => {
               </motion.ul>
             </motion.div>
 
-            {/* Enhanced Contact Info */}
+            {}
             <motion.div
               variants={slideInVariants}
               initial="hidden"
@@ -515,11 +513,19 @@ const Footer: React.FC = () => {
                     <Mail className="w-5 h-5 text-purple-400 flex-shrink-0" />
                   </motion.div>
                   <div>
-                    <motion.p
-                      whileHover={{ color: "#d1d5db" }}
+                    <motion.a
+                      href="mailto:info@pmed.club"
+                      className="hover:text-purple-400 transition-colors relative"
+                      whileHover={{ color: "#a78bfa" }}
                     >
-                      Soon
-                    </motion.p>
+                      info@pmed.club
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-purple-400 rounded"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "100%" }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                      />
+                    </motion.a>
                   </div>
                 </motion.div>
               </motion.div>
@@ -527,7 +533,7 @@ const Footer: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Bottom Bar */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -535,7 +541,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           className="border-t border-gray-700 py-8 relative"
         >
-          {/* Decorative line animation */}
+          {}
           <motion.div
             className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded"
             initial={{ width: 0 }}

@@ -207,7 +207,6 @@ const ContactSection: React.FC = () => {
     'Other'
   ];
 
-  // Enhanced animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -328,7 +327,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-white relative overflow-hidden">
-      {/* Enhanced Background Elements with Parallax */}
+      {}
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
@@ -355,7 +354,7 @@ const ContactSection: React.FC = () => {
         />
       </motion.div>
 
-      {/* Floating Contact Icons */}
+      {}
       <motion.div
         className="absolute top-32 left-10 text-blue-400/20"
         variants={floatingVariants}
@@ -384,7 +383,7 @@ const ContactSection: React.FC = () => {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-20">
-        {/* Enhanced Header */}
+        {}
         <motion.div
           className="text-center mb-16"
           variants={containerVariants}
@@ -426,9 +425,9 @@ const ContactSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Contact Form and Info Side by Side */}
+        {}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Enhanced Contact Form */}
+          {}
           <motion.div
             variants={slideInLeftVariants}
             initial="hidden"
@@ -444,7 +443,7 @@ const ContactSection: React.FC = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              {/* Decorative Elements */}
+              {}
               <motion.div
                 className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl"
                 variants={pulseVariants}
@@ -460,7 +459,7 @@ const ContactSection: React.FC = () => {
                   Stay in touch
                 </motion.h3>
 
-                {/* Error Message */}
+                {}
                 {submitError && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -664,7 +663,7 @@ const ContactSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Professional Contact Info Cards */}
+          {}
           <motion.div
             variants={slideInRightVariants}
             initial="hidden"
@@ -690,14 +689,14 @@ const ContactSection: React.FC = () => {
                 }}
                 className={`group relative overflow-hidden rounded-2xl border-2 ${info.accentColor} ${info.bgPattern} shadow-lg hover:shadow-2xl transition-all duration-500`}
               >
-                {/* Gradient overlay on hover */}
+                {}
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`}
                 />
 
-                {/* Content */}
+                {}
                 <div className="relative z-10 p-6">
-                  {/* Header section */}
+                  {}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-4">
                       <motion.div
@@ -733,7 +732,7 @@ const ContactSection: React.FC = () => {
                     </motion.button>
                   </div>
 
-                  {/* Contact details */}
+                  {}
                   <div className="mb-6">
                     {info.details.map((detail, idx) => (
                       <motion.div
@@ -748,7 +747,7 @@ const ContactSection: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Action button (not shown for address/location) */}
+                  {}
                   {info.type !== 'address' && (
                     <motion.a
                       href={info.href}
@@ -761,7 +760,7 @@ const ContactSection: React.FC = () => {
                   )}
                 </div>
 
-                {/* Decorative elements */}
+                {}
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
                   <div className={`w-full h-full bg-gradient-to-br ${info.gradient} rounded-full blur-2xl transform translate-x-6 -translate-y-6`} />
                 </div>

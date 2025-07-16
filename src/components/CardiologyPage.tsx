@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ClipboardList, Instagram, Linkedin, Youtube, Activity, Stethoscope, X } from 'lucide-react';
-import './CardiologyPage.css'; // Import custom CSS for animation
+import './CardiologyPage.css';
 
 import supervisor1 from "./supervisorpics/supervisor1.png";
 import supervisor2 from "./supervisorpics/supervisor2.png";
@@ -10,7 +10,6 @@ import supervisor4 from "./supervisorpics/supervisor4.png";
 import supervisor6 from "./supervisorpics/supervisor6.png";
 import supervisor7 from "./supervisorpics/supervisor7.png";
 
-// Replace the supervisors array with detailed objects
 const supervisors = [
     {
         image: supervisor1,
@@ -32,7 +31,7 @@ const supervisors = [
             "Expertise in congenital heart disease and interventional pediatric cardiology.",
             "Minimally invasive treatments for a range of pediatric heart conditions.",
             "Ongoing care for congenital and acquired heart diseases in children, from infancy through adolescence.",
-        
+
         ],
         profileLink: "#"
     },
@@ -83,7 +82,6 @@ const supervisors = [
     }
 ];
 
-// Using placeholder background image from Pexels
 
 const CardiologyPage = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -104,7 +102,6 @@ const CardiologyPage = () => {
         };
     }, []);
 
-    // Enhanced animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -197,7 +194,7 @@ const CardiologyPage = () => {
 
     return (
         <div className="min-h-screen relative overflow-hidden">
-            {/* Enhanced Background with Parallax */}
+            { }
             <motion.div
                 className="fixed inset-0 z-0"
                 style={{
@@ -207,7 +204,7 @@ const CardiologyPage = () => {
             >
 
 
-                {/* Floating Medical Icons */}
+                { }
                 <motion.div
                     className="absolute top-40 right-20 text-blue-400/20"
                     variants={floatingVariants}
@@ -227,7 +224,7 @@ const CardiologyPage = () => {
                     <Stethoscope size={70} />
                 </motion.div>
 
-                {/* Animated Background Shapes */}
+                { }
                 <motion.div
                     className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-red-500/10 to-blue-500/10 rounded-full blur-3xl"
                     variants={pulseVariants}
@@ -246,7 +243,7 @@ const CardiologyPage = () => {
             <div className="relative z-10 min-h-screen">
                 <div className="max-w-6xl mx-auto py-16 px-6">
 
-                    {/* Enhanced Hero Section */}
+                    { }
                     <motion.div
                         ref={heroRef}
                         className="text-center mb-20 mt-20"
@@ -288,7 +285,7 @@ const CardiologyPage = () => {
                         </motion.p>
                     </motion.div>
 
-                    {/* Enhanced About Section */}
+                    { }
                     <motion.section
                         className="mb-20"
                         variants={slideInVariants}
@@ -304,7 +301,7 @@ const CardiologyPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {/* Decorative Elements */}
+                            { }
                             <motion.div
                                 className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-blue-500/10 rounded-full blur-2xl"
                                 variants={pulseVariants}
@@ -345,7 +342,7 @@ const CardiologyPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {/* Enhanced Supervisors Section */}
+                    { }
                     <motion.section
                         className="mb-16"
                         variants={containerVariants}
@@ -354,9 +351,9 @@ const CardiologyPage = () => {
                         viewport={{ once: true, margin: "-100px" }}
                     >
                         <motion.div className="text-center mb-16" variants={itemVariants}>
-                            {/* Removed empty decorative circle motion.div */}
+                            { }
 
-                            {/* Wrap heading and line in inline-block, text-left */}
+                            { }
                             <div className="inline-block text-left">
                                 <motion.h2
                                     className="text-4xl md:text-5xl font-bold mb-6"
@@ -404,7 +401,7 @@ const CardiologyPage = () => {
                                     whileHover={{ y: -8, scale: 1.03, boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
                                     transition={{ type: "spring", stiffness: 300, damping: 24 }}
                                 >
-                                    {/* ECG line background */}
+                                    { }
                                     <div className="absolute top-8 left-0 w-full flex justify-center z-0">
                                         <svg width="90%" height="40" viewBox="0 0 320 40" className="mx-auto opacity-30">
                                             <polyline points="0,20 40,20 60,5 80,35 100,5 120,20 140,20 160,10 180,30 200,20 320,20" fill="none" stroke="#d1d5db" strokeWidth="3" />
@@ -423,7 +420,7 @@ const CardiologyPage = () => {
                         </div>
                     </motion.section>
 
-                    {/* Enhanced How to Apply Section */}
+                    { }
                     <motion.section
                         className="mt-20"
                         variants={slideInVariants}
@@ -439,7 +436,7 @@ const CardiologyPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {/* Background Decoration */}
+                            { }
                             <motion.div
                                 className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary-blue/10 to-primary-red/10 rounded-full blur-3xl"
                                 variants={pulseVariants}
@@ -475,7 +472,7 @@ const CardiologyPage = () => {
                                 </motion.p>
                             </motion.div>
 
-                            {/* Enhanced Social Media Links */}
+                            { }
                             <div className="relative z-10">
                                 <motion.h3
                                     className="text-2xl font-bold text-main-gray mb-6"
@@ -510,7 +507,7 @@ const CardiologyPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {/* Enhanced Modal */}
+                    { }
                     <AnimatePresence>
                         {selectedImage && (
                             <motion.div
@@ -528,7 +525,7 @@ const CardiologyPage = () => {
                                     className="relative w-full max-w-5xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    {/* Enhanced Close Button */}
+                                    { }
                                     <motion.button
                                         onClick={closeModal}
                                         className="absolute top-6 right-6 z-20 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200"
@@ -538,7 +535,7 @@ const CardiologyPage = () => {
                                         <X className="w-6 h-6 text-gray-700" />
                                     </motion.button>
 
-                                    {/* Modal Content: Only Image */}
+                                    { }
                                     <div className="flex items-center justify-center h-full p-6 bg-black/80">
                                         <motion.img
                                             src={selectedImage}

@@ -7,9 +7,7 @@ import LoadingSkeleton from './components/LoadingSkeleton';
 
 const HeroSlideshow = lazy(() => import('./components/HeroSlideshow'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
-const ProgramsSection = lazy(() => import('./components/ProgramsSection'));
-const ResearchSection = lazy(() => import('./components/ResearchSection'));
-const EventsSection = lazy(() => import('./components/EventsSection'));
+
 const ContactSection = lazy(() => import('./components/ContactSection'));
 const TeamSection = lazy(() => import('./components/TeamSection'));
 const CardiologyPage = lazy(() => import('./components/CardiologyPage'));
@@ -25,9 +23,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HeroSlideshow />} />
             <Route path="/about" element={<AboutSection />} />
-            <Route path="/programs" element={<ProgramsSection />} />
-            <Route path="/research" element={<ResearchSection />} />
-            <Route path="/events" element={<EventsSection />} />
             <Route path="/contact" element={<ContactSection />} />
             <Route path="/team" element={<TeamSection />} />
             <Route path="/cardiology" element={<CardiologyPage />} />

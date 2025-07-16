@@ -23,10 +23,10 @@ const ScrollToTopButton = () => {
 
     return (
         <div className="fixed bottom-8 right-8 z-50">
-            {/* Progress ring */}
+            {}
             <div className="relative">
                 <svg className="w-14 h-14 transform -rotate-90" viewBox="0 0 100 100">
-                    {/* Background circle */}
+                    {}
                     <circle
                         cx="50"
                         cy="50"
@@ -50,7 +50,7 @@ const ScrollToTopButton = () => {
                     />
                 </svg>
 
-                {/* Button */}
+                {}
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="absolute inset-0 m-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300"
@@ -60,7 +60,7 @@ const ScrollToTopButton = () => {
                 </button>
             </div>
 
-            {/* Tooltip */}
+            {}
             <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
                 Back to top ({Math.round(scrollProgress)}%)
             </div>

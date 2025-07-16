@@ -7,7 +7,6 @@ import Slide3 from "./images/Slide3.png";
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Persistent countdown state
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -47,7 +46,6 @@ const HeroSlideshow: React.FC = () => {
     }
   ];
 
-  // Countdown timer effect - runs independently of slide changes
   useEffect(() => {
     const targetDate = new Date('2025-08-21T00:00:00').getTime();
 
@@ -67,16 +65,13 @@ const HeroSlideshow: React.FC = () => {
       }
     };
 
-    // Update immediately
     updateCountdown();
 
-    // Update every second
     const timer = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(timer);
-  }, []); // Empty dependency array - runs once on mount
+  }, []);
 
-  // Slideshow auto-advance effect
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -92,7 +87,6 @@ const HeroSlideshow: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  // Countdown component - now using persistent state
   const CountdownDisplay = () => (
     <div className="flex justify-center gap-4 md:gap-8 mb-8">
       {[
@@ -103,7 +97,7 @@ const HeroSlideshow: React.FC = () => {
       ].map((item) => (
         <div key={item.label} className="text-center">
           <motion.div
-            key={item.value} // This triggers animation when value changes
+            key={item.value} 
             initial={{ scale: 1.2, opacity: 0, rotate: -10 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 400, damping: 18, duration: 0.4 }}
@@ -134,7 +128,7 @@ const HeroSlideshow: React.FC = () => {
               transition={{ duration: 1, type: 'spring', stiffness: 80, damping: 18 }}
               className="absolute inset-0"
             >
-              {/* Background Image */}
+              {}
               <div className="absolute inset-0">
                 {slide.id === 3 ? (
                   <motion.img
@@ -152,7 +146,7 @@ const HeroSlideshow: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 )}
-                {/* Animated Gradient Overlay */}
+                {}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60"
                   initial={{ opacity: 0.7 }}
@@ -161,10 +155,10 @@ const HeroSlideshow: React.FC = () => {
                 />
               </div>
 
-              {/* Floating Particles */}
+              {}
               <FloatingParticles />
 
-              {/* Content */}
+              {}
               <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-center">
                   <motion.div
@@ -199,7 +193,7 @@ const HeroSlideshow: React.FC = () => {
                     </motion.p>
                   </motion.div>
 
-                  {/* Conference specific content */}
+                  {}
                   {slide.type === 'conference' && (
                     <div className="mb-12">
                       <motion.div
@@ -227,7 +221,7 @@ const HeroSlideshow: React.FC = () => {
                     </div>
                   )}
 
-                  {/* CTA Button */}
+                  {}
                 </div>
               </div>
             </motion.div>
@@ -235,7 +229,7 @@ const HeroSlideshow: React.FC = () => {
         ))}
       </AnimatePresence>
 
-      {/* Navigation Arrows */}
+      {}
       <motion.button
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -260,7 +254,7 @@ const HeroSlideshow: React.FC = () => {
         <ChevronRight className="w-6 h-6" />
       </motion.button>
 
-      {/* Slide Indicators */}
+      {}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <motion.button
