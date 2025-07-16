@@ -5,8 +5,10 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: ['https://www.pmed.club', 'https://pmed.club', 'http://localhost:3000', 'http://localhost:3001'],
+  credentials: true
+})); app.use(express.json());
 
 // Gmail SMTP setup
 const transporter = nodemailer.createTransport({
