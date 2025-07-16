@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, User, MessageCircle, Building, CheckCircle, Copy, AlertCircle } from 'lucide-react';
 
 // Supabase client setup
@@ -24,10 +24,9 @@ const ContactSection: React.FC = () => {
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll();
-  const springScrollY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
-  const backgroundY = useTransform(springScrollY, [0, 1], ['0%', '50%']);
-  const backgroundScale = useTransform(springScrollY, [0, 0.5, 1], [1, 1.1, 1.2]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1.2]);
 
   const handleCopy = async (text: string, type: string) => {
     try {
@@ -45,7 +44,6 @@ const ContactSection: React.FC = () => {
     setSubmitError(null);
 
     try {
-      // Get user's IP address and user agent for logging
       const userAgent = navigator.userAgent;
 
       // Insert into Supabase
@@ -62,15 +60,14 @@ const ContactSection: React.FC = () => {
             user_agent: userAgent,
             source: 'contact_form'
           }
-        ])
-        .select();
+        ]);
 
       if (error) {
         throw error;
       }
 
-      // Send email notification (you'll need to implement this with a service like Resend, SendGrid, etc.)
-      await sendEmailNotification(formData, data[0]);
+      // Send email notification
+      await sendEmailNotification(formData, { id: 'submitted', created_at: new Date().toISOString() });
 
       setIsSubmitted(true);
       console.log('Form submitted successfully:', data);
@@ -96,7 +93,6 @@ const ContactSection: React.FC = () => {
     }
   };
 
-  // Email notification function (implement with your preferred email service)
   const sendEmailNotification = async (
     formData: {
       name: string;
@@ -112,29 +108,35 @@ const ContactSection: React.FC = () => {
     }
   ) => {
     try {
+      const API_URL = window.location.hostname === 'localhost'
+        ? 'http://localhost:3001'
+        : 'https://clinic-yvyj.onrender.com';
 
-
-      const response = await fetch('/api/send-notification', {
+      const response = await fetch(`${API_URL}/api/send-notification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'bisharababish@gmail.com', // Your Gmail address to receive notifications
+          to: 'bisharababish@gmail.com',
           subject: `New Contact Form Submission: ${formData.subject}`,
-          formData: formData, // Pass the entire formData object
+          formData: formData,
           html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
-            <p><strong>Organization:</strong> ${formData.organization || 'Not provided'}</p>
-            <p><strong>Subject:</strong> ${formData.subject}</p>
-            <p><strong>Message:</strong></p>
-            <p>${formData.message}</p>
-            <hr>
-            <p><small>Submission ID: ${submissionData.id}</small></p>
-            <p><small>Submitted at: ${new Date(submissionData.created_at).toLocaleString()}</small></p>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #333;">New Contact Form Submission</h2>
+              <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong>Name:</strong> ${formData.name}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+                <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+                <p><strong>Organization:</strong> ${formData.organization || 'Not provided'}</p>
+                <p><strong>Subject:</strong> ${formData.subject}</p>
+                <p><strong>Message:</strong></p>
+                <p style="white-space: pre-wrap;">${formData.message}</p>
+              </div>
+              <hr>
+              <p><small>Submission ID: ${submissionData.id}</small></p>
+              <p><small>Submitted at: ${new Date(submissionData.created_at).toLocaleString()}</small></p>
+            </div>
           `
         })
       });
@@ -144,7 +146,6 @@ const ContactSection: React.FC = () => {
       }
     } catch (error) {
       console.error('Error sending email notification:', error);
-      // Don't throw error here - form submission should still succeed
     }
   };
 
@@ -154,7 +155,6 @@ const ContactSection: React.FC = () => {
       [e.target.name]: e.target.value
     });
   };
-
   const contactInfo = [
     {
       icon: <Mail className="w-7 h-7" />,

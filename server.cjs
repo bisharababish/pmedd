@@ -3,21 +3,22 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
-// Gmail SMTP setup - FIXED
+// Gmail SMTP setup
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
   auth: {
-    user: 'bisharababish@gmail.com',
-    pass: 'fbfo mzkd suwn azlu'
+    user: process.env.SMTP_USER || 'bisharababish@gmail.com',
+    pass: process.env.SMTP_PASS || 'fbfo mzkd suwn azlu'
   }
 });
+
 app.post('/api/send-notification', async (req, res) => {
   try {
     const { to, subject, html, formData } = req.body;
@@ -30,8 +31,8 @@ app.post('/api/send-notification', async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: 'bisharababish@gmail.com',
-      to: 'bisharababish@gmail.com',
+      from: process.env.SMTP_USER || 'bisharababish@gmail.com',
+      to: process.env.SMTP_USER || 'bisharababish@gmail.com',
       replyTo: formData.email,
       subject: subject,
       html: html
@@ -45,5 +46,5 @@ app.post('/api/send-notification', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
