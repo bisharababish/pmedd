@@ -13,4 +13,13 @@ export default defineConfig({
   },
   // Ensure public directory is copied to dist
   publicDir: 'public',
+  // Add proxy for API calls
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
+  }
 });

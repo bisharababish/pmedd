@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, User, MessageCircle, Building, CheckCircle, Copy } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, User, MessageCircle, Building, CheckCircle, Copy, AlertCircle } from 'lucide-react';
+
+// Supabase client setup
+import { createClient } from '@supabase/supabase-js';
+const supabaseUrl = 'https://xmjjucxmxdusmehukxlv.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhtamp1Y3hteGR1c21laHVreGx2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1Nzg2NjIsImV4cCI6MjA2ODE1NDY2Mn0.6a_31fznl3KHA-WnHAMiw45vcBjr_3PEvNRgBTFUv8k';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +20,7 @@ const ContactSection: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll();
@@ -35,26 +42,110 @@ const ContactSection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Get user's IP address and user agent for logging
+      const userAgent = navigator.userAgent;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    console.log('Form submitted:', formData);
+      // Insert into Supabase
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || null,
+            organization: formData.organization || null,
+            subject: formData.subject,
+            message: formData.message,
+            user_agent: userAgent,
+            source: 'contact_form'
+          }
+        ])
+        .select();
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        organization: '',
-        subject: '',
-        message: ''
+      if (error) {
+        throw error;
+      }
+
+      // Send email notification (you'll need to implement this with a service like Resend, SendGrid, etc.)
+      await sendEmailNotification(formData, data[0]);
+
+      setIsSubmitted(true);
+      console.log('Form submitted successfully:', data);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          organization: '',
+          subject: '',
+          message: ''
+        });
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Email notification function (implement with your preferred email service)
+  const sendEmailNotification = async (
+    formData: {
+      name: string;
+      email: string;
+      phone: string;
+      organization: string;
+      subject: string;
+      message: string;
+    },
+    submissionData: {
+      id: string;
+      created_at: string;
+    }
+  ) => {
+    try {
+
+
+      const response = await fetch('/api/send-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'bisharababish@gmail.com', // Your Gmail address to receive notifications
+          subject: `New Contact Form Submission: ${formData.subject}`,
+          formData: formData, // Pass the entire formData object
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+            <p><strong>Organization:</strong> ${formData.organization || 'Not provided'}</p>
+            <p><strong>Subject:</strong> ${formData.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.message}</p>
+            <hr>
+            <p><small>Submission ID: ${submissionData.id}</small></p>
+            <p><small>Submitted at: ${new Date(submissionData.created_at).toLocaleString()}</small></p>
+          `
+        })
       });
-    }, 3000);
+
+      if (!response.ok) {
+        throw new Error('Failed to send email notification');
+      }
+    } catch (error) {
+      console.error('Error sending email notification:', error);
+      // Don't throw error here - form submission should still succeed
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -69,11 +160,11 @@ const ContactSection: React.FC = () => {
       icon: <Mail className="w-7 h-7" />,
       title: 'Email Address',
       subtitle: 'Get in touch via email',
-      details: ['contact@pmed'],
-      value: 'contact@pmed.',
+      details: ['info@pmed.club'],
+      value: 'info@pmed.club',
+      href: 'mailto:info@pmed.club',
       type: 'email',
       action: 'Send Email',
-      href: 'mailto:contact@institute.ps',
       gradient: 'from-blue-600 via-blue-700 to-indigo-800',
       bgPattern: 'bg-gradient-to-br from-blue-50 to-indigo-50',
       accentColor: 'border-blue-200'
@@ -368,6 +459,18 @@ const ContactSection: React.FC = () => {
                 >
                   Stay in touch
                 </motion.h3>
+
+                {/* Error Message */}
+                {submitError && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-700"
+                  >
+                    <AlertCircle className="w-5 h-5" />
+                    <span>{submitError}</span>
+                  </motion.div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
