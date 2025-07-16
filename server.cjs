@@ -7,8 +7,16 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors({
   origin: ['https://www.pmed.club', 'https://pmed.club', 'http://localhost:3000', 'http://localhost:3001'],
-  credentials: true
-})); app.use(express.json());
+  credentials: true,
+  optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Handle preflight requests
+app.options('*', cors());
+
+app.use(express.json());
 
 // Gmail SMTP setup
 const transporter = nodemailer.createTransport({
