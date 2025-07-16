@@ -6,10 +6,10 @@ const PORT = process.env.PORT || 3001;
 
 // Manual CORS middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://www.pmed.club');
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
+  
   if (req.method === 'OPTIONS') {
     res.sendStatus(200);
   } else {
@@ -18,6 +18,16 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'PMED Email Server is running', status: 'OK' });
+});
+
+// Test endpoint to verify server is running
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'Server is running', timestamp: new Date().toISOString() });
+});
 
 // Gmail SMTP setup
 const transporter = nodemailer.createTransport({

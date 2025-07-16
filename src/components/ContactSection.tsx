@@ -110,7 +110,7 @@ const ContactSection: React.FC = () => {
     try {
       const API_URL = window.location.hostname === 'localhost'
         ? 'http://localhost:3001'
-        : 'https://pmedd.onrender.com';
+        : 'https://pmeddd.onrender.com';
 
       const response = await fetch(`${API_URL}/api/send-notification`, {
         method: 'POST',
