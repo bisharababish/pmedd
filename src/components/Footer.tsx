@@ -22,21 +22,27 @@ const Footer: React.FC = () => {
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      href: 'https://www.linkedin.com/in/pmed-undefined-211a16372/ ',
+      href: 'https://www.linkedin.com/in/pmed-club-211a16372/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       label: 'LinkedIn',
       external: true,
-
       color: 'from-blue-500 to-blue-600',
       hoverColor: 'from-blue-600 to-blue-700'
     },
     {
       icon: <Youtube className="w-5 h-5" />,
-      href: 'https://www.youtube.com/@PMEDCLUB',
+      href: 'https://www.youtube.com/@pmedclubchannel',
       label: 'YouTube',
       external: true,
-
       color: 'from-red-500 to-red-600',
       hoverColor: 'from-red-600 to-red-700'
+    },
+    {
+      icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" /></svg>,
+      href: 'https://www.facebook.com/people/PMED-CLUB/61578151663247/?mibextid=wwXIfr&rdid=btIuNx9fbs3zQg6S&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ANVnug2rd%2F%3Fmibextid%3DwwXIfr',
+      label: 'Facebook',
+      external: true,
+      color: 'from-blue-700 to-blue-900',
+      hoverColor: 'from-blue-800 to-blue-900'
     }
   ];
 
@@ -163,7 +169,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-primary-blue text-light-gray relative overflow-hidden">
-      {}
+      { }
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
@@ -190,7 +196,7 @@ const Footer: React.FC = () => {
         />
       </motion.div>
 
-      {}
+      { }
       <motion.div
         className="absolute top-32 left-10 text-blue-400/10"
         variants={floatingVariants}
@@ -209,11 +215,11 @@ const Footer: React.FC = () => {
         <Globe size={50} />
       </motion.div>
 
-      {}
-      {}
+      { }
+      { }
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {}
+        { }
         <motion.div
           className="py-16"
           variants={containerVariants}
@@ -222,7 +228,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {}
+            { }
             <motion.div
               variants={itemVariants}
               className="lg:col-span-1"
@@ -327,7 +333,7 @@ const Footer: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {}
+            { }
             <motion.div
               variants={slideInVariants}
               initial="hidden"
@@ -402,7 +408,7 @@ const Footer: React.FC = () => {
               </motion.ul>
             </motion.div>
 
-            {}
+            { }
             <motion.div
               variants={slideInVariants}
               initial="hidden"
@@ -533,7 +539,7 @@ const Footer: React.FC = () => {
           </div>
         </motion.div>
 
-        {}
+        { }
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -541,7 +547,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           className="border-t border-gray-700 py-8 relative"
         >
-          {}
+          { }
           <motion.div
             className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded"
             initial={{ width: 0 }}

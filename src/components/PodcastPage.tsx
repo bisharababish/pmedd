@@ -155,7 +155,7 @@ const PodcastPage = () => {
 
     return (
         <div className="min-h-screen relative overflow-hidden">
-            {}
+            { }
             <motion.div
                 className="fixed inset-0 z-0"
                 style={{
@@ -169,7 +169,7 @@ const PodcastPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-purple-50/85 to-pink-50/80 backdrop-blur-[2px]" />
 
-                {}
+                { }
                 <motion.div
                     className="absolute top-40 right-20 text-pink-400/20"
                     variants={floatingVariants}
@@ -189,7 +189,7 @@ const PodcastPage = () => {
                     <Headphones size={70} />
                 </motion.div>
 
-                {}
+                { }
                 <motion.div
                     className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
                     variants={pulseVariants}
@@ -208,7 +208,7 @@ const PodcastPage = () => {
             <div className="relative z-10 min-h-screen">
                 <div className="max-w-6xl mx-auto py-12 md:py-16 px-4 sm:px-6">
 
-                    {}
+                    { }
                     <motion.div
                         ref={heroRef}
                         className="text-center mb-16 md:mb-20 mt-16 md:mt-20"
@@ -250,7 +250,7 @@ const PodcastPage = () => {
                         </motion.p>
                     </motion.div>
 
-                    {}
+                    { }
                     <motion.section
                         className="mb-16 md:mb-20"
                         variants={slideInVariants}
@@ -266,7 +266,7 @@ const PodcastPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {}
+                            { }
                             <motion.div
                                 className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-2xl"
                                 variants={pulseVariants}
@@ -307,7 +307,7 @@ const PodcastPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {}
+                    { }
                     <motion.section
                         className="mb-16 md:mb-20"
                         variants={containerVariants}
@@ -381,7 +381,7 @@ const PodcastPage = () => {
                         </motion.div>
                     </motion.section>
 
-                    {}
+                    { }
                     <section className="mt-16 md:mt-20">
                         <motion.div
                             className="bg-card-bg backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 max-w-3xl mx-auto text-center relative overflow-hidden border border-border-gray"
@@ -395,7 +395,7 @@ const PodcastPage = () => {
                                 transition: { duration: 0.3 }
                             }}
                         >
-                            {}
+                            { }
                             <motion.div
                                 className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-3xl"
                                 variants={pulseVariants}
@@ -429,7 +429,7 @@ const PodcastPage = () => {
                                     Follow us on social media to get the latest episodes, behind-the-scenes content, and news.                                </motion.p>
                             </motion.div>
 
-                            {}
+                            { }
                             <div className="relative z-10">
                                 <motion.h3
                                     className="text-xl font-bold text-gray-800 mb-4"
@@ -439,9 +439,10 @@ const PodcastPage = () => {
                                 </motion.h3>
                                 <div className="flex justify-center space-x-8">
                                     {[
-                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50", href: "https://www.youtube.com/@pmedpodcast" },
-                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50", href: "https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" },
-                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50", href: "https://www.linkedin.com/company/pmedpodcast/" }
+                                        { icon: Youtube, color: "text-red-600 hover:text-red-800", bg: "hover:bg-red-50", href: "https://www.youtube.com/@pmedclubchannel", label: 'YouTube' },
+                                        { icon: Instagram, color: "text-pink-600 hover:text-pink-800", bg: "hover:bg-pink-50", href: "https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: 'Instagram' },
+                                        { icon: Linkedin, color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50", href: "https://www.linkedin.com/in/pmed-club-211a16372/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: 'LinkedIn' },
+                                        { icon: () => (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" /></svg>), color: "text-blue-700 hover:text-blue-900", bg: "hover:bg-blue-50", href: "https://www.facebook.com/people/PMED-CLUB/61578151663247/?mibextid=wwXIfr&rdid=btIuNx9fbs3zQg6S&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ANVnug2rd%2F%3Fmibextid%3DwwXIfr", label: 'Facebook' }
                                     ].map((social, idx) => (
                                         <motion.a
                                             key={idx}
@@ -456,7 +457,9 @@ const PodcastPage = () => {
                                             }}
                                             whileTap={{ scale: 0.95 }}
                                         >
-                                            <social.icon size={28} />
+                                            {social.label === 'Facebook' ? (
+                                                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" /></svg>
+                                            ) : React.createElement(social.icon, { size: 28 })}
                                         </motion.a>
                                     ))}
                                 </div>
