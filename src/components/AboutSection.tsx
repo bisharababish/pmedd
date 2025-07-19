@@ -1,10 +1,22 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import CircularText from './CircularText';
+import { useLocation } from 'react-router-dom';
 
 const AboutSection: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const springScrollY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.pathname === '/about_mission') {
+      const el = document.getElementById('mission');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (location.pathname === '/about_deliverables') {
+      const el = document.getElementById('whatwedo');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location.pathname]);
 
   const backgroundY = useTransform(springScrollY, [0, 1], ['0%', '50%']);
   const backgroundScale = useTransform(springScrollY, [0, 0.5, 1], [1, 1.1, 1.2]);
@@ -166,7 +178,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="about" className="py-20 bg-very-light-blue relative overflow-hidden">
-      {}
+      { }
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
@@ -200,7 +212,7 @@ const AboutSection: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        {}
+        { }
         <motion.div
           className="text-center mb-16"
           variants={itemVariants}
@@ -264,7 +276,7 @@ const AboutSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {}
+        { }
         <motion.div
           id="mission"
           className="mt-20 text-center flex justify-center items-center min-h-[60vh] scroll-mt-24"
@@ -382,7 +394,7 @@ const AboutSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {}
+        { }
         <motion.div className="pt-16">
           <motion.div
             id="whatwedo"

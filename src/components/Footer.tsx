@@ -253,7 +253,9 @@ const Footer: React.FC = () => {
                     initial="initial"
                     animate="animate"
                   />
-                  <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl relative z-10" />
+                  <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+                    <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-xl relative z-10" />
+                  </Link>
                 </motion.div>
                 <div>
                   <motion.h3

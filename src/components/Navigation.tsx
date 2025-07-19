@@ -61,8 +61,8 @@ const Navigation: React.FC = () => {
     },
     {
       label: 'About', href: '/about', dropdown: [
-        { label: 'Mission and Vision', href: '/about#mission' },
-        { label: 'Our Deliverables', href: '/about#whatwedo' },
+        { label: 'Mission and Vision', href: '/about_mission' },
+        { label: 'Our Deliverables', href: '/about_deliverables' },
         { label: 'Meet The Team', href: '/team' },
       ]
     },
@@ -99,7 +99,7 @@ const Navigation: React.FC = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} bg-primary-blue shadow-lg`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {}
+          { }
           <Link to="/">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -125,7 +125,7 @@ const Navigation: React.FC = () => {
             </motion.div>
           </Link>
 
-          {}
+          { }
           <nav className="hidden md:flex space-x-1">
             {navItems.map((item, index) => (
               <motion.div
@@ -157,7 +157,7 @@ const Navigation: React.FC = () => {
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-                {}
+                { }
                 {item.dropdown && (
                   <div
                     onMouseEnter={() => setAboutOpen(true)}
@@ -191,7 +191,7 @@ const Navigation: React.FC = () => {
             ))}
           </nav>
 
-          {}
+          { }
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -203,7 +203,7 @@ const Navigation: React.FC = () => {
             </Suspense>
           </motion.div>
 
-          {}
+          { }
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -215,7 +215,7 @@ const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {}
+      { }
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -226,7 +226,7 @@ const Navigation: React.FC = () => {
             className="md:hidden bg-gradient-to-br from-primary-blue to-secondary-blue text-white backdrop-blur-lg border-t border-light-blue"
           >
             <div className="px-4 py-6 space-y-3">
-              {}
+              { }
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -252,7 +252,7 @@ const Navigation: React.FC = () => {
                           setDivisionsOpen(false);
                         } else if (item.label === 'Divisions') {
                           setDivisionsOpen((open) => !open);
-                          setAboutOpen(false); 
+                          setAboutOpen(false);
                         }
                       } else {
                         setIsMenuOpen(false);
@@ -267,13 +267,13 @@ const Navigation: React.FC = () => {
                       <span className="inline-flex items-center gap-1 select-none">
                         {item.label}
                         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${(item.label === 'About' && aboutOpen) ||
-                            (item.label === 'Divisions' && divisionsOpen)
-                            ? 'rotate-180' : ''
+                          (item.label === 'Divisions' && divisionsOpen)
+                          ? 'rotate-180' : ''
                           }`} />
                       </span>
                     )}
                   </motion.div>
-                  {}
+                  { }
                   {item.dropdown && (
                     (item.label === 'About' && aboutOpen) ||
                     (item.label === 'Divisions' && divisionsOpen)

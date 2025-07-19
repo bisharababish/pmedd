@@ -78,7 +78,7 @@ const searchData = [
         content: 'Empower medical students through structured exposure to real-world clinical and academic environments. Provide mentorship, training, and resources to support their personal and professional growth. Shape the complete doctor character — scientifically competent, ethically grounded, and socially responsible.',
         keywords: ['mission', 'vision', 'empower', 'medical students', 'mentorship', 'training', 'doctor', 'ethical', 'socially responsible'],
         section: 'About',
-        path: '/about#mission',
+        path: '/about_mission',
         icon: <Users className="w-4 h-4" />
     },
     {
@@ -87,7 +87,7 @@ const searchData = [
         content: 'We build medical specialty interest groups — such as Cardiology, Neurology, Surgery, and more — each acting like a focused sub-club that empowers students to explore, grow, and lead in their field of interest.',
         keywords: ['specialty groups', 'cardiology', 'neurology', 'surgery', 'workshops', 'seminars', 'clinical exposure', 'competitions'],
         section: 'About',
-        path: '/about#whatwedo',
+        path: '/about_deliverables',
         icon: <Users className="w-4 h-4" />
     },
     {
@@ -372,7 +372,7 @@ const SearchEngine: React.FC = () => {
 
     return (
         <>
-            {}
+            { }
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -384,7 +384,7 @@ const SearchEngine: React.FC = () => {
                 <span className="hidden sm:inline">Search</span>
             </motion.button>
 
-            {}
+            { }
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -401,7 +401,7 @@ const SearchEngine: React.FC = () => {
                             className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[70vh] overflow-hidden"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {}
+                            { }
                             <div className="flex items-center gap-4 p-6 border-b border-gray-200">
                                 <div className="flex-1 relative">
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -422,7 +422,7 @@ const SearchEngine: React.FC = () => {
                                 </button>
                             </div>
 
-                            {}
+                            { }
                             <div className="max-h-[60vh] overflow-y-auto">
                                 {isLoading ? (
                                     <div className="p-8 text-center">

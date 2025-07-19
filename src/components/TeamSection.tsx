@@ -182,17 +182,17 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
         className="group relative"
     >
         <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-border-gray hover:shadow-2xl transition-all duration-500 overflow-hidden">
-            {}
+            { }
             <div className="absolute inset-0 opacity-5">
                 <div className={`w-full h-full bg-gradient-to-br from-primary-blue to-secondary-blue`} />
             </div>
 
-            {}
+            { }
             <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
             <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
 
             <div className="relative z-10 text-center">
-                {}
+                { }
                 <div className="relative mb-4 sm:mb-6">
                     <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-primary-blue to-secondary-blue p-0.5 sm:p-1`}>
                         <img
@@ -203,7 +203,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
                     </div>
                 </div>
 
-                {}
+                { }
                 <h4 className="text-base sm:text-xl font-bold text-main-gray mb-1 sm:mb-2 group-hover:text-primary-blue transition-colors">
                     {member.name}
                 </h4>
@@ -215,22 +215,22 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
                 </div>
             </div>
 
-            {}
+            { }
             <div className={`absolute inset-0 bg-gradient-to-br from-primary-blue to-secondary-blue opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
         </div>
     </motion.div>
 );
 
 const TeamSection = () => {
-    const founders = teamStructure[0]; 
-    const otherTeams = teamStructure.slice(1); 
+    const founders = teamStructure[0];
+    const otherTeams = teamStructure.slice(1);
     const topTierTeams = otherTeams.slice(0, 3);
     const bottomTierTeams = otherTeams.slice(3);
 
     return (
         <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen mt-20">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-                {}
+                { }
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -247,9 +247,9 @@ const TeamSection = () => {
                     </p>
                 </motion.div>
 
-                {}
+                { }
                 <div className="relative">
-                    {}
+                    { }
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -257,7 +257,7 @@ const TeamSection = () => {
                         variants={containerVariants}
                         className="mb-10 sm:mb-14 md:mb-16"
                     >
-                        {}
+                        { }
                         <div className="text-center mb-6 sm:mb-10 md:mb-12">
                             <h3 className={`text-2xl sm:text-3xl font-bold text-primary-blue mb-2 sm:mb-4`}>
                                 {founders.roleGroup}
@@ -265,7 +265,7 @@ const TeamSection = () => {
                             <div className={`w-16 sm:w-24 h-1 bg-primary-blue mx-auto rounded-full`} />
                         </div>
 
-                        {}
+                        { }
                         <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 mb-8 sm:mb-12">
                             {founders.members.map((member, idx) => (
                                 <div key={idx} className="w-full sm:w-80 max-w-xs mx-auto">
@@ -274,7 +274,7 @@ const TeamSection = () => {
                             ))}
                         </div>
 
-                        {}
+                        { }
                         <div className="relative flex justify-center mb-4 sm:mb-8">
                             <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-indigo-300 to-transparent"></div>
                         </div>
@@ -286,9 +286,9 @@ const TeamSection = () => {
                         </div>
                     </motion.div>
 
-                    {}
+                    { }
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
-                        {}
+                        { }
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
 
                         {topTierTeams.map((group, groupIdx) => (
@@ -300,10 +300,10 @@ const TeamSection = () => {
                                 variants={containerVariants}
                                 className="relative"
                             >
-                                {}
+                                { }
                                 <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
 
-                                {}
+                                { }
                                 <div className="text-center mb-4 sm:mb-8">
                                     <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
                                         {group.roleGroup}
@@ -311,11 +311,11 @@ const TeamSection = () => {
                                     <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
                                 </div>
 
-                                {}
+                                { }
                                 <div className="space-y-4 sm:space-y-6">
                                     {group.members.map((member, memberIdx) => (
                                         <div key={memberIdx} className="relative">
-                                            {}
+                                            { }
                                             {memberIdx > 0 && (
                                                 <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
                                             )}
@@ -329,7 +329,7 @@ const TeamSection = () => {
                         ))}
                     </div>
 
-                    {}
+                    { }
                     <div className="mt-10 sm:mt-16 flex justify-center">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
                             {bottomTierTeams.map((group, groupIdx) => (
@@ -341,10 +341,10 @@ const TeamSection = () => {
                                     variants={containerVariants}
                                     className="relative"
                                 >
-                                    {}
+                                    { }
                                     <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
 
-                                    {}
+                                    { }
                                     <div className="text-center mb-4 sm:mb-8">
                                         <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
                                             {group.roleGroup}
@@ -352,11 +352,11 @@ const TeamSection = () => {
                                         <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
                                     </div>
 
-                                    {}
+                                    { }
                                     <div className="space-y-4 sm:space-y-6">
                                         {group.members.map((member, memberIdx) => (
                                             <div key={memberIdx} className="relative">
-                                                {}
+                                                { }
                                                 {memberIdx > 0 && (
                                                     <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
                                                 )}
@@ -372,7 +372,7 @@ const TeamSection = () => {
                     </div>
                 </div>
 
-                {}
+                { }
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -389,10 +389,9 @@ const TeamSection = () => {
                         </p>
                         <button
                             className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300"
-                            disabled
-                            style={{ pointerEvents: 'none', opacity: 1 }}
+                            onClick={() => window.location.href = '/contact'}
                         >
-                            Join us
+                            Get In Touch
                         </button>
                     </div>
                 </motion.div>

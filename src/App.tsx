@@ -23,6 +23,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HeroSlideshow />} />
             <Route path="/about" element={<AboutSection />} />
+            <Route path="/about_mission" element={<AboutSection />} />
+            <Route path="/about_deliverables" element={<AboutSection />} />
             <Route path="/contact" element={<ContactSection />} />
             <Route path="/team" element={<TeamSection />} />
             <Route path="/cardiology" element={<CardiologyPage />} />
