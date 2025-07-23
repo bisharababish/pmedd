@@ -180,7 +180,7 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-20 bg-very-light-blue relative overflow-hidden">
       { }
       <motion.div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-2"
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
@@ -226,7 +226,7 @@ const AboutSection: React.FC = () => {
             <CircularText text="•PMED•ABOUT" radius={90} className="text-primary-blue" />
           </motion.div>
           <motion.p
-            className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed relative"
+            className="text-xl md:text-2xl text-black max-w-4xl mx-auto leading-relaxed relative"
             variants={itemVariants}
             whileHover={{
               scale: 1.02,
@@ -260,7 +260,7 @@ const AboutSection: React.FC = () => {
               animate="animate"
               transition={{ delay: 0.5 }}
               style={{
-                backgroundImage: 'linear-gradient(90deg, #1f2937 0%, #e5e7eb 50%, #1f2937 100%)',
+                backgroundImage: 'linear-gradient(90deg, #000000 0%, #333333 50%, #000000 100%)',
                 backgroundSize: '200% 100%',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

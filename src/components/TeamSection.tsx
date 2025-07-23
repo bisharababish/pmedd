@@ -84,6 +84,7 @@ const teamStructure = [
                 name: 'Heba Arab',
                 role: 'Head of Internal Affairs',
                 img: heba,
+
             }
         ]
     },
@@ -319,7 +320,7 @@ const TeamSection = () => {
                                             {memberIdx > 0 && (
                                                 <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
                                             )}
-                                            <div className="w-full max-w-xs mx-auto">
+                                            <div className="w-full max-w-xs mx-auto" style={member.name === 'Heba Arab' ? { marginTop: '40px' } : {}}>
                                                 <MemberCard member={member} group={group} />
                                             </div>
                                         </div>
