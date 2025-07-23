@@ -36,22 +36,30 @@ const supervisors = [
         profileLink: "#"
     },
     {
-        image: supervisor3,
-        name: "Dr. Bilal Adwan",
-        title: "Cardiologist at Al-Makassed Hospital",
+        image: supervisor7,
+        name: "Dr. Duha Shellah",
+        title: "Global Health Advocate & Physician-Scientist",
         bullets: [
-
-
-
+            "Chair of the WFPHA Emergencies Working Grou",
+            "Vice Chair of the WHO EMRO Youth Council",
+            "Founder of The Researchist",
+            "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
+            "Represents Palestinian voices in global health",
         ],
         profileLink: "#"
     },
+
     {
         image: supervisor4,
-        name: "Dr. Farah Jabareen",
-        title: "Cardiologist at Al-Makassed Hospital",
+        name: "Dr. Iyad Idries",
+        title: "Cardiology Fellow & Medical Educator",
         bullets: [
-
+            "Former Chief Resident in a leading U.S. internal medicine program",
+            "Experience in Heart Failure Clinic and CCU teaching",
+            "Specializes in electrophysiology and thrombus risk prediction",
+            "Passionate mentor to medical students",
+            "Committed to advancing cardiac care in underserved communities",
+            "Focused on innovation and education in cardiology",
         ],
         profileLink: "#"
     },
@@ -68,18 +76,18 @@ const supervisors = [
         profileLink: "#"
     },
     {
-        image: supervisor7,
-        name: "Dr. Duha Shellah",
-        title: "Global Health Advocate & Physician-Scientist",
+        image: supervisor3,
+        name: "Dr. Bilal Adwan",
+        title: "Cardiologist at Al-Makassed Hospital",
         bullets: [
-            "Chair of the WFPHA Emergencies Working Grou",
-            "Vice Chair of the WHO EMRO Youth Council",
-            "Founder of The Researchist",
-            "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
-            "Represents Palestinian voices in global health",
+            "Specializes in advanced cardiovascular diagnostics and procedures",
+            "Skilled in echocardiography, stress testing, and cardiac catheterization",
+            "Experienced in managing complex cardiac cases",
+            "Provides outpatient cardiac care across the West Bank",
+            "Contributor to peer-reviewed research, including a 2024 case study on Shone complex",
         ],
         profileLink: "#"
-    }
+    },
 ];
 
 
@@ -252,8 +260,8 @@ const CardiologyPage = () => {
                         animate="visible"
                     >
                         <motion.h1
-                            className="text-5xl md:text-7xl font-bold mb-6 relative text-primary-blue"
-                            variants={itemVariants}
+                            className="text-5xl md:text-7xl font-bold mb-6 relative"
+                            style={{ color: '#990000' }} variants={itemVariants}
                         >
                             <motion.span
                                 className="inline-block"
@@ -270,7 +278,7 @@ const CardiologyPage = () => {
                             variants={itemVariants}
                         >
                             <motion.div
-                                className="w-32 h-1 bg-gradient-to-r from-red-500 via-blue-600 to-red-500 rounded-full"
+                                className="w-32 h-1 bg-gradient-to-r from-[#990000] via-[#990000] to-[#990000] rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: 128 }}
                                 transition={{ duration: 1.5, delay: 1 }}
@@ -365,7 +373,7 @@ const CardiologyPage = () => {
                                         initial="initial"
                                         animate="animate"
                                         style={{
-                                            backgroundImage: 'linear-gradient(90deg, #dc2626 0%, #ef4444 50%, #dc2626 100%)',
+                                            backgroundImage: 'linear-gradient(90deg, #990000 0%, #bb0000 50%, #990000 100%)',
                                             backgroundSize: '200% 100%',
                                             WebkitBackgroundClip: 'text',
                                             WebkitTextFillColor: 'transparent',
@@ -404,7 +412,8 @@ const CardiologyPage = () => {
                                     { }
                                     <div className="absolute top-8 left-0 w-full flex justify-center z-0">
                                         <svg width="90%" height="40" viewBox="0 0 320 40" className="mx-auto opacity-30">
-                                            <polyline points="0,20 40,20 60,5 80,35 100,5 120,20 140,20 160,10 180,30 200,20 320,20" fill="none" stroke="#d1d5db" strokeWidth="3" />
+                                            <polyline points="0,20 40,20 60,5 80,35 100,5 120,20 140,20 160,10 180,30 200,20 320,20" fill="none" stroke="#990000"
+                                                strokeWidth="3" />
                                         </svg>
                                     </div>
                                     <img src={sup.image} alt={sup.name} className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg z-10 mb-4" />
@@ -412,7 +421,8 @@ const CardiologyPage = () => {
                                     <p className="text-gray-700 font-medium z-10 mb-4">{sup.title}</p>
                                     <ul className="text-gray-600 text-left z-10 mb-6 space-y-2">
                                         {sup.bullets.map((b, i) => (
-                                            <li key={i} className="flex items-start"><span className="mt-1 mr-2 text-red-600">•</span>{b}</li>
+                                            <li key={i} className="flex items-start"><span className="mt-1 mr-2" style={{ color: '#990000' }}>•</span>
+                                                {b}</li>
                                         ))}
                                     </ul>
                                 </motion.div>

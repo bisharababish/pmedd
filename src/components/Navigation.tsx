@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoo from './images/logo1.png';
 import LoadingSkeleton from './LoadingSkeleton';
 
@@ -12,7 +12,8 @@ const Navigation: React.FC = () => {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [divisionsOpen, setDivisionsOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
-
+  const location = useLocation();
+  const isCardiologyPage = location.pathname === '/cardiology';
   useEffect(() => {
     const handleHashOnLoad = () => {
       const hash = window.location.hash;
@@ -96,7 +97,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} bg-primary-blue shadow-lg`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} ${isCardiologyPage ? '' : 'bg-primary-blue'} shadow-lg`} style={isCardiologyPage ? { backgroundColor: '#990000' } : {}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           { }
@@ -223,8 +224,8 @@ const Navigation: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gradient-to-br from-primary-blue to-secondary-blue text-white backdrop-blur-lg border-t border-light-blue"
-          >
+            className={`md:hidden text-white backdrop-blur-lg border-t ${isCardiologyPage ? 'border-red-300' : 'bg-gradient-to-br from-primary-blue to-secondary-blue border-light-blue'}`}
+            style={isCardiologyPage ? { background: 'linear-gradient(to bottom right, #990000, #770000)' } : {}}          >
             <div className="px-4 py-6 space-y-3">
               { }
               <motion.div

@@ -97,7 +97,7 @@ const HeroSlideshow: React.FC = () => {
       ].map((item) => (
         <div key={item.label} className="text-center">
           <motion.div
-            key={item.value} 
+            key={item.value}
             initial={{ scale: 1.2, opacity: 0, rotate: -10 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 400, damping: 18, duration: 0.4 }}
@@ -128,7 +128,7 @@ const HeroSlideshow: React.FC = () => {
               transition={{ duration: 1, type: 'spring', stiffness: 80, damping: 18 }}
               className="absolute inset-0"
             >
-              {}
+              { }
               <div className="absolute inset-0">
                 {slide.id === 3 ? (
                   <motion.img
@@ -138,27 +138,33 @@ const HeroSlideshow: React.FC = () => {
                     initial={{ y: 0 }}
                     animate={{ y: [0, -20, 0, 20, 0] }}
                     transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    style={{ willChange: 'transform, opacity' }}
                   />
                 ) : (
                   <img
                     src={slide.image}
                     alt={slide.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 100vw"
                   />
                 )}
-                {}
+                { }
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60"
                   initial={{ opacity: 0.7 }}
                   animate={{ opacity: [0.7, 0.85, 0.7] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{ willChange: 'opacity' }}
                 />
               </div>
 
-              {}
+              { }
               <FloatingParticles />
 
-              {}
+              { }
               <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-center">
                   <motion.div
@@ -193,7 +199,7 @@ const HeroSlideshow: React.FC = () => {
                     </motion.p>
                   </motion.div>
 
-                  {}
+                  { }
                   {slide.type === 'conference' && (
                     <div className="mb-12">
                       <motion.div
@@ -221,7 +227,7 @@ const HeroSlideshow: React.FC = () => {
                     </div>
                   )}
 
-                  {}
+                  { }
                 </div>
               </div>
             </motion.div>
@@ -229,7 +235,7 @@ const HeroSlideshow: React.FC = () => {
         ))}
       </AnimatePresence>
 
-      {}
+      { }
       <motion.button
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -254,7 +260,7 @@ const HeroSlideshow: React.FC = () => {
         <ChevronRight className="w-6 h-6" />
       </motion.button>
 
-      {}
+      { }
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <motion.button
