@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
 import Slide3 from "./images/Slide3.png";
-import Slide1 from "./images/Slide1.png";
+import picofthem from "./images/picofthem.png";
 
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,7 +22,7 @@ const HeroSlideshow: React.FC = () => {
       title: 'Welcome to PMED',
       subtitle: 'Palestine Medical Education & Development Club',
       description: 'Empowering the next generation of medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.',
-      image: Slide1,
+      image: picofthem,
       cta: 'Explore Programs'
     },
     {
