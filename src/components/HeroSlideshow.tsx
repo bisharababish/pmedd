@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
 import Slide3 from "./images/Slide3.png";
+import Slide1 from "./images/Slide1.png";
 
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,7 +22,7 @@ const HeroSlideshow: React.FC = () => {
       title: 'Welcome to PMED',
       subtitle: 'Palestine Medical Education & Development Club',
       description: 'Empowering the next generation of medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.',
-      image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: Slide1,
       cta: 'Explore Programs'
     },
     {
@@ -42,7 +43,7 @@ const HeroSlideshow: React.FC = () => {
       subtitle: 'PMED Official Division',
       description: 'An official PMED division offering 10 annual seats for students to explore cardiology through expert-led research, clinical exposure, and mentorship.',
       image: Slide3,
-      cta: 'Coming Soon!'
+      cta: 'Cardiology Club!'
     }
   ];
 
@@ -75,7 +76,7 @@ const HeroSlideshow: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 12000);
+    }, 18000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -223,11 +224,27 @@ const HeroSlideshow: React.FC = () => {
                         transition={{ delay: 1, duration: 0.8 }}
                       >
                         <CountdownDisplay />
+
                       </motion.div>
                     </div>
                   )}
 
-                  { }
+                  {/* Coming Soon Button */}
+                  {slide.type === 'education' && (
+                    <motion.div
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.9, duration: 0.8 }}
+                      className="mt-8"
+                    >
+                      <button
+                        onClick={() => window.location.href = '/cardiology'}
+                        className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 border border-white/30 shadow-lg hover:shadow-xl hover:scale-105"
+                      >
+                        {slide.cta}
+                      </button>
+                    </motion.div>
+                  )}
                 </div>
               </div>
             </motion.div>

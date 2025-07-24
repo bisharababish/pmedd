@@ -6,7 +6,7 @@ import ahmadRomana from "./teampics/ahmad.jpeg";
 import lamar from "./teampics/Lamar.jpeg";
 import meray from "./teampics/MerayDour.jpeg";
 import abduallah from "./teampics/abdallah.jpeg";
-
+import tala from "./teampics/talanidal.jpg";
 import Slide4 from "./images/Slide4.jpg";
 import './CardiologyPage.css';
 
@@ -18,9 +18,10 @@ interface PodcastTeamMember {
 
 const podcastTeam: PodcastTeamMember[] = [
     { name: 'Ahmad Romana', role: 'Host & Producer', img: ahmadRomana },
-    { name: 'Lamar Dahlia', role: 'Host & Producer', img: lamar },
+    { name: 'Lamar Abed', role: 'Host & Producer', img: lamar },
     { name: 'Meray Dour', role: 'Host & Producer', img: meray },
     { name: 'Abdallah  Elayyan', role: 'Director', img: abduallah },
+    { name: 'Tala  Nidal', role: 'Director', img: tala },
 
 ];
 

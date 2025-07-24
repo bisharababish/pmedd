@@ -341,11 +341,11 @@ const CardiologyPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                <span className="text-red-600 font-bold">PMED Cardiology Interest Group </span>
-                                isn’t just another student club — it’s a launchpad for aspiring future leaders in <span className="text-red-600 font-semibold">cardiovascular medicine</span>. Backed by the
-                                <span className="text-blue-700 font-semibold"> American College of Cardiology</span>,
+                                <span className="text-[#990000] font-bold">PMED Cardiology Interest Group </span>
+                                isn’t just another student club — it’s a launchpad for aspiring future leaders in <span className="text-[#990000] font-semibold">cardiovascular medicine</span>. Backed by the
+                                <span className="text-[#990000] font-semibold"> American College of Cardiology</span>,
                                 the Ministry of Health, and leading hospitals, we offer
-                                <span className="text-blue-700 font-bold"> ten competitive seats</span> each year. Those picked join an elite program featuring hands-on clinical experience, cutting-edge research, and one-on-one mentorship that are supervised by specialists in Cardiology contributing to real academic work, and grow into the kind of physician who doesn’t just treat — <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">but transforms</span>.
+                                <span className="text-[#990000] font-bold"> ten competitive seats</span> each year. Those picked join an elite program featuring hands-on clinical experience, cutting-edge research, and one-on-one mentorship that are supervised by specialists in Cardiology contributing to real academic work, and grow into the kind of physician who doesn’t just treat — <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">but transforms</span>.
                             </motion.p>
                         </motion.div>
                     </motion.section>
@@ -470,11 +470,11 @@ const CardiologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Each year, only a <span className="text-blue-700 font-bold">select few</span> gain the chance to join PMED Cardiology — a route reserved for those with <span className="text-red-600 font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-red-600 font-bold">every moment matters</span>.<br /><br />
-                                    To stay ahead, follow our <span className="text-blue-700 font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.<br /><br />
-                                    The field of cardiology seeks  bold, the brilliant, and those who truly care. When the opportunity arises, <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">seize it</span>.                                </p>
+                                    Each year, only a <span className="text-[#990000] font-bold">select few</span> gain the chance to join PMED Cardiology — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
+                                    To stay ahead, follow our <span className="text-[#990000] font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.<br /><br />
+                                    The field of cardiology seeks  bold, the brilliant, and those who truly care. When the opportunity arises, <span className="text-[#990000] font-bold">seize it</span>.                                </p>
                                 <motion.p
-                                    className="font-semibold text-red-600 text-xl"
+                                    className="font-semibold text-[#990000] text-xl"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >

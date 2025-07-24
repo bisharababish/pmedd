@@ -8,11 +8,11 @@ import Khaled from "./teampics/KhaledAlqasrawi.jpeg";
 import Abdallah from "./teampics/abdallah.jpeg";
 import dahlia from "./teampics/Dahlia.jpeg";
 import Mohammad from "./teampics/Mohammad Romana.jpeg";
-import ahmadabuturk from "./teampics/ahmadabuturk.jpeg";
 import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
 import heba from "./teampics/heba.jpeg";
 import Laith from "./teampics/laith.jpeg";
+import lujain from "./teampics/lujain.jpeg";
 
 
 const teamStructure = [
@@ -64,7 +64,7 @@ const teamStructure = [
             },
             {
                 name: 'Dahlia Gaouni',
-                role: 'Head of Video Editing',
+                role: 'Head of Cardiology Club',
                 img: dahlia,
             }
         ]
@@ -100,9 +100,9 @@ const teamStructure = [
                 img: Abdallah,
             },
             {
-                name: 'Ahmad Abu Turk',
+                name: 'Lujain Bdeir',
                 role: 'Head of Press & Media',
-                img: ahmadabuturk,
+                img: lujain,
             }
         ]
     },
