@@ -324,7 +324,7 @@ const PodcastPage = () => {
 
 
                             <motion.h2
-className="text-3xl md:text-5xl font-bold mb-6 text-[#1C2E4A]"
+                                className="text-3xl md:text-5xl font-bold mb-6 text-[#1C2E4A]"
                                 variants={itemVariants}
                             >
                                 <motion.span
@@ -338,7 +338,7 @@ className="text-3xl md:text-5xl font-bold mb-6 text-[#1C2E4A]"
                             </motion.h2>
 
                             <motion.div
-className="w-32 h-1 bg-[#1C2E4A] mx-auto rounded-full mb-6"
+                                className="w-32 h-1 bg-[#1C2E4A] mx-auto rounded-full mb-6"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: 128 }}
                                 transition={{ duration: 1, delay: 0.5 }}
@@ -363,14 +363,14 @@ className="w-32 h-1 bg-[#1C2E4A] mx-auto rounded-full mb-6"
                                 <motion.div
                                     key={idx}
                                     variants={cardVariants}
-                                    className={`group relative flex flex-col items-center bg-white/90 rounded-3xl shadow-xl border border-border-gray p-8 transition-all duration-500 hover:shadow-2xl${member.name === "Abdallah  Elayyan" ? " lg:col-start-2" : ""}`}
+                                    className="group relative flex flex-col items-center bg-white/90 rounded-3xl shadow-xl border border-border-gray p-8 transition-all duration-500 hover:shadow-2xl"
                                     style={{ minHeight: 320 }}
                                 >
                                     <div className="mb-6">
                                         <img
                                             src={member.img}
                                             alt={member.name}
-className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4A]/20 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10"
+                                            className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4A]/20 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.src = 'https://via.placeholder.com/150/E5E7EB/6B7280?text=Member';
@@ -379,7 +379,7 @@ className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4
                                     </div>
                                     <div className="text-center">
                                         <h4 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h4>
-<p className="text-lg font-semibold text-[#1C2E4A] bg-[#1C2E4A]/10 rounded-full px-4 py-1 inline-block shadow-sm">{member.role}</p>
+                                        <p className="text-lg font-semibold text-[#1C2E4A] bg-[#1C2E4A]/10 rounded-full px-4 py-1 inline-block shadow-sm">{member.role}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -413,7 +413,7 @@ className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-<ClipboardList className="w-8 h-8 text-[#1C2E4A] mr-3" />
+                                <ClipboardList className="w-8 h-8 text-[#1C2E4A] mr-3" />
                                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Join our podcast</h2>
                             </motion.div>
 
@@ -427,7 +427,7 @@ className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4
                                     Do you have a medical story or experience you'd like to tell? We are always looking for excited guests to join our podcast. Get in touch with us to find out more about how to become a guest speaker.
                                 </p>
                                 <motion.p
-className="font-semibold text-[#1C2E4A]"
+                                    className="font-semibold text-[#1C2E4A]"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
