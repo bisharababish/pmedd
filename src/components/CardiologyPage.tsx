@@ -14,11 +14,11 @@ const supervisors = [
     {
         image: supervisor1,
         name: "Dr. Sameer Mtour",
-        title: "Cardiologist & Head of the Cardiology Department at Al-Makassed Hospital",
+        title: "Cardiologist",
         bullets: [
-            "Assistant Professor at Al-Quds University",
-            "Numerous advanced catheterization procedures, including LAAO and TAVI",
-            "Strong commitment to improve cardiac care in Palestine.",
+            "Head of the Cardiology Department at Al-Makassed Hospital.",
+            "Assistant Professor at Al-Quds University.",
+            "Numerous advanced catheterization procedures, including LAAO and TAVI.",
         ],
         profileLink: "#"
     },
@@ -30,19 +30,16 @@ const supervisors = [
             "Holds the record for the highest number of consecutive pediatric catheterization procedures in the Arab world.",
             "Expertise in congenital heart disease and interventional pediatric cardiology.",
             "Minimally invasive treatments for a range of pediatric heart conditions.",
-            "Ongoing care for congenital and acquired heart diseases in children, from infancy through adolescence.",
-
         ],
         profileLink: "#"
     },
     {
         image: supervisor7,
         name: "Dr. Duha Shellah",
-        title: "Global Health Advocate & Physician-Scientist",
+        title: "Global Health Advocate & Physician-Scientist & Founder of The Researchist",
         bullets: [
             "Chair of the WFPHA Emergencies Working Grou",
             "Vice Chair of the WHO EMRO Youth Council",
-            "Founder of The Researchist",
             "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
             "Represents Palestinian voices in global health",
         ],
@@ -58,8 +55,6 @@ const supervisors = [
             "Experience in Heart Failure Clinic and CCU teaching",
             "Specializes in electrophysiology and thrombus risk prediction",
             "Passionate mentor to medical students",
-            "Committed to advancing cardiac care in underserved communities",
-            "Focused on innovation and education in cardiology",
         ],
         profileLink: "#"
     },
@@ -68,7 +63,6 @@ const supervisors = [
         name: "Dr. Diya Asad",
         title: "Internal Medicine Resident",
         bullets: [
-            "Proud graduate of Al-Quds University",
             "Brings hands-on experience in cardiology and emergency medicine",
             "Published 14 PubMed-indexed research papers",
             "Participated in clinical experiences at multiple U.S. hospitals, most recently at Mayo Clinic Hospital",
@@ -78,12 +72,10 @@ const supervisors = [
     {
         image: supervisor3,
         name: "Dr. Bilal Adwan",
-        title: "Cardiologist at Al-Makassed Hospital",
+        title: "Cardiologist",
         bullets: [
             "Specializes in advanced cardiovascular diagnostics and procedures",
             "Skilled in echocardiography, stress testing, and cardiac catheterization",
-            "Experienced in managing complex cardiac cases",
-            "Provides outpatient cardiac care across the West Bank",
             "Contributor to peer-reviewed research, including a 2024 case study on Shone complex",
         ],
         profileLink: "#"

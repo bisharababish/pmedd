@@ -184,7 +184,7 @@ const AboutSection: React.FC = () => {
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-primary-blue rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-[#1C2E4A] rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -197,7 +197,7 @@ const AboutSection: React.FC = () => {
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-secondary-blue rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#1C2E4A] rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -223,7 +223,7 @@ const AboutSection: React.FC = () => {
             initial="initial"
             animate="animate"
           >
-            <CircularText text="•PMED•ABOUT" radius={90} className="text-primary-blue" />
+            <CircularText text="•PMED•ABOUT" radius={90} className="text-[#1C2E4A]" />
           </motion.div>
           <motion.p
             className="text-xl md:text-2xl text-black max-w-4xl mx-auto leading-relaxed relative"
@@ -239,7 +239,7 @@ const AboutSection: React.FC = () => {
               initial="initial"
               animate="animate"
               style={{
-                backgroundImage: 'linear-gradient(90deg, #1e40af 0%, #ffffff 50%, #1e40af 100%)',
+                backgroundImage: 'linear-gradient(90deg, #1C2E4A 0%, #ffffff 50%, #1C2E4A 100%)',
                 backgroundSize: '200% 100%',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -247,7 +247,7 @@ const AboutSection: React.FC = () => {
               }}
               whileHover={{
                 scale: 1.1,
-                textShadow: "0 0 20px rgba(30, 64, 175, 0.5)",
+                textShadow: "0 0 20px rgba(28, 46, 74, 0.5)",
                 transition: { duration: 0.2 }
               }}
             >
@@ -286,7 +286,7 @@ const AboutSection: React.FC = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <motion.div
-            className="bg-gradient-to-r from-primary-blue to-secondary-blue rounded-3xl p-12 md:p-16 text-white relative overflow-hidden w-full max-w-3xl mx-auto"
+            className="bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-3xl p-12 md:p-16 text-white relative overflow-hidden w-full max-w-3xl mx-auto"
             variants={gradientVariants}
             initial="initial"
             animate="animate"
@@ -405,22 +405,22 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.h3
-              className="text-3xl md:text-4xl font-bold mb-2 text-left text-primary-blue"
+              className="text-3xl md:text-4xl font-bold mb-2 text-left text-[#1C2E4A]"
               whileHover={{
                 scale: 1.05,
-                color: "#1e40af",
-                textShadow: "0 0 20px rgba(30, 64, 175, 0.3)",
+                color: "#1C2E4A",
+                textShadow: "0 0 20px rgba(28, 46, 74, 0.3)",
                 transition: { duration: 0.3 }
               }}
             >
               Our Deliverables
             </motion.h3>
             <motion.div
-              className="w-16 h-1 bg-primary-blue mb-6 rounded"
+              className="w-16 h-1 bg-[#1C2E4A] mb-6 rounded"
               initial={{ width: 0 }}
               whileInView={{ width: 64 }}
               transition={{ duration: 1, delay: 0.5 }}
-              whileHover={{ width: 120, backgroundColor: "#1e40af" }}
+              whileHover={{ width: 120, backgroundColor: "#1C2E4A" }}
             />
             <motion.ul
               className="text-lg md:text-xl leading-relaxed pl-6 space-y-3 list-disc list-inside text-main-gray"
@@ -444,11 +444,11 @@ const AboutSection: React.FC = () => {
                   whileHover={{
                     x: 15,
                     scale: 1.02,
-                    color: "#1e40af",
-                    backgroundColor: "rgba(30, 64, 175, 0.05)",
+                    color: "#1C2E4A",
+                    backgroundColor: "rgba(28, 46, 74, 0.05)",
                     borderRadius: "8px",
                     padding: "8px",
-                    boxShadow: "0 4px 12px rgba(30, 64, 175, 0.1)",
+                    boxShadow: "0 4px 12px rgba(28, 46, 74, 0.1)",
                     transition: { duration: 0.3 }
                   }}
                   className="cursor-pointer p-2 -m-2 rounded-lg"

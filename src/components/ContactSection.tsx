@@ -165,9 +165,9 @@ const ContactSection: React.FC = () => {
       href: 'mailto:info@pmed.club',
       type: 'email',
       action: 'Send Email',
-      gradient: 'from-blue-600 via-blue-700 to-indigo-800',
-      bgPattern: 'bg-gradient-to-br from-blue-50 to-indigo-50',
-      accentColor: 'border-blue-200'
+      gradient: 'from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]',
+      bgPattern: 'bg-gradient-to-br from-[#1C2E4A]/5 to-[#1C2E4A]/10',
+      accentColor: 'border-[#1C2E4A]/20'
     },
     {
       icon: <Phone className="w-7 h-7" />,
@@ -327,13 +327,13 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-white relative overflow-hidden">
-      {}
+      { }
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-72 h-72 bg-[#1C2E4A] rounded-full blur-3xl"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -346,7 +346,7 @@ const ContactSection: React.FC = () => {
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-emerald-400 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#1C2E4A] rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -354,9 +354,9 @@ const ContactSection: React.FC = () => {
         />
       </motion.div>
 
-      {}
+      { }
       <motion.div
-        className="absolute top-32 left-10 text-blue-400/20"
+        className="absolute top-32 left-10 text-[#1C2E4A]/20"
         variants={floatingVariants}
         initial="initial"
         animate="animate"
@@ -383,7 +383,7 @@ const ContactSection: React.FC = () => {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-20">
-        {}
+        { }
         <motion.div
           className="text-center mb-16"
           variants={containerVariants}
@@ -396,7 +396,7 @@ const ContactSection: React.FC = () => {
             variants={itemVariants}
           >
             <motion.span
-              className="text-primary-blue inline-block"
+              className="text-[#1C2E4A] inline-block"
               variants={shinyTextVariants}
               initial="initial"
               animate="animate"
@@ -410,7 +410,7 @@ const ContactSection: React.FC = () => {
             variants={itemVariants}
           >
             <motion.div
-              className="w-32 h-1 bg-secondary-blue rounded-full"
+              className="w-32 h-1 bg-[#1C2E4A] rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: 128 }}
               transition={{ duration: 1.5, delay: 1 }}
@@ -425,9 +425,9 @@ const ContactSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {}
+        { }
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {}
+          { }
           <motion.div
             variants={slideInLeftVariants}
             initial="hidden"
@@ -443,9 +443,9 @@ const ContactSection: React.FC = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              {}
+              { }
               <motion.div
-                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl"
+                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10 rounded-full blur-2xl"
                 variants={pulseVariants}
                 initial="initial"
                 animate="animate"
@@ -459,7 +459,7 @@ const ContactSection: React.FC = () => {
                   Stay in touch
                 </motion.h3>
 
-                {}
+                { }
                 {submitError && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -494,7 +494,8 @@ const ContactSection: React.FC = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1C2E4A] focus:ring-2 focus:ring-[#1C2E4A]/20
+ transition-all duration-300"
                         placeholder="Enter your full name"
                         required
                       />
@@ -514,7 +515,8 @@ const ContactSection: React.FC = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#1C2E4A] focus:ring-2 focus:ring-[#1C2E4A]/20
+ transition-all duration-300"
                         placeholder="Enter your email"
                         required
                       />
@@ -536,7 +538,7 @@ const ContactSection: React.FC = () => {
                       <motion.input
                         whileFocus={{
                           scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                          boxShadow: "0 0 20px rgba(28, 46, 74, 0.3)"
                         }}
                         whileHover={{ scale: 1.01 }}
                         type="tel"
@@ -555,7 +557,7 @@ const ContactSection: React.FC = () => {
                       <motion.input
                         whileFocus={{
                           scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                          boxShadow: "0 0 20px rgba(28, 46, 74, 0.3)"
                         }}
                         whileHover={{ scale: 1.01 }}
                         type="text"
@@ -624,12 +626,12 @@ const ContactSection: React.FC = () => {
                     whileHover={{
                       scale: 1.05,
                       y: -2,
-                      boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
+                      boxShadow: "0 20px 40px rgba(28, 46, 74, 0.3)"
                     }}
                     whileTap={{ scale: 0.95 }}
                     type="submit"
                     disabled={isSubmitting || isSubmitted}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
+                    className="w-full bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
                   >
                     {isSubmitting ? (
                       <>
@@ -663,7 +665,7 @@ const ContactSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {}
+          { }
           <motion.div
             variants={slideInRightVariants}
             initial="hidden"
@@ -689,14 +691,14 @@ const ContactSection: React.FC = () => {
                 }}
                 className={`group relative overflow-hidden rounded-2xl border-2 ${info.accentColor} ${info.bgPattern} shadow-lg hover:shadow-2xl transition-all duration-500`}
               >
-                {}
+                { }
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`}
                 />
 
-                {}
+                { }
                 <div className="relative z-10 p-6">
-                  {}
+                  { }
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-4">
                       <motion.div
@@ -732,7 +734,7 @@ const ContactSection: React.FC = () => {
                     </motion.button>
                   </div>
 
-                  {}
+                  { }
                   <div className="mb-6">
                     {info.details.map((detail, idx) => (
                       <motion.div
@@ -747,7 +749,7 @@ const ContactSection: React.FC = () => {
                     ))}
                   </div>
 
-                  {}
+                  { }
                   {info.type !== 'address' && (
                     <motion.a
                       href={info.href}
@@ -760,7 +762,7 @@ const ContactSection: React.FC = () => {
                   )}
                 </div>
 
-                {}
+                { }
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
                   <div className={`w-full h-full bg-gradient-to-br ${info.gradient} rounded-full blur-2xl transform translate-x-6 -translate-y-6`} />
                 </div>

@@ -6,19 +6,18 @@ import kinda from "./teampics/kinda.jpeg";
 import Lamar from "./teampics/Lamar.jpeg";
 import Khaled from "./teampics/KhaledAlqasrawi.jpeg";
 import Abdallah from "./teampics/abdallah.jpeg";
-import dahlia from "./teampics/Dahlia.jpeg";
 import Mohammad from "./teampics/Mohammad Romana.jpeg";
 import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
 import heba from "./teampics/heba.jpeg";
-import Laith from "./teampics/laith.jpeg";
+import jana from "./teampics/jana.jpg";
 import lujain from "./teampics/lujain.jpeg";
 
 
 const teamStructure = [
     {
         roleGroup: "Leadership & Founders",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         members: [
             {
@@ -35,7 +34,7 @@ const teamStructure = [
     },
     {
         roleGroup: "Public Representatives",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         icon: Megaphone,
         members: [
@@ -53,8 +52,8 @@ const teamStructure = [
     },
     {
         roleGroup: "Department Heads",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
-        accent: "from-blue-500 to-indigo-500",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
+        accent: "from-[#1C2E4A] to-[#1C2E4A]",
         icon: BookOpen,
         members: [
             {
@@ -62,23 +61,19 @@ const teamStructure = [
                 role: 'Head Of Educational Content & Co-Founder',
                 img: Khaled,
             },
-            {
-                name: 'Dahlia Gaouni',
-                role: 'Head of Cardiology Club',
-                img: dahlia,
-            }
+
         ]
     },
     {
         roleGroup: "External & Internal Affairs",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         icon: ExternalLink,
         members: [
             {
-                name: 'Laith Mualla',
+                name: 'Jana Faroun',
                 role: 'Head of External Affairs',
-                img: Laith,
+                img: jana,
             },
             {
                 name: 'Heba Arab',
@@ -90,7 +85,7 @@ const teamStructure = [
     },
     {
         roleGroup: "Press & Media Team",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         icon: Video,
         members: [
@@ -108,7 +103,7 @@ const teamStructure = [
     },
     {
         roleGroup: "IT Team",
-        color: "from-blue-600 via-indigo-600 to-purple-600",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         icon: Code,
         members: [
@@ -185,7 +180,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
         <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-border-gray hover:shadow-2xl transition-all duration-500 overflow-hidden">
             { }
             <div className="absolute inset-0 opacity-5">
-                <div className={`w-full h-full bg-gradient-to-br from-primary-blue to-secondary-blue`} />
+                <div className={`w-full h-full bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]`} />
             </div>
 
             { }
@@ -195,7 +190,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
             <div className="relative z-10 text-center">
                 { }
                 <div className="relative mb-4 sm:mb-6">
-                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-primary-blue to-secondary-blue p-0.5 sm:p-1`}>
+                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
                         <img
                             src={member.img}
                             alt={member.name}
@@ -205,11 +200,11 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
                 </div>
 
                 { }
-                <h4 className="text-base sm:text-xl font-bold text-main-gray mb-1 sm:mb-2 group-hover:text-primary-blue transition-colors">
+                <h4 className="text-base sm:text-xl font-bold text-main-gray mb-1 sm:mb-2 group-hover:text-[#1C2E4A] transition-colors">
                     {member.name}
                 </h4>
 
-                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-primary-blue to-secondary-blue rounded-full mb-2 sm:mb-3`}>
+                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-full mb-2 sm:mb-3`}>
                     <p className="text-xs sm:text-sm font-semibold text-white">
                         {member.role}
                     </p>
@@ -217,7 +212,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
             </div>
 
             { }
-            <div className={`absolute inset-0 bg-gradient-to-br from-primary-blue to-secondary-blue opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+            <div className={`absolute inset-0 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
         </div>
     </motion.div>
 );
@@ -240,7 +235,7 @@ const TeamSection = () => {
                     className="text-center mb-12 sm:mb-16 md:mb-20"
                 >
 
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent mb-4 sm:mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] bg-clip-text text-transparent mb-4 sm:mb-6">
                         Meet Our Team
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
@@ -260,10 +255,10 @@ const TeamSection = () => {
                     >
                         { }
                         <div className="text-center mb-6 sm:mb-10 md:mb-12">
-                            <h3 className={`text-2xl sm:text-3xl font-bold text-primary-blue mb-2 sm:mb-4`}>
+                            <h3 className={`text-2xl sm:text-3xl font-bold text-[#1C2E4A] mb-2 sm:mb-4`}>
                                 {founders.roleGroup}
                             </h3>
-                            <div className={`w-16 sm:w-24 h-1 bg-primary-blue mx-auto rounded-full`} />
+                            <div className={`w-16 sm:w-24 h-1 bg-[#1C2E4A] mx-auto rounded-full`} />
                         </div>
 
                         { }
@@ -306,10 +301,10 @@ const TeamSection = () => {
 
                                 { }
                                 <div className="text-center mb-4 sm:mb-8">
-                                    <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
+                                    <h3 className={`text-xl sm:text-2xl font-bold text-[#1C2E4A] mb-1 sm:mb-2`}>
                                         {group.roleGroup}
                                     </h3>
-                                    <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
+                                    <div className="w-10 sm:w-16 h-0.5 bg-[#1C2E4A] mx-auto rounded-full" />
                                 </div>
 
                                 { }
@@ -347,10 +342,10 @@ const TeamSection = () => {
 
                                     { }
                                     <div className="text-center mb-4 sm:mb-8">
-                                        <h3 className={`text-xl sm:text-2xl font-bold text-primary-blue mb-1 sm:mb-2`}>
+                                        <h3 className={`text-xl sm:text-2xl font-bold text-[#1C2E4A] mb-1 sm:mb-2`}>
                                             {group.roleGroup}
                                         </h3>
-                                        <div className="w-10 sm:w-16 h-0.5 bg-primary-blue mx-auto rounded-full" />
+                                        <div className="w-10 sm:w-16 h-0.5 bg-[#1C2E4A] mx-auto rounded-full" />
                                     </div>
 
                                     { }
@@ -389,7 +384,7 @@ const TeamSection = () => {
                             We're always looking for passionate individuals to join our mission
                         </p>
                         <button
-                            className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300"
+                            className="w-full sm:w-auto bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300"
                             onClick={() => window.location.href = '/contact'}
                         >
                             Get In Touch

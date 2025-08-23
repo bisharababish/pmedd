@@ -168,27 +168,24 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-primary-blue text-light-gray relative overflow-hidden">
-      { }
+    <footer className="bg-[#1C2E4A] text-light-gray relative overflow-hidden">      { }
       <motion.div
         className="absolute inset-0 opacity-5"
         style={{ y: backgroundY, scale: backgroundScale }}
       >
         <motion.div
-          className="absolute top-20 left-20 w-64 h-64 bg-light-blue rounded-full blur-3xl"
-          variants={floatingVariants}
+          className="absolute top-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" variants={floatingVariants}
           initial="initial"
           animate="animate"
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-secondary-blue rounded-full blur-3xl"
-          variants={floatingVariants}
+          className="absolute bottom-20 right-20 w-80 h-80 bg-white/15 rounded-full blur-3xl" variants={floatingVariants}
           initial="initial"
           animate="animate"
           transition={{ delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-72 h-72 bg-very-light-blue rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-72 h-72 bg-white/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
           variants={floatingVariants}
           initial="initial"
           animate="animate"
@@ -198,7 +195,7 @@ const Footer: React.FC = () => {
 
       { }
       <motion.div
-        className="absolute top-32 left-10 text-blue-400/10"
+        className="absolute top-32 left-10 text-white/10"
         variants={floatingVariants}
         initial="initial"
         animate="animate"
@@ -206,7 +203,7 @@ const Footer: React.FC = () => {
         <Mail size={60} />
       </motion.div>
       <motion.div
-        className="absolute top-40 right-20 text-purple-400/10"
+        className="absolute top-40 right-20 text-white/10"
         variants={floatingVariants}
         initial="initial"
         animate="animate"
@@ -245,7 +242,7 @@ const Footer: React.FC = () => {
                     boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
                   }}
                   transition={{ duration: 0.2 }}
-                  className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden"
+                  className="w-12 h-12 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]/80 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden"
                 >
                   <motion.div
                     className="absolute inset-0 bg-white/20"
@@ -263,12 +260,12 @@ const Footer: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <motion.span
-                      className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
+                      className="bg-gradient-to-r from-white via-white/80 to-white bg-clip-text text-transparent bg-[length:200%_100%] inline-block"
                       variants={shinyTextVariants}
                       initial="initial"
                       animate="animate"
                       style={{
-                        backgroundImage: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 50%, #60a5fa 100%)',
+                        backgroundImage: 'linear-gradient(90deg, #ffffff 0%, #ffffff80 50%, #ffffff 100%)',
                         backgroundSize: '200% 100%',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
@@ -351,7 +348,7 @@ const Footer: React.FC = () => {
               >
                 Quick Links
                 <motion.div
-                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded"
+                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-white to-white/80 rounded"
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
                   transition={{ duration: 1, delay: 0.5 }}
@@ -372,13 +369,13 @@ const Footer: React.FC = () => {
                     <motion.div
                       whileHover={{
                         x: 8,
-                        color: '#60A5FA',
+                        color: '#ffffff',
                         scale: 1.08
                       }}
                       className="text-gray-300 hover:text-blue-400 transition-all duration-150 flex items-center group cursor-pointer"
                     >
                       <motion.span
-                        className="w-2 h-2 bg-white rounded-full mr-3 group-hover:bg-blue-400 transition-colors duration-150"
+                        className="w-2 h-2 bg-white rounded-full mr-3 group-hover:bg-white transition-colors duration-150"
                         whileHover={{ scale: 1.32 }}
                       />
                       <Link
@@ -398,7 +395,7 @@ const Footer: React.FC = () => {
                       >
                         {link.title}
                         <motion.div
-                          className="absolute bottom-0 left-0 h-0.5 bg-blue-400 rounded"
+                          className="absolute bottom-0 left-0 h-0.5 bg-white rounded"
                           initial={{ width: 0 }}
                           whileHover={{ width: "100%" }}
                           transition={{ duration: 0.18, ease: "easeOut" }}
@@ -456,7 +453,7 @@ const Footer: React.FC = () => {
                     }}
                     transition={{ duration: 0.18, ease: "easeOut" }}
                   >
-                    <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                   </motion.div>
                   <div>
                     <motion.p
@@ -479,7 +476,7 @@ const Footer: React.FC = () => {
                     whileHover={{
                       rotate: 360,
                       scale: 1.18,
-                      color: "#10b981"
+                      color: "#ffffff"
                     }}
                     transition={{ duration: 0.18, ease: "easeOut" }}
                   >
@@ -488,12 +485,12 @@ const Footer: React.FC = () => {
                   <div>
                     <motion.a
                       href="tel:+972-56-698-6006"
-                      className="hover:text-emerald-400 transition-colors relative"
-                      whileHover={{ color: "#10b981" }}
+                      className="hover:text-white transition-colors relative"
+                      whileHover={{ color: "#ffffff" }}
                     >
                       +972-56-698-6006
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-emerald-400 rounded"
+                        className="absolute bottom-0 left-0 h-0.5 bg-white rounded"
                         initial={{ width: 0 }}
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.18, ease: "easeOut" }}
@@ -518,17 +515,17 @@ const Footer: React.FC = () => {
                     }}
                     transition={{ duration: 0.18, ease: "easeOut" }}
                   >
-                    <Mail className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                    <Mail className="w-5 h-5 text-white flex-shrink-0" />
                   </motion.div>
                   <div>
                     <motion.a
                       href="mailto:info@pmed.club"
-                      className="hover:text-purple-400 transition-colors relative"
-                      whileHover={{ color: "#a78bfa" }}
+                      className="hover:text-white transition-colors relative"
+                      whileHover={{ color: "#ffffff" }}
                     >
                       info@pmed.club
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-purple-400 rounded"
+                        className="absolute bottom-0 left-0 h-0.5 bg-white rounded"
                         initial={{ width: 0 }}
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.18, ease: "easeOut" }}
@@ -551,7 +548,7 @@ const Footer: React.FC = () => {
         >
           { }
           <motion.div
-            className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded"
+            className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-white via-white/80 to-white rounded"
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
             transition={{ duration: 2, delay: 0.5 }}
@@ -599,7 +596,7 @@ const Footer: React.FC = () => {
                 variants={listItemVariants}
                 whileHover={{
                   scale: 1.08,
-                  color: "#f472b6"
+                  color: "#ffffff"
                 }}
               >
                 <Instagram className="w-4 h-4" />
@@ -614,7 +611,7 @@ const Footer: React.FC = () => {
                 variants={listItemVariants}
                 whileHover={{
                   scale: 1.08,
-                  color: "#60a5fa"
+                  color: "#ffffff"
                 }}
               >
                 <Globe className="w-4 h-4" />
@@ -629,7 +626,7 @@ const Footer: React.FC = () => {
                 variants={listItemVariants}
                 whileHover={{
                   scale: 1.08,
-                  color: "#10b981"
+                  color: "#ffffff"
                 }}
               >
                 <Phone className="w-4 h-4" />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
-import Slide3 from "./images/Slide3.png";
+import Slide3 from "./images/png.png";
 import picofthem from "./images/picofthem.png";
 
 const HeroSlideshow: React.FC = () => {
@@ -108,8 +108,7 @@ const HeroSlideshow: React.FC = () => {
               {item.value.toString().padStart(2, '0')}
             </span>
           </motion.div>
-          <span className="text-blue-200 text-sm md:text-base font-medium">
-            {item.label}
+          <span className="text-[#1C2E4A]/70 text-sm md:text-base font-medium">            {item.label}
           </span>
         </div>
       ))}
@@ -154,7 +153,7 @@ const HeroSlideshow: React.FC = () => {
                 )}
                 { }
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-blue-600/60"
+                  className="absolute inset-0 bg-gradient-to-br from-[#1C2E4A]/80 via-[#1C2E4A]/70 to-[#1C2E4A]/60"
                   initial={{ opacity: 0.7 }}
                   animate={{ opacity: [0.7, 0.85, 0.7] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
@@ -186,7 +185,7 @@ const HeroSlideshow: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6, duration: 0.7 }}
-                      className="text-xl md:text-2xl text-blue-100 mb-6"
+                      className="text-xl md:text-2xl text-white/90 mb-6"
                     >
                       {slide.subtitle}
                     </motion.p>
@@ -194,7 +193,7 @@ const HeroSlideshow: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7, duration: 0.7 }}
-                      className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed"
+                      className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
                     >
                       {slide.description}
                     </motion.p>

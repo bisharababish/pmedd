@@ -218,7 +218,7 @@ const PodcastPage = () => {
                         animate="visible"
                     >
                         <motion.h1
-                            className="text-4xl md:text-7xl font-bold mb-6 relative text-primary-blue"
+                            className="text-4xl md:text-7xl font-bold mb-6 relative text-[#1C2E4A]"
                             variants={itemVariants}
                         >
                             <motion.span
@@ -236,7 +236,7 @@ const PodcastPage = () => {
                             variants={itemVariants}
                         >
                             <motion.div
-                                className="w-32 h-1 bg-secondary-blue rounded-full"
+                                className="w-32 h-1 bg-[#1C2E4A] rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: 128 }}
                                 transition={{ duration: 1.5, delay: 1 }}
@@ -269,13 +269,15 @@ const PodcastPage = () => {
                         >
                             { }
                             <motion.div
-                                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10 rounded-full blur-2xl"
+                                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10
+ rounded-full blur-2xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
                             />
                             <motion.div
-                                className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-secondary-blue/10 to-primary-blue/10 rounded-full blur-2xl"
+                                className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10
+ rounded-full blur-2xl"
                                 variants={pulseVariants}
                                 initial="initial"
                                 animate="animate"
@@ -288,8 +290,8 @@ const PodcastPage = () => {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                    <Radio className="w-8 h-8 text-primary-blue mr-3" />
-                                    <span className="text-primary-blue font-bold text-lg">Medical Storytelling</span>
+                                    <Radio className="w-8 h-8 text-[#1C2E4A] mr-3" />
+                                    <span className="text-[#1C2E4A] font-bold text-lg">Medical Storytelling</span>
                                 </motion.div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Our Podcast</h2>
                             </div>
@@ -299,9 +301,11 @@ const PodcastPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                Welcome to the <span className="text-primary-blue font-semibold">PMED Podcast Club</span>, a new project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
+                                Welcome to the <span className="text-[#1C2E4A] font-semibold">PMED Podcast Club</span>
+                                , a new project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
                                 <br /><br />
-                                Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-primary-blue font-semibold">doctor of Palestinian ancestry</span> who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
+                                Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-[#1C2E4A] font-semibold">doctor of Palestinian ancestry</span>
+                                who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
                                 <br /><br />
                                 Through honest interviews and interesting conversations, we learn about their adventures, struggles, and successes, and we give advice to the next generation of doctors. This podcast is a great way for people in the Palestinian medical community, from medical students to experienced doctors, to get advice, get inspired, and meet new people.
                             </motion.p>
@@ -320,7 +324,7 @@ const PodcastPage = () => {
 
 
                             <motion.h2
-                                className="text-3xl md:text-5xl font-bold mb-6 text-primary-blue"
+className="text-3xl md:text-5xl font-bold mb-6 text-[#1C2E4A]"
                                 variants={itemVariants}
                             >
                                 <motion.span
@@ -334,7 +338,7 @@ const PodcastPage = () => {
                             </motion.h2>
 
                             <motion.div
-                                className="w-32 h-1 bg-secondary-blue mx-auto rounded-full mb-6"
+className="w-32 h-1 bg-[#1C2E4A] mx-auto rounded-full mb-6"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: 128 }}
                                 transition={{ duration: 1, delay: 0.5 }}
@@ -366,7 +370,7 @@ const PodcastPage = () => {
                                         <img
                                             src={member.img}
                                             alt={member.name}
-                                            className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-primary-blue/20 bg-gradient-to-br from-primary-blue/10 to-secondary-blue/10"
+className="w-32 h-32 object-cover rounded-full shadow-lg border-4 border-[#1C2E4A]/20 bg-gradient-to-br from-[#1C2E4A]/10 to-[#1C2E4A]/10"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.src = 'https://via.placeholder.com/150/E5E7EB/6B7280?text=Member';
@@ -375,7 +379,7 @@ const PodcastPage = () => {
                                     </div>
                                     <div className="text-center">
                                         <h4 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h4>
-                                        <p className="text-lg font-semibold text-primary-blue bg-primary-blue/10 rounded-full px-4 py-1 inline-block shadow-sm">{member.role}</p>
+<p className="text-lg font-semibold text-[#1C2E4A] bg-[#1C2E4A]/10 rounded-full px-4 py-1 inline-block shadow-sm">{member.role}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -409,7 +413,7 @@ const PodcastPage = () => {
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <ClipboardList className="w-8 h-8 text-primary-blue mr-3" />
+<ClipboardList className="w-8 h-8 text-[#1C2E4A] mr-3" />
                                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Join our podcast</h2>
                             </motion.div>
 
@@ -423,7 +427,7 @@ const PodcastPage = () => {
                                     Do you have a medical story or experience you'd like to tell? We are always looking for excited guests to join our podcast. Get in touch with us to find out more about how to become a guest speaker.
                                 </p>
                                 <motion.p
-                                    className="font-semibold text-primary-blue"
+className="font-semibold text-[#1C2E4A]"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
