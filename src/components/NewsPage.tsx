@@ -4,9 +4,9 @@ import { Search, Share2, ExternalLink, Calendar, Filter } from 'lucide-react';
 
 // Import images
 import slide4Image from './images/Slide4.jpg';
-import logoImage from './images/logoo.png';
 import supervisor1Image from './supervisorpics/supervisor1.png';
 import ahmadRoyalImage from './images/ahmadroyal.jpg';
+import conferenceImage from './images/conference.jpg';
 
 interface NewsItem {
     id: number;
@@ -32,7 +32,7 @@ const NewsPage: React.FC = () => {
             id: 1,
             title: "Launch of the Cardiology Division at IPCLM13",
             description: "PMED Club launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced.",
-            image: slide4Image, // Using existing image from the project
+            image: conferenceImage, // Using conference image for cardiology launch
             category: "Cardiology",
             date: "2024-01-15",
             buttonText: "Read More",
@@ -44,7 +44,7 @@ const NewsPage: React.FC = () => {
             id: 2,
             title: "PMED Club Podcast – First Episode Released",
             description: "Our first podcast episode is now live, discussing Listening is key for every doctor… but that's not all! In this episode, we discussed choosing role models, building true value in others' lives, and other inspiring topics.",
-            image: logoImage, // Using existing logo as podcast cover
+            image: slide4Image, // Using Slide4 image for podcast
             category: "Podcast",
             date: "2024-01-10",
             buttonText: "Listen Now",
