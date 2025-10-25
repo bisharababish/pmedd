@@ -109,6 +109,12 @@ const LandingPage: React.FC = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                                const joinSection = document.getElementById('join-us-section');
+                                if (joinSection) {
+                                    joinSection.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
                             className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg"
                         >
                             Start Your Journey
@@ -268,7 +274,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             {/* 4️⃣ Join Us Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+            <section id="join-us-section" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
