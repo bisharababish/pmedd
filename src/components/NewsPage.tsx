@@ -54,10 +54,22 @@ const NewsPage: React.FC = () => {
             buttonText: "Follow on Instagram",
             buttonAction: "https://www.instagram.com/p/DON8y42CM8r/",
             buttonType: "external"
+        },
+        {
+            id: 4,
+            title: "PMED Club President Recognized by Al-Quds University",
+            description: "The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.",
+            image: "/src/components/images/ahmadroyal.jpg", // Using the Royal Society event image
+            category: "Achievements",
+            date: "2024-10-04",
+            buttonText: "View Post",
+            buttonAction: "https://www.facebook.com/share/p/17KqEfHYMf/?mibextid=wwXIfr",
+            buttonType: "external",
+            details: "Our PMED Club President has been recognized by Al-Quds University for outstanding contributions to medical research and education. This recognition highlights the exceptional talent within our club and demonstrates our commitment to excellence in the medical field. The achievement reflects the dedication of our members and their ability to make meaningful contributions to global scientific research."
         }
     ];
 
-    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events'];
+    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements'];
 
     const filteredNews = useMemo(() => {
         return newsItems.filter(item => {
