@@ -79,12 +79,14 @@ const NewsPage: React.FC = () => {
     const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements'];
 
     const filteredNews = useMemo(() => {
-        return newsItems.filter(item => {
-            const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.description.toLowerCase().includes(searchTerm.toLowerCase());
-            const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
-            return matchesSearch && matchesCategory;
-        });
+        return newsItems
+            .filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.description.toLowerCase().includes(searchTerm.toLowerCase());
+                const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            })
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Most recent first
     }, [searchTerm, selectedCategory]);
 
     const handleShare = (item: NewsItem) => {

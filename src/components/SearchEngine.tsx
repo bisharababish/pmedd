@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, MapPin, Users, GraduationCap, Microscope, Stethoscope, BookOpen, Mail, ChevronRight } from 'lucide-react';
+import { Search, X, MapPin, Users, GraduationCap, Microscope, Stethoscope, BookOpen, Mail, ChevronRight, Brain, Scissors, Activity } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const searchData = [
     // Home Page
     {
         id: 'home',
-        title: 'Home',
-        content: 'Welcome to PMED - Medical Club. Your gateway to medical excellence and professional development.',
-        keywords: ['home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development'],
+        title: 'Join PMED Club',
+        content: 'Your journey to becoming a future doctor starts here. Ready to level up your med school journey? PMED is where future doctors are made.',
+        keywords: ['home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development', 'join', 'membership', 'apply', 'med school', 'journey', 'future doctors', 'level up', 'medical students'],
         section: 'Home',
         path: '/',
         icon: <MapPin className="w-4 h-4" />
@@ -24,6 +24,17 @@ const searchData = [
         section: 'About',
         path: '/about',
         icon: <Users className="w-4 h-4" />
+    },
+
+    // Original Homepage (HeroSlideshow)
+    {
+        id: 'original-home',
+        title: 'PMED Homepage',
+        content: 'Welcome to PMED - Medical Club. Your gateway to medical excellence and professional development.',
+        keywords: ['homepage', 'original home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development'],
+        section: 'Home',
+        path: '/home',
+        icon: <MapPin className="w-4 h-4" />
     },
 
 
@@ -69,6 +80,77 @@ const searchData = [
         section: 'Divisions',
         path: '/podcast',
         icon: <Users className="w-4 h-4" />
+    },
+
+    // News Page
+    {
+        id: 'news',
+        title: 'PMED News & Updates',
+        content: 'Stay updated with the latest news, events, and achievements from PMED Club. Read about our latest activities, recognitions, and milestones.',
+        keywords: ['news', 'updates', 'events', 'achievements', 'activities', 'recognitions', 'milestones', 'latest'],
+        section: 'News',
+        path: '/news',
+        icon: <BookOpen className="w-4 h-4" />
+    },
+
+    // Landing Page
+    {
+        id: 'landing',
+        title: 'Join PMED Club',
+        content: 'Your journey to becoming a future doctor starts here. Ready to level up your med school journey? PMED is where future doctors are made.',
+        keywords: ['join', 'membership', 'apply', 'med school', 'journey', 'future doctors', 'level up', 'medical students'],
+        section: 'Join',
+        path: '/landing',
+        icon: <GraduationCap className="w-4 h-4" />
+    },
+
+    // Interest Groups
+    {
+        id: 'interest-groups',
+        title: 'PMED Interest Groups',
+        content: 'PMED is the FIRST club in Palestine to launch Interest Groups. Dedicated spaces for med students to connect, grow, and sharpen their skills in specialties they dream of.',
+        keywords: ['interest groups', 'specialties', 'cardiology', 'neurology', 'surgery', 'internal medicine', 'mentorship', 'clinical exposure'],
+        section: 'Programs',
+        path: '/landing',
+        icon: <Users className="w-4 h-4" />
+    },
+
+    // Recent News Items
+    {
+        id: 'cardiology-launch',
+        title: 'Launch of the Cardiology Division at IPCLM13',
+        content: 'PMED Club launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced. A proudly Palestinian club founded to ignite passion and inspire excellence.',
+        keywords: ['cardiology division', 'IPCLM13', 'launch', 'conference', 'Palestinian', 'passion', 'excellence', 'medical students'],
+        section: 'News',
+        path: '/news',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'podcast-episode',
+        title: 'PMED Club Podcast – First Episode Released',
+        content: 'Our first podcast episode is now live, discussing listening skills for doctors, choosing role models, building true value in others\' lives, and other inspiring topics.',
+        keywords: ['podcast episode', 'first episode', 'listening skills', 'role models', 'inspiring topics', 'doctors'],
+        section: 'News',
+        path: '/news',
+        icon: <BookOpen className="w-4 h-4" />
+    },
+    {
+        id: 'supervisors',
+        title: 'Meet Our Supervisors',
+        content: 'Our supervisors guide the Cardiology Division. The driving force supporting our journeys within their knowledge and guidance.',
+        keywords: ['supervisors', 'mentors', 'cardiology division', 'guidance', 'knowledge', 'support'],
+        section: 'News',
+        path: '/news',
+        icon: <Users className="w-4 h-4" />
+    },
+    {
+        id: 'president-recognition',
+        title: 'PMED Club President Recognized by Al-Quds University',
+        content: 'The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.',
+        keywords: ['president recognition', 'Al-Quds University', 'talent', 'dedication', 'global scientific presence', 'achievement'],
+        section: 'News',
+        path: '/news',
+        icon: <GraduationCap className="w-4 h-4" />
     },
 
     // About Section
@@ -264,6 +346,55 @@ const searchData = [
         section: 'Team',
         path: '/team',
         icon: <Users className="w-4 h-4" />
+    },
+
+    // Interest Groups Details
+    {
+        id: 'cardiology-group',
+        title: 'Cardiology Interest Group',
+        content: 'Learn from expert doctors, join research projects, and gain mentorship in cardiology. Currently open for applications.',
+        keywords: ['cardiology', 'cardiology group', 'cardiology interest', 'expert doctors', 'research projects', 'mentorship', 'open', 'applications'],
+        section: 'Programs',
+        path: '/landing',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'neurology-group',
+        title: 'Neurology Interest Group',
+        content: 'Expert-led mentorship & skill-building in neurology. Coming soon to PMED Club.',
+        keywords: ['neurology', 'neurology group', 'neurology interest', 'expert-led', 'mentorship', 'skill-building', 'coming soon'],
+        section: 'Programs',
+        path: '/landing',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'surgery-group',
+        title: 'Surgery Interest Group',
+        content: 'Clinical exposure and research opportunities in surgery. Coming soon to PMED Club.',
+        keywords: ['surgery', 'surgery group', 'surgery interest', 'clinical exposure', 'research opportunities', 'coming soon'],
+        section: 'Programs',
+        path: '/landing',
+        icon: <Scissors className="w-4 h-4" />
+    },
+    {
+        id: 'internal-medicine-group',
+        title: 'Internal Medicine Interest Group',
+        content: 'Build strong foundations in internal medicine under expert guidance. Coming soon to PMED Club.',
+        keywords: ['internal medicine', 'internal medicine group', 'internal medicine interest', 'strong foundations', 'expert guidance', 'coming soon'],
+        section: 'Programs',
+        path: '/landing',
+        icon: <Activity className="w-4 h-4" />
+    },
+
+    // Contact Information
+    {
+        id: 'contact-info',
+        title: 'Contact PMED Club',
+        content: 'Get in touch with PMED Club. Email: external.affairs@pmed.club, Phone: +972 56-698-6006. Located in Palestine, Jerusalem.',
+        keywords: ['contact', 'email', 'phone', 'external.affairs@pmed.club', '+972 56-698-6006', 'Palestine', 'Jerusalem', 'get in touch'],
+        section: 'Contact',
+        path: '/contact',
+        icon: <Mail className="w-4 h-4" />
     },
 ];
 

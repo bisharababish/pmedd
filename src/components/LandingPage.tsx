@@ -14,6 +14,7 @@ import {
     Phone,
     MessageCircle
 } from 'lucide-react';
+import slide4Image from './images/Slide4.jpg';
 
 const LandingPage: React.FC = () => {
     const interestGroups = [
@@ -85,7 +86,7 @@ const LandingPage: React.FC = () => {
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/src/components/images/Slide4.jpg"
+                        src={slide4Image}
                         alt="PMED Event"
                         className="w-full h-full object-cover"
                     />
@@ -298,7 +299,7 @@ const LandingPage: React.FC = () => {
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                href="https://chat.whatsapp.com"
+                                href="https://chat.whatsapp.com/CHAT_ID"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-gradient-to-r from-green-400 to-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-300 shadow-lg flex items-center"

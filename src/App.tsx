@@ -23,7 +23,8 @@ function App() {
         <Navigation />
         <Suspense fallback={<LoadingSkeleton />}>
           <Routes>
-            <Route path="/" element={<HeroSlideshow />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<HeroSlideshow />} />
             <Route path="/about" element={<AboutSection />} />
             <Route path="/about_mission" element={<AboutSection />} />
             <Route path="/about_deliverables" element={<AboutSection />} />
