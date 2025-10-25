@@ -2,6 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Share2, ExternalLink, Calendar, Filter } from 'lucide-react';
 
+// Import images
+import slide4Image from './images/Slide4.jpg';
+import logoImage from './images/logoo.png';
+import supervisor1Image from './supervisorpics/supervisor1.png';
+import ahmadRoyalImage from './images/ahmadroyal.jpg';
+
 interface NewsItem {
     id: number;
     title: string;
@@ -19,13 +25,14 @@ const NewsPage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
+    const [selectedNewsItem, setSelectedNewsItem] = useState<NewsItem | null>(null);
 
     const newsItems: NewsItem[] = [
         {
             id: 1,
             title: "Launch of the Cardiology Division at IPCLM13",
             description: "PMED Club launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced.",
-            image: "/src/components/images/Slide4.jpg", // Using existing image from the project
+            image: slide4Image, // Using existing image from the project
             category: "Cardiology",
             date: "2024-01-15",
             buttonText: "Read More",
@@ -37,7 +44,7 @@ const NewsPage: React.FC = () => {
             id: 2,
             title: "PMED Club Podcast – First Episode Released",
             description: "Our first podcast episode is now live, discussing Listening is key for every doctor… but that's not all! In this episode, we discussed choosing role models, building true value in others' lives, and other inspiring topics.",
-            image: "/src/components/images/logoo.png", // Using existing logo as podcast cover
+            image: logoImage, // Using existing logo as podcast cover
             category: "Podcast",
             date: "2024-01-10",
             buttonText: "Listen Now",
@@ -48,7 +55,7 @@ const NewsPage: React.FC = () => {
             id: 3,
             title: "Meet Our Supervisors",
             description: "Our supervisors guide the Cardiology Division. The driving force supporting our journeys within their knowledge and guidance.",
-            image: "/src/components/supervisorpics/supervisor1.png", // Using existing supervisor image
+            image: supervisor1Image, // Using existing supervisor image
             category: "Mentorship",
             date: "2024-01-05",
             buttonText: "Follow on Instagram",
@@ -59,7 +66,7 @@ const NewsPage: React.FC = () => {
             id: 4,
             title: "PMED Club President Recognized by Al-Quds University",
             description: "The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.",
-            image: "/src/components/images/ahmadroyal.jpg", // Using the Royal Society event image
+            image: ahmadRoyalImage, // Using the Royal Society event image
             category: "Achievements",
             date: "2024-10-04",
             buttonText: "View Post",
@@ -98,9 +105,13 @@ const NewsPage: React.FC = () => {
         if (item.buttonType === 'external') {
             window.open(item.buttonAction, '_blank');
         } else {
-            // For internal links, you can implement navigation or modal
-            console.log('Internal action:', item.buttonAction);
+            // For internal links, show modal with details
+            setSelectedNewsItem(item);
         }
+    };
+
+    const closeModal = () => {
+        setSelectedNewsItem(null);
     };
 
     return (
@@ -261,6 +272,81 @@ const NewsPage: React.FC = () => {
                         <p className="text-gray-500">
                             Try adjusting your search terms or filters
                         </p>
+                    </motion.div>
+                )}
+
+                {/* Modal for News Details */}
+                {selectedNewsItem && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+                        onClick={closeModal}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Modal Header */}
+                            <div className="relative">
+                                <img
+                                    src={selectedNewsItem.image}
+                                    alt={selectedNewsItem.title}
+                                    className="w-full h-64 object-cover rounded-t-xl"
+                                />
+                                <button
+                                    onClick={closeModal}
+                                    className="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                                >
+                                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                                <div className="absolute top-4 left-4">
+                                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
+                                        {selectedNewsItem.category}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Modal Content */}
+                            <div className="p-6">
+                                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                                    <Calendar className="w-4 h-4" />
+                                    <span>{new Date(selectedNewsItem.date).toLocaleDateString()}</span>
+                                </div>
+
+                                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                                    {selectedNewsItem.title}
+                                </h2>
+
+                                <p className="text-gray-600 mb-6">
+                                    {selectedNewsItem.description}
+                                </p>
+
+                                {selectedNewsItem.details && (
+                                    <div className="mb-6">
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">Full Story</h3>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            {selectedNewsItem.details}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {/* Action Button */}
+                                <button
+                                    onClick={() => handleButtonClick(selectedNewsItem)}
+                                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2 group"
+                                >
+                                    {selectedNewsItem.buttonText}
+                                    {selectedNewsItem.buttonType === 'external' && (
+                                        <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    )}
+                                </button>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </div>
