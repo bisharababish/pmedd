@@ -54,6 +54,7 @@ const Navigation: React.FC = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
+    { label: 'News', href: '/news' },
     {
       label: 'Divisions', href: '/divisions', dropdown: [
         { label: 'PMED Cardiology Club', href: '/cardiology' },
@@ -113,7 +114,7 @@ const Navigation: React.FC = () => {
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.12 }}
                 transition={{ duration: 0.6 }}
-className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 shadow-xl ring-4 ring-white/30 hover:ring-white/60 transition-all duration-300"              >
+                className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 shadow-xl ring-4 ring-white/30 hover:ring-white/60 transition-all duration-300"              >
                 <img src={logoo} alt="PMED Logo" className="w-full h-full object-cover rounded-2xl" />
               </motion.div>
               <div className="flex flex-col justify-center">
@@ -121,7 +122,7 @@ className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 sh
                   PMED
                 </h1>
                 <p className="text-sm italic font-light text-white/80 drop-shadow-md mt-0.5 tracking-wide">
-                  Medical Club
+                  The Palestinian medical club
                 </p>
               </div>
             </motion.div>
@@ -172,7 +173,7 @@ className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/10 sh
                           key={sub.label}
                           href={sub.href}
                           onClick={(e) => handleSectionLink(sub.href, e)}
-                                                   >
+                        >
                           {sub.label}
                         </a>
                       ) : (

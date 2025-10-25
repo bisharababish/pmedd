@@ -9,6 +9,9 @@ import supervisor3 from "./supervisorpics/supervisor3.png";
 import supervisor4 from "./supervisorpics/supervisor4.png";
 import supervisor6 from "./supervisorpics/supervisor6.png";
 import supervisor7 from "./supervisorpics/supervisor7.png";
+import supervisornew1 from "./supervisorpics/supervisorpicnew1.png";
+import supervisornew2 from "./supervisorpics/supervisorpicnew2.png";
+import supervisornew3 from "./supervisorpics/supervisorpicnew3.png";
 
 const supervisors = [
     {
@@ -38,14 +41,13 @@ const supervisors = [
         name: "Dr. Duha Shellah",
         title: "Global Health Advocate & Physician-Scientist & Founder of The Researchist",
         bullets: [
-            "Chair of the WFPHA Emergencies Working Grou",
+            "Chair of the WFPHA Emergencies Working Group",
             "Vice Chair of the WHO EMRO Youth Council",
             "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
             "Represents Palestinian voices in global health",
         ],
         profileLink: "#"
     },
-
     {
         image: supervisor4,
         name: "Dr. Iyad Idries",
@@ -55,6 +57,39 @@ const supervisors = [
             "Experience in Heart Failure Clinic and CCU teaching",
             "Specializes in electrophysiology and thrombus risk prediction",
             "Passionate mentor to medical students",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisornew1,
+        name: "Dr. Dimitrios Chatzis",
+        title: "Consultant Cardiologist",
+        bullets: [
+            "Graduate of the University of Louvain, Belgium",
+            "Chairman of the Supreme Scientific Committee for Cardiology at the Palestinian Medical Council",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisornew2,
+        name: "Dr. Elham Khateeb",
+        title: "Dean of Scientific Research",
+        bullets: [
+            "Internationally recognized for advancing health equity and dental research",
+            "Has held leadership roles with IADR and FDI",
+            "Named an ICD Fellow in 2025",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisornew3,
+        name: "Dr. Moayad Diabes",
+        title: "Consultant Cardiologist",
+        bullets: [
+            "Holds a Postgraduate Diploma in Sports Cardiology from St. George's, University of London",
+            "Ph.D. in Cardiovascular Science from University of Athens",
+            "Adjunct Assistant Professor of Cardiology at the European University Cyprus",
+            "Expertise in cardiovascular medicine, education, and public speaking",
         ],
         profileLink: "#"
     },
@@ -77,6 +112,41 @@ const supervisors = [
             "Specializes in advanced cardiovascular diagnostics and procedures",
             "Skilled in echocardiography, stress testing, and cardiac catheterization",
             "Contributor to peer-reviewed research, including a 2024 case study on Shone complex",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor1, // Using existing image placeholder - you can replace with actual image
+        name: "Dr. Dimitrios Chatzis",
+        title: "Consultant Cardiologist and Clinical Hypertension Specialist",
+        bullets: [
+            "Consultant Cardiologist and Clinical Hypertension Specialist (ESH)",
+            "Holds a Postgraduate Diploma in Sports Cardiology (St. George's, University of London)",
+            "Ph.D. in Cardiovascular Science (University of Athens)",
+            "Adjunct Assistant Professor of Cardiology at the European University Cyprus",
+            "Expertise in cardiovascular medicine, education, and public speaking",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor2, // Using existing image placeholder - you can replace with actual image
+        name: "Dr. Elham Khateeb",
+        title: "Dean of Scientific Research and Professor of Dental Public Health",
+        bullets: [
+            "Dean of Scientific Research and Professor of Dental Public Health at Al-Quds University",
+            "Internationally recognized for advancing health equity and dental research",
+            "Held leadership roles with IADR and FDI",
+            "Named an ICD Fellow in 2025",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor3, // Using existing image placeholder - you can replace with actual image
+        name: "Dr. Moayad Diabes",
+        title: "Consultant Cardiologist",
+        bullets: [
+            "Consultant Cardiologist and graduate of the University of Louvain, Belgium",
+            "Currently serves as Chairman of the Supreme Scientific Committee for Cardiology at the Palestinian Medical Council",
         ],
         profileLink: "#"
     },

@@ -279,7 +279,7 @@ const Footer: React.FC = () => {
                     className="text-sm text-gray-300"
                     whileHover={{ color: "#d1d5db" }}
                   >
-                    Medical Club
+                    The Palestinian medical club
                   </motion.p>
                 </div>
               </motion.div>
@@ -484,11 +484,11 @@ const Footer: React.FC = () => {
                   </motion.div>
                   <div>
                     <motion.a
-                      href="tel:+972-56-698-6006"
+                      href="tel:+972566986006"
                       className="hover:text-white transition-colors relative"
                       whileHover={{ color: "#ffffff" }}
                     >
-                      +972-56-698-6006
+                      +972 56-698-6006
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-white rounded"
                         initial={{ width: 0 }}
@@ -519,11 +519,11 @@ const Footer: React.FC = () => {
                   </motion.div>
                   <div>
                     <motion.a
-                      href="mailto:info@pmed.club"
+                      href="mailto:external.affairs@pmed.club"
                       className="hover:text-white transition-colors relative"
                       whileHover={{ color: "#ffffff" }}
                     >
-                      info@pmed.club
+                      external.affairs@pmed.club
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 bg-white rounded"
                         initial={{ width: 0 }}
