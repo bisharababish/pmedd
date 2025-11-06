@@ -5,9 +5,6 @@ import {
     BookOpen,
     Stethoscope,
     Heart,
-    Brain,
-    Scissors,
-    Activity,
     ArrowRight,
     ExternalLink,
     ChevronLeft,
@@ -17,6 +14,9 @@ import {
 import slide4Image from './images/Slide4.jpg';
 import picofthemImage from './images/picofthem.png';
 import cardiologyLogoImage from './images/png.png';
+import cardiologyLogo from './images/cardiology.png';
+import neurologyLogo from './images/neurology.png';
+import surgeryLogo from './images/surgery.png';
 
 interface SlideButton {
     text: string;
@@ -37,7 +37,7 @@ interface Slide {
 }
 
 const LandingPage: React.FC = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(1); // Start with PMED Club (slide 2)
     const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const LandingPage: React.FC = () => {
         {
             id: 1,
             title: 'Join PMED Podcast',
-            description: 'Your journey to becoming a future doctors starts here',
+            description: 'where medicine meets conversation, and voices shape the future of healthcare.',
             image: slide4Image,
             link: 'https://www.youtube.com/@pmedclubchannel',
             buttonText: 'Watch Now',
@@ -62,7 +62,8 @@ const LandingPage: React.FC = () => {
         {
             id: 2,
             title: 'PMED Club',
-            description: 'where medicine meets conversation, and voices shape the future of healthcare.',
+            description: 'Your journey to becoming a future doctors starts here',
+
             image: picofthemImage,
             link: 'https://www.youtube.com/@pmedclubchannel',
             buttonText: 'Start Your Journey',
@@ -96,7 +97,7 @@ const LandingPage: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000); // Change slide every 5 seconds
+        }, 9000); // Change slide every 9 seconds
 
         return () => clearInterval(interval);
     }, [slides.length]);
@@ -120,7 +121,7 @@ const LandingPage: React.FC = () => {
             description: 'Learn from expert doctors, join research projects, and gain mentorship in cardiology.',
             buttonText: 'Join Cardiology',
             buttonLink: '/cardiology',
-            icon: Heart,
+            logo: cardiologyLogo,
             color: 'from-red-500 to-red-600'
         },
         {
@@ -129,7 +130,7 @@ const LandingPage: React.FC = () => {
             description: 'Expert-led mentorship & skill-building in neurology.',
             buttonText: 'Coming Soon',
             buttonLink: '#',
-            icon: Brain,
+            logo: neurologyLogo,
             color: 'from-purple-500 to-purple-600'
         },
         {
@@ -138,17 +139,8 @@ const LandingPage: React.FC = () => {
             description: 'Clinical exposure and research opportunities in surgery.',
             buttonText: 'Coming Soon',
             buttonLink: '#',
-            icon: Scissors,
+            logo: surgeryLogo,
             color: 'from-blue-500 to-blue-600'
-        },
-        {
-            name: 'Internal Medicine',
-            status: 'Coming Soon',
-            description: 'Build strong foundations in internal medicine under expert guidance.',
-            buttonText: 'Coming Soon',
-            buttonLink: '#',
-            icon: Activity,
-            color: 'from-green-500 to-green-600'
         }
     ];
 
@@ -478,8 +470,12 @@ const LandingPage: React.FC = () => {
                                 <div className="p-6">
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="flex items-center space-x-3">
-                                            <div className={`w-12 h-12 bg-gradient-to-r ${group.color} rounded-lg flex items-center justify-center`}>
-                                                <group.icon className="w-6 h-6 text-white" />
+                                            <div className="w-16 h-16 rounded-lg flex items-center justify-center overflow-hidden bg-white">
+                                                <img
+                                                    src={group.logo}
+                                                    alt={`${group.name} logo`}
+                                                    className="w-full h-full object-contain"
+                                                />
                                             </div>
                                             <h3 className="text-2xl font-bold text-gray-900">{group.name}</h3>
                                         </div>
