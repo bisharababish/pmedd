@@ -182,7 +182,7 @@ const LandingPage: React.FC = () => {
                 <div className="max-w-7xl w-full mx-auto px-4">
                     <div className="relative">
                         {/* Slides Container with Perspective */}
-                        <div className="relative h-80 md:h-[500px] overflow-visible flex items-center justify-center" style={{ perspective: '1000px' }}>
+                        <div className="relative h-96 md:h-[600px] overflow-visible flex items-center justify-center" style={{ perspective: '1000px' }}>
                             <div className="relative w-full h-full">
                                 {slides.map((slide, index) => {
                                     // Calculate offset from current slide (with proper looping)
@@ -261,7 +261,7 @@ const LandingPage: React.FC = () => {
                                                         transition={{ duration: 0.4, delay: 0.1 }}
                                                     >
                                                         <motion.h2
-                                                            className={`${isActive ? 'text-3xl md:text-5xl' : 'text-xl md:text-2xl'} font-bold mb-3 md:mb-4 leading-tight drop-shadow-lg ${slide.titleTransparent ? 'opacity-90' : ''}`}
+                                                            className={`${isActive ? 'text-4xl md:text-6xl' : 'text-2xl md:text-3xl'} font-bold mb-4 md:mb-5 leading-tight drop-shadow-lg ${slide.titleTransparent ? 'opacity-90' : ''}`}
                                                             animate={{
                                                                 y: isActive ? 0 : 5,
                                                             }}
@@ -270,7 +270,7 @@ const LandingPage: React.FC = () => {
                                                             {slide.title}
                                                         </motion.h2>
                                                         <motion.p
-                                                            className={`${isActive ? 'text-base md:text-xl' : 'text-sm md:text-base'} mb-6 md:mb-8 font-light max-w-2xl drop-shadow-md`}
+                                                            className={`${isActive ? 'text-lg md:text-2xl' : 'text-base md:text-lg'} mb-8 md:mb-10 font-light max-w-3xl drop-shadow-md`}
                                                             animate={{
                                                                 y: isActive ? 0 : 5,
                                                             }}
@@ -308,10 +308,10 @@ const LandingPage: React.FC = () => {
                                                                                     window.location.href = button.link;
                                                                                 }
                                                                             }}
-                                                                            className={`bg-gradient-to-r ${button.color} text-white px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl`}
+                                                                            className={`bg-gradient-to-r ${button.color} text-white px-8 py-4 md:px-10 md:py-5 rounded-lg text-lg md:text-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl`}
                                                                         >
                                                                             {button.text}
-                                                                            <ArrowRight className="inline-block ml-2 w-4 h-4 md:w-5 md:h-5" />
+                                                                            <ArrowRight className="inline-block ml-2 w-5 h-5 md:w-6 md:h-6" />
                                                                         </motion.button>
                                                                     ))
                                                                 ) : (
@@ -340,10 +340,10 @@ const LandingPage: React.FC = () => {
                                                                                 window.location.href = slide.link;
                                                                             }
                                                                         }}
-                                                                        className={`bg-gradient-to-r ${slide.buttonColor || 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white px-6 py-3 md:px-8 md:py-4 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl`}
+                                                                        className={`bg-gradient-to-r ${slide.buttonColor || 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white px-8 py-4 md:px-10 md:py-5 rounded-lg text-lg md:text-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl`}
                                                                     >
                                                                         {slide.buttonText}
-                                                                        <ArrowRight className="inline-block ml-2 w-4 h-4 md:w-5 md:h-5" />
+                                                                        <ArrowRight className="inline-block ml-2 w-5 h-5 md:w-6 md:h-6" />
                                                                     </motion.button>
                                                                 )}
                                                             </div>
