@@ -6,10 +6,8 @@ import {
     Stethoscope,
     Heart,
     ArrowRight,
-    ExternalLink,
     ChevronLeft,
-    ChevronRight,
-    MessageCircle
+    ChevronRight
 } from 'lucide-react';
 import slide4Image from './images/Slide4.jpg';
 import picofthemImage from './images/picofthem.png';
@@ -147,23 +145,27 @@ const LandingPage: React.FC = () => {
     const benefits = [
         {
             icon: Users,
-            title: 'Led by students, for students',
-            description: 'Peer-to-peer learning and support'
+            title: 'Created for students',
+            description: 'Peer-to-peer learning and support',
+            link: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
         },
         {
             icon: BookOpen,
             title: 'Solid medical knowledge',
-            description: 'Evidence-based learning materials'
+            description: 'Evidence-based learning materials',
+            link: 'https://chat.whatsapp.com/D6b3CvBn28S4agHvAG8kPZ?mode=wwt'
         },
         {
             icon: Stethoscope,
             title: 'Essential clinical skills',
-            description: 'Hands-on practice and training'
+            description: 'Hands-on practice and training',
+            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header'
         },
         {
             icon: Heart,
             title: 'Strong medical ethics',
-            description: 'Building character for future doctors'
+            description: 'Building character for future doctors',
+            link: 'https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w'
         }
     ];
 
@@ -497,7 +499,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             {/* 3️⃣ Ready to Level Up Section */}
-            <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+            <section id="join-us-section" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -517,15 +519,19 @@ const LandingPage: React.FC = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                         {benefits.map((benefit, index) => (
-                            <motion.div
+                            <motion.a
                                 key={benefit.title}
+                                href={benefit.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
+                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer block"
                             >
                                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <benefit.icon className="w-8 h-8 text-white" />
@@ -536,65 +542,24 @@ const LandingPage: React.FC = () => {
                                 <p className="text-gray-600">
                                     {benefit.description}
                                 </p>
-                            </motion.div>
+                            </motion.a>
                         ))}
                     </div>
-                </div>
-            </section>
 
-            {/* 4️⃣ Join Us Section */}
-            <section id="join-us-section" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    {/* Join Us Text */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
                         viewport={{ once: true }}
+                        className="text-center"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                             Join Us
                         </h2>
-                        <p className="text-xl mb-12 max-w-3xl mx-auto">
-                            This is YOUR chance to shape your future as a doctor. Connect, learn, and grow with PMED!
+                        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                            This is your chance to shape your future as a doctor. Connect, learn, and grow with PMED!
                         </p>
-
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href="https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg flex items-center"
-                            >
-                                Apply Now to join PMED family
-                                <ExternalLink className="ml-2 w-5 h-5" />
-                            </motion.a>
-
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href="https://chat.whatsapp.com/CHAT_ID"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-green-400 to-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-300 shadow-lg flex items-center"
-                            >
-                                Join WhatsApp Group
-                                <MessageCircle className="ml-2 w-5 h-5" />
-                            </motion.a>
-
-                            <motion.a
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSdQ5HWcbynEI-LUFtQbdkiV_i27JY2Zq1pI4Bkamp4hE21N5g/viewform?usp=header"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg flex items-center"
-                            >
-                                Become a member of PMED cardiology club
-                                <ExternalLink className="ml-2 w-5 h-5" />
-                            </motion.a>
-                        </div>
                     </motion.div>
                 </div>
             </section>
