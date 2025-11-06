@@ -15,6 +15,7 @@ import cardiologyLogoImage from './images/png.png';
 import cardiologyLogo from './images/cardiology.png';
 import neurologyLogo from './images/neurology.png';
 import surgeryLogo from './images/surgery.png';
+import podcastLogo from './images/logoo.png'; // Using logoo.png as podcast logo - replace if different image available
 
 interface SlideButton {
     text: string;
@@ -127,9 +128,9 @@ const LandingPage: React.FC = () => {
             status: 'Coming Soon',
             description: 'Expert-led mentorship & skill-building in neurology.',
             buttonText: 'Coming Soon',
-            buttonLink: '#',
+            buttonLink: '/neurology',
             logo: neurologyLogo,
-            color: 'from-purple-500 to-purple-600'
+            color: 'from-green-500 to-green-600'
         },
         {
             name: 'Surgery',
@@ -139,6 +140,15 @@ const LandingPage: React.FC = () => {
             buttonLink: '#',
             logo: surgeryLogo,
             color: 'from-blue-500 to-blue-600'
+        },
+        {
+            name: 'PMED Podcast',
+            status: 'Open',
+            description: 'Where medicine meets conversation, and voices shape the future of healthcare.',
+            buttonText: 'Watch Now',
+            buttonLink: 'https://www.youtube.com/@pmedclubchannel',
+            logo: podcastLogo,
+            color: 'from-purple-500 to-pink-600'
         }
     ];
 
@@ -146,26 +156,30 @@ const LandingPage: React.FC = () => {
         {
             icon: Users,
             title: 'Created for students',
-            description: 'Peer-to-peer learning and support',
-            link: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+            buttonText: 'Visit Instagram',
+            link: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+            buttonColor: 'from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700'
         },
         {
             icon: BookOpen,
             title: 'Solid medical knowledge',
-            description: 'Evidence-based learning materials',
-            link: 'https://chat.whatsapp.com/D6b3CvBn28S4agHvAG8kPZ?mode=wwt'
+            buttonText: 'Join WhatsApp Group',
+            link: 'https://chat.whatsapp.com/D6b3CvBn28S4agHvAG8kPZ?mode=wwt',
+            buttonColor: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
         },
         {
             icon: Stethoscope,
             title: 'Essential clinical skills',
-            description: 'Hands-on practice and training',
-            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header'
+            buttonText: 'Be a member of interest group Apply now',
+            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header',
+            buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
         },
         {
             icon: Heart,
             title: 'Strong medical ethics',
-            description: 'Building character for future doctors',
-            link: 'https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w'
+            buttonText: 'Join PMED Family',
+            link: 'https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w',
+            buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
         }
     ];
 
@@ -453,7 +467,13 @@ const LandingPage: React.FC = () => {
                                         disabled={group.status !== 'Open'}
                                         onClick={() => {
                                             if (group.status === 'Open') {
-                                                window.location.href = group.buttonLink;
+                                                if (group.buttonLink.startsWith('http')) {
+                                                    // External link - open in new tab
+                                                    window.open(group.buttonLink, '_blank', 'noopener,noreferrer');
+                                                } else {
+                                                    // Internal route
+                                                    window.location.href = group.buttonLink;
+                                                }
                                             }
                                         }}
                                     >
@@ -521,28 +541,33 @@ const LandingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                         {benefits.map((benefit, index) => (
-                            <motion.a
+                            <motion.div
                                 key={benefit.title}
-                                href={benefit.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer block"
+                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center flex flex-col"
                             >
                                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <benefit.icon className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-4">
                                     {benefit.title}
                                 </h3>
-                                <p className="text-gray-600">
-                                    {benefit.description}
-                                </p>
-                            </motion.a>
+                                <motion.a
+                                    href={benefit.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`mt-auto bg-gradient-to-r ${benefit.buttonColor || 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg inline-block`}
+                                >
+                                    {benefit.buttonText}
+                                    <ArrowRight className="inline-block ml-2 w-4 h-4" />
+                                </motion.a>
+                            </motion.div>
                         ))}
                     </div>
 

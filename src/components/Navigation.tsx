@@ -14,6 +14,7 @@ const Navigation: React.FC = () => {
   const [showNav, setShowNav] = useState(true);
   const location = useLocation();
   const isCardiologyPage = location.pathname === '/cardiology';
+  const isNeurologyPage = location.pathname === '/neurology';
   useEffect(() => {
     const handleHashOnLoad = () => {
       const hash = window.location.hash;
@@ -59,6 +60,7 @@ const Navigation: React.FC = () => {
       label: 'Divisions', href: '/divisions', dropdown: [
         { label: 'PMED Cardiology Club', href: '/cardiology' },
         { label: 'PMED Podcast Club', href: '/podcast' },
+        { label: 'PMED Neurology Club', href: '/neurology' },
       ]
     },
     {
@@ -100,7 +102,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} ${isCardiologyPage ? '' : 'bg-[#1C2E4A]'} shadow-lg`} style={isCardiologyPage ? { backgroundColor: '#990000' } : {}}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNav ? '' : '-translate-y-full'} ${isCardiologyPage || isNeurologyPage ? '' : 'bg-[#1C2E4A]'} shadow-lg`} style={isCardiologyPage ? { backgroundColor: '#990000' } : isNeurologyPage ? { backgroundColor: '#065f46' } : {}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           { }
@@ -165,7 +167,7 @@ const Navigation: React.FC = () => {
                   <div
                     onMouseEnter={() => setAboutOpen(true)}
                     onMouseLeave={() => setAboutOpen(false)}
-                    className="absolute left-1/2 -translate-x-1/2 w-60 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]/90 text-white rounded-xl shadow-xl border border-white/20 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50"
+                    className={`absolute left-1/2 -translate-x-1/2 w-60 text-white rounded-xl shadow-xl border border-white/20 py-2 flex flex-col items-stretch opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-50 ${isCardiologyPage ? 'bg-gradient-to-br from-[#990000] to-[#770000]' : isNeurologyPage ? 'bg-gradient-to-br from-[#065f46] to-[#064e3b]' : 'bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]/90'}`}
                   >
                     {item.dropdown.map((sub) => (
                       sub.href.startsWith('/about#') ? (
@@ -225,8 +227,8 @@ const Navigation: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className={`md:hidden text-white backdrop-blur-lg border-t ${isCardiologyPage ? 'border-red-300' : 'bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]/90 border-white/20'}`}
-            style={isCardiologyPage ? { background: 'linear-gradient(to bottom right, #990000, #770000)' } : { background: 'linear-gradient(to bottom right, #1C2E4A, rgba(28, 46, 74, 0.9))' }}
+            className={`md:hidden text-white backdrop-blur-lg border-t ${isCardiologyPage ? 'border-red-300' : isNeurologyPage ? 'border-green-300' : 'bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]/90 border-white/20'}`}
+            style={isCardiologyPage ? { background: 'linear-gradient(to bottom right, #990000, #770000)' } : isNeurologyPage ? { background: 'linear-gradient(to bottom right, #065f46, #064e3b)' } : { background: 'linear-gradient(to bottom right, #1C2E4A, rgba(28, 46, 74, 0.9))' }}
           >
             <div className="px-4 py-6 space-y-3">
               { }

@@ -2,11 +2,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ClipboardList, Instagram, Linkedin, Youtube, Radio, Headphones } from 'lucide-react';
 
-import ahmadRomana from "./teampics/ahmad.jpeg";
-import lamar from "./teampics/Lamar.jpeg";
-import meray from "./teampics/MerayDour.jpeg";
 import abduallah from "./teampics/abdallah.jpeg";
 import tala from "./teampics/talanidal.jpg";
+import hala from "./teampics/hala.jpg";
+import mohammadAmro from "./teampics/mohammadamro.jpg";
 import Slide4 from "./images/Slide4.jpg";
 import './CardiologyPage.css';
 
@@ -17,12 +16,10 @@ interface PodcastTeamMember {
 }
 
 const podcastTeam: PodcastTeamMember[] = [
-    { name: 'Ahmad Romana', role: 'Host & Producer', img: ahmadRomana },
-    { name: 'Lamar Abed', role: 'Host & Producer', img: lamar },
-    { name: 'Meray Dour', role: 'Host & Producer', img: meray },
+    { name: 'Hala Maraqa', role: 'Host & Producer', img: hala },
+    { name: 'Mohammad Amro', role: 'Host & Producer', img: mohammadAmro },
     { name: 'Abdallah  Elayyan', role: 'Director', img: abduallah },
     { name: 'Tala  Nidal', role: 'Director', img: tala },
-
 ];
 
 const PodcastPage = () => {
@@ -301,11 +298,9 @@ const PodcastPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                Welcome to the <span className="text-[#1C2E4A] font-semibold">PMED Podcast Club</span>
-                                , a new project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
+                                Welcome to the <span className="text-[#1C2E4A] font-semibold">PMED Podcast Club</span>, a project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
                                 <br /><br />
-                                Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-[#1C2E4A] font-semibold">doctor of Palestinian ancestry</span>
-                                who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
+                                Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-[#1C2E4A] font-semibold">doctor of Palestinian ancestry</span> who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
                                 <br /><br />
                                 Through honest interviews and interesting conversations, we learn about their adventures, struggles, and successes, and we give advice to the next generation of doctors. This podcast is a great way for people in the Palestinian medical community, from medical students to experienced doctors, to get advice, get inspired, and meet new people.
                             </motion.p>

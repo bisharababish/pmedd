@@ -267,11 +267,7 @@ const AboutSection: React.FC = () => {
                 backgroundClip: 'text'
               }}
             >
-              {' '}PMED is student-led and rooted in our values: excellence, compassion, and justice. Through hands-on clinical experiences, skill-building workshops, and effective mentoring, we open new horizons—not just for careers, but for positive impact.
-
-              Our community spans universities and borders, united by one dream: to become physicians who care with their skills and their souls.
-
-              If you believe that medicine can build a better world,  you belong here.
+              {' '}PMED is a medical society, rooted in our values: excellence, compassion, and justice. Through hands-on clinical experiences, skill-building workshops, and effective mentoring, we open new horizons—not just for careers, but for positive impact. Our community spans universities and borders, united by one dream: to become physicians who care with all their skills and their souls. If you believe that medicine can build a better world, you belong here.
             </motion.span>
           </motion.p>
         </motion.div>

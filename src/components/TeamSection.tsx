@@ -24,11 +24,15 @@ const teamStructure = [
                 name: 'Ahmad Romana',
                 role: 'President & Founder',
                 img: ahmad,
+                description: "Ahmad Romana is a third-year medical student who believes that he was born for a reason — to make the difference. He is also the founder of the PMED CLUB and its divisions. He has served as vice president of Neuropedia. In addition, he completed a Neuroscience internship at one of Europe's top neuroscience departments at UCL, London. He believes that difficult circumstances can't limit a true idea — it can be turned into a real impact.",
+                quote: "The best way to dominate something is to enjoy it."
             },
             {
                 name: 'Kinda Abu Hashhash',
                 role: 'Vice President & Co-Founder',
                 img: kinda,
+                description: "Kinda Abu Hashhash is a fourth-year medical student and Head of the PMED Cardiology Club, known for her deep passion for both medicine and debate. Her leadership and communication skills were shaped through representing Palestine in the Reading Challenge and her university in Qatar's International Debating Championship. As Vice President of the PMED Club and Head of its Cardiology division, she has created meaningful spaces for learning and collaboration among medical students. Through her clinical cardiology rotations and research, her dedication to combining science, empathy, and purpose continues to define her journey in medicine.",
+                quote: "Medicine taught me that every heartbeat is a dialogue between science and humanity"
             }
         ]
     },
@@ -155,6 +159,8 @@ interface Member {
     name: string;
     role: string;
     img: string;
+    description?: string;
+    quote?: string;
 }
 
 interface Group {
@@ -166,6 +172,83 @@ interface MemberCardProps {
     member: Member;
     group: Group;
 }
+
+const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
+    <motion.div
+        variants={cardVariants}
+        whileHover={{
+            y: -8,
+            scale: 1.02,
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+        }}
+        className="group relative"
+    >
+        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg border border-border-gray hover:shadow-2xl transition-all duration-500 overflow-hidden">
+            { }
+            <div className="absolute inset-0 opacity-5">
+                <div className={`w-full h-full bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]`} />
+            </div>
+
+            { }
+            <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
+            <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
+
+            <div className="relative z-10">
+                <div className="flex flex-row items-start gap-6 mb-6">
+                    { }
+                    <div className="flex-shrink-0">
+                        <div className={`w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
+                            <img
+                                src={member.img}
+                                alt={member.name}
+                                className="w-full h-full object-cover rounded-xl"
+                            />
+                        </div>
+                    </div>
+
+                    { }
+                    <div className="flex-1 flex flex-col">
+                        <div className="mb-4">
+                            <h4 className="text-2xl sm:text-3xl font-bold text-main-gray mb-2 sm:mb-3 group-hover:text-[#1C2E4A] transition-colors">
+                                {member.name}
+                            </h4>
+                            <div className={`inline-block px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-full`}>
+                                <p className="text-sm sm:text-base font-semibold text-white">
+                                    {member.role}
+                                </p>
+                            </div>
+                        </div>
+
+                        { }
+                        {member.description && (
+                            <div className="mb-4">
+                                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200/50 shadow-inner">
+                                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 text-left">
+                                        {member.description}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
+                        { }
+                        {member.quote && (
+                            <div className="text-right">
+                                <div className="inline-block">
+                                    <p className="text-base sm:text-lg md:text-xl italic text-[#1C2E4A] font-medium border-l-4 border-[#1C2E4A] pl-4 py-2">
+                                        "{member.quote}"
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            { }
+            <div className={`absolute inset-0 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+        </div>
+    </motion.div>
+);
 
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
     <motion.div
@@ -262,10 +345,10 @@ const TeamSection = () => {
                         </div>
 
                         { }
-                        <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 mb-8 sm:mb-12">
+                        <div className="flex flex-col justify-center gap-8 sm:gap-10 mb-8 sm:mb-12">
                             {founders.members.map((member, idx) => (
-                                <div key={idx} className="w-full sm:w-80 max-w-xs mx-auto">
-                                    <MemberCard member={member} group={founders} />
+                                <div key={idx} className="w-full max-w-4xl mx-auto">
+                                    <LeadershipCard member={member} group={founders} />
                                 </div>
                             ))}
                         </div>

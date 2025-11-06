@@ -12,6 +12,7 @@ import supervisor7 from "./supervisorpics/supervisor7.png";
 import supervisornew1 from "./supervisorpics/supervisorpicnew1.png";
 import supervisornew2 from "./supervisorpics/supervisorpicnew2.png";
 import supervisornew3 from "./supervisorpics/supervisorpicnew3.png";
+import saraImage from "./supervisorpics/one.png";
 
 const supervisors = [
     {
@@ -22,29 +23,6 @@ const supervisors = [
             "Head of the Cardiology Department at Al-Makassed Hospital.",
             "Assistant Professor at Al-Quds University.",
             "Numerous advanced catheterization procedures, including LAAO and TAVI.",
-        ],
-        profileLink: "#"
-    },
-    {
-        image: supervisor2,
-        name: "Dr. Nael Al-Lahham",
-        title: "Pediatric Cardiologist",
-        bullets: [
-            "Holds the record for the highest number of consecutive pediatric catheterization procedures in the Arab world.",
-            "Expertise in congenital heart disease and interventional pediatric cardiology.",
-            "Minimally invasive treatments for a range of pediatric heart conditions.",
-        ],
-        profileLink: "#"
-    },
-    {
-        image: supervisor7,
-        name: "Dr. Duha Shellah",
-        title: "Global Health Advocate & Physician-Scientist & Founder of The Researchist",
-        bullets: [
-            "Chair of the WFPHA Emergencies Working Group",
-            "Vice Chair of the WHO EMRO Youth Council",
-            "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
-            "Represents Palestinian voices in global health",
         ],
         profileLink: "#"
     },
@@ -61,12 +39,17 @@ const supervisors = [
         profileLink: "#"
     },
     {
-        image: supervisornew1,
-        name: "Dr. Dimitrios Chatzis",
-        title: "Consultant Cardiologist",
+        image: saraImage,
+        name: "Dr. Sara Moscatelli",
+        title: "Research Fellow & Cardiologist",
         bullets: [
-            "Graduate of the University of Louvain, Belgium",
-            "Chairman of the Supreme Scientific Committee for Cardiology at the Palestinian Medical Council",
+            "Research Fellow at Great Ormond Street Hospital on Inherited Cardiovascular disease",
+            "PhD candidate at University College London",
+            "Cardiologist specialized in pediatric cardiology with focus on Cardiovascular magnetic resonance and inherited cardiac condition",
+            "AEPC Junior Councilor",
+            "EACVI HIT board committee",
+            "EACVI educational board committee",
+            "ACC early career board member",
         ],
         profileLink: "#"
     },
@@ -82,14 +65,36 @@ const supervisors = [
         profileLink: "#"
     },
     {
-        image: supervisornew3,
-        name: "Dr. Moayad Diabes",
+        image: supervisornew1,
+        name: "Dr. Dimitrios Chatzis",
         title: "Consultant Cardiologist",
         bullets: [
             "Holds a Postgraduate Diploma in Sports Cardiology from St. George's, University of London",
             "Ph.D. in Cardiovascular Science from University of Athens",
             "Adjunct Assistant Professor of Cardiology at the European University Cyprus",
             "Expertise in cardiovascular medicine, education, and public speaking",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisornew3,
+        name: "Dr. Moayad Diabes",
+        title: "Consultant Cardiologist",
+        bullets: [
+            "Consultant Cardiologist and graduate of the University of Louvain, Belgium",
+            "Currently serves as Chairman of the Supreme Scientific Committee for Cardiology at the Palestinian Medical Council",
+        ],
+        profileLink: "#"
+    },
+    {
+        image: supervisor7,
+        name: "Dr. Duha Shellah",
+        title: "Global Health Advocate & Physician-Scientist & Founder of The Researchist",
+        bullets: [
+            "Chair of the WFPHA Emergencies Working Group",
+            "Vice Chair of the WHO EMRO Youth Council",
+            "Advocates for Sexual and Reproductive Health and Rights (SRHR) and health equity",
+            "Represents Palestinian voices in global health",
         ],
         profileLink: "#"
     },
@@ -105,48 +110,13 @@ const supervisors = [
         profileLink: "#"
     },
     {
-        image: supervisor3,
-        name: "Dr. Bilal Adwan",
-        title: "Cardiologist",
+        image: supervisor2,
+        name: "Dr. Nael Al-Lahham",
+        title: "Pediatric Cardiologist",
         bullets: [
-            "Specializes in advanced cardiovascular diagnostics and procedures",
-            "Skilled in echocardiography, stress testing, and cardiac catheterization",
-            "Contributor to peer-reviewed research, including a 2024 case study on Shone complex",
-        ],
-        profileLink: "#"
-    },
-    {
-        image: supervisor1, // Using existing image placeholder - you can replace with actual image
-        name: "Dr. Dimitrios Chatzis",
-        title: "Consultant Cardiologist and Clinical Hypertension Specialist",
-        bullets: [
-            "Consultant Cardiologist and Clinical Hypertension Specialist (ESH)",
-            "Holds a Postgraduate Diploma in Sports Cardiology (St. George's, University of London)",
-            "Ph.D. in Cardiovascular Science (University of Athens)",
-            "Adjunct Assistant Professor of Cardiology at the European University Cyprus",
-            "Expertise in cardiovascular medicine, education, and public speaking",
-        ],
-        profileLink: "#"
-    },
-    {
-        image: supervisor2, // Using existing image placeholder - you can replace with actual image
-        name: "Dr. Elham Khateeb",
-        title: "Dean of Scientific Research and Professor of Dental Public Health",
-        bullets: [
-            "Dean of Scientific Research and Professor of Dental Public Health at Al-Quds University",
-            "Internationally recognized for advancing health equity and dental research",
-            "Held leadership roles with IADR and FDI",
-            "Named an ICD Fellow in 2025",
-        ],
-        profileLink: "#"
-    },
-    {
-        image: supervisor3, // Using existing image placeholder - you can replace with actual image
-        name: "Dr. Moayad Diabes",
-        title: "Consultant Cardiologist",
-        bullets: [
-            "Consultant Cardiologist and graduate of the University of Louvain, Belgium",
-            "Currently serves as Chairman of the Supreme Scientific Committee for Cardiology at the Palestinian Medical Council",
+            "Holds the record for the highest number of consecutive pediatric catheterization procedures in the Arab world.",
+            "Expertise in congenital heart disease and interventional pediatric cardiology.",
+            "Minimally invasive treatments for a range of pediatric heart conditions.",
         ],
         profileLink: "#"
     },
@@ -403,11 +373,7 @@ const CardiologyPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                <span className="text-[#990000] font-bold">PMED Cardiology Interest Group </span>
-                                isn’t just another student club — it’s a launchpad for aspiring future leaders in <span className="text-[#990000] font-semibold">cardiovascular medicine</span>. Backed by the
-                                <span className="text-[#990000] font-semibold"> American College of Cardiology</span>,
-                                the Ministry of Health, and leading hospitals, we offer
-                                <span className="text-[#990000] font-bold"> ten competitive seats</span> each year. Those picked join an elite program featuring hands-on clinical experience, cutting-edge research, and one-on-one mentorship that are supervised by specialists in Cardiology contributing to real academic work, and grow into the kind of physician who doesn’t just treat — <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent font-bold">but transforms</span>.
+                                The <span className="text-[#990000] font-bold">PMED Cardiology Interest Group</span> is a community for students passionate about the <span className="text-[#990000] font-semibold">heart and cardiology</span>. Through engaging lectures, <span className="text-[#990000] font-semibold">hands-on workshops</span>, and interactive discussions with specialists, members gain a deeper understanding of <span className="text-[#990000] font-semibold">cardiovascular health and disease</span>. The club offers opportunities to develop <span className="text-[#990000] font-semibold">clinical skills</span>, explore <span className="text-[#990000] font-semibold">research in cardiology</span>, and connect with peers who share the same enthusiasm for cardiology. Whether you're just beginning your medical journey or already focused on a <span className="text-[#990000] font-semibold">cardiology career</span>, this group will help you grow both <span className="text-[#990000] font-semibold">academically and professionally</span>.
                             </motion.p>
                         </motion.div>
                     </motion.section>
@@ -462,26 +428,26 @@ const CardiologyPage = () => {
                             </motion.p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                             {supervisors.map((sup, idx) => (
                                 <motion.div
                                     key={idx}
                                     variants={itemVariants}
-                                    className="bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-gray-200 relative"
+                                    className="bg-white rounded-2xl shadow-2xl p-6 flex flex-col items-center text-center border border-gray-200 relative"
                                     whileHover={{ y: -8, scale: 1.03, boxShadow: "0 8px 32px rgba(0,0,0,0.10)" }}
                                     transition={{ type: "spring", stiffness: 300, damping: 24 }}
                                 >
                                     { }
-                                    <div className="absolute top-8 left-0 w-full flex justify-center z-0">
-                                        <svg width="90%" height="40" viewBox="0 0 320 40" className="mx-auto opacity-30">
-                                            <polyline points="0,20 40,20 60,5 80,35 100,5 120,20 140,20 160,10 180,30 200,20 320,20" fill="none" stroke="#990000"
-                                                strokeWidth="3" />
+                                    <div className="absolute top-6 left-0 w-full flex justify-center z-0">
+                                        <svg width="90%" height="30" viewBox="0 0 320 30" className="mx-auto opacity-30">
+                                            <polyline points="0,15 40,15 60,5 80,25 100,5 120,15 140,15 160,10 180,25 200,15 320,15" fill="none" stroke="#990000"
+                                                strokeWidth="2.5" />
                                         </svg>
                                     </div>
-                                    <img src={sup.image} alt={sup.name} className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg z-10 mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 z-10 mb-1">{sup.name}</h3>
-                                    <p className="text-gray-700 font-medium z-10 mb-4">{sup.title}</p>
-                                    <ul className="text-gray-600 text-left z-10 mb-6 space-y-2">
+                                    <img src={sup.image} alt={sup.name} className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg z-10 mb-3" />
+                                    <h3 className="text-lg font-bold text-gray-900 z-10 mb-1">{sup.name}</h3>
+                                    <p className="text-gray-700 font-medium text-sm z-10 mb-3">{sup.title}</p>
+                                    <ul className="text-gray-600 text-left z-10 mb-4 space-y-1.5 text-sm">
                                         {sup.bullets.map((b, i) => (
                                             <li key={i} className="flex items-start"><span className="mt-1 mr-2" style={{ color: '#990000' }}>•</span>
                                                 {b}</li>
@@ -532,7 +498,7 @@ const CardiologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Each year, only a <span className="text-[#990000] font-bold">select few</span> gain the chance to join PMED Cardiology — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
+                                    Each year, we open membership applications, offering students the opportunity to become part of the <span className="text-[#990000] font-bold">PMED Cardiology Club</span> — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
                                     To stay ahead, follow our <span className="text-[#990000] font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.<br /><br />
                                     The field of cardiology seeks  bold, the brilliant, and those who truly care. When the opportunity arises, <span className="text-[#990000] font-bold">seize it</span>.                                </p>
                                 <motion.p
