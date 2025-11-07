@@ -239,17 +239,17 @@ const LandingPage: React.FC = () => {
                                             whileHover={isActive ? {} : { scale: 0.85 }}
                                         >
                                             <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl transform-gpu transition-all duration-300">
-                {/* Background Image */}
+                                                {/* Background Image */}
                                                 <div className="absolute inset-0">
                                                     <motion.img
                                                         src={slide.image}
                                                         alt={slide.title}
-                        className="w-full h-full object-cover"
+                                                        className="w-full h-full object-cover"
                                                         animate={{
                                                             scale: isActive ? 1 : 1.1,
                                                         }}
                                                         transition={{ duration: 0.6 }}
-                    />
+                                                    />
                                                     <motion.div
                                                         className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"
                                                         animate={{
@@ -257,11 +257,11 @@ const LandingPage: React.FC = () => {
                                                         }}
                                                         transition={{ duration: 0.3 }}
                                                     />
-                </div>
+                                                </div>
 
                                                 {/* Content Overlay */}
                                                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4 md:px-8">
-                    <motion.div
+                                                    <motion.div
                                                         animate={{
                                                             opacity: isActive ? 1 : 0.8,
                                                             y: isActive ? 0 : 10,
@@ -294,7 +294,7 @@ const LandingPage: React.FC = () => {
                                                                         <motion.button
                                                                             key={btnIndex}
                                                                             initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                                                                            animate={{ opacity: 1, y: 0 }}
                                                                             whileHover={{ scale: 1.05, y: -2 }}
                                                                             whileTap={{ scale: 0.95 }}
                                                                             transition={{
@@ -324,11 +324,11 @@ const LandingPage: React.FC = () => {
                                                                     ))
                                                                 ) : (
                                                                     // Single button
-                        <motion.button
+                                                                    <motion.button
                                                                         initial={{ opacity: 0, y: 20 }}
                                                                         animate={{ opacity: 1, y: 0 }}
                                                                         whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
+                                                                        whileTap={{ scale: 0.95 }}
                                                                         transition={{
                                                                             opacity: { duration: 0.3, delay: 0.2 },
                                                                             y: { type: "spring", stiffness: 400, damping: 17 }
@@ -336,10 +336,10 @@ const LandingPage: React.FC = () => {
                                                                         onClick={(e) => {
                                                                             e.stopPropagation();
                                                                             if (slide.link === '#join-us-section') {
-                                const joinSection = document.getElementById('join-us-section');
-                                if (joinSection) {
-                                    joinSection.scrollIntoView({ behavior: 'smooth' });
-                                }
+                                                                                const joinSection = document.getElementById('join-us-section');
+                                                                                if (joinSection) {
+                                                                                    joinSection.scrollIntoView({ behavior: 'smooth' });
+                                                                                }
                                                                             } else if (slide.link.startsWith('http')) {
                                                                                 // External link - open in new tab
                                                                                 window.open(slide.link, '_blank', 'noopener,noreferrer');
@@ -400,7 +400,7 @@ const LandingPage: React.FC = () => {
                                     aria-label={`Go to slide ${index + 1}`}
                                 />
                             ))}
-                                </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -472,7 +472,7 @@ const LandingPage: React.FC = () => {
                                                     window.open(group.buttonLink, '_blank', 'noopener,noreferrer');
                                                 } else {
                                                     // Internal route
-                                                window.location.href = group.buttonLink;
+                                                    window.location.href = group.buttonLink;
                                                 }
                                             }
                                         }}
@@ -556,20 +556,20 @@ const LandingPage: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                                     {benefit.title}
                                 </h3>
-                            <motion.a
+                                <motion.a
                                     href={benefit.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                     className={`mt-auto bg-gradient-to-r ${benefit.buttonColor || 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg inline-block`}
-                            >
+                                >
                                     {benefit.buttonText}
                                     <ArrowRight className="inline-block ml-2 w-4 h-4" />
-                            </motion.a>
+                                </motion.a>
                             </motion.div>
                         ))}
-                        </div>
+                    </div>
 
                     {/* Join Us Text */}
                     <motion.div
