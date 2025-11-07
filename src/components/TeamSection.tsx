@@ -1,18 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Megaphone, BookOpen, Video, ExternalLink, Code } from 'lucide-react';
+import { Video, Code, Heart } from 'lucide-react';
 import ahmad from "./teampics/ahmad.jpeg";
 import kinda from "./teampics/kinda.jpeg";
-import Lamar from "./teampics/Lamar.jpeg";
-import Khaled from "./teampics/KhaledAlqasrawi.jpeg";
 import Abdallah from "./teampics/abdallah.jpeg";
-import Mohammad from "./teampics/Mohammad Romana.jpeg";
-import meray from "./teampics/MerayDour.jpeg";
 import bish from "./teampics/bish.jpeg";
-import heba from "./teampics/heba.jpeg";
 import jana from "./teampics/jana.jpg";
-import lujain from "./teampics/lujain.jpeg";
-
+import meray from "./teampics/MerayDour.jpeg";
+import noran from "./teampics/noran.png";
+import raghad from "./teampics/raghad.png";
+import olga from "./teampics/olga.png";
+import masri from "./teampics/masri.png";
+import joelle from "./teampics/joelle.png";
 
 const teamStructure = [
     {
@@ -31,60 +30,52 @@ const teamStructure = [
                 name: 'Kinda Abu Hashhash',
                 role: 'Vice President & Co-Founder',
                 img: kinda,
-                description: "Kinda Abu Hashhash is a fourth-year medical student and Head of the PMED Cardiology Club, known for her deep passion for both medicine and debate. Her leadership and communication skills were shaped through representing Palestine in the Reading Challenge and her university in Qatar's International Debating Championship. As Vice President of the PMED Club and Head of its Cardiology division, she has created meaningful spaces for learning and collaboration among medical students. Through her clinical cardiology rotations and research, her dedication to combining science, empathy, and purpose continues to define her journey in medicine.",
+                description: "Kinda Abu Hashhash is a fourth-year medical student and Head of the PMED Cardiology Club, fueled by a love for both medicine and debate. She represented Palestine in the Reading Challenge and her university in Qatar's International Debating Championship, experiences that sharpened her leadership and communication. As Vice President of PMED and leader of its cardiology division, she continues to build meaningful spaces for students while blending science, empathy, and purpose in her clinical cardiology work.",
                 quote: "Medicine taught me that every heartbeat is a dialogue between science and humanity"
             }
         ]
     },
     {
-        roleGroup: "Public Representatives",
-        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
-        accent: "from-blue-500 to-indigo-500",
-        icon: Megaphone,
+        roleGroup: "Cardiology Club Board Team",
+        color: "from-[#990000] via-[#990000] to-[#990000]",
+        accent: "from-red-600 to-red-700",
+        icon: Heart,
         members: [
             {
-                name: 'Lamar Abed',
-                role: 'Public Representative & Co-Founder',
-                img: Lamar,
+                name: 'Kinda Abu Hashhash',
+                role: 'Head of Cardiology Club',
+                img: kinda,
             },
-            {
-                name: 'Meray Dour',
-                role: 'Public Representative',
-                img: meray,
-            },
-        ]
-    },
-    {
-        roleGroup: "Department Heads",
-        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
-        accent: "from-[#1C2E4A] to-[#1C2E4A]",
-        icon: BookOpen,
-        members: [
-            {
-                name: 'Khaled Alqasrawi',
-                role: 'Head Of Educational Content & Co-Founder',
-                img: Khaled,
-            },
-
-        ]
-    },
-    {
-        roleGroup: "External & Internal Affairs",
-        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
-        accent: "from-blue-500 to-indigo-500",
-        icon: ExternalLink,
-        members: [
             {
                 name: 'Jana Faroun',
-                role: 'Head of External Affairs',
+                role: 'Cardiology Secretary General',
                 img: jana,
             },
             {
-                name: 'Heba Arab',
-                role: 'Head of Internal Affairs',
-                img: heba,
-
-            }
+                name: 'Noran Orabi',
+                role: 'Cardiology Outreach Officer',
+                img: noran,
+            },
+            {
+                name: 'Raghad Doufesh',
+                role: 'Cardiology Membership Officer',
+                img: raghad,
+            },
+            {
+                name: 'Olga Ramahi',
+                role: 'Cardiology Research Officer',
+                img: olga,
+            },
+            {
+                name: 'Mohammad Masri',
+                role: 'Cardiology Educational Content Officer',
+                img: masri,
+            },
+            {
+                name: 'Joelle Ammar',
+                role: 'Cardiology Activities Officer',
+                img: joelle,
+            },
         ]
     },
     {
@@ -99,9 +90,9 @@ const teamStructure = [
                 img: Abdallah,
             },
             {
-                name: 'Lujain Bdeir',
+                name: 'Meray Dour',
                 role: 'Head of Press & Media',
-                img: lujain,
+                img: meray,
             }
         ]
     },
@@ -111,11 +102,6 @@ const teamStructure = [
         accent: "from-blue-500 to-indigo-500",
         icon: Code,
         members: [
-            {
-                name: 'Mohammad Romana',
-                role: 'Head of IT',
-                img: Mohammad,
-            },
             {
                 name: 'Bishara Babish',
                 role: 'Head of IT',
@@ -194,10 +180,10 @@ const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
             <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-lg" />
 
             <div className="relative z-10">
-                <div className="flex flex-row items-start gap-6 mb-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                     { }
                     <div className="flex-shrink-0">
-                        <div className={`w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
+                        <div className={`w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
                             <img
                                 src={member.img}
                                 alt={member.name}
@@ -207,41 +193,39 @@ const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
                     </div>
 
                     { }
-                    <div className="flex-1 flex flex-col">
-                        <div className="mb-4">
-                            <h4 className="text-2xl sm:text-3xl font-bold text-main-gray mb-2 sm:mb-3 group-hover:text-[#1C2E4A] transition-colors">
-                                {member.name}
-                            </h4>
-                            <div className={`inline-block px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-full`}>
-                                <p className="text-sm sm:text-base font-semibold text-white">
-                                    {member.role}
-                                </p>
-                            </div>
+                    <div className="flex-1 text-center sm:text-left">
+                        <h4 className="text-2xl sm:text-3xl font-bold text-main-gray mb-2 sm:mb-3 group-hover:text-[#1C2E4A] transition-colors">
+                            {member.name}
+                        </h4>
+                        <div className={`inline-block px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-full`}>
+                            <p className="text-sm sm:text-base font-semibold text-white">
+                                {member.role}
+                            </p>
                         </div>
-
-                        { }
-                        {member.description && (
-                            <div className="mb-4">
-                                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200/50 shadow-inner">
-                                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 text-left">
-                                        {member.description}
-                                    </p>
-                                </div>
-                            </div>
-                        )}
-
-                        { }
-                        {member.quote && (
-                            <div className="text-right">
-                                <div className="inline-block">
-                                    <p className="text-base sm:text-lg md:text-xl italic text-[#1C2E4A] font-medium border-l-4 border-[#1C2E4A] pl-4 py-2">
-                                        "{member.quote}"
-                                    </p>
-                                </div>
-                            </div>
-                        )}
                     </div>
                 </div>
+
+                { }
+                {member.description && (
+                    <div className="mb-6">
+                        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200/50 shadow-inner">
+                            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 text-left">
+                                {member.description}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                { }
+                {member.quote && (
+                    <div className="text-center sm:text-right">
+                        <div className="inline-block">
+                            <p className="text-base sm:text-lg md:text-xl italic text-[#1C2E4A] font-medium border-l-4 border-[#1C2E4A] pl-4 py-2">
+                                "{member.quote}"
+                            </p>
+                        </div>
+                    </div>
+                )}
             </div>
 
             { }
@@ -302,9 +286,24 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
 
 const TeamSection = () => {
     const founders = teamStructure[0];
-    const otherTeams = teamStructure.slice(1);
+    const cardiologyTeam = teamStructure[1];
+    const otherTeams = teamStructure.slice(2);
     const topTierTeams = otherTeams.slice(0, 3);
     const bottomTierTeams = otherTeams.slice(3);
+
+    const topTierGridCols = topTierTeams.length >= 3
+        ? 'md:grid-cols-2 lg:grid-cols-3'
+        : topTierTeams.length === 2
+            ? 'md:grid-cols-2 lg:grid-cols-2'
+            : 'md:grid-cols-1';
+
+    const bottomTierGridCols = bottomTierTeams.length >= 3
+        ? 'md:grid-cols-2 lg:grid-cols-3'
+        : bottomTierTeams.length === 2
+            ? 'md:grid-cols-2 lg:grid-cols-2'
+            : bottomTierTeams.length === 1
+                ? 'md:grid-cols-1'
+                : '';
 
     return (
         <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen mt-20">
@@ -345,9 +344,9 @@ const TeamSection = () => {
                         </div>
 
                         { }
-                        <div className="flex flex-col justify-center gap-8 sm:gap-10 mb-8 sm:mb-12">
+                        <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 mb-8 sm:mb-12 items-stretch">
                             {founders.members.map((member, idx) => (
-                                <div key={idx} className="w-full max-w-4xl mx-auto">
+                                <div key={idx} className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0">
                                     <LeadershipCard member={member} group={founders} />
                                 </div>
                             ))}
@@ -366,9 +365,93 @@ const TeamSection = () => {
                     </motion.div>
 
                     { }
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                        className="mb-10 sm:mb-14 md:mb-16"
+                    >
                         { }
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
+                        <div className="text-center mb-6 sm:mb-10 md:mb-12">
+                            <h3 className={`text-2xl sm:text-3xl font-bold text-[#990000] mb-2 sm:mb-4`}>
+                                {cardiologyTeam.roleGroup}
+                            </h3>
+                            <div className={`w-16 sm:w-24 h-1 bg-[#990000] mx-auto rounded-full`} />
+                        </div>
+
+                        { }
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+                            {cardiologyTeam.members.map((member, memberIdx) => (
+                                <div key={memberIdx} className="relative">
+                                    <motion.div
+                                        variants={cardVariants}
+                                        whileHover={{
+                                            y: -8,
+                                            scale: 1.02,
+                                            transition: { type: "spring", stiffness: 300, damping: 20 }
+                                        }}
+                                        className="group relative"
+                                    >
+                                        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-lg border border-red-200/50 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                                            { }
+                                            <div className="absolute inset-0 opacity-5">
+                                                <div className={`w-full h-full bg-gradient-to-br from-[#990000] to-[#990000]`} />
+                                            </div>
+
+                                            { }
+                                            <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-red-200/20 to-transparent rounded-full blur-xl" />
+                                            <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-tr from-red-100/10 to-transparent rounded-full blur-lg" />
+
+                                            <div className="relative z-10 text-center">
+                                                { }
+                                                <div className="relative mb-4 sm:mb-6">
+                                                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-red-100/30 bg-gradient-to-br from-[#990000] to-[#990000] p-0.5 sm:p-1`}>
+                                                        <img
+                                                            src={member.img}
+                                                            alt={member.name}
+                                                            className="w-full h-full object-cover rounded-xl"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                { }
+                                                <h4 className="text-base sm:text-xl font-bold text-main-gray mb-1 sm:mb-2 group-hover:text-[#990000] transition-colors">
+                                                    {member.name}
+                                                </h4>
+
+                                                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#990000] to-[#990000] rounded-full mb-2 sm:mb-3`}>
+                                                    <p className="text-xs sm:text-sm font-semibold text-white">
+                                                        {member.role}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            { }
+                                            <div className={`absolute inset-0 bg-gradient-to-br from-[#990000] to-[#990000] opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
+
+                        { }
+                        <div className="relative flex justify-center mt-8 sm:mt-12 mb-4 sm:mb-8">
+                            <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-red-300 to-transparent"></div>
+                        </div>
+                        <div className="relative mb-4 sm:mb-8">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-4/5 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent"></div>
+                            <div className="flex justify-center">
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    { }
+                    <div className={`grid grid-cols-1 ${topTierGridCols} gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative justify-items-center`}>
+                        {topTierTeams.length > 1 && (
+                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
+                        )}
 
                         {topTierTeams.map((group, groupIdx) => (
                             <motion.div
@@ -380,7 +463,9 @@ const TeamSection = () => {
                                 className="relative"
                             >
                                 { }
-                                <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+                                {topTierTeams.length > 1 && (
+                                    <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+                                )}
 
                                 { }
                                 <div className="text-center mb-4 sm:mb-8">
@@ -398,7 +483,7 @@ const TeamSection = () => {
                                             {memberIdx > 0 && (
                                                 <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
                                             )}
-                                            <div className="w-full max-w-xs mx-auto" style={member.name === 'Heba Arab' ? { marginTop: '40px' } : {}}>
+                                            <div className="w-full max-w-xs mx-auto">
                                                 <MemberCard member={member} group={group} />
                                             </div>
                                         </div>
@@ -410,7 +495,7 @@ const TeamSection = () => {
 
                     { }
                     <div className="mt-10 sm:mt-16 flex justify-center">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative">
+                        <div className={`grid grid-cols-1 ${bottomTierGridCols} gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative justify-items-center`}>
                             {bottomTierTeams.map((group, groupIdx) => (
                                 <motion.div
                                     key={groupIdx}
@@ -421,7 +506,9 @@ const TeamSection = () => {
                                     className="relative"
                                 >
                                     { }
-                                    <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+                                    {bottomTierTeams.length > 1 && (
+                                        <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
+                                    )}
 
                                     { }
                                     <div className="text-center mb-4 sm:mb-8">
