@@ -9,13 +9,13 @@ import {
     ChevronLeft,
     ChevronRight
 } from 'lucide-react';
-import slide4Image from './images/Slide4.jpg';
+import slide4Image from './images/Slide4e.jpg';
 import picofthemImage from './images/picofthem.png';
 import cardiologyLogoImage from './images/png.png';
 import cardiologyLogo from './images/cardiology.png';
 import neurologyLogo from './images/neurology.png';
 import surgeryLogo from './images/surgery.png';
-import podcastLogo from './images/logoo.png'; // Using logoo.png as podcast logo - replace if different image available
+import podcastLogo from './images/Slide4e.jpg'; // Using Slide4e.jpg as podcast logo per request
 
 interface SlideButton {
     text: string;
@@ -121,6 +121,7 @@ const LandingPage: React.FC = () => {
             buttonText: 'Join Cardiology',
             buttonLink: '/cardiology',
             logo: cardiologyLogo,
+            logoClass: 'object-contain',
             color: 'from-red-500 to-red-600'
         },
         {
@@ -130,6 +131,7 @@ const LandingPage: React.FC = () => {
             buttonText: 'Coming Soon',
             buttonLink: '/neurology',
             logo: neurologyLogo,
+            logoClass: 'object-contain',
             color: 'from-green-500 to-green-600'
         },
         {
@@ -139,6 +141,7 @@ const LandingPage: React.FC = () => {
             buttonText: 'Coming Soon',
             buttonLink: '#',
             logo: surgeryLogo,
+            logoClass: 'object-contain',
             color: 'from-blue-500 to-blue-600'
         },
         {
@@ -148,7 +151,8 @@ const LandingPage: React.FC = () => {
             buttonText: 'Watch Now',
             buttonLink: 'https://www.youtube.com/@pmedclubchannel',
             logo: podcastLogo,
-            color: 'from-purple-500 to-pink-600'
+            logoClass: 'object-cover',
+            color: 'from-red-800 to-red-900 hover:from-red-900 hover:to-red-950'
         }
     ];
 
@@ -168,15 +172,15 @@ const LandingPage: React.FC = () => {
             buttonColor: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
         },
         {
-            icon: Stethoscope,
+            icon: Heart,
             title: 'Essential clinical skills',
-            buttonText: 'Be a member of interest group Apply now',
+            buttonText: 'Be a member of cardiology interest group Apply now',
             link: 'https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header',
             buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
         },
         {
-            icon: Heart,
-            title: 'Strong medical ethics',
+            icon: Stethoscope,
+            title: 'Strong medical background',
             buttonText: 'Join PMED Family',
             link: 'https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w',
             buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
@@ -444,7 +448,7 @@ const LandingPage: React.FC = () => {
                                                 <img
                                                     src={group.logo}
                                                     alt={`${group.name} logo`}
-                                                    className="w-full h-full object-contain"
+                                                    className={`w-full h-full ${group.logoClass || 'object-contain'}`}
                                                 />
                                             </div>
                                             <h3 className="text-2xl font-bold text-gray-900">{group.name}</h3>

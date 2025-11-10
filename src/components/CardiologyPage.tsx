@@ -5,7 +5,6 @@ import './CardiologyPage.css';
 
 import supervisor1 from "./supervisorpics/supervisor1.png";
 import supervisor2 from "./supervisorpics/supervisor2.png";
-import supervisor3 from "./supervisorpics/supervisor3.png";
 import supervisor4 from "./supervisorpics/supervisor4.png";
 import supervisor6 from "./supervisorpics/supervisor6.png";
 import supervisor7 from "./supervisorpics/supervisor7.png";
@@ -18,7 +17,7 @@ const supervisors = [
     {
         image: supervisor1,
         name: "Dr. Sameer Mtour",
-        title: "Cardiologist",
+        title: "Consultant Cardiologist",
         bullets: [
             "Head of the Cardiology Department at Al-Makassed Hospital.",
             "Assistant Professor at Al-Quds University.",
@@ -58,6 +57,7 @@ const supervisors = [
         name: "Dr. Elham Khateeb",
         title: "Dean of Scientific Research",
         bullets: [
+            "Dean of Scientific Research At Al-Quds University",
             "Internationally recognized for advancing health equity and dental research",
             "Has held leadership roles with IADR and FDI",
             "Named an ICD Fellow in 2025",
@@ -499,8 +499,18 @@ const CardiologyPage = () => {
                             >
                                 <p>
                                     Each year, we open membership applications, offering students the opportunity to become part of the <span className="text-[#990000] font-bold">PMED Cardiology Club</span> — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
-                                    To stay ahead, follow our <span className="text-[#990000] font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.<br /><br />
-                                    The field of cardiology seeks  bold, the brilliant, and those who truly care. When the opportunity arises, <span className="text-[#990000] font-bold">seize it</span>.                                </p>
+                                    To stay ahead, follow our <span className="text-[#990000] font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.
+                                </p>
+                                <motion.a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center text-xl font-semibold text-[#990000] underline decoration-[#990000]/40 underline-offset-4 hover:text-[#bb0000] hover:decoration-[#bb0000]/60 transition-colors duration-200"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.97 }}
+                                >
+                                    Be a member of interest group — Apply now!
+                                </motion.a>
                                 <motion.p
                                     className="font-semibold text-[#990000] text-xl"
                                     whileHover={{ scale: 1.05 }}

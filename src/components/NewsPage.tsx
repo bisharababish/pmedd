@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Share2, ExternalLink, Calendar, Filter } from 'lucide-react';
+import { Search, Share2, ExternalLink, Calendar, Filter, ArrowRight } from 'lucide-react';
 
 // Import images
 import slide4Image from './images/Slide4.jpg';
@@ -64,7 +64,7 @@ const NewsPage: React.FC = () => {
         },
         {
             id: 4,
-            title: "PMED Club President Recognized by Al-Quds University",
+            title: "A new achievement for the PMED Club.",
             description: "The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.",
             image: ahmadRoyalImage, // Using the Royal Society event image
             category: "Achievements",
@@ -88,6 +88,10 @@ const NewsPage: React.FC = () => {
             })
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Most recent first
     }, [searchTerm, selectedCategory]);
+
+    const featuredNews = filteredNews[0] || null;
+    const spotlightNews = filteredNews.slice(1, 4);
+    const archiveNews = filteredNews.slice(4);
 
     const handleShare = (item: NewsItem) => {
         if (navigator.share) {
@@ -191,75 +195,239 @@ const NewsPage: React.FC = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* News Grid */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {filteredNews.map((item, index) => (
-                        <motion.div
-                            key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                        >
-                            {/* Image */}
-                            <div className="relative h-48 overflow-hidden">
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                />
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
-                                        {item.category}
-                                    </span>
-                                </div>
-                                <div className="absolute top-4 right-4">
+                {filteredNews.length > 0 ? (
+                    <div className="space-y-16">
+                        {/* Featured Story */}
+                        {featuredNews && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                                className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch"
+                            >
+                                <div className="relative col-span-1 lg:col-span-3 rounded-2xl overflow-hidden shadow-xl">
+                                    <img
+                                        src={featuredNews.image}
+                                        alt={featuredNews.title}
+                                        className="w-full h-full object-cover max-h-[520px]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                                    <div className="absolute top-5 left-5 flex gap-3">
+                                        <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+                                            Featured
+                                        </span>
+                                        <span className="px-3 py-1 bg-white/90 text-gray-900 text-xs font-semibold rounded-full uppercase tracking-wide">
+                                            {featuredNews.category}
+                                        </span>
+                                    </div>
                                     <button
-                                        onClick={() => handleShare(item)}
-                                        className="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                                        onClick={() => handleShare(featuredNews)}
+                                        className="absolute top-5 right-5 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                                     >
-                                        <Share2 className="w-4 h-4 text-gray-600" />
+                                        <Share2 className="w-4 h-4 text-gray-700" />
                                     </button>
+                                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                        <div className="flex items-center gap-3 text-sm text-white/80 mb-3">
+                                            <Calendar className="w-4 h-4" />
+                                            <span>{new Date(featuredNews.date).toLocaleDateString()}</span>
+                                            <span className="w-1 h-1 rounded-full bg-white/60" />
+                                            <span>{featuredNews.buttonType === 'external' ? 'External Coverage' : 'PMED Insider'}</span>
+                                        </div>
+                                        <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4 drop-shadow-lg">
+                                            {featuredNews.title}
+                                        </h2>
+                                        <p className="text-base md:text-lg text-white/90 max-w-3xl mb-6">
+                                            {featuredNews.description}
+                                        </p>
+                                        <button
+                                            onClick={() => handleButtonClick(featuredNews)}
+                                            className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                                        >
+                                            {featuredNews.buttonText}
+                                            {featuredNews.buttonType === 'external' ? (
+                                                <ExternalLink className="w-4 h-4" />
+                                            ) : (
+                                                <ArrowRight className="w-4 h-4" />
+                                            )}
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Content */}
-                            <div className="p-6">
-                                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                                    <Calendar className="w-4 h-4" />
-                                    <span>{new Date(item.date).toLocaleDateString()}</span>
+                                <div className="col-span-1 lg:col-span-2 bg-white rounded-2xl shadow-xl p-8 flex flex-col">
+                                    <div className="mb-6">
+                                        <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Inside the Story</h3>
+                                        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                                            Why it matters
+                                        </h2>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {featuredNews.details || featuredNews.description}
+                                        </p>
+                                    </div>
+                                    <div className="mt-auto pt-6 border-t border-gray-100">
+                                        <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                                            Quick Facts
+                                        </h4>
+                                        <ul className="space-y-3 text-gray-700">
+                                            <li className="flex items-start gap-3">
+                                                <span className="mt-1 w-2 h-2 rounded-full bg-blue-500"></span>
+                                                <span>
+                                                    Published on <strong>{new Date(featuredNews.date).toLocaleDateString()}</strong>
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-3">
+                                                <span className="mt-1 w-2 h-2 rounded-full bg-blue-500"></span>
+                                                <span>
+                                                    Category: <strong>{featuredNews.category}</strong>
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-3">
+                                                <span className="mt-1 w-2 h-2 rounded-full bg-blue-500"></span>
+                                                <span>
+                                                    {featuredNews.buttonType === 'external'
+                                                        ? 'Coverage available on external platforms'
+                                                        : 'Exclusive to PMED members'}
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+                            </motion.section>
+                        )}
 
-                                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                                    {item.title}
-                                </h3>
+                        {/* Spotlight Stories */}
+                        {spotlightNews.length > 0 && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                            >
+                                <div className="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900">Spotlight Stories</h2>
+                                        <p className="text-gray-600">
+                                            The latest headlines from across PMED
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    {spotlightNews.map((item, index) => (
+                                        <motion.article
+                                            key={item.id}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
+                                        >
+                                            <div className="relative h-48 overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                />
+                                                <div className="absolute top-4 left-4">
+                                                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
+                                                        {item.category}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="p-6 flex flex-col flex-1">
+                                                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                                                    <Calendar className="w-4 h-4" />
+                                                    <span>{new Date(item.date).toLocaleDateString()}</span>
+                                                </div>
+                                                <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-gray-600 mb-6 line-clamp-3 flex-1">
+                                                    {item.description}
+                                                </p>
+                                                <button
+                                                    onClick={() => handleButtonClick(item)}
+                                                    className="mt-auto inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                                                >
+                                                    {item.buttonText}
+                                                    {item.buttonType === 'external' ? (
+                                                        <ExternalLink className="w-4 h-4" />
+                                                    ) : (
+                                                        <ArrowRight className="w-4 h-4" />
+                                                    )}
+                                                </button>
+                                            </div>
+                                        </motion.article>
+                                    ))}
+                                </div>
+                            </motion.section>
+                        )}
 
-                                <p className="text-gray-600 mb-6 line-clamp-3">
-                                    {item.description}
-                                </p>
-
-                                {/* Action Button */}
-                                <button
-                                    onClick={() => handleButtonClick(item)}
-                                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2 group"
-                                >
-                                    {item.buttonText}
-                                    {item.buttonType === 'external' && (
-                                        <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    )}
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* No Results */}
-                {filteredNews.length === 0 && (
+                        {/* News Archive */}
+                        {archiveNews.length > 0 && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.5 }}
+                                className="bg-white rounded-2xl shadow-xl p-8"
+                            >
+                                <div className="flex items-center justify-between mb-6">
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900">News Archive</h2>
+                                        <p className="text-gray-600">
+                                            Browse past highlights and milestones
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="space-y-6">
+                                    {archiveNews.map((item, index) => (
+                                        <motion.div
+                                            key={item.id}
+                                            initial={{ opacity: 0, x: -15 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                                            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gray-100 pb-6 last:border-none last:pb-0"
+                                        >
+                                            <div className="flex items-start gap-4">
+                                                <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 font-semibold">
+                                                    {new Date(item.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                                </div>
+                                                <div>
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
+                                                            {item.category}
+                                                        </span>
+                                                    </div>
+                                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                                        {item.title}
+                                                    </h3>
+                                                    <p className="text-gray-600 line-clamp-2">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-3 self-start md:self-center">
+                                                <button
+                                                    onClick={() => handleShare(item)}
+                                                    className="p-2.5 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                                                >
+                                                    <Share2 className="w-4 h-4 text-gray-600" />
+                                                </button>
+                                                <button
+                                                    onClick={() => handleButtonClick(item)}
+                                                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                                                >
+                                                    {item.buttonText}
+                                                    {item.buttonType === 'external' ? (
+                                                        <ExternalLink className="w-4 h-4" />
+                                                    ) : (
+                                                        <ArrowRight className="w-4 h-4" />
+                                                    )}
+                                                </button>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.section>
+                        )}
+                    </div>
+                ) : (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
