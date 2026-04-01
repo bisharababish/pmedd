@@ -1,9 +1,78 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Brain, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Brain, Instagram, Linkedin, Youtube, Microscope } from 'lucide-react';
 import './CardiologyPage.css';
 
-import neurologyLogo from "./images/neurology.png";
+import neurologyLogo from "./supervisorpics/PMED Neuro Club.jpg";
+import aaupBanner from "./supervisorpics/AAUP banner.jpg";
+import malikZabenImage from "./supervisorpics/Malik Zaben.png";
+import athanasiosHassoulasImage from "./supervisorpics/Athanasios Hassoulas.jpg";
+import davidParkerImage from "./supervisorpics/David Parker.jpg";
+import friedemannPaulImage from "./supervisorpics/friedemann-paul.png";
+import fionaMcNicholasImage from "./supervisorpics/fiona-mcnicholas.png";
+
+const supervisors = [
+    {
+        name: "Prof. Malik Zaben",
+        title: "Consultant Neurosurgeon",
+        image: malikZabenImage,
+        bullets: [
+            "Dean of the Faculty of Medicine at the Arab American University (AAUP)",
+            "Consultant Neurosurgeon at Ibn Sina Subspecialties Hospital",
+            "Clinician-scientist specializing in neurosurgery and neuroscience",
+            "Extensive experience in medical education, clinical practice, and research",
+            "Committed to advancing academic excellence and innovation in healthcare training",
+        ],
+    },
+    {
+        name: "Dr. Athanasios Hassoulas",
+        title: "Associate Professor in Medical Education – Cardiff University",
+        image: athanasiosHassoulasImage,
+        bullets: [
+            "Director of the Hybrid and Immersive Virtual Environments (HIVE) Teaching Innovation Unit",
+            "Leads technology-enhanced learning using VR, AR, and AI in medical education",
+            "Psychological Medicine Lead in the MBBCh undergraduate medical programme",
+            "Leads curriculum units in Pain Medicine, Pain Management, and Neurology",
+            "Research interests include OCD, anxiety disorders, and medical education",
+        ],
+    },
+    {
+        name: "Dr. David John Parker, PhD",
+        title: "College Lecturer in Physiology",
+        image: davidParkerImage,
+        bullets: [
+            "Director of Studies in Natural Sciences (Biological) for Parts II and III",
+            "Teaches physiology and neuroscience, including Neurobiology and Physiology of Organisms courses",
+            "Research focuses on neuronal networks and electrical activity of nerve cells",
+            "Studies spinal cord networks and recovery mechanisms after spinal cord injury",
+            "Lectures and supervises advanced courses in neurobiology, neuronal networks, and motor systems",
+        ],
+    },
+    {
+        name: "Prof. Friedemann Paul, MD",
+        title: "Professor of Clinical Neuroimmunology – Charite Berlin",
+        image: friedemannPaulImage,
+        bullets: [
+            "Head of the Outpatient Clinic and Neuroimmunology Research Group at ECRC",
+            "Consultant Neurologist at Charite since 2004",
+            "Former Vice Dean for Clinical Research at Charite Faculty of Medicine",
+            "Former Scientific Director of the Experimental and Clinical Research Center (ECRC)",
+            "Research focuses on multiple sclerosis, neuromyelitis optica, and neuroimmunological diseases",
+        ],
+    },
+    {
+        name: "Prof. Fiona McNicholas, MD, FRCPsych",
+        title: "Consultant Child & Adolescent Psychiatrist",
+        image: fionaMcNicholasImage,
+        bullets: [
+            "Consultant at Lucena Clinic and Children's Health Ireland since 2000",
+            "Chair of Child Psychiatry at University College Dublin (UCD)",
+            "Trained at Guy's Hospital, Great Ormond Street Hospital, and Stanford University",
+            "Clinical interests include ADHD, eating disorders, and youth mental health",
+            "Research focuses on quality of care, clinician wellbeing, and the impact of social media on youth",
+        ],
+    },
+];
 
 const NeurologyPage = () => {
     const heroRef = useRef(null);
@@ -165,7 +234,7 @@ const NeurologyPage = () => {
                                 initial="initial"
                                 animate="animate"
                             >
-                                PMED Neurology Club
+                                PMED Neuro Club
                             </motion.span>
                         </motion.h1>
 
@@ -185,8 +254,19 @@ const NeurologyPage = () => {
                             className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed font-medium"
                             variants={itemVariants}
                         >
-                            Exploring the wonders of the human brain and nervous system
+                            PMED Neuro Club & NeuroPedia Palestine is dedicated to advancing neurology, neurosurgery, neuroscience, education, training, and research in Palestine.
+                            Our mission is to inspire and equip medical students with the knowledge, skills, and opportunities to excel in the field of neurology.
                         </motion.p>
+                        <motion.div
+                            className="mt-10 rounded-2xl overflow-hidden shadow-2xl border border-green-100"
+                            variants={itemVariants}
+                        >
+                            <img
+                                src={aaupBanner}
+                                alt="AAUP Conference Banner"
+                                className="w-full h-auto object-contain bg-white"
+                            />
+                        </motion.div>
                     </motion.div>
 
                     <motion.section
@@ -224,32 +304,88 @@ const NeurologyPage = () => {
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                    <img 
-                                        src={neurologyLogo} 
-                                        alt="Neurology Logo" 
-                                        className="w-16 h-16 mr-3 object-contain"
-                                    />
-                                    <span className="text-[#065f46] font-bold text-lg">Coming Soon</span>
+                                    <Brain className="w-10 h-10 mr-3 text-[#065f46]" />
+                                    <span className="text-[#065f46] font-bold text-lg">Excellence in Neuro Club</span>
                                 </motion.div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray mb-6">PMED Neurology Club</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray mb-6">About Our Program</h2>
                             </div>
-                            
+
                             <motion.div
                                 className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 md:p-10 border-2 border-green-200/50 shadow-lg relative z-10"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                <p className="text-lg md:text-xl leading-relaxed text-center text-gray-800 font-medium">
-                                    Get ready to explore the wonders of the human brain!<br /><br />
-                                    A space dedicated to curiosity, learning, and discovering the fascinating world of neuroscience.
+                                <div className="inline-flex items-center gap-3 mb-5">
+                                    <Microscope className="w-7 h-7 text-[#065f46]" />
+                                    <span className="font-bold text-[#065f46] text-lg">About Our Program</span>
+                                </div>
+                                <p className="text-lg leading-relaxed text-gray-800 font-medium">
+                                    The PMED Neuro Club is a community for students passionate about the nervous system and neurology.
+                                    Through engaging lectures, hands-on workshops, and interactive discussions with specialists, members gain a deeper understanding of neurological health and disease.
+                                </p>
+                                <ul className="mt-6 text-left space-y-3 text-gray-800">
+                                    <li>• Develop clinical skills in neurology</li>
+                                    <li>• Explore research in neuroscience</li>
+                                    <li>• Connect with peers who share the same enthusiasm</li>
+                                </ul>
+                                <p className="mt-6 text-lg leading-relaxed text-gray-800 font-medium">
+                                    Whether you're just beginning your medical journey or already focused on a neurology career, this group will help you grow academically and professionally.
                                 </p>
                             </motion.div>
                         </motion.div>
                     </motion.section>
 
                     <motion.section
-                        className="mt-20"
+                        className="mb-20"
+                        variants={slideInVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
+                        <motion.div className="text-center mb-10" variants={itemVariants}>
+                            <h2 className="text-4xl md:text-5xl font-bold text-main-gray mb-4">Meet Our Supervisors</h2>
+                            <div className="w-32 h-1 bg-gradient-to-r from-[#065f46] via-[#059669] to-[#065f46] mx-auto rounded-full" />
+                        </motion.div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                            {supervisors.map((sup, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    variants={itemVariants}
+                                    whileHover={{ y: -6, scale: 1.01 }}
+                                    className="bg-white rounded-3xl shadow-xl border border-green-100 overflow-hidden flex flex-col"
+                                >
+                                    <div className="relative">
+                                        <img
+                                            src={sup.image}
+                                            alt={sup.name}
+                                            className="w-full h-60 object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                                        <div className="absolute bottom-4 left-4 right-4">
+                                            <h3 className="text-lg font-bold text-white leading-tight">{sup.name}</h3>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-5 md:p-6 flex-1 flex flex-col">
+                                        <p className="text-[#065f46] font-semibold text-sm mb-4">{sup.title}</p>
+                                        <ul className="space-y-2.5 text-gray-700 text-sm leading-relaxed">
+                                        {sup.bullets.map((bullet, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <span className="mr-2 mt-1 text-[#065f46] font-bold">•</span>
+                                                <span>{bullet}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.section>
+
+                    <motion.section
+                        className="mt-6"
                         variants={slideInVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -275,8 +411,12 @@ const NeurologyPage = () => {
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <Brain className="w-8 h-8 text-[#065f46] mr-3" />
-                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">Stay Connected</h2>
+                                <img
+                                    src={neurologyLogo}
+                                    alt="Neuro Club"
+                                    className="w-10 h-10 mr-3 object-contain"
+                                />
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">Open Now</h2>
                             </motion.div>
 
                             <motion.div
@@ -286,7 +426,7 @@ const NeurologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Follow our <span className="text-[#065f46] font-bold">official social media channels</span> to stay updated on the latest news about the PMED Neurology Club launch and exclusive updates.
+                                    Follow our <span className="text-[#065f46] font-bold">official social media channels</span> for applications, updates, and Neuro Club activities.
                                 </p>
                             </motion.div>
 

@@ -7,7 +7,7 @@ const searchData = [
     // Home Page
     {
         id: 'home',
-        title: 'Join PMED Club',
+        title: 'Join PMED',
         content: 'Your journey to becoming a future doctor starts here. Ready to level up your med school journey? PMED is where future doctors are made.',
         keywords: ['home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development', 'join', 'membership', 'apply', 'med school', 'journey', 'future doctors', 'level up', 'medical students'],
         section: 'Home',
@@ -19,7 +19,7 @@ const searchData = [
     {
         id: 'about',
         title: 'About PMED',
-        content: 'Learn about PMED Club, our mission, vision, and what we do to empower medical students.',
+        content: 'Learn about PMED, our mission, vision, and what we do to empower medical students.',
         keywords: ['about', 'mission', 'vision', 'PMED', 'what we do', 'club'],
         section: 'About',
         path: '/about',
@@ -30,7 +30,7 @@ const searchData = [
     {
         id: 'original-home',
         title: 'PMED Homepage',
-        content: 'Welcome to PMED - Medical Club. Your gateway to medical excellence and professional development.',
+        content: 'Welcome to PMED. Your gateway to medical excellence and professional development.',
         keywords: ['homepage', 'original home', 'welcome', 'PMED', 'medical club', 'excellence', 'professional development'],
         section: 'Home',
         path: '/home',
@@ -53,7 +53,7 @@ const searchData = [
     {
         id: 'team',
         title: 'Our Team',
-        content: 'Meet the PMED Club team, including leadership, representatives, and department heads.',
+        content: 'Meet the PMED team, including leadership, representatives, and department heads.',
         keywords: ['team', 'leadership', 'representatives', 'department heads', 'members'],
         section: 'Team',
         path: '/team',
@@ -64,7 +64,7 @@ const searchData = [
     {
         id: 'cardiology-club',
         title: 'PMED Cardiology Club',
-        content: 'Learn about the PMED Cardiology Club, its mission, supervisors, and exclusive opportunities for medical students.',
+        content: 'Learn about PMED Cardiology Club, its mission, supervisors, and exclusive opportunities for medical students.',
         keywords: ['cardiology', 'cardiology club', 'PMED Cardiology', 'supervisors', 'medical students', 'clinical exposure', 'research'],
         section: 'Divisions',
         path: '/cardiology',
@@ -75,7 +75,7 @@ const searchData = [
     {
         id: 'podcast-club',
         title: 'PMED Podcast Club',
-        content: 'Discover the PMED Podcast Club, where students share knowledge, stories, and medical insights.',
+        content: 'Discover PMED Podcast Club, where students share knowledge, stories, and medical insights.',
         keywords: ['podcast', 'podcast club', 'PMED Podcast', 'stories', 'medical insights'],
         section: 'Divisions',
         path: '/podcast',
@@ -86,7 +86,7 @@ const searchData = [
     {
         id: 'news',
         title: 'PMED News & Updates',
-        content: 'Stay updated with the latest news, events, and achievements from PMED Club. Read about our latest activities, recognitions, and milestones.',
+        content: 'Stay updated with the latest news, events, and achievements from PMED. Read about our latest activities, recognitions, and milestones.',
         keywords: ['news', 'updates', 'events', 'achievements', 'activities', 'recognitions', 'milestones', 'latest'],
         section: 'News',
         path: '/news',
@@ -96,7 +96,7 @@ const searchData = [
     // Landing Page
     {
         id: 'landing',
-        title: 'Join PMED Club',
+        title: 'Join PMED',
         content: 'Your journey to becoming a future doctor starts here. Ready to level up your med school journey? PMED is where future doctors are made.',
         keywords: ['join', 'membership', 'apply', 'med school', 'journey', 'future doctors', 'level up', 'medical students'],
         section: 'Join',
@@ -108,7 +108,7 @@ const searchData = [
     {
         id: 'interest-groups',
         title: 'PMED Interest Groups',
-        content: 'PMED is the FIRST club in Palestine to launch Interest Groups. Dedicated spaces for med students to connect, grow, and sharpen their skills in specialties they dream of.',
+        content: 'PMED is the FIRST Institute in Palestine to launch Interest Groups. Dedicated spaces for med students to connect, grow, and sharpen their skills in specialties they dream of.',
         keywords: ['interest groups', 'specialties', 'cardiology', 'neurology', 'surgery', 'internal medicine', 'mentorship', 'clinical exposure'],
         section: 'Programs',
         path: '/landing',
@@ -119,7 +119,7 @@ const searchData = [
     {
         id: 'cardiology-launch',
         title: 'Launch of the Cardiology Division at IPCLM13',
-        content: 'PMED Club launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced. A proudly Palestinian club founded to ignite passion and inspire excellence.',
+        content: 'PMED launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced. A proudly Palestinian club founded to ignite passion and inspire excellence.',
         keywords: ['cardiology division', 'IPCLM13', 'launch', 'conference', 'Palestinian', 'passion', 'excellence', 'medical students'],
         section: 'News',
         path: '/news',
@@ -127,7 +127,7 @@ const searchData = [
     },
     {
         id: 'podcast-episode',
-        title: 'PMED Club Podcast – First Episode Released',
+        title: 'PMED Podcast Club – First Episode Released',
         content: 'Our first podcast episode is now live, discussing listening skills for doctors, choosing role models, building true value in others\' lives, and other inspiring topics.',
         keywords: ['podcast episode', 'first episode', 'listening skills', 'role models', 'inspiring topics', 'doctors'],
         section: 'News',
@@ -145,8 +145,8 @@ const searchData = [
     },
     {
         id: 'president-recognition',
-        title: 'PMED Club President Recognized by Al-Quds University',
-        content: 'The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.',
+        title: 'PMED President Recognized by Al-Quds University',
+        content: 'The recognition of our PMED President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.',
         keywords: ['president recognition', 'Al-Quds University', 'talent', 'dedication', 'global scientific presence', 'achievement'],
         section: 'News',
         path: '/news',
@@ -224,7 +224,7 @@ const searchData = [
     {
         id: 'ahmad-romana',
         title: 'Ahmad Romana',
-        content: 'President & Founder of PMED Club. Leading the organization with vision and dedication to medical education excellence.',
+        content: 'President & Founder of PMED. Leading the organization with vision and dedication to medical education excellence.',
         keywords: ['Ahmad Romana', 'president', 'founder', 'leadership', 'PMED'],
         section: 'Team',
         path: '/team',
@@ -233,7 +233,7 @@ const searchData = [
     {
         id: 'kinda-abu-hashhash',
         title: 'Kinda Abu Hashhash',
-        content: 'Vice President & Co-Founder of PMED Club. Supporting the organization\'s mission and strategic direction.',
+        content: 'Vice President & Co-Founder of PMED. Supporting the organization\'s mission and strategic direction.',
         keywords: ['Kinda Abu Hashhash', 'vice president', 'co-founder', 'leadership'],
         section: 'Team',
         path: '/team',
@@ -242,7 +242,7 @@ const searchData = [
     {
         id: 'lamar-abed',
         title: 'Lamar Abed',
-        content: 'Public Representative & Co-Founder of PMED Club. Managing external communications and public relations.',
+        content: 'Public Representative & Co-Founder of PMED. Managing external communications and public relations.',
         keywords: ['Lamar Abed', 'public representative', 'co-founder', 'communications', 'public relations'],
         section: 'Team',
         path: '/team',
@@ -251,7 +251,7 @@ const searchData = [
     {
         id: 'meray-dour',
         title: 'Meray Dour',
-        content: 'Public Representative of PMED Club. Supporting external communications and community engagement.',
+        content: 'Public Representative of PMED. Supporting external communications and community engagement.',
         keywords: ['Meray Dour', 'public representative', 'communications', 'community'],
         section: 'Team',
         path: '/team',
@@ -260,7 +260,7 @@ const searchData = [
     {
         id: 'khaled-alqasrawi',
         title: 'Khaled Alqasrawi',
-        content: 'Head of Educational Content & Co-Founder of PMED Club. Developing comprehensive educational programs and content.',
+        content: 'Head of Educational Content & Co-Founder of PMED. Developing comprehensive educational programs and content.',
         keywords: ['Khaled Alqasrawi', 'educational content', 'co-founder', 'education', 'programs'],
         section: 'Team',
         path: '/team',
@@ -269,7 +269,7 @@ const searchData = [
     {
         id: 'dahlia-gaouni',
         title: 'Dahlia Gaouni',
-        content: 'Head of Video Editing at PMED Club. Creating engaging visual content for educational and promotional purposes.',
+        content: 'Head of Video Editing at PMED. Creating engaging visual content for educational and promotional purposes.',
         keywords: ['Dahlia Gaouni', 'video editing', 'visual content', 'media'],
         section: 'Team',
         path: '/team',
@@ -278,7 +278,7 @@ const searchData = [
     {
         id: 'laith-mualla',
         title: 'Laith Mualla',
-        content: 'Head of External Affairs at PMED Club. Managing partnerships and external relationships.',
+        content: 'Head of External Affairs at PMED. Managing partnerships and external relationships.',
         keywords: ['Laith Mualla', 'external affairs', 'partnerships', 'relationships'],
         section: 'Team',
         path: '/team',
@@ -287,7 +287,7 @@ const searchData = [
     {
         id: 'heba-arab',
         title: 'Heba Arab',
-        content: 'Head of Internal Affairs at PMED Club. Managing internal operations and member relations.',
+        content: 'Head of Internal Affairs at PMED. Managing internal operations and member relations.',
         keywords: ['Heba Arab', 'internal affairs', 'operations', 'member relations'],
         section: 'Team',
         path: '/team',
@@ -296,7 +296,7 @@ const searchData = [
     {
         id: 'abdallah-elayyan',
         title: 'Abdallah Elayyan',
-        content: 'Head of Press & Media at PMED Club. Managing media relations and press communications.',
+        content: 'Head of Press & Media at PMED. Managing media relations and press communications.',
         keywords: ['Abdallah Elayyan', 'press', 'media', 'communications'],
         section: 'Team',
         path: '/team',
@@ -305,7 +305,7 @@ const searchData = [
     {
         id: 'ahmad-abu-turk',
         title: 'Ahmad Abu Turk',
-        content: 'Head of Press & Media at PMED Club. Supporting media relations and press communications.',
+        content: 'Head of Press & Media at PMED. Supporting media relations and press communications.',
         keywords: ['Ahmad Abu Turk', 'press', 'media', 'communications'],
         section: 'Team',
         path: '/team',
@@ -314,7 +314,7 @@ const searchData = [
     {
         id: 'mohammad-romana',
         title: 'Mohammad Romana',
-        content: 'Head of IT at PMED Club. Managing technology infrastructure and digital solutions.',
+        content: 'Head of IT at PMED. Managing technology infrastructure and digital solutions.',
         keywords: ['Mohammad Romana', 'IT', 'technology', 'digital', 'infrastructure'],
         section: 'Team',
         path: '/team',
@@ -323,7 +323,7 @@ const searchData = [
     {
         id: 'bishara-babish',
         title: 'Bishara Babish',
-        content: 'Head of IT at PMED Club. Supporting technology infrastructure and digital solutions.',
+        content: 'Head of IT at PMED. Supporting technology infrastructure and digital solutions.',
         keywords: ['Bishara Babish', 'IT', 'technology', 'digital', 'infrastructure'],
         section: 'Team',
         path: '/team',
@@ -332,7 +332,7 @@ const searchData = [
     {
         id: 'qusai-shwaiki',
         title: 'Qusai Shwaiki',
-        content: 'Graphic Designer at PMED Club. Creating visual designs and branding materials.',
+        content: 'Graphic Designer at PMED. Creating visual designs and branding materials.',
         keywords: ['Qusai Shwaiki', 'graphic designer', 'design', 'visual', 'branding'],
         section: 'Team',
         path: '/team',
@@ -341,7 +341,7 @@ const searchData = [
     {
         id: 'hind-abu-al-ghaib',
         title: 'Hind Abu Al Ghaib',
-        content: 'Graphic Designer at PMED Club. Supporting visual design and branding efforts.',
+        content: 'Graphic Designer at PMED. Supporting visual design and branding efforts.',
         keywords: ['Hind Abu Al Ghaib', 'graphic designer', 'design', 'visual', 'branding'],
         section: 'Team',
         path: '/team',
@@ -360,9 +360,9 @@ const searchData = [
     },
     {
         id: 'neurology-group',
-        title: 'Neurology Interest Group',
-        content: 'Expert-led mentorship & skill-building in neurology. Coming soon to PMED Club.',
-        keywords: ['neurology', 'neurology group', 'neurology interest', 'expert-led', 'mentorship', 'skill-building', 'coming soon'],
+        title: 'PMED Neuro Club',
+        content: 'PMED Neuro Club is open now, offering mentorship, skills training, and research opportunities in neurology and neuroscience.',
+        keywords: ['neurology', 'neuro club', 'PMED Neuro Club', 'expert-led', 'mentorship', 'skill-building', 'open now'],
         section: 'Programs',
         path: '/landing',
         icon: <Brain className="w-4 h-4" />
@@ -370,7 +370,7 @@ const searchData = [
     {
         id: 'surgery-group',
         title: 'Surgery Interest Group',
-        content: 'Clinical exposure and research opportunities in surgery. Coming soon to PMED Club.',
+        content: 'Clinical exposure and research opportunities in surgery. Coming soon to PMED.',
         keywords: ['surgery', 'surgery group', 'surgery interest', 'clinical exposure', 'research opportunities', 'coming soon'],
         section: 'Programs',
         path: '/landing',
@@ -379,18 +379,38 @@ const searchData = [
     {
         id: 'internal-medicine-group',
         title: 'Internal Medicine Interest Group',
-        content: 'Build strong foundations in internal medicine under expert guidance. Coming soon to PMED Club.',
+        content: 'Build strong foundations in internal medicine under expert guidance. Coming soon to PMED.',
         keywords: ['internal medicine', 'internal medicine group', 'internal medicine interest', 'strong foundations', 'expert guidance', 'coming soon'],
         section: 'Programs',
         path: '/landing',
         icon: <Activity className="w-4 h-4" />
     },
 
+    // Events
+    {
+        id: 'ipclm13',
+        title: 'IPCLM13',
+        content: 'International Palestinian Conference on Laboratory Medicine – 13th edition. PMED launched the Cardiology Division during IPCLM13 with active member participation and initial projects introduced.',
+        keywords: ['IPCLM13', 'IPCLM', 'international conference', 'laboratory medicine', 'Palestinian conference', 'conference', 'cardiology launch'],
+        section: 'Events',
+        path: '/news',
+        icon: <GraduationCap className="w-4 h-4" />
+    },
+    {
+        id: 'jmrc2025',
+        title: 'JMRC 2025',
+        content: 'Junior Medical Research Conference 2025 — a platform for medical students and junior doctors to present research and engage with leading professionals in the field.',
+        keywords: ['JMRC', 'JMRC2025', 'junior medical research conference', 'research conference', '2025', 'medical research', 'junior doctors', 'conference'],
+        section: 'Events',
+        path: '/news',
+        icon: <Microscope className="w-4 h-4" />
+    },
+
     // Contact Information
     {
         id: 'contact-info',
-        title: 'Contact PMED Club',
-        content: 'Get in touch with PMED Club. Email: external.affairs@pmed.club, Phone: +972 56-698-6006. Located in Palestine, Jerusalem.',
+        title: 'Contact PMED',
+        content: 'Get in touch with PMED. Email: external.affairs@pmed.club, Phone: +972 56-698-6006. Located in Palestine, Jerusalem.',
         keywords: ['contact', 'email', 'phone', 'external.affairs@pmed.club', '+972 56-698-6006', 'Palestine', 'Jerusalem', 'get in touch'],
         section: 'Contact',
         path: '/contact',

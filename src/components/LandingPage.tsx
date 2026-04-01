@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import {
-    Users,
-    BookOpen,
-    Stethoscope,
-    Heart,
     ArrowRight,
     ChevronLeft,
     ChevronRight
 } from 'lucide-react';
 import slide4Image from './images/Slide4e.jpg';
 import picofthemImage from './images/picofthem.png';
-import cardiologyLogoImage from './images/png.png';
-import cardiologyLogo from './images/cardiology.png';
-import neurologyLogo from './images/neurology.png';
+import cardiologyLogo from './supervisorpics/Cardiology Club logo.jpg';
+import neurologyLogo from './supervisorpics/PMED Neuro Club.jpg';
 import surgeryLogo from './images/surgery.png';
 import podcastLogo from './images/Slide4e.jpg'; // Using Slide4e.jpg as podcast logo per request
+import pmedLogo from './supervisorpics/PMED logo.jpg';
+import jmrcBanner from './images/JMRC2025-banner.jpg';
+import aaupBanner from './supervisorpics/AAUP banner.jpg';
 
 interface SlideButton {
     text: string;
@@ -36,7 +34,7 @@ interface Slide {
 }
 
 const LandingPage: React.FC = () => {
-    const [currentSlide, setCurrentSlide] = useState(1); // Start with PMED Club (slide 2)
+    const [currentSlide, setCurrentSlide] = useState(1); // Start with PMED (slide 2)
     const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
@@ -51,7 +49,7 @@ const LandingPage: React.FC = () => {
     const slides: Slide[] = [
         {
             id: 1,
-            title: 'Join PMED Podcast',
+            title: 'Join PMED Podcast Club',
             description: 'where medicine meets conversation, and voices shape the future of healthcare.',
             image: slide4Image,
             link: 'https://www.youtube.com/@pmedclubchannel',
@@ -60,7 +58,7 @@ const LandingPage: React.FC = () => {
         },
         {
             id: 2,
-            title: 'PMED Club',
+            title: 'PMED',
             description: 'Your journey to becoming a future doctors starts here',
 
             image: picofthemImage,
@@ -82,13 +80,31 @@ const LandingPage: React.FC = () => {
         },
         {
             id: 3,
+            title: 'JMRC 2025',
+            description: 'Junior Medical Research Conference — a platform for students and junior doctors to present research and engage with leading professionals.',
+            image: jmrcBanner,
+            link: '#',
+            buttonText: 'Learn More',
+            buttonColor: 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'
+        },
+        {
+            id: 4,
+            title: 'Neuro Conference',
+            description: 'Expert-led neurology conference exploring the latest advances in neuroscience and clinical neurology.',
+            image: aaupBanner,
+            link: '/neurology',
+            buttonText: 'Explore Neurology',
+            buttonColor: 'from-green-600 to-green-700 hover:from-green-700 hover:to-green-800'
+        },
+        {
+            id: 5,
             title: 'PMED Cardiology Club',
             description: 'Where hearts and minds beat together for medical excellence.',
-            image: cardiologyLogoImage,
+            image: pmedLogo,
             link: '/cardiology',
             buttonText: 'Start Your Journey',
             buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800',
-            titleTransparent: true // Flag to make title slightly transparent
+            titleTransparent: true
         }
     ];
 
@@ -115,7 +131,7 @@ const LandingPage: React.FC = () => {
 
     const interestGroups = [
         {
-            name: 'Cardiology',
+            name: 'PMED Cardiology Club',
             status: 'Open',
             description: 'Learn from expert doctors, join research projects, and gain mentorship in cardiology.',
             buttonText: 'Join Cardiology',
@@ -125,17 +141,17 @@ const LandingPage: React.FC = () => {
             color: 'from-red-500 to-red-600'
         },
         {
-            name: 'Neurology',
-            status: 'Coming Soon',
+            name: 'PMED Neuro Club',
+            status: 'Open',
             description: 'Expert-led mentorship & skill-building in neurology.',
-            buttonText: 'Coming Soon',
+            buttonText: 'Open Now',
             buttonLink: '/neurology',
             logo: neurologyLogo,
             logoClass: 'object-contain',
             color: 'from-green-500 to-green-600'
         },
         {
-            name: 'Surgery',
+            name: 'PMED Surgery Club',
             status: 'Coming Soon',
             description: 'Clinical exposure and research opportunities in surgery.',
             buttonText: 'Coming Soon',
@@ -145,7 +161,7 @@ const LandingPage: React.FC = () => {
             color: 'from-blue-500 to-blue-600'
         },
         {
-            name: 'PMED Podcast',
+            name: 'PMED Podcast Club',
             status: 'Open',
             description: 'Where medicine meets conversation, and voices shape the future of healthcare.',
             buttonText: 'Watch Now',
@@ -156,36 +172,61 @@ const LandingPage: React.FC = () => {
         }
     ];
 
-    const benefits = [
+    const stats = [
         {
-            icon: Users,
-            title: 'Created for students',
-            buttonText: 'Visit Instagram',
-            link: 'https://www.instagram.com/pmed.club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
-            buttonColor: 'from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700'
+            value: 133,
+            label: 'Cardiology Members',
+            description: 'PMED Cardiology Cardio Sharks embracing the excellence of PMED Cardiology and its exclusive professional advantages',
+            color: 'from-red-500 to-red-600'
         },
         {
-            icon: BookOpen,
-            title: 'Solid medical knowledge',
-            buttonText: 'Join WhatsApp Group',
-            link: 'https://chat.whatsapp.com/D6b3CvBn28S4agHvAG8kPZ?mode=wwt',
-            buttonColor: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
+            value: 4,
+            label: 'Events',
+            description: 'From planning to execution, contributed to organizing transformative medical events that left a measurable impact',
+            color: 'from-blue-500 to-blue-600'
         },
         {
-            icon: Heart,
-            title: 'Essential clinical skills',
-            buttonText: 'Be a member of cardiology interest group Apply now',
-            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform?usp=header',
-            buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
-        },
-        {
-            icon: Stethoscope,
-            title: 'Strong medical background',
-            buttonText: 'Join PMED Family',
-            link: 'https://l.instagram.com/?u=https%3A%2F%2Fforms.gle%2FFEdxA2yJ5jMggegH7%3Ffbclid%3DPAZnRzaANMc8pleHRuA2FlbQIxMQABp3LnPq-U5B-L6VTW7oQHIsc6SkBtMlrJ64Nky5Tu84RGnnSvbXZ82HfcastU_aem_-jEVcC3af7kxnAem80dP5A&e=AT2qjUdVFFZD9TZdE1N0UN_lPpMFylu0JzyiAPuuJCxoki1DX5nqEga7BdTqinyBQS3Bx5evlBtRrFtQXNoqX8Gg1NpDf4BC95syVfEC7w',
-            buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'
+            value: 3,
+            label: 'Clubs',
+            description: 'Successfully launched and developed specialized medical clubs fostering innovation and excellence with more initiatives underway',
+            color: 'from-green-500 to-green-600'
         }
     ];
+
+    const StatCounter: React.FC<{ value: number; color: string; label: string; description: string }> = ({ value, color, label, description }) => {
+        const ref = useRef<HTMLDivElement>(null);
+        const inView = useInView(ref, { once: true, margin: '-80px' });
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+            if (!inView) return;
+            let current = 0;
+            const step = Math.ceil(value / (1500 / 16));
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= value) { setCount(value); clearInterval(timer); }
+                else setCount(current);
+            }, 16);
+            return () => clearInterval(timer);
+        }, [inView, value]);
+
+        return (
+            <motion.div
+                ref={ref}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center px-6"
+            >
+                <div className={`text-7xl md:text-8xl font-extrabold bg-gradient-to-r ${color} bg-clip-text text-transparent mb-2`}>
+                    {count}+
+                </div>
+                <div className="text-xl font-bold text-gray-900 mb-3">{label}</div>
+                <p className="text-gray-500 text-sm max-w-xs leading-relaxed">{description}</p>
+            </motion.div>
+        );
+    };
 
     return (
         <div className="min-h-screen bg-white">
@@ -423,7 +464,7 @@ const LandingPage: React.FC = () => {
                             PMED Interest Groups
                         </h2>
                         <p className="text-xl text-gray-700 mb-4 max-w-4xl mx-auto">
-                            PMED is the FIRST club in Palestine to launch Interest Groups - and we're just getting started!
+                            PMED is the FIRST Institute in Palestine to launch Interest Groups - and we're just getting started!
                         </p>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             A dedicated space for med students to connect, grow, and sharpen their skills in the specialties they dream of under the mentorship of inspiring doctors. Where passion meets opportunity!
@@ -522,6 +563,27 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
+            {/* Statistics Section */}
+            <section className="py-20 bg-[#1C2E4A]">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-14"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Impact</h2>
+                        <p className="text-white/60 text-lg">Growing stronger with every milestone</p>
+                    </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        {stats.map((stat) => (
+                            <StatCounter key={stat.label} {...stat} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* 3️⃣ Ready to Level Up Section */}
             <section id="join-us-section" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-100 to-blue-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -543,37 +605,7 @@ const LandingPage: React.FC = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                        {benefits.map((benefit, index) => (
-                            <motion.div
-                                key={benefit.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                whileHover={{ scale: 1.05, y: -5 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center flex flex-col"
-                            >
-                                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <benefit.icon className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                                    {benefit.title}
-                                </h3>
-                                <motion.a
-                                    href={benefit.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className={`mt-auto bg-gradient-to-r ${benefit.buttonColor || 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg inline-block`}
-                                >
-                                    {benefit.buttonText}
-                                    <ArrowRight className="inline-block ml-2 w-4 h-4" />
-                                </motion.a>
-                            </motion.div>
-                        ))}
-                    </div>
+
 
                     {/* Join Us Text */}
                     <motion.div

@@ -298,7 +298,7 @@ const PodcastPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                Welcome to the <span className="text-[#1C2E4A] font-semibold">PMED Podcast Club</span>, a project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
+                                Welcome to <span className="text-[#1C2E4A] font-semibold">PMED Podcast Club</span>, a project launched by the PMED community to provide inspiring, intelligent, and thought-provoking conversations from the heart of Palestinian medicine and beyond.
                                 <br /><br />
                                 Each episode has three core PMED representatives who welcome a special guest—a successful <span className="text-[#1C2E4A] font-semibold">doctor of Palestinian ancestry</span> who has made a significant contribution to clinical practice, academia, research, public health, or leadership.
                                 <br /><br />

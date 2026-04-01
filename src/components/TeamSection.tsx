@@ -5,20 +5,24 @@ import ahmad from "./teampics/mhmd.png";
 import kinda from "./teampics/kinda.jpeg";
 import Abdallah from "./teampics/abdallah.jpeg";
 import bish from "./teampics/bish.jpeg";
-import jana from "./teampics/jana.jpg";
-import meray from "./teampics/MerayDour.jpeg";
-import noran from "./teampics/noran.png";
 import raghad from "./teampics/raghad.png";
 import olga from "./teampics/olga.png";
-import masri from "./teampics/masri.png";
-import joelle from "./teampics/joelle.png";
+import kristenGharo from "./teampics/kristen-gharo.jpg";
+import lujainBdeir from "./teampics/lujain-bdeir.jpg";
+import ruaaBajah from "./teampics/ruaa-bajah.jpg";
+import mohammadAbuGharbieh from "./teampics/mohammad-abu-gharbieh.jpg";
 import mohammadRomana from "./teampics/Mohammad Romana.jpeg";
+import emanAbuSharekh from "./teampics/Eman AbuSharekh - Social Media assistant .jpg";
+import leenYasser from "./teampics/Leen Yasser - Educational content and video editor.jpeg";
+import talaRaed from "./teampics/Tala Raed social media assistant ..jpg";
+import lujainBdeirSocial from "./teampics/lujain-bdeir.jpg";
 
 const teamStructure = [
     {
         roleGroup: "Leadership & Founders",
         color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
+        teamColor: "#1C2E4A",
         members: [
             {
                 name: 'Ahmad Romana',
@@ -42,6 +46,7 @@ const teamStructure = [
         roleGroup: "Cardiology Club Board Team",
         color: "from-[#990000] via-[#990000] to-[#990000]",
         accent: "from-red-600 to-red-700",
+        teamColor: "#990000",
         icon: Heart,
         members: [
             {
@@ -50,14 +55,14 @@ const teamStructure = [
                 img: kinda,
             },
             {
-                name: 'Jana Faroun',
+                name: 'Kristen Gharo',
                 role: 'Cardiology Secretary General',
-                img: jana,
+                img: kristenGharo,
             },
             {
-                name: 'Noran Orabi',
+                name: 'Lujain Bdeir',
                 role: 'Cardiology Outreach Officer',
-                img: noran,
+                img: lujainBdeir,
             },
             {
                 name: 'Raghad Doufesh',
@@ -70,14 +75,14 @@ const teamStructure = [
                 img: olga,
             },
             {
-                name: 'Mohammad Masri',
+                name: 'Ruaa Bajah',
                 role: 'Cardiology Educational Content Officer',
-                img: masri,
+                img: ruaaBajah,
             },
             {
-                name: 'Joelle Ammar',
+                name: 'Mohamed Abu Gharbieh',
                 role: 'Cardiology Activities Officer',
-                img: joelle,
+                img: mohammadAbuGharbieh,
             },
         ]
     },
@@ -85,6 +90,8 @@ const teamStructure = [
         roleGroup: "Press & Media Team",
         color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
+        teamColor: "#7D3C98",
+        
         icon: Video,
         members: [
             {
@@ -92,17 +99,13 @@ const teamStructure = [
                 role: 'Head of Press & Media',
                 img: Abdallah,
             },
-            {
-                name: 'Meray Dour',
-                role: 'Head of Press & Media',
-                img: meray,
-            }
         ]
     },
     {
         roleGroup: "IT Team",
         color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
+        teamColor: "#1A5276",
         icon: Code,
         members: [
             {
@@ -116,6 +119,18 @@ const teamStructure = [
                 img: mohammadRomana,
                 description: "Mohammad Romana keeps PMED's digital backbone secure, scalable, and ready for every new initiative.",
             }
+        ]
+    },
+    {
+        roleGroup: "Social Media Team",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
+        accent: "from-blue-500 to-indigo-500",
+        teamColor: "#D4891A",
+        members: [
+            { name: 'Eman Abusharekh', role: 'Social Media Assistant', img: emanAbuSharekh },
+            { name: 'Leen Yasser', role: 'Educational Content & Video Editor', img: leenYasser },
+            { name: 'Tala Raed', role: 'Social Media Assistant', img: talaRaed },
+            { name: 'Lujain Bdeir', role: 'Social Media Team', img: lujainBdeirSocial },
         ]
     }
 ];
@@ -164,6 +179,7 @@ interface Member {
 interface Group {
     color: string;
     accent: string;
+    teamColor: string;
 }
 
 interface MemberCardProps {
@@ -195,7 +211,7 @@ const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
                 <div className="grid grid-cols-1 sm:grid-cols-[auto,1fr] gap-6 mb-6 items-start">
                     { }
                     <div className="flex-shrink-0 text-center sm:text-left flex flex-col items-center sm:items-start gap-4 w-full sm:w-auto">
-                        <div className={`w-32 h-32 sm:w-40 sm:h-40 mx-auto sm:mx-0 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
+                        <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto sm:mx-0 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
                             <img
                                 src={member.img}
                                 alt={member.name}
@@ -256,7 +272,7 @@ const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
     </motion.div>
 );
 
-const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
+const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
     <motion.div
         variants={cardVariants}
         whileHover={{
@@ -279,11 +295,11 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
             <div className="relative z-10 text-center">
                 { }
                 <div className="relative mb-4 sm:mb-6">
-                    <div className={`w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] p-0.5 sm:p-1`}>
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
                         <img
                             src={member.img}
                             alt={member.name}
-                            className="w-full h-full object-cover rounded-xl"
+                            className="w-full h-full object-cover"
                         />
                     </div>
                 </div>
@@ -293,7 +309,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => (
                     {member.name}
                 </h4>
 
-                <div className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] rounded-full mb-2 sm:mb-3`}>
+                <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-2 sm:mb-3" style={{ backgroundColor: group.teamColor }}>
                     <p className="text-xs sm:text-sm font-semibold text-white">
                         {member.role}
                     </p>
@@ -326,11 +342,11 @@ const TreeMemberCard: React.FC<{ member: Member; isHead?: boolean }> = ({ member
 
             <div className="relative z-10 text-center">
                 <div className="relative mb-3 sm:mb-5 flex justify-center">
-                    <div className={`${isHead ? "w-24 h-24 sm:w-32 sm:h-32" : "w-20 h-20 sm:w-24 sm:h-24"} rounded-2xl overflow-hidden shadow-xl ring-4 ${isHead ? "ring-red-100/60" : "ring-red-50/60"} bg-gradient-to-br from-[#990000] to-[#7f0000] p-0.5 sm:p-1`}>
+                    <div className={`${isHead ? "w-24 h-24 sm:w-32 sm:h-32" : "w-20 h-20 sm:w-24 sm:h-24"} rounded-2xl overflow-hidden shadow-xl`} style={{ backgroundColor: '#990000' }}>
                         <img
                             src={member.img}
                             alt={member.name}
-                            className="w-full h-full object-cover rounded-xl"
+                            className="w-full h-full object-contain"
                         />
                     </div>
                 </div>
@@ -347,6 +363,59 @@ const TreeMemberCard: React.FC<{ member: Member; isHead?: boolean }> = ({ member
             </div>
 
             <div className="absolute inset-0 bg-gradient-to-br from-[#990000] to-[#7a0000] opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl" />
+        </div>
+    </motion.div>
+);
+
+const SocialMediaCard: React.FC<{ member: Member; teamColor: string }> = ({ member, teamColor }) => (
+    <motion.div
+        variants={cardVariants}
+        whileHover={{ y: -8, scale: 1.02, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+        className="group relative w-full"
+    >
+        <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-6 shadow-lg border border-border-gray hover:shadow-2xl transition-all duration-500 overflow-hidden">
+            <div className="absolute inset-0 opacity-5">
+                <div className="w-full h-full bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A]" />
+            </div>
+            <div className="relative z-10 text-center">
+                <div className="relative mb-4 flex justify-center">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
+                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <h4 className="text-sm sm:text-base font-bold text-main-gray mb-2 group-hover:text-[#1C2E4A] transition-colors">
+                    {member.name}
+                </h4>
+                <div className="inline-block px-3 py-1.5 rounded-full" style={{ backgroundColor: teamColor }}>
+                    <p className="text-xs font-semibold text-white">{member.role}</p>
+                </div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1C2E4A] to-[#1C2E4A] opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl" />
+        </div>
+    </motion.div>
+);
+
+const SocialMediaSection: React.FC<{ team: Team }> = ({ team }) => (
+    <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="mb-10 sm:mb-14 md:mb-16"
+    >
+        <div className="text-center mb-6 sm:mb-10">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#1C2E4A] mb-2 sm:mb-4">
+                {team.roleGroup}
+            </h3>
+            <div className="w-16 sm:w-24 h-1 bg-[#1C2E4A] mx-auto rounded-full" />
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+                {team.members.map((member, idx) => (
+                    <SocialMediaCard key={idx} member={member} teamColor={team.teamColor} />
+                ))}
+            </div>
         </div>
     </motion.div>
 );
@@ -418,7 +487,8 @@ const CardiologyTree: React.FC<{ team: Team }> = ({ team }) => {
 const TeamSection = () => {
     const founders = teamStructure[0];
     const cardiologyTeam = teamStructure[1];
-    const otherTeams = teamStructure.slice(2);
+    const socialMediaTeam = teamStructure[4];
+    const otherTeams = teamStructure.slice(2, 4);
     const topTierTeams = otherTeams.slice(0, 3);
     const bottomTierTeams = otherTeams.slice(3);
 
@@ -526,6 +596,9 @@ const TeamSection = () => {
                             </div>
                         </div>
                     </motion.div>
+
+                    { }
+                    <SocialMediaSection team={socialMediaTeam} />
 
                     { }
                     <div className={`grid grid-cols-1 ${topTierGridCols} gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative justify-items-center`}>

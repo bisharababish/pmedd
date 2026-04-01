@@ -2,7 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logoo from './images/logo1.png';
+import logoo from './supervisorpics/PMED logo.jpg';
 import LoadingSkeleton from './LoadingSkeleton';
 
 const SearchEngine = lazy(() => import('./SearchEngine'));
@@ -60,7 +60,7 @@ const Navigation: React.FC = () => {
       label: 'Divisions', href: '/divisions', dropdown: [
         { label: 'PMED Cardiology Club', href: '/cardiology' },
         { label: 'PMED Podcast Club', href: '/podcast' },
-        { label: 'PMED Neurology Club', href: '/neurology' },
+        { label: 'PMED Neuro Club', href: '/neurology' },
       ]
     },
     {
@@ -69,6 +69,7 @@ const Navigation: React.FC = () => {
 
         { label: 'Mission and Vision', href: '/about_mission' },
         { label: 'Our Deliverables', href: '/about_deliverables' },
+        { label: 'Our Ambassadors', href: '/about_ambassadors' },
         { label: 'Meet The Team', href: '/team' },
       ]
     },

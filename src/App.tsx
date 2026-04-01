@@ -4,6 +4,8 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import LoadingSkeleton from './components/LoadingSkeleton';
+import LoadingScreen from './components/LoadingScreen';
+import FloatingJoinButton from './components/FloatingJoinButton';
 
 const HeroSlideshow = lazy(() => import('./components/HeroSlideshow'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
@@ -19,6 +21,8 @@ const LandingPage = lazy(() => import('./components/LandingPage'));
 function App() {
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <LoadingScreen />
+      <FloatingJoinButton />
       <ScrollToTopButton />
       <div className="min-h-screen bg-gray-50">
         <Navigation />

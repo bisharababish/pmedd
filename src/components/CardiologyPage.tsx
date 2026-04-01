@@ -16,7 +16,7 @@ import saraImage from "./supervisorpics/one.png";
 const supervisors = [
     {
         image: supervisor1,
-        name: "Dr. Sameer Mtour",
+        name: "Prof. Sameer Mtour",
         title: "Consultant Cardiologist",
         bullets: [
             "Head of the Cardiology Department at Al-Makassed Hospital.",
@@ -498,7 +498,7 @@ const CardiologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Each year, we open membership applications, offering students the opportunity to become part of the <span className="text-[#990000] font-bold">PMED Cardiology Club</span> — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
+                                    Each year, we open membership applications, offering students the opportunity to become part of <span className="text-[#990000] font-bold">PMED Cardiology Club</span> — a route reserved for those with <span className="text-[#990000] font-semibold">heart, grit, and purpose</span>. Applications open on a limited basis, and when they do, <span className="text-[#990000] font-bold">every moment matters</span>.<br /><br />
                                     To stay ahead, follow our <span className="text-[#990000] font-bold">official social media channels</span>. This is where we post our latest access to application windows, deadlines and exclusive updates — to never miss the opportunity.
                                 </p>
                                 <motion.a

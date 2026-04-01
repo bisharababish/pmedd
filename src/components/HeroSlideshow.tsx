@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
-import Slide3 from "./images/png.png";
 import picofthem from "./images/picofthem.png";
+import pmedLogo from "./supervisorpics/PMED logo.jpg";
+import aaupBanner from "./supervisorpics/AAUP banner.jpg";
+import jmrcBanner from "./images/JMRC2025-banner.jpg";
 
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,7 +22,7 @@ const HeroSlideshow: React.FC = () => {
       id: 1,
       type: 'welcome',
       title: 'Welcome to PMED',
-      subtitle: 'Palestine Medical Education & Development Club',
+      subtitle: 'Palestine Medical Education & Development',
       description: 'Empowering the next generation of medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.',
       image: picofthem,
       cta: 'Explore Programs'
@@ -38,12 +40,30 @@ const HeroSlideshow: React.FC = () => {
     },
     {
       id: 3,
+      type: 'jmrc',
+      title: 'JMRC 2025',
+      subtitle: 'Junior Medical Research Conference',
+      description: 'A platform for medical students and junior doctors to present their research and engage with leading professionals in the field.',
+      image: jmrcBanner,
+      cta: 'Learn More'
+    },
+    {
+      id: 4,
+      type: 'neuro',
+      title: 'Neuro Conference',
+      subtitle: 'PMED Neurology Club',
+      description: 'Expert-led neurology conference bringing together students and clinicians to explore the latest advances in neuroscience and clinical neurology.',
+      image: aaupBanner,
+      cta: 'Explore Neurology'
+    },
+    {
+      id: 5,
       type: 'education',
       title: 'PMED Cardiology Club',
       subtitle: 'PMED Official Division',
       description: 'An official PMED division offering 10 annual seats for students to explore cardiology through expert-led research, clinical exposure, and mentorship.',
-      image: Slide3,
-      cta: 'Cardiology Club!'
+      image: pmedLogo,
+      cta: 'Cardiology!'
     }
   ];
 
@@ -130,7 +150,7 @@ const HeroSlideshow: React.FC = () => {
             >
               { }
               <div className="absolute inset-0">
-                {slide.id === 3 ? (
+                {slide.type === 'education' ? (
                   <motion.img
                     src={slide.image}
                     alt={slide.title}

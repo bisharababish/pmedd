@@ -7,6 +7,10 @@ import slide4Image from './images/Slide4.jpg';
 import supervisor1Image from './supervisorpics/supervisor1.png';
 import ahmadRoyalImage from './images/ahmadroyal.jpg';
 import conferenceImage from './images/conference.jpg';
+import ipclm13Image from './images/IPCLM13 banner.jpg';
+import jmrc2025Image from './images/JMRC2025-banner.jpg';
+import quizNightImage from './images/PMED quiz night banner.jpg';
+import aaupBannerImage from './supervisorpics/AAUP banner.jpg';
 
 interface NewsItem {
     id: number;
@@ -30,19 +34,55 @@ const NewsPage: React.FC = () => {
     const newsItems: NewsItem[] = [
         {
             id: 1,
-            title: "Launch of the Cardiology Division at IPCLM13",
-            description: "PMED Club launched the Cardiology Division during IPCLM13, with active member participation and initial projects introduced.",
-            image: conferenceImage, // Using conference image for cardiology launch
-            category: "Cardiology",
+            title: "IPCLM13 – International Palestinian Conference for Laboratory Medicine",
+            description: "Our club participated in the IPCLM13 International Palestinian Conference, hosted our own club booth, and officially announced the launch of the PMED Cardiology Club.",
+            image: ipclm13Image,
+            category: "Conference",
             date: "2024-01-15",
-            buttonText: "Read More",
-            buttonAction: "#cardiology-details",
-            buttonType: "internal",
-            details: "A proudly Palestinian club, founded with one mission: to ignite passion, inspire excellence, and serve the future hearts of medicine — the students of Palestine. During our participation in IPCLM13 held at the Conference Palace, we announced the launch of PMED Club's first Cardiology Interest Group, and shared that membership would open soon, offering our members exclusive opportunities in research, hands-on learning, workshops, and more."
+            buttonText: "Visit IPCLM13 Website",
+            buttonAction: "https://www.ipclm.ps/index.php?lang=en",
+            buttonType: "external",
+            details: "Our club participated in the IPCLM13 International Palestinian Conference, held at the convention palace company. During the event, we hosted our own club booth and officially announced the launch of the PMED Cardiology Club, under the supervision of leading cardiologists from inside and outside the country.\n\nAs medical students passionate about driving change, we transformed ideas into action and shared our vision through this platform. This marked the beginning of our journey, and we promise continued creativity, impact, and excellence."
+        },
+        {
+            id: 5,
+            title: "JMRC 2025 – Junior Medical Research Conference",
+            description: '"UNITED IN MEDICINE, DRIVEN BY PURPOSE" — Our club played a key role in organizing and supervising the JMRC2025 Conference at the Millennium Hotel in Ramallah.',
+            image: jmrc2025Image,
+            category: "Conference",
+            date: "2026-01-30",
+            buttonText: "Visit JMRC Website",
+            buttonAction: "https://jmrc.live/",
+            buttonType: "external",
+            details: "Our club played a key role in organizing and supervising the JMRC2025 Conference, which took place on Friday, 30/1/2026, at the Millennium Hotel in Ramallah. We actively participated in the event through workshops, interactive booths, research sessions, and lectures, bringing together Palestinian physicians to advance healthcare through education, research, innovation, and collaboration."
+        },
+        {
+            id: 6,
+            title: "NeuroPedia & PMED Neuro Club – Official Launch",
+            description: "The official launch of NeuroPedia Palestine & PMED Neuro Club brought together medical students, residents, neurologists, neurosurgeons, neuroscientists, and academic leaders.",
+            image: aaupBannerImage,
+            category: "Neurology",
+            date: "2026-03-01",
+            buttonText: "View on Instagram",
+            buttonAction: "https://www.instagram.com/p/DTNoYxkjKql/?igsh=bXkwdjAyMWFtMHQ3",
+            buttonType: "external",
+            details: "Event Highlights:\n• Building professional connections in the field\n• Inspiring journeys with great mentors\n• Engaging with research opportunities\n• Enhancing clinical knowledge through local and national exchange\n\nThe event marked the beginning of an exciting journey for medical students passionate about neurology. Congratulations to the PMED Neuro Club team for this remarkable milestone!"
+        },
+        {
+            id: 7,
+            title: "Cardiology Quiz Night – Recap!",
+            description: "A powerful night filled with competition, knowledge, and cardiology spirit! Thank you to everyone who joined and made it unforgettable.",
+            image: quizNightImage,
+            category: "Cardiology",
+            date: "2025-06-01",
+            buttonText: "View More Moments",
+            buttonAction: "https://www.instagram.com/p/DRXO4oDDMlj/?igsh=MTNyMzVwMTFxMGlvZg%3D%3D",
+            buttonType: "external",
+            details: "A powerful night filled with competition, knowledge, and cardiology spirit!\n\nThank you to everyone who joined and made it unforgettable. Stay tuned for more exciting cardiology activities, and make sure to take part in the upcoming ones!\n\nMembers-only events are also on the way, so don't miss your chance to join."
         },
         {
             id: 2,
-            title: "PMED Club Podcast – First Episode Released",
+            title: "PMED Podcast Club – First Episode Released",
             description: "Our first podcast episode is now live, discussing Listening is key for every doctor… but that's not all! In this episode, we discussed choosing role models, building true value in others' lives, and other inspiring topics.",
             image: slide4Image, // Using Slide4 image for podcast
             category: "Podcast",
@@ -64,19 +104,19 @@ const NewsPage: React.FC = () => {
         },
         {
             id: 4,
-            title: "A new achievement for the PMED Club.",
-            description: "The recognition of our PMED Club President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.",
+            title: "A new achievement for PMED.",
+            description: "The recognition of our PMED President by Al-Quds University stands as a testament to the talent, dedication, and global scientific presence of our family.",
             image: ahmadRoyalImage, // Using the Royal Society event image
             category: "Achievements",
             date: "2024-10-04",
             buttonText: "View Post",
             buttonAction: "https://www.facebook.com/share/p/17KqEfHYMf/?mibextid=wwXIfr",
             buttonType: "external",
-            details: "Our PMED Club President has been recognized by Al-Quds University for outstanding contributions to medical research and education. This recognition highlights the exceptional talent within our club and demonstrates our commitment to excellence in the medical field. The achievement reflects the dedication of our members and their ability to make meaningful contributions to global scientific research."
+            details: "Our PMED President has been recognized by Al-Quds University for outstanding contributions to medical research and education. This recognition highlights the exceptional talent within our club and demonstrates our commitment to excellence in the medical field. The achievement reflects the dedication of our members and their ability to make meaningful contributions to global scientific research."
         }
     ];
 
-    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements'];
+    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements', 'Conference', 'Neurology'];
 
     const filteredNews = useMemo(() => {
         return newsItems
@@ -134,7 +174,7 @@ const NewsPage: React.FC = () => {
                         PMED News & Updates
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Stay updated with the latest news, events, and achievements from PMED Club
+                        Stay updated with the latest news, events, and achievements from PMED
                     </p>
                 </motion.div>
 

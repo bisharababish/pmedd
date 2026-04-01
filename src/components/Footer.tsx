@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoo from './images/logo1.png';
+import logoo from './supervisorpics/PMED logo.jpg';
 
 const Footer: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -43,6 +43,14 @@ const Footer: React.FC = () => {
       external: true,
       color: 'from-blue-700 to-blue-900',
       hoverColor: 'from-blue-800 to-blue-900'
+    },
+    {
+      icon: <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>,
+      href: 'https://www.tiktok.com/@pmed.podcast?_r=1&_t=ZS-948YreC1DvQ',
+      label: 'TikTok',
+      external: true,
+      color: 'from-gray-800 to-black',
+      hoverColor: 'from-gray-900 to-black'
     }
   ];
 
@@ -291,7 +299,7 @@ const Footer: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 whileHover={{ scale: 1.02 }}
               >
-                Palestine Medical Education & Development Club - Empowering the next generation of
+                Palestine Medical Education & Development - Empowering the next generation of
                 medical professionals through medical specialty interest groups, exposure to real-world clinical and research opportunities.
               </motion.p>
 
