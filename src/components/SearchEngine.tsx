@@ -181,6 +181,24 @@ const searchData = [
         path: '/about',
         icon: <Users className="w-4 h-4" />
     },
+    {
+        id: 'ambassadors',
+        title: 'Our Ambassadors',
+        content: 'PMED Ambassadors represent our community across the globe. Ibrahim Alzir (Greece) and Joud Akkad (USA) connect Palestinian medical students with opportunities worldwide.',
+        keywords: ['ambassadors', 'Ibrahim Alzir', 'Joud Akkad', 'Greece', 'USA', 'global', 'international', 'representative'],
+        section: 'About',
+        path: '/about_ambassadors',
+        icon: <Users className="w-4 h-4" />
+    },
+    {
+        id: 'secretary-general',
+        title: 'Marah Abu Rameleh – Secretary General',
+        content: 'Marah Abu Rameleh is Secretary General and Vice President for Internal Affairs of PMED. A third-year medical student passionate about research, medical education, and student leadership.',
+        keywords: ['Marah Abu Rameleh', 'secretary general', 'internal affairs', 'leadership', 'PMED board', 'vice president'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
 
     // Programs Section
     {

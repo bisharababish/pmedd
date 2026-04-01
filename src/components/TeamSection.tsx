@@ -16,6 +16,7 @@ import emanAbuSharekh from "./teampics/Eman AbuSharekh - Social Media assistant 
 import leenYasser from "./teampics/Leen Yasser - Educational content and video editor.jpeg";
 import talaRaed from "./teampics/Tala Raed social media assistant ..jpg";
 import lujainBdeirSocial from "./teampics/lujain-bdeir.jpg";
+import marah from "./supervisorpics/marah.png";
 
 const teamStructure = [
     {
@@ -36,9 +37,17 @@ const teamStructure = [
                 name: 'Kinda Abu Hashhash',
                 role: 'Vice President & Co-Founder',
                 img: kinda,
-                description: "Kinda Abu Hashhash is a fourth-year medical student and the Head of the PMED Cardiology Club. She’s passionate about both medicine and debate, having represented Palestine in the Reading Challenge and her university in Qatar’s International Debating Championship. These experiences helped shape her leadership and communication skills. As Vice President of PMED and leader of the cardiology division, Kinda continues to create spaces that combine science.",
+                description: "Kinda Abu Hashhash is a fourth-year medical student and the Head of the PMED Cardiology Club. She's passionate about both medicine and debate, having represented Palestine in the Reading Challenge and her university in Qatar's International Debating Championship. These experiences helped shape her leadership and communication skills. As Vice President of PMED and leader of the cardiology division, Kinda continues to create spaces that combine science.",
                 quote: "Medicine taught me that every heartbeat is a dialogue between science and humanity",
                 email: 'k.hashhash@pmed.club'
+            },
+            {
+                name: 'Marah Abu Rameleh',
+                role: 'Secretary General',
+                img: marah,
+                description: "Marah Abu Rameleh is a third-year medical student with a strong passion for research, medical education, and student leadership. She currently serves as Secretary General and Vice President for Internal Affairs of the PMED Institute, where she works to build collaborative spaces that support learning and innovation among medical students. Through organizing academic initiatives and contributing to research projects, Marah continues to develop her skills in leadership, communication, and teamwork while hoping to make a meaningful impact in the medical community.",
+                quote: "Where curiosity meets purpose, impact begins.",
+                email: 'internal.affairs@pmed.club'
             }
         ]
     },
@@ -91,7 +100,6 @@ const teamStructure = [
         color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
         teamColor: "#7D3C98",
-        
         icon: Video,
         members: [
             {
@@ -170,7 +178,7 @@ const cardVariants = {
 interface Member {
     name: string;
     role: string;
-    img: string;
+    img: string | null;
     description?: string;
     quote?: string;
     email?: string;
@@ -212,11 +220,19 @@ const LeadershipCard: React.FC<MemberCardProps> = ({ member }) => (
                     { }
                     <div className="flex-shrink-0 text-center sm:text-left flex flex-col items-center sm:items-start gap-4 w-full sm:w-auto">
                         <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto sm:mx-0 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
-                            <img
-                                src={member.img}
-                                alt={member.name}
-                                className="w-full h-full object-cover rounded-xl"
-                            />
+                            {member.img ? (
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="w-full h-full object-cover rounded-xl"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1C2E4A] to-[#2d4a7a]">
+                                    <span className="text-white text-4xl font-bold opacity-60">
+                                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                    </span>
+                                </div>
+                            )}
                         </div>
                         <div className="space-y-3 w-full">
                             {member.role && (
@@ -297,7 +313,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, group }) => (
                 <div className="relative mb-4 sm:mb-6">
                     <div className="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
                         <img
-                            src={member.img}
+                            src={member.img ?? undefined}
                             alt={member.name}
                             className="w-full h-full object-cover"
                         />
@@ -344,7 +360,7 @@ const TreeMemberCard: React.FC<{ member: Member; isHead?: boolean }> = ({ member
                 <div className="relative mb-3 sm:mb-5 flex justify-center">
                     <div className={`${isHead ? "w-24 h-24 sm:w-32 sm:h-32" : "w-20 h-20 sm:w-24 sm:h-24"} rounded-2xl overflow-hidden shadow-xl`} style={{ backgroundColor: '#990000' }}>
                         <img
-                            src={member.img}
+                            src={member.img ?? undefined}
                             alt={member.name}
                             className="w-full h-full object-contain"
                         />
@@ -380,7 +396,7 @@ const SocialMediaCard: React.FC<{ member: Member; teamColor: string }> = ({ memb
             <div className="relative z-10 text-center">
                 <div className="relative mb-4 flex justify-center">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/30 bg-[#1C2E4A]">
-                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                        <img src={member.img ?? undefined} alt={member.name} className="w-full h-full object-cover" />
                     </div>
                 </div>
                 <h4 className="text-sm sm:text-base font-bold text-main-gray mb-2 group-hover:text-[#1C2E4A] transition-colors">
@@ -545,13 +561,24 @@ const TeamSection = () => {
                         </div>
 
                         { }
+                        {/* Top row: first two members side by side */}
                         <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 mb-8 sm:mb-12 items-stretch">
-                            {founders.members.map((member, idx) => (
+                            {founders.members.slice(0, 2).map((member, idx) => (
                                 <div key={idx} className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 flex">
                                     <LeadershipCard member={member} group={founders} />
                                 </div>
                             ))}
                         </div>
+                        {/* Bottom row: remaining members centered */}
+                        {founders.members.length > 2 && (
+                            <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 mb-8 sm:mb-12 items-stretch justify-center">
+                                {founders.members.slice(2).map((member, idx) => (
+                                    <div key={idx} className="w-full lg:w-1/2 max-w-3xl mx-auto flex">
+                                        <LeadershipCard member={member} group={founders} />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
 
                         { }
                         <div className="relative flex justify-center mb-4 sm:mb-8">

@@ -17,6 +17,7 @@ const PodcastPage = lazy(() => import('./components/PodcastPage'));
 const NeurologyPage = lazy(() => import('./components/NeurologyPage'));
 const NewsPage = lazy(() => import('./components/NewsPage'));
 const LandingPage = lazy(() => import('./components/LandingPage'));
+const AmbassadorsPage = lazy(() => import('./components/AmbassadorsPage'));
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/neurology" element={<NeurologyPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/landing" element={<LandingPage />} />
+            <Route path="/about_ambassadors" element={<AmbassadorsPage />} />
           </Routes>
         </Suspense>
         <Footer />
