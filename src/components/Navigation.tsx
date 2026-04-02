@@ -125,7 +125,7 @@ const Navigation: React.FC = () => {
                   PMED
                 </h1>
                 <p className="text-sm italic font-light text-white/80 drop-shadow-md mt-0.5 tracking-wide">
-                  The Palestinian medical club
+                  The Palestinian Medical Institute
                 </p>
               </div>
             </motion.div>

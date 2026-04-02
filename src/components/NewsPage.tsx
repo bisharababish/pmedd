@@ -405,53 +405,54 @@ const NewsPage: React.FC = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 }}
-                                className="bg-white rounded-2xl shadow-xl p-8"
                             >
                                 <div className="flex items-center justify-between mb-6">
                                     <div>
                                         <h2 className="text-2xl font-bold text-gray-900">News Archive</h2>
-                                        <p className="text-gray-600">
-                                            Browse past highlights and milestones
-                                        </p>
+                                        <p className="text-gray-600">Browse past highlights and milestones</p>
                                     </div>
                                 </div>
-                                <div className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {archiveNews.map((item, index) => (
-                                        <motion.div
+                                        <motion.article
                                             key={item.id}
-                                            initial={{ opacity: 0, x: -15 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.4, delay: index * 0.08 }}
-                                            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gray-100 pb-6 last:border-none last:pb-0"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
                                         >
-                                            <div className="flex items-start gap-4">
-                                                <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 font-semibold">
-                                                    {new Date(item.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                            <div className="relative h-48 overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                />
+                                                <div className="absolute top-4 left-4 flex gap-2">
+                                                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
+                                                        {item.category}
+                                                    </span>
                                                 </div>
-                                                <div>
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
-                                                            {item.category}
-                                                        </span>
-                                                    </div>
-                                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                                        {item.title}
-                                                    </h3>
-                                                    <p className="text-gray-600 line-clamp-2">
-                                                        {item.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center gap-3 self-start md:self-center">
                                                 <button
                                                     onClick={() => handleShare(item)}
-                                                    className="p-2.5 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                                                    className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                                                 >
                                                     <Share2 className="w-4 h-4 text-gray-600" />
                                                 </button>
+                                            </div>
+                                            <div className="p-6 flex flex-col flex-1">
+                                                <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                                                    <Calendar className="w-4 h-4" />
+                                                    <span>{new Date(item.date).toLocaleDateString()}</span>
+                                                </div>
+                                                <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-gray-600 mb-6 line-clamp-3 flex-1">
+                                                    {item.description}
+                                                </p>
                                                 <button
                                                     onClick={() => handleButtonClick(item)}
-                                                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                                                    className="mt-auto inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
                                                 >
                                                     {item.buttonText}
                                                     {item.buttonType === 'external' ? (
@@ -461,7 +462,7 @@ const NewsPage: React.FC = () => {
                                                     )}
                                                 </button>
                                             </div>
-                                        </motion.div>
+                                        </motion.article>
                                     ))}
                                 </div>
                             </motion.section>

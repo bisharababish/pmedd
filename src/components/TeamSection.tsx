@@ -36,7 +36,7 @@ const teamStructure = [
                 name: 'Ahmad Romana',
                 role: 'President & Founder',
                 img: ahmad,
-                description: "Ahmad Romana is a third-year medical student who believes that he was born for a reason — to make the difference. He is also the founder of the PMED CLUB and its divisions. He has served as vice president of Neuropedia. In addition, he completed a Neuroscience internship at one of Europe's top neuroscience departments at UCL, London. He believes that difficult circumstances can't limit a true idea — it can be turned into a real impact.",
+                description: "Ahmad Romana is a third-year medical student who believes that he was born for a reason — to make the difference. He is also the founder of the PMED Insitute and its divisions. He has served as vice president of Neuropedia. In addition, he completed a Neuroscience internship at one of Europe's top neuroscience departments at UCL, London. He believes that difficult circumstances can't limit a true idea — it can be turned into a real impact.",
                 quote: "The best way to dominate something is to enjoy it.",
                 email: 'a.romana@pmed.club'
             },
