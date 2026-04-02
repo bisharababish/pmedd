@@ -174,15 +174,21 @@ const LandingPage: React.FC = () => {
 
     const stats = [
         {
+            value: 400,
+            label: 'PMED Members',
+            description: 'Embracing the excellence of PMED Institute and its exclusive professional advantages.',
+            color: 'from-sky-300 to-blue-400'
+        },
+        {
             value: 133,
             label: 'Cardiology Members',
             description: 'PMED Cardiology Cardio Sharks embracing the excellence of PMED Cardiology and its exclusive professional advantages',
             color: 'from-red-500 to-red-600'
         },
         {
-            value: 4,
+            value: 30,
             label: 'Events',
-            description: 'From planning to execution, contributed to organizing transformative medical events that left a measurable impact',
+            description: 'From planning to execution, contributing to the organization of transformative medical events that left a measurable impact.',
             color: 'from-blue-500 to-blue-600'
         },
         {

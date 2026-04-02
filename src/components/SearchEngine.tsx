@@ -267,15 +267,6 @@ const searchData = [
         icon: <Users className="w-4 h-4" />
     },
     {
-        id: 'meray-dour',
-        title: 'Meray Dour',
-        content: 'Public Representative of PMED. Supporting external communications and community engagement.',
-        keywords: ['Meray Dour', 'public representative', 'communications', 'community'],
-        section: 'Team',
-        path: '/team',
-        icon: <Users className="w-4 h-4" />
-    },
-    {
         id: 'khaled-alqasrawi',
         title: 'Khaled Alqasrawi',
         content: 'Head of Educational Content & Co-Founder of PMED. Developing comprehensive educational programs and content.',
@@ -422,6 +413,298 @@ const searchData = [
         section: 'Events',
         path: '/news',
         icon: <Microscope className="w-4 h-4" />
+    },
+
+    // Neuro Club Division Page
+    {
+        id: 'neuro-division',
+        title: 'PMED Neuro Club',
+        content: 'PMED Neuro Club & NeuroPedia Palestine is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine. Apply now to join.',
+        keywords: ['neuro club', 'PMED neuro', 'neuroscience', 'neurology', 'neuropedia', 'neuro division', 'apply neuro'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+    // Neuro Team inside Meet the Team
+    {
+        id: 'neuro-team-page',
+        title: 'PMED Neuro Club Team',
+        content: 'Meet the dedicated team behind the PMED Neuro Club — passionate students driving neuroscience education and research in Palestine.',
+        keywords: ['neuro team', 'neuro club team', 'neuroscience team', 'PMED neuro', 'neuro members', 'meet the team'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    // Neuro Team Members
+    {
+        id: 'ahmad-romana-neuro',
+        title: 'Ahmad Romana – Head of Neuro Club',
+        content: 'Ahmad Romana serves as Head of the PMED Neuro Club, leading the neuroscience interest group.',
+        keywords: ['Ahmad Romana', 'head neuro club', 'neuro club', 'neuroscience', 'leadership'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'rand-malhis',
+        title: 'Rand Malhis – Neuro Secretary General',
+        content: 'Rand Malhis serves as Neuro Secretary General of the PMED Neuro Club.',
+        keywords: ['Rand Malhis', 'neuro secretary general', 'neuro club', 'neuroscience'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'dania-manasra',
+        title: 'Dania Manasra – Outreach Officer',
+        content: 'Dania Manasra serves as Outreach Officer of the PMED Neuro Club.',
+        keywords: ['Dania Manasra', 'outreach officer', 'neuro club', 'neuroscience'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'salahaldeen-deeb',
+        title: 'Salahaldeen Deeb – Research Officer',
+        content: 'Salahaldeen Deeb serves as Research Officer of the PMED Neuro Club.',
+        keywords: ['Salahaldeen Deeb', 'research officer', 'neuro club', 'neuroscience', 'research'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'mohammad-sawalmeh',
+        title: 'Mohammad Sawalmeh – Research Assistant',
+        content: 'Mohammad Sawalmeh serves as Research Assistant of the PMED Neuro Club.',
+        keywords: ['Mohammad Sawalmeh', 'research assistant', 'neuro club', 'neuroscience', 'research'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'baraa-nassar',
+        title: 'Baraa Nassar – Activities Assistant',
+        content: 'Baraa Nassar serves as Activities Assistant of the PMED Neuro Club.',
+        keywords: ['Baraa Nassar', 'activities assistant', 'neuro club', 'neuroscience'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'tala-ikhzamia',
+        title: 'Tala Ikhzamia – Neuro Team Member',
+        content: 'Tala Ikhzamia is a member of the PMED Neuro Club team.',
+        keywords: ['Tala Ikhzamia', 'neuro club', 'neuroscience', 'team member'],
+        section: 'Team',
+        path: '/team',
+        icon: <Brain className="w-4 h-4" />
+    },
+
+    // Social Media Team
+    {
+        id: 'eman-abusharekh',
+        title: 'Eman Abusharekh – Social Media Assistant',
+        content: 'Eman Abusharekh serves as Social Media Assistant at PMED.',
+        keywords: ['Eman Abusharekh', 'social media', 'social media assistant', 'PMED team'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
+    {
+        id: 'leen-yasser',
+        title: 'Leen Yasser – Educational Content & Video Editor',
+        content: 'Leen Yasser serves as Educational Content and Video Editor at PMED.',
+        keywords: ['Leen Yasser', 'educational content', 'video editor', 'social media team', 'PMED team'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
+    {
+        id: 'tala-raed',
+        title: 'Tala Raed – Social Media Assistant',
+        content: 'Tala Raed serves as Social Media Assistant at PMED.',
+        keywords: ['Tala Raed', 'social media', 'social media assistant', 'PMED team'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
+    {
+        id: 'lujain-bdeir',
+        title: 'Lujain Bdeir – Social Media Team',
+        content: 'Lujain Bdeir is a member of the PMED Social Media Team and Cardiology Outreach Officer.',
+        keywords: ['Lujain Bdeir', 'social media', 'cardiology outreach', 'PMED team'],
+        section: 'Team',
+        path: '/team',
+        icon: <Users className="w-4 h-4" />
+    },
+
+    // Cardiology Team Members
+    {
+        id: 'kristen-gharo',
+        title: 'Kristen Gharo – Cardiology Secretary General',
+        content: 'Kristen Gharo serves as Cardiology Secretary General in the PMED Cardiology Club.',
+        keywords: ['Kristen Gharo', 'cardiology secretary general', 'cardiology club', 'PMED cardiology'],
+        section: 'Team',
+        path: '/team',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'ruaa-bajah',
+        title: 'Ruaa Bajah – Cardiology Educational Content Officer',
+        content: 'Ruaa Bajah serves as Cardiology Educational Content Officer in the PMED Cardiology Club.',
+        keywords: ['Ruaa Bajah', 'cardiology educational content', 'cardiology club', 'PMED cardiology'],
+        section: 'Team',
+        path: '/team',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'mohamed-abu-gharbieh',
+        title: 'Mohamed Abu Gharbieh – Cardiology Activities Officer',
+        content: 'Mohamed Abu Gharbieh serves as Cardiology Activities Officer in the PMED Cardiology Club.',
+        keywords: ['Mohamed Abu Gharbieh', 'cardiology activities', 'cardiology club', 'PMED cardiology'],
+        section: 'Team',
+        path: '/team',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'raghad-doufesh',
+        title: 'Raghad Doufesh – Cardiology Membership Officer',
+        content: 'Raghad Doufesh serves as Cardiology Membership Officer in the PMED Cardiology Club.',
+        keywords: ['Raghad Doufesh', 'cardiology membership', 'cardiology club', 'PMED cardiology'],
+        section: 'Team',
+        path: '/team',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+    {
+        id: 'olga-ramahi',
+        title: 'Olga Ramahi – Cardiology Research Officer',
+        content: 'Olga Ramahi serves as Cardiology Research Officer in the PMED Cardiology Club.',
+        keywords: ['Olga Ramahi', 'cardiology research', 'cardiology club', 'PMED cardiology'],
+        section: 'Team',
+        path: '/team',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+
+    // News Items
+    {
+        id: 'neuro-club-launch',
+        title: 'PMED Neuro Club Official Launch',
+        content: 'The official launch of PMED Neuro Club brought together medical students, residents, neurologists, neurosurgeons, neuroscientists, and academic leaders.',
+        keywords: ['neuro club launch', 'PMED neuro club', 'neuroscience launch', 'neuro event', 'AAUP', 'official launch'],
+        section: 'News',
+        path: '/news',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'cardiology-quiz-night',
+        title: 'Cardiology Quiz Night – Recap',
+        content: 'A powerful night filled with competition, knowledge, and cardiology spirit! Members-only events are also on the way.',
+        keywords: ['quiz night', 'cardiology quiz', 'cardiology activity', 'competition', 'cardiology event'],
+        section: 'News',
+        path: '/news',
+        icon: <Stethoscope className="w-4 h-4" />
+    },
+
+    // Neuro Supervisors
+    {
+        id: 'friedemann-paul',
+        title: 'Prof. Friedemann Paul – Neuro Supervisor',
+        content: 'Professor of Clinical Neuroimmunology at Charite Berlin. Head of Neuroimmunology Research Group at ECRC. Research focuses on multiple sclerosis and neuroimmunological diseases.',
+        keywords: ['Friedemann Paul', 'neuro supervisor', 'neuroimmunology', 'Charite Berlin', 'multiple sclerosis', 'supervisor'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'malik-zaben',
+        title: 'Prof. Malik Zaben – Neuro Supervisor',
+        content: 'Consultant Neurosurgeon. Dean of the Faculty of Medicine at AAUP. Clinician-scientist specializing in neurosurgery and neuroscience.',
+        keywords: ['Malik Zaben', 'neuro supervisor', 'neurosurgeon', 'AAUP', 'dean', 'supervisor', 'neuroscience'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'athanasios-hassoulas',
+        title: 'Dr. Athanasios Hassoulas – Neuro Supervisor',
+        content: 'Associate Professor in Medical Education at Cardiff University. Director of HIVE Teaching Innovation Unit. Research interests include OCD, anxiety, and medical education.',
+        keywords: ['Athanasios Hassoulas', 'neuro supervisor', 'Cardiff University', 'medical education', 'VR AR AI', 'supervisor'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'david-parker',
+        title: 'Dr. David John Parker – Neuro Supervisor',
+        content: 'College Lecturer in Physiology at the University of Cambridge. Research focuses on neuronal networks and spinal cord injury recovery.',
+        keywords: ['David Parker', 'neuro supervisor', 'Cambridge', 'physiology', 'neuronal networks', 'spinal cord', 'supervisor'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+    {
+        id: 'fiona-mcnicholas',
+        title: 'Prof. Fiona McNicholas – Neuro Supervisor',
+        content: 'Consultant Child & Adolescent Psychiatrist. Chair of Child Psychiatry at University College Dublin. Clinical interests include ADHD and eating disorders.',
+        keywords: ['Fiona McNicholas', 'neuro supervisor', 'psychiatrist', 'UCD', 'child psychiatry', 'ADHD', 'supervisor'],
+        section: 'Divisions',
+        path: '/neurology',
+        icon: <Brain className="w-4 h-4" />
+    },
+
+    // JMRC2025 Conference details
+    {
+        id: 'jmrc2025-conference',
+        title: 'JMRC2025 Conference – Recap',
+        content: 'UNITED IN MEDICINE, DRIVEN BY PURPOSE. Our club organized and supervised JMRC2025 at the Millennium Hotel in Ramallah on 30/1/2026. Workshops, booths, research sessions, and lectures.',
+        keywords: ['JMRC2025', 'JMRC', 'Millennium Hotel', 'Ramallah', 'conference', '2026', 'united in medicine', 'medical conference', 'workshops'],
+        section: 'News',
+        path: '/news',
+        icon: <Microscope className="w-4 h-4" />
+    },
+
+    // Neuro Conference at AAUP
+    {
+        id: 'neuro-conference-aaup',
+        title: 'Neuro Conference at AAUP',
+        content: 'Neuro Conference held at Arab American University (AAUP). A landmark event for the PMED Neuro Club bringing together medical students and neuroscience leaders.',
+        keywords: ['neuro conference', 'AAUP', 'Arab American University', 'neuroscience conference', 'neuro event', 'conference'],
+        section: 'News',
+        path: '/news',
+        icon: <Brain className="w-4 h-4" />
+    },
+
+    // Statistics
+    {
+        id: 'statistics',
+        title: 'PMED Impact & Statistics',
+        content: '400+ PMED Members. 133 Cardiology Members. 30+ Events organized. 3 Clubs launched. Embracing excellence and driving medical education forward.',
+        keywords: ['statistics', 'members', '400 members', '133 cardiology', '30 events', '3 clubs', 'impact', 'numbers', 'PMED stats'],
+        section: 'About',
+        path: '/',
+        icon: <GraduationCap className="w-4 h-4" />
+    },
+
+    // Join / Registration
+    {
+        id: 'join-pmed',
+        title: 'Join PMED – Registration',
+        content: 'Join the PMED Institute. Apply for PMED membership, PMED Cardiology Club, or PMED Neuro Club. Registration forms available.',
+        keywords: ['join', 'register', 'apply', 'registration form', 'membership', 'PMED join', 'neuro apply', 'cardiology apply'],
+        section: 'Join',
+        path: '/',
+        icon: <GraduationCap className="w-4 h-4" />
+    },
+
+    // TikTok / Social Media
+    {
+        id: 'tiktok',
+        title: 'PMED TikTok',
+        content: 'Follow PMED Podcast on TikTok @pmed.podcast for medical content, updates, and highlights.',
+        keywords: ['TikTok', 'pmed podcast', 'social media', 'follow us', '@pmed.podcast', 'tiktok pmed'],
+        section: 'Contact',
+        path: '/contact',
+        icon: <Mail className="w-4 h-4" />
     },
 
     // Contact Information

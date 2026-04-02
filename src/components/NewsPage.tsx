@@ -58,15 +58,15 @@ const NewsPage: React.FC = () => {
         },
         {
             id: 6,
-            title: "NeuroPedia & PMED Neuro Club – Official Launch",
-            description: "The official launch of NeuroPedia Palestine & PMED Neuro Club brought together medical students, residents, neurologists, neurosurgeons, neuroscientists, and academic leaders.",
+            title: "PMED Neuro Club Official Launch",
+            description: "The official launch of PMED Neuro Club brought together medical students, residents, neurologists, neurosurgeons, neuroscientists, and academic leaders.",
             image: aaupBannerImage,
-            category: "Neurology",
+            category: "Neuroscience",
             date: "2026-03-01",
             buttonText: "View on Instagram",
             buttonAction: "https://www.instagram.com/p/DTNoYxkjKql/?igsh=bXkwdjAyMWFtMHQ3",
             buttonType: "external",
-            details: "Event Highlights:\n• Building professional connections in the field\n• Inspiring journeys with great mentors\n• Engaging with research opportunities\n• Enhancing clinical knowledge through local and national exchange\n\nThe event marked the beginning of an exciting journey for medical students passionate about neurology. Congratulations to the PMED Neuro Club team for this remarkable milestone!"
+            details: "Event Highlights:\n• Building professional connections in the field\n• Inspiring journeys with great mentors\n• Engaging with research opportunities\n• Enhancing clinical knowledge through local and national exchange\n\nThe event marked the beginning of an exciting journey for medical students passionate about neuroscience. Congratulations to the PMED Neuro Club team for this remarkable milestone!"
         },
         {
             id: 7,
@@ -116,7 +116,7 @@ const NewsPage: React.FC = () => {
         }
     ];
 
-    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements', 'Conference', 'Neurology'];
+    const categories = ['All', 'Cardiology', 'Podcast', 'Mentorship', 'Events', 'Achievements', 'Conference', 'Neuroscience'];
 
     const filteredNews = useMemo(() => {
         return newsItems

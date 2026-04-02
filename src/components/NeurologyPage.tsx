@@ -13,6 +13,18 @@ import fionaMcNicholasImage from "./supervisorpics/fiona-mcnicholas.png";
 
 const supervisors = [
     {
+        name: "Prof. Friedemann Paul, MD",
+        title: "Professor of Clinical Neuroimmunology – Charite Berlin",
+        image: friedemannPaulImage,
+        bullets: [
+            "Head of the Outpatient Clinic and Neuroimmunology Research Group at ECRC",
+            "Consultant Neurologist at Charite since 2004",
+            "Former Vice Dean for Clinical Research at Charite Faculty of Medicine",
+            "Former Scientific Director of the Experimental and Clinical Research Center (ECRC)",
+            "Research focuses on multiple sclerosis, neuromyelitis optica, and neuroimmunological diseases",
+        ],
+    },
+    {
         name: "Prof. Malik Zaben",
         title: "Consultant Neurosurgeon",
         image: malikZabenImage,
@@ -38,7 +50,7 @@ const supervisors = [
     },
     {
         name: "Dr. David John Parker, PhD",
-        title: "College Lecturer in Physiology",
+        title: "College Lecturer in Physiology – University of Cambridge",
         image: davidParkerImage,
         bullets: [
             "Director of Studies in Natural Sciences (Biological) for Parts II and III",
@@ -46,18 +58,6 @@ const supervisors = [
             "Research focuses on neuronal networks and electrical activity of nerve cells",
             "Studies spinal cord networks and recovery mechanisms after spinal cord injury",
             "Lectures and supervises advanced courses in neurobiology, neuronal networks, and motor systems",
-        ],
-    },
-    {
-        name: "Prof. Friedemann Paul, MD",
-        title: "Professor of Clinical Neuroimmunology – Charite Berlin",
-        image: friedemannPaulImage,
-        bullets: [
-            "Head of the Outpatient Clinic and Neuroimmunology Research Group at ECRC",
-            "Consultant Neurologist at Charite since 2004",
-            "Former Vice Dean for Clinical Research at Charite Faculty of Medicine",
-            "Former Scientific Director of the Experimental and Clinical Research Center (ECRC)",
-            "Research focuses on multiple sclerosis, neuromyelitis optica, and neuroimmunological diseases",
         ],
     },
     {
@@ -254,8 +254,8 @@ const NeurologyPage = () => {
                             className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed font-medium"
                             variants={itemVariants}
                         >
-                            PMED Neuro Club & NeuroPedia Palestine is dedicated to advancing neurology, neurosurgery, neuroscience, education, training, and research in Palestine.
-                            Our mission is to inspire and equip medical students with the knowledge, skills, and opportunities to excel in the field of neurology.
+                            PMED Neuro Club & NeuroPedia Palestine is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine.
+                            Our mission is to inspire and equip medical students with the knowledge, skills, and opportunities to excel in the field of neuroscience.
                         </motion.p>
                         <motion.div
                             className="mt-10 rounded-2xl overflow-hidden shadow-2xl border border-green-100"
@@ -321,16 +321,16 @@ const NeurologyPage = () => {
                                     <span className="font-bold text-[#065f46] text-lg">About Our Program</span>
                                 </div>
                                 <p className="text-lg leading-relaxed text-gray-800 font-medium">
-                                    The PMED Neuro Club is a community for students passionate about the nervous system and neurology.
+                                    The PMED Neuro Club is a community for students passionate about the nervous system and neuroscience.
                                     Through engaging lectures, hands-on workshops, and interactive discussions with specialists, members gain a deeper understanding of neurological health and disease.
                                 </p>
                                 <ul className="mt-6 text-left space-y-3 text-gray-800">
-                                    <li>• Develop clinical skills in neurology</li>
+                                    <li>• Develop clinical skills in neuroscience</li>
                                     <li>• Explore research in neuroscience</li>
                                     <li>• Connect with peers who share the same enthusiasm</li>
                                 </ul>
                                 <p className="mt-6 text-lg leading-relaxed text-gray-800 font-medium">
-                                    Whether you're just beginning your medical journey or already focused on a neurology career, this group will help you grow academically and professionally.
+                                    Whether you're just beginning your medical journey or already focused on a neuroscience career, this group will help you grow academically and professionally.
                                 </p>
                             </motion.div>
                         </motion.div>
@@ -416,7 +416,7 @@ const NeurologyPage = () => {
                                     alt="Neuro Club"
                                     className="w-10 h-10 mr-3 object-contain"
                                 />
-                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">Open Now</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-main-gray">Join the PMED Neuro Club</h2>
                             </motion.div>
 
                             <motion.div
@@ -426,8 +426,27 @@ const NeurologyPage = () => {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
                                 <p>
-                                    Follow our <span className="text-[#065f46] font-bold">official social media channels</span> for applications, updates, and Neuro Club activities.
+                                    Each year, we offer students the opportunity to apply for membership in the PMED Neuro Club — a journey designed for those who are <span className="text-[#065f46] font-bold">passionate, driven, and purpose-oriented</span>. Openings are limited, and timing is crucial when applications become available.
                                 </p>
+                                <p>
+                                    Stay informed by following our <span className="text-[#065f46] font-bold">official social media platforms</span>, where we share announcements about application periods, deadlines, and important updates — so you never miss your chance.
+                                </p>
+                                <p className="text-base text-gray-500 italic">
+                                    We encourage all interested students to remain engaged and be ready to apply as soon as applications are released, as spots are highly competitive.
+                                </p>
+                            </motion.div>
+
+                            <motion.div className="relative z-10 mb-10">
+                                <motion.a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLScgHGNd5_Q0tpXCFrrI-CqAKWkGCqQyutRG2i2ZjmmqJb32rw/viewform"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block bg-gradient-to-r from-[#065f46] to-[#059669] text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl"
+                                    whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(6,95,70,0.35)" }}
+                                    whileTap={{ scale: 0.97 }}
+                                >
+                                    Join the ultimate neuroscience interest group — Apply Now
+                                </motion.a>
                             </motion.div>
 
                             <div className="relative z-10">

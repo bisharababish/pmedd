@@ -17,6 +17,13 @@ import leenYasser from "./teampics/Leen Yasser - Educational content and video e
 import talaRaed from "./teampics/Tala Raed social media assistant ..jpg";
 import lujainBdeirSocial from "./teampics/lujain-bdeir.jpg";
 import marah from "./supervisorpics/marah.png";
+import ahmadRomanaNeuro from "../neuroteampics/Ahmad Romana - Head of Neuro Club.jpg";
+import baraaNassar from "../neuroteampics/Baraa Nassar - Activities Assistant.jpg";
+import daniaManasra from "../neuroteampics/Dania Manasra - outreach officer.jpg";
+import mohammadSawalmeh from "../neuroteampics/Mohammad Sawalmeh - Research Assistant.jpg";
+import randMalhis from "../neuroteampics/Rand Malhis - Neuro Secretary General.jpg";
+import salahaldeenDeeb from "../neuroteampics/Salahaldeen Deeb - Research Officer.jpg";
+import talaIkhzamia from "../neuroteampics/Tala Ikhzamia.jpg";
 
 const teamStructure = [
     {
@@ -96,6 +103,33 @@ const teamStructure = [
         ]
     },
     {
+        roleGroup: "Neuro Club Team",
+        color: "from-[#065f46] via-[#065f46] to-[#065f46]",
+        accent: "from-green-500 to-emerald-600",
+        teamColor: "#065f46",
+        members: [
+            { name: 'Ahmad Romana', role: 'Head of Neuro Club', img: ahmadRomanaNeuro },
+            { name: 'Rand Malhis', role: 'Neuro Secretary General', img: randMalhis },
+            { name: 'Dania Manasra', role: 'Outreach Officer', img: daniaManasra },
+            { name: 'Salahaldeen Deeb', role: 'Research Officer', img: salahaldeenDeeb },
+            { name: 'Mohammad Sawalmeh', role: 'Research Assistant', img: mohammadSawalmeh },
+            { name: 'Baraa Nassar', role: 'Activities Assistant', img: baraaNassar },
+            { name: 'Tala Ikhzamia', role: 'Neuro Team Member', img: talaIkhzamia },
+        ]
+    },
+    {
+        roleGroup: "Social Media Team",
+        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
+        accent: "from-orange-400 to-amber-500",
+        teamColor: "#D4891A",
+        members: [
+            { name: 'Eman Abusharekh', role: 'Social Media Assistant', img: emanAbuSharekh },
+            { name: 'Leen Yasser', role: 'Educational Content & Video Editor', img: leenYasser },
+            { name: 'Tala Raed', role: 'Social Media Assistant', img: talaRaed },
+            { name: 'Lujain Bdeir', role: 'Social Media Team', img: lujainBdeirSocial },
+        ]
+    },
+    {
         roleGroup: "Press & Media Team",
         color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
         accent: "from-blue-500 to-indigo-500",
@@ -127,18 +161,6 @@ const teamStructure = [
                 img: mohammadRomana,
                 description: "Mohammad Romana keeps PMED's digital backbone secure, scalable, and ready for every new initiative.",
             }
-        ]
-    },
-    {
-        roleGroup: "Social Media Team",
-        color: "from-[#1C2E4A] via-[#1C2E4A] to-[#1C2E4A]",
-        accent: "from-blue-500 to-indigo-500",
-        teamColor: "#D4891A",
-        members: [
-            { name: 'Eman Abusharekh', role: 'Social Media Assistant', img: emanAbuSharekh },
-            { name: 'Leen Yasser', role: 'Educational Content & Video Editor', img: leenYasser },
-            { name: 'Tala Raed', role: 'Social Media Assistant', img: talaRaed },
-            { name: 'Lujain Bdeir', role: 'Social Media Team', img: lujainBdeirSocial },
         ]
     }
 ];
@@ -420,14 +442,14 @@ const SocialMediaSection: React.FC<{ team: Team }> = ({ team }) => (
         className="mb-10 sm:mb-14 md:mb-16"
     >
         <div className="text-center mb-6 sm:mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#1C2E4A] mb-2 sm:mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4" style={{ color: team.teamColor }}>
                 {team.roleGroup}
             </h3>
-            <div className="w-16 sm:w-24 h-1 bg-[#1C2E4A] mx-auto rounded-full" />
+            <div className="w-16 sm:w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: team.teamColor }} />
         </div>
 
-        <div className="max-w-4xl mx-auto px-4">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+        <div className="max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
                 {team.members.map((member, idx) => (
                     <SocialMediaCard key={idx} member={member} teamColor={team.teamColor} />
                 ))}
@@ -503,8 +525,9 @@ const CardiologyTree: React.FC<{ team: Team }> = ({ team }) => {
 const TeamSection = () => {
     const founders = teamStructure[0];
     const cardiologyTeam = teamStructure[1];
-    const socialMediaTeam = teamStructure[4];
-    const otherTeams = teamStructure.slice(2, 4);
+    const neuroTeam = teamStructure[2];
+    const socialMediaTeam = teamStructure[3];
+    const otherTeams = teamStructure.slice(4);
     const topTierTeams = otherTeams.slice(0, 3);
     const bottomTierTeams = otherTeams.slice(3);
 
@@ -623,6 +646,9 @@ const TeamSection = () => {
                             </div>
                         </div>
                     </motion.div>
+
+                    { }
+                    <SocialMediaSection team={neuroTeam} />
 
                     { }
                     <SocialMediaSection team={socialMediaTeam} />
