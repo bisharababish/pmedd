@@ -52,7 +52,7 @@ const teamStructure = [
                 name: 'Marah Abu Rameleh',
                 role: 'Secretary General',
                 img: marah,
-                description: "Marah Abu Rameleh is a third-year medical student with a strong passion for research, medical education, and student leadership. She currently serves as Secretary General and Vice President for Internal Affairs of the PMED Institute, where she works to build collaborative spaces that support learning and innovation among medical students. Through organizing academic initiatives and contributing to research projects, Marah continues to develop her skills in leadership, communication, and teamwork while hoping to make a meaningful impact in the medical community.",
+                description: "Marah Abu Rameleh is a third-year medical student with a strong passion for research, medical education, and student leadership. She currently serves as Secretary General of the PMED Institute, where she works to build collaborative spaces that support learning and innovation among medical students. Through organizing academic initiatives and contributing to research projects, Marah continues to develop her skills in leadership, communication, and teamwork while hoping to make an impact in the medical community.",
                 quote: "Where curiosity meets purpose, impact begins.",
                 email: 'internal.affairs@pmed.club'
             }
