@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
@@ -9,6 +10,7 @@ import jmrcBanner from "./images/JMRC2025-banner.jpg";
 
 const HeroSlideshow: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -41,8 +43,8 @@ const HeroSlideshow: React.FC = () => {
     {
       id: 3,
       type: 'jmrc',
-      title: 'JMRC 2025',
-      subtitle: 'Junior Medical Research Conference',
+      title: 'JMRC 2026',
+      subtitle: 'Jerusalem Medical Research Conference',
       description: 'A platform for medical students and junior doctors to present their research and engage with leading professionals in the field.',
       image: jmrcBanner,
       cta: 'Learn More'
@@ -246,6 +248,22 @@ const HeroSlideshow: React.FC = () => {
 
                       </motion.div>
                     </div>
+                  )}
+
+                  {slide.type === 'jmrc' && (
+                    <motion.div
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.9, duration: 0.8 }}
+                      className="mt-8"
+                    >
+                      <button
+                        onClick={() => navigate('/news?search=JMRC')}
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                      >
+                        {slide.cta}
+                      </button>
+                    </motion.div>
                   )}
 
                   {/* Coming Soon Button */}

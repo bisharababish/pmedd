@@ -6,14 +6,14 @@ import {
     ChevronRight
 } from 'lucide-react';
 import slide4Image from './images/Slide4e.jpg';
-import picofthemImage from './images/picofthem.png';
+import quizNightImage from './images/PMED quiz night banner.jpg';
 import cardiologyLogo from './supervisorpics/Cardiology Club logo.jpg';
 import neurologyLogo from './supervisorpics/PMED Neuro Club.jpg';
 import surgeryLogo from './images/surgery.png';
 import podcastLogo from './images/Slide4e.jpg'; // Using Slide4e.jpg as podcast logo per request
-import pmedLogo from './supervisorpics/PMED logo.jpg';
 import jmrcBanner from './images/JMRC2025-banner.jpg';
-import aaupBanner from './supervisorpics/AAUP banner.jpg';
+import cardiologyBanner from './images/cardiology.png';
+import neurologyBanner from './images/neurology.png';
 
 interface SlideButton {
     text: string;
@@ -52,7 +52,7 @@ const LandingPage: React.FC = () => {
             title: 'Join PMED Podcast Club',
             description: 'where medicine meets conversation, and voices shape the future of healthcare.',
             image: slide4Image,
-            link: 'https://www.youtube.com/@pmedclubchannel',
+            link: 'https://youtube.com/@pmedchannel?si=qFFfhayqA5Cfq0Pc',
             buttonText: 'Watch Now',
             buttonColor: 'from-red-800 to-red-900 hover:from-red-900 hover:to-red-950' // Darker reddish-brown to match heart background
         },
@@ -61,7 +61,7 @@ const LandingPage: React.FC = () => {
             title: 'PMED',
             description: 'Your journey to becoming a future doctors starts here',
 
-            image: picofthemImage,
+            image: quizNightImage,
             link: 'https://www.youtube.com/@pmedclubchannel',
             buttonText: 'Start Your Journey',
             buttonColor: 'from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800', // Color to match podcast background
@@ -80,10 +80,10 @@ const LandingPage: React.FC = () => {
         },
         {
             id: 3,
-            title: 'JMRC 2025',
+            title: 'JMRC 2026',
             description: 'Junior Medical Research Conference — a platform for students and junior doctors to present research and engage with leading professionals.',
             image: jmrcBanner,
-            link: '#',
+            link: '/news?search=JMRC',
             buttonText: 'Learn More',
             buttonColor: 'from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'
         },
@@ -91,7 +91,7 @@ const LandingPage: React.FC = () => {
             id: 4,
             title: 'Neuro Conference',
             description: 'Expert-led neurology conference exploring the latest advances in neuroscience and clinical neurology.',
-            image: aaupBanner,
+            image: neurologyBanner,
             link: '/neurology',
             buttonText: 'Explore Neurology',
             buttonColor: 'from-green-600 to-green-700 hover:from-green-700 hover:to-green-800'
@@ -100,7 +100,7 @@ const LandingPage: React.FC = () => {
             id: 5,
             title: 'PMED Cardiology Club',
             description: 'Where hearts and minds beat together for medical excellence.',
-            image: pmedLogo,
+            image: cardiologyBanner,
             link: '/cardiology',
             buttonText: 'Start Your Journey',
             buttonColor: 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800',
@@ -180,16 +180,10 @@ const LandingPage: React.FC = () => {
             color: 'from-sky-300 to-blue-400'
         },
         {
-            value: 133,
-            label: 'Cardiology Members',
-            description: 'PMED Cardiology Cardio Sharks embracing the excellence of PMED Cardiology and its exclusive professional advantages',
-            color: 'from-red-500 to-red-600'
-        },
-        {
             value: 30,
             label: 'Events',
             description: 'From planning to execution, contributing to the organization of transformative medical events that left a measurable impact.',
-            color: 'from-blue-500 to-blue-600'
+            color: 'from-red-500 to-red-600'
         },
         {
             value: 3,
@@ -624,9 +618,44 @@ const LandingPage: React.FC = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                             Join Us
                         </h2>
-                        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                        <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
                             This is your chance to shape your future as a doctor. Connect, learn, and grow with PMED!
                         </p>
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                            <motion.a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScgHGNd5_Q0tpXCFrrI-CqAKWkGCqQyutRG2i2ZjmmqJb32rw/viewform"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition-all"
+                            >
+                                PMED Neuro Club
+                                <ChevronRight className="w-4 h-4" />
+                            </motion.a>
+                            <motion.a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSf3PvkTTEDqUYTwVcnNYmNyF95C4gYLajAhQB4XP_b4iNLG4Q/viewform"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm shadow-lg bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 transition-all"
+                            >
+                                PMED Cardiology Club
+                                <ChevronRight className="w-4 h-4" />
+                            </motion.a>
+                            <motion.a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSdLii2Ln6oul4IC_tIAUo-8uw1aKcu0l8xfn-0AtmxT3nfIuw/viewform"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm shadow-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all"
+                            >
+                                PMED
+                                <ChevronRight className="w-4 h-4" />
+                            </motion.a>
+                        </div>
                     </motion.div>
                 </div>
             </section>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight } from 'lucide-react';
 
@@ -20,11 +20,46 @@ const options = [
     }
 ];
 
+const DEFAULT_BOTTOM = 32; // px, equivalent to bottom-8
+const GAP = 16; // px gap between button and footer
+
 const FloatingJoinButton: React.FC = () => {
     const [open, setOpen] = useState(false);
+    const [bottomOffset, setBottomOffset] = useState(DEFAULT_BOTTOM);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const updatePosition = () => {
+            const footer = document.querySelector('footer');
+            if (!footer) return;
+
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const footerVisible = viewportHeight - footerRect.top;
+
+            if (footerVisible > 0) {
+                setBottomOffset(footerVisible + GAP);
+            } else {
+                setBottomOffset(DEFAULT_BOTTOM);
+            }
+        };
+
+        window.addEventListener('scroll', updatePosition, { passive: true });
+        window.addEventListener('resize', updatePosition, { passive: true });
+        updatePosition();
+
+        return () => {
+            window.removeEventListener('scroll', updatePosition);
+            window.removeEventListener('resize', updatePosition);
+        };
+    }, []);
 
     return (
-        <div className="fixed bottom-8 left-6 z-50 flex flex-col items-start gap-3">
+        <div
+            ref={containerRef}
+            className="fixed left-6 z-50 flex flex-col items-start gap-3 transition-[bottom] duration-200 ease-out"
+            style={{ bottom: `${bottomOffset}px` }}
+        >
             <AnimatePresence>
                 {open && (
                     <motion.div

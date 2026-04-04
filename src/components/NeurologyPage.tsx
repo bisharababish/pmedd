@@ -254,7 +254,7 @@ const NeurologyPage = () => {
                             className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed font-medium"
                             variants={itemVariants}
                         >
-                            PMED Neuro Club & NeuroPedia Palestine is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine.
+                            PMED Neuro Club &  Palestine is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine.
                             Our mission is to inspire and equip medical students with the knowledge, skills, and opportunities to excel in the field of neuroscience.
                         </motion.p>
                         <motion.div

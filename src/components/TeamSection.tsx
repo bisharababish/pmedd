@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Video, Code, Heart, HeartPulse } from 'lucide-react';
+import { Heart, Video, Code } from 'lucide-react';
 import ahmad from "./teampics/mhmd.png";
 import kinda from "./teampics/kinda.jpeg";
 import Abdallah from "./teampics/abdallah.jpeg";
@@ -524,31 +524,11 @@ const CardiologyTree: React.FC<{ team: Team }> = ({ team }) => {
 
 const TeamSection = () => {
     const founders = teamStructure[0];
-    const cardiologyTeam = teamStructure[1];
-    const neuroTeam = teamStructure[2];
-    const socialMediaTeam = teamStructure[3];
-    const otherTeams = teamStructure.slice(4);
-    const topTierTeams = otherTeams.slice(0, 3);
-    const bottomTierTeams = otherTeams.slice(3);
-
-    const topTierGridCols = topTierTeams.length >= 3
-        ? 'md:grid-cols-2 lg:grid-cols-3'
-        : topTierTeams.length === 2
-            ? 'md:grid-cols-2 lg:grid-cols-2'
-            : 'md:grid-cols-1';
-
-    const bottomTierGridCols = bottomTierTeams.length >= 3
-        ? 'md:grid-cols-2 lg:grid-cols-3'
-        : bottomTierTeams.length === 2
-            ? 'md:grid-cols-2 lg:grid-cols-2'
-            : bottomTierTeams.length === 1
-                ? 'md:grid-cols-1'
-                : '';
+    const restTeams = teamStructure.slice(1);
 
     return (
         <div id="team" className="py-16 sm:py-20 md:py-24 bg-very-light-blue min-h-screen mt-20">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-                { }
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -556,7 +536,6 @@ const TeamSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12 sm:mb-16 md:mb-20"
                 >
-
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#1C2E4A] to-[#1C2E4A] bg-clip-text text-transparent mb-4 sm:mb-6">
                         Meet Our Team
                     </h2>
@@ -565,9 +544,8 @@ const TeamSection = () => {
                     </p>
                 </motion.div>
 
-                { }
                 <div className="relative">
-                    { }
+                    {/* Leadership */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -575,16 +553,12 @@ const TeamSection = () => {
                         variants={containerVariants}
                         className="mb-10 sm:mb-14 md:mb-16"
                     >
-                        { }
                         <div className="text-center mb-6 sm:mb-10 md:mb-12">
-                            <h3 className={`text-2xl sm:text-3xl font-bold text-[#1C2E4A] mb-2 sm:mb-4`}>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-[#1C2E4A] mb-2 sm:mb-4">
                                 {founders.roleGroup}
                             </h3>
-                            <div className={`w-16 sm:w-24 h-1 bg-[#1C2E4A] mx-auto rounded-full`} />
+                            <div className="w-16 sm:w-24 h-1 bg-[#1C2E4A] mx-auto rounded-full" />
                         </div>
-
-                        { }
-                        {/* Top row: first two members side by side */}
                         <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 mb-8 sm:mb-12 items-stretch">
                             {founders.members.slice(0, 2).map((member, idx) => (
                                 <div key={idx} className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 flex">
@@ -592,7 +566,6 @@ const TeamSection = () => {
                                 </div>
                             ))}
                         </div>
-                        {/* Bottom row: remaining members centered */}
                         {founders.members.length > 2 && (
                             <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 mb-8 sm:mb-12 items-stretch justify-center">
                                 {founders.members.slice(2).map((member, idx) => (
@@ -602,20 +575,18 @@ const TeamSection = () => {
                                 ))}
                             </div>
                         )}
-
-                        { }
                         <div className="relative flex justify-center mb-4 sm:mb-8">
-                            <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-indigo-300 to-transparent"></div>
+                            <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-indigo-300 to-transparent" />
                         </div>
                         <div className="relative mb-4 sm:mb-8">
-                            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-4/5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></div>
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-4/5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent" />
                             <div className="flex justify-center">
-                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-indigo-400 rounded-full"></div>
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-indigo-400 rounded-full" />
                             </div>
                         </div>
                     </motion.div>
 
-                    { }
+                    {/* Cardiology — Kinda featured alone on first row */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -623,125 +594,30 @@ const TeamSection = () => {
                         variants={containerVariants}
                         className="mb-10 sm:mb-14 md:mb-16"
                     >
-                        <div className="text-center mb-6 sm:mb-10 md:mb-12">
-                            <h3 className="text-2xl sm:text-3xl font-bold text-[#990000] mb-2 sm:mb-4 flex justify-center items-center gap-3">
-                                <HeartPulse
-                                    className="w-8 h-8 sm:w-10 sm:h-10 text-red-400/70"
-                                    strokeWidth={1.5}
-                                />
-                                <span>Cardiology Club Board Team</span>
+                        <div className="text-center mb-6 sm:mb-10">
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4" style={{ color: teamStructure[1].teamColor }}>
+                                {teamStructure[1].roleGroup}
                             </h3>
-                            <div className="w-16 sm:w-24 h-1 bg-[#990000] mx-auto rounded-full" />
+                            <div className="w-16 sm:w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: teamStructure[1].teamColor }} />
                         </div>
-
-                        <CardiologyTree team={cardiologyTeam} />
-
-                        <div className="relative flex justify-center mt-8 sm:mt-12 mb-4 sm:mb-8">
-                            <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-red-300 to-transparent" />
-                        </div>
-                        <div className="relative mb-4 sm:mb-8">
-                            <div className="absolute left-1/2 transform -translate-x-1/2 w-3/4 sm:w-4/5 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent" />
-                            <div className="flex justify-center">
-                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-400 rounded-full" />
+                        <div className="max-w-5xl mx-auto px-4">
+                            <div className="flex justify-center mb-6">
+                                <div className="w-40 sm:w-48">
+                                    <SocialMediaCard member={teamStructure[1].members[0]} teamColor={teamStructure[1].teamColor} />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+                                {teamStructure[1].members.slice(1).map((member, idx) => (
+                                    <SocialMediaCard key={idx} member={member} teamColor={teamStructure[1].teamColor} />
+                                ))}
                             </div>
                         </div>
                     </motion.div>
 
-                    { }
-                    <SocialMediaSection team={neuroTeam} />
-
-                    { }
-                    <SocialMediaSection team={socialMediaTeam} />
-
-                    { }
-                    <div className={`grid grid-cols-1 ${topTierGridCols} gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative justify-items-center`}>
-                        {topTierTeams.length > 1 && (
-                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-indigo-200 via-indigo-100 to-transparent opacity-30 hidden lg:block"></div>
-                        )}
-
-                        {topTierTeams.map((group, groupIdx) => (
-                            <motion.div
-                                key={groupIdx}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: "-100px" }}
-                                variants={containerVariants}
-                                className="relative"
-                            >
-                                { }
-                                {topTierTeams.length > 1 && (
-                                    <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
-                                )}
-
-                                { }
-                                <div className="text-center mb-4 sm:mb-8">
-                                    <h3 className={`text-xl sm:text-2xl font-bold text-[#1C2E4A] mb-1 sm:mb-2`}>
-                                        {group.roleGroup}
-                                    </h3>
-                                    <div className="w-10 sm:w-16 h-0.5 bg-[#1C2E4A] mx-auto rounded-full" />
-                                </div>
-
-                                { }
-                                <div className="space-y-4 sm:space-y-6">
-                                    {group.members.map((member, memberIdx) => (
-                                        <div key={memberIdx} className="relative">
-                                            { }
-                                            {memberIdx > 0 && (
-                                                <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
-                                            )}
-                                            <div className="w-full max-w-xs mx-auto">
-                                                <MemberCard member={member} group={group} />
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    { }
-                    <div className="mt-10 sm:mt-16 flex justify-center">
-                        <div className={`grid grid-cols-1 ${bottomTierGridCols} gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-16 relative justify-items-center`}>
-                            {bottomTierTeams.map((group, groupIdx) => (
-                                <motion.div
-                                    key={groupIdx}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    variants={containerVariants}
-                                    className="relative"
-                                >
-                                    { }
-                                    {bottomTierTeams.length > 1 && (
-                                        <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-px h-6 sm:h-8 bg-gradient-to-b from-indigo-200 to-transparent hidden lg:block"></div>
-                                    )}
-
-                                    { }
-                                    <div className="text-center mb-4 sm:mb-8">
-                                        <h3 className={`text-xl sm:text-2xl font-bold text-[#1C2E4A] mb-1 sm:mb-2`}>
-                                            {group.roleGroup}
-                                        </h3>
-                                        <div className="w-10 sm:w-16 h-0.5 bg-[#1C2E4A] mx-auto rounded-full" />
-                                    </div>
-
-                                    { }
-                                    <div className="space-y-4 sm:space-y-6">
-                                        {group.members.map((member, memberIdx) => (
-                                            <div key={memberIdx} className="relative">
-                                                { }
-                                                {memberIdx > 0 && (
-                                                    <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 w-px h-4 sm:h-6 bg-gradient-to-b from-gray-200 to-transparent"></div>
-                                                )}
-                                                <div className="w-full max-w-xs mx-auto">
-                                                    <MemberCard member={member} group={group} />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                    {/* All other teams — normal grid */}
+                    {restTeams.slice(1).map((team, idx) => (
+                        <SocialMediaSection key={idx} team={team} />
+                    ))}
                 </div>
 
                 { }

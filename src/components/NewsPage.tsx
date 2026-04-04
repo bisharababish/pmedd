@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import { Search, Share2, ExternalLink, Calendar, Filter, ArrowRight } from 'lucide-react';
 
 // Import images
@@ -26,10 +27,16 @@ interface NewsItem {
 }
 
 const NewsPage: React.FC = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchParams] = useSearchParams();
+    const [searchTerm, setSearchTerm] = useState(searchParams.get('search') ?? '');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [showFilters, setShowFilters] = useState(false);
     const [selectedNewsItem, setSelectedNewsItem] = useState<NewsItem | null>(null);
+
+    useEffect(() => {
+        const param = searchParams.get('search');
+        if (param) setSearchTerm(param);
+    }, [searchParams]);
 
     const newsItems: NewsItem[] = [
         {
@@ -46,15 +53,15 @@ const NewsPage: React.FC = () => {
         },
         {
             id: 5,
-            title: "JMRC 2025 – Junior Medical Research Conference",
-            description: '"UNITED IN MEDICINE, DRIVEN BY PURPOSE" — Our club played a key role in organizing and supervising the JMRC2025 Conference at the Millennium Hotel in Ramallah.',
+            title: "JMRC 2026 – Junior Medical Research Conference",
+            description: '"UNITED IN MEDICINE, DRIVEN BY PURPOSE" — Our club played a key role in organizing and supervising the JMRC2026 Conference at the Millennium Hotel in Ramallah.',
             image: jmrc2025Image,
             category: "Conference",
-            date: "2026-01-30",
+            date: "2026-04-01",
             buttonText: "Visit JMRC Website",
             buttonAction: "https://jmrc.live/",
             buttonType: "external",
-            details: "Our club played a key role in organizing and supervising the JMRC2025 Conference, which took place on Friday, 30/1/2026, at the Millennium Hotel in Ramallah. We actively participated in the event through workshops, interactive booths, research sessions, and lectures, bringing together Palestinian physicians to advance healthcare through education, research, innovation, and collaboration."
+            details: "Our club played a key role in organizing and supervising the JMRC2026 Conference, which took place on Friday, 30/1/2026, at the Millennium Hotel in Ramallah. We actively participated in the event through workshops, interactive booths, research sessions, and lectures, bringing together Palestinian physicians to advance healthcare through education, research, innovation, and collaboration."
         },
         {
             id: 6,
@@ -148,12 +155,7 @@ const NewsPage: React.FC = () => {
     };
 
     const handleButtonClick = (item: NewsItem) => {
-        if (item.buttonType === 'external') {
-            window.open(item.buttonAction, '_blank');
-        } else {
-            // For internal links, show modal with details
-            setSelectedNewsItem(item);
-        }
+        setSelectedNewsItem(item);
     };
 
     const closeModal = () => {
@@ -356,7 +358,8 @@ const NewsPage: React.FC = () => {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.4, delay: index * 0.1 }}
-                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
+                                            onClick={() => setSelectedNewsItem(item)}
+                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col cursor-pointer"
                                         >
                                             <div className="relative h-48 overflow-hidden">
                                                 <img
@@ -419,7 +422,8 @@ const NewsPage: React.FC = () => {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.4, delay: index * 0.1 }}
-                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
+                                            onClick={() => setSelectedNewsItem(item)}
+                                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col cursor-pointer"
                                         >
                                             <div className="relative h-48 overflow-hidden">
                                                 <img
@@ -433,7 +437,7 @@ const NewsPage: React.FC = () => {
                                                     </span>
                                                 </div>
                                                 <button
-                                                    onClick={() => handleShare(item)}
+                                                    onClick={(e) => { e.stopPropagation(); handleShare(item); }}
                                                     className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                                                 >
                                                     <Share2 className="w-4 h-4 text-gray-600" />
@@ -547,15 +551,17 @@ const NewsPage: React.FC = () => {
                                 )}
 
                                 {/* Action Button */}
-                                <button
-                                    onClick={() => handleButtonClick(selectedNewsItem)}
-                                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2 group"
-                                >
-                                    {selectedNewsItem.buttonText}
-                                    {selectedNewsItem.buttonType === 'external' && (
+                                {selectedNewsItem.buttonAction && (
+                                    <a
+                                        href={selectedNewsItem.buttonAction}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center gap-2 group"
+                                    >
+                                        {selectedNewsItem.buttonText}
                                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    )}
-                                </button>
+                                    </a>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>
