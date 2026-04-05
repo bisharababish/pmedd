@@ -57,7 +57,7 @@ const NewsPage: React.FC = () => {
             description: '"UNITED IN MEDICINE, DRIVEN BY PURPOSE" — Our club played a key role in organizing and supervising the JMRC2026 Conference at the Millennium Hotel in Ramallah.',
             image: jmrc2025Image,
             category: "Conference",
-            date: "2026-04-01",
+            date: "2026-04-02",
             buttonText: "Visit JMRC Website",
             buttonAction: "https://jmrc.live/",
             buttonType: "external",

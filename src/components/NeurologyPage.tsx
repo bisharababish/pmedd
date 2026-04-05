@@ -254,7 +254,7 @@ const NeurologyPage = () => {
                             className="text-xl md:text-2xl text-main-gray max-w-4xl mx-auto leading-relaxed font-medium"
                             variants={itemVariants}
                         >
-                            PMED Neuro Club &  Palestine is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine.
+                            PMED Neuro Club is dedicated to advancing neuroscience, neurosurgery, education, training, and research in Palestine.
                             Our mission is to inspire and equip medical students with the knowledge, skills, and opportunities to excel in the field of neuroscience.
                         </motion.p>
                         <motion.div
@@ -371,13 +371,13 @@ const NeurologyPage = () => {
                                     <div className="p-5 md:p-6 flex-1 flex flex-col">
                                         <p className="text-[#065f46] font-semibold text-sm mb-4">{sup.title}</p>
                                         <ul className="space-y-2.5 text-gray-700 text-sm leading-relaxed">
-                                        {sup.bullets.map((bullet, i) => (
-                                            <li key={i} className="flex items-start">
-                                                <span className="mr-2 mt-1 text-[#065f46] font-bold">•</span>
-                                                <span>{bullet}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                            {sup.bullets.map((bullet, i) => (
+                                                <li key={i} className="flex items-start">
+                                                    <span className="mr-2 mt-1 text-[#065f46] font-bold">•</span>
+                                                    <span>{bullet}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </motion.div>
                             ))}

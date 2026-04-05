@@ -143,7 +143,7 @@ const LandingPage: React.FC = () => {
         {
             name: 'PMED Neuro Club',
             status: 'Open',
-            description: 'Expert-led mentorship & skill-building in neurology.',
+            description: 'Expert-led mentorship & skill-building in Neuroscience.',
             buttonText: 'Open Now',
             buttonLink: '/neurology',
             logo: neurologyLogo,
@@ -165,7 +165,7 @@ const LandingPage: React.FC = () => {
             status: 'Open',
             description: 'Where medicine meets conversation, and voices shape the future of healthcare.',
             buttonText: 'Watch Now',
-            buttonLink: 'https://www.youtube.com/@pmedclubchannel',
+            buttonLink: 'https://www.youtube.com/@PMEDChannel',
             logo: podcastLogo,
             logoClass: 'object-cover',
             color: 'from-red-800 to-red-900 hover:from-red-900 hover:to-red-950'

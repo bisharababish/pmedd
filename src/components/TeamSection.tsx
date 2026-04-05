@@ -12,18 +12,18 @@ import lujainBdeir from "./teampics/lujain-bdeir.jpg";
 import ruaaBajah from "./teampics/ruaa-bajah.jpg";
 import mohammadAbuGharbieh from "./teampics/mohammad-abu-gharbieh.jpg";
 import mohammadRomana from "./teampics/Mohammad Romana.jpeg";
-import emanAbuSharekh from "./teampics/Eman AbuSharekh - Social Media assistant .jpg";
+import emanAbuSharekh from "./picsnewsss/eman news.JPEG";
 import leenYasser from "./teampics/Leen Yasser - Educational content and video editor.jpeg";
-import talaRaed from "./teampics/Tala Raed social media assistant ..jpg";
-import lujainBdeirSocial from "./teampics/lujain-bdeir.jpg";
+import talaRaed from "./picsnewsss/tala raed news.JPEG";
+import lujainBdeirSocial from "./picsnewsss/lujain news.JPEG";
 import marah from "./supervisorpics/marah.png";
 import ahmadRomanaNeuro from "../neuroteampics/Ahmad Romana - Head of Neuro Club.jpg";
-import baraaNassar from "../neuroteampics/Baraa Nassar - Activities Assistant.jpg";
-import daniaManasra from "../neuroteampics/Dania Manasra - outreach officer.jpg";
+import baraaNassar from "./picsnewsss/Baraa Nassar - Activities Assistant.JPEG";
+import daniaManasra from "./picsnewsss/Dania Manasra- outreach Officer.JPEG";
 import mohammadSawalmeh from "../neuroteampics/Mohammad Sawalmeh - Research Assistant.jpg";
 import randMalhis from "../neuroteampics/Rand Malhis - Neuro Secretary General.jpg";
-import salahaldeenDeeb from "../neuroteampics/Salahaldeen Deeb - Research Officer.jpg";
-import talaIkhzamia from "../neuroteampics/Tala Ikhzamia.jpg";
+import salahaldeenDeeb from "./picsnewsss/Salahaldeen Deeb - Research Officer.jpeg";
+import talaIkhzamia from "./picsnewsss/Tala Ikhzamia- Activities Officer.JPEG";
 
 const teamStructure = [
     {
@@ -123,10 +123,10 @@ const teamStructure = [
         accent: "from-orange-400 to-amber-500",
         teamColor: "#D4891A",
         members: [
-            { name: 'Eman Abusharekh', role: 'Social Media Assistant', img: emanAbuSharekh },
-            { name: 'Leen Yasser', role: 'Educational Content & Video Editor', img: leenYasser },
+            { name: 'Lujain Bdeir', role: 'Head of Social Media', img: lujainBdeirSocial },
             { name: 'Tala Raed', role: 'Social Media Assistant', img: talaRaed },
-            { name: 'Lujain Bdeir', role: 'Social Media Team', img: lujainBdeirSocial },
+            { name: 'Leen Yasser', role: 'Educational Content & Video Editor', img: leenYasser },
+            { name: 'Eman Abusharekh', role: 'Social Media Assistant', img: emanAbuSharekh },
         ]
     },
     {
@@ -586,36 +586,8 @@ const TeamSection = () => {
                         </div>
                     </motion.div>
 
-                    {/* Cardiology — Kinda featured alone on first row */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={containerVariants}
-                        className="mb-10 sm:mb-14 md:mb-16"
-                    >
-                        <div className="text-center mb-6 sm:mb-10">
-                            <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4" style={{ color: teamStructure[1].teamColor }}>
-                                {teamStructure[1].roleGroup}
-                            </h3>
-                            <div className="w-16 sm:w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: teamStructure[1].teamColor }} />
-                        </div>
-                        <div className="max-w-5xl mx-auto px-4">
-                            <div className="flex justify-center mb-6">
-                                <div className="w-40 sm:w-48">
-                                    <SocialMediaCard member={teamStructure[1].members[0]} teamColor={teamStructure[1].teamColor} />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-                                {teamStructure[1].members.slice(1).map((member, idx) => (
-                                    <SocialMediaCard key={idx} member={member} teamColor={teamStructure[1].teamColor} />
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* All other teams — normal grid */}
-                    {restTeams.slice(1).map((team, idx) => (
+                    {/* All other teams — full grid layout */}
+                    {restTeams.map((team, idx) => (
                         <SocialMediaSection key={idx} team={team} />
                     ))}
                 </div>

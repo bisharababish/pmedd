@@ -1,4 +1,4 @@
-import{e as x,r as y,a as j,d as m,j as e,m as a,Y as N,I as C,L as k,R as E}from"./index-DmMucb7J.js";import{a as A}from"./abdallah-DSW3ng7t.js";import{s as I}from"./Slide4-BAeBebdu.js";/* empty css                       */import{C as V}from"./clipboard-list-D0XUT8DW.js";/**
+import{e as x,r as y,a as j,d as m,j as e,m as a,Y as N,I as C,L as k,R as E}from"./index-BwqncNkk.js";import{a as A}from"./abdallah-DSW3ng7t.js";import{s as I}from"./Slide4-BAeBebdu.js";/* empty css                       */import{C as V}from"./clipboard-list-DYBIfWq3.js";/**
  * @license lucide-react v0.344.0 - ISC
  *
  * This source code is licensed under the ISC license.
